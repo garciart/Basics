@@ -1,5 +1,5 @@
 /**
- * Implementation of all 32 reserved keywords in C programming, as well as other common tasks and features, in various languages:
+ * Implementation of all 32 reserved keywords from C, as well as other common tasks and features, in various languages:
  * 
  * auto, break, case, char, const, continue, default, do,
  * double, else, enum, extern, float, for, goto, if,
