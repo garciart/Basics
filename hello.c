@@ -29,5 +29,14 @@ int main(int argc, char *argv[]) {
     printf("Hello %s!\n", userName);
     auto userNameLength = strnlen(userName, bufferLength);
     printf("Your name is %d characters long!\n", userNameLength);
+    if(strstr(userName, "John") || strstr(userName, "Jacob") ) {
+        printf("Hey! Is your name Jingleheimer Schmidt?");
+    }
+    else if(strstr(userName, "Jenny")) {
+        printf("Hey! My number is 867-5309!");
+    }
+    else {
+        printf("Cool name!");
+    }
     return 0;
 }

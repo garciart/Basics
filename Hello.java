@@ -1,3 +1,4 @@
+
 /**
  * Implementation of all 32 reserved keywords from C, as well as other common tasks and features, in various languages:
  * 
@@ -19,21 +20,24 @@ import java.util.Scanner;
 public class Hello {
 
     public static int main(String[] args) {
-        // Unlike C/C++, Java does not include the program name in its command-line arguments, so args[0] does not exist
+        // Unlike C/C++, Java does not include the program name in its command-line
+        // arguments, so args[0] does not exist
         final String PROGRAM_NAME = (args.length == 0 ? "Hello" : args[0]);
         String userName = new String();
-        // var, which is the equivalent of C/C++'s auto type inference, is only supported in Java 10+
+        // var, which is the equivalent of C/C++'s auto type inference, is only
+        // supported in Java 10+
         var userNameLength = 0;
         System.out.println("hello, world");
         System.out.println("My name is " + PROGRAM_NAME + " and I am written in Java.");
         System.out.print("What is your name: ");
         // Use try-with-resources to ensure scanner is properly closed
-        try(Scanner scanner = new Scanner(System.in)) {
+        try (Scanner scanner = new Scanner(System.in)) {
             userName = scanner.nextLine();
             System.out.println("Hello " + userName + "!");
             userNameLength = userName.length();
             System.out.println("Your name is " + userNameLength + " characters long!");
-        };
+        }
+        ;
         return 0;
     }
 }
