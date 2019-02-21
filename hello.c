@@ -5,6 +5,13 @@
  * double, else, enum, extern, float, for, goto, if,
  * int, long, register, return, short, signed, sizeof, static,
  * struct, switch, typedef, union, unsigned, void, volatile, and while
+ *
+ * Also including Arithmetic Operators (+, -, *, /, %)
+ * Increment and Decrement Operators (++, --)
+ * Assignment Operators (=, +=, -=, *=, /=, %=)
+ * Relational Operators (==, >, <, !=, >=, <=)
+ * Logical Operators (&&, || !)
+ * Ternary Operator (?: )
  * 
  * Styling using the Google Java Style Guide at https://google.github.io/styleguide/cppguide.html
  * 

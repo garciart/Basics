@@ -22,7 +22,8 @@
  * instead of implementing the preprocessor directive "using namespace std;"
  */
 
-int main(int argc, char** argv) {
+int main(int argc, char **argv)
+{
     const char *kProgramName = (argc >= 0 ? argv[0] : "Hello");
     std::string userName;
     auto userNameLength = 0;
@@ -33,5 +34,45 @@ int main(int argc, char** argv) {
     std::cout << "Hello " << userName << "!" << std::endl;
     userNameLength = userName.length();
     std::cout << "Your name is " << userNameLength << " characters long!" << std::endl;
+    std::cout << std::endl << "Using a for loop..." << std::endl;
+    int i = 0;
+    for (i = 1; i < 100; i++)
+    {
+        std::cout << i << ": ";
+        if (i % 3 == 0)
+            std::cout << "Fizz";
+        if (i % 5 == 0)
+            std::cout << "Buzz";
+        std::cout << std::endl;
+    }
+    std::cout << std::endl << "Using a while loop..." << std::endl;
+    i = 0;
+    while (i < 100)
+    {
+        std::cout << i << ": ";
+        switch (i % 15)
+        {
+            case 0:
+                std::cout << "FizzBuzz" << std::endl;
+                break;
+
+            case 5:
+            case 10:
+                std::cout << "Buzz" << std::endl;
+                break;
+
+            case 3:
+            case 6:
+            case 9:
+            case 12:
+                std::cout << "Fizz" << std::endl;
+                break;
+
+            default:
+                std::cout << std::endl;
+                break;
+        }
+        i++;
+    }
     return EXIT_SUCCESS;
 }
