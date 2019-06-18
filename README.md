@@ -1,4 +1,4 @@
-# The Rosetta Code
+# The Basics
 <h2>A project focused on implementing common keywords from different languages.</h2>
 <h3>Introduction:</h3>
 <p>Have you ever spent a couple of months on a project, coding in one language, and then having to switch to another language quickly...sometimes too quickly? Even though I know several languages well, switching back and forth between them can lead to stupid mistakes. I sometimes have "back in the saddle" issues, and I've felt pretty dumb spending half a day debugging a Python program before I realized I wrote some of the code in Java.</p>
