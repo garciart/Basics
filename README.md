@@ -1,7 +1,7 @@
 # The Basics
 <h2>This is my repository of basic stuff I should remember as a software engineer.</h2>
 <h3>Introduction:</h3>
-<h3>Source Control:</p>
+<h3>Source Control:</h3>
 <p>While I do use Git and GitHub, I did not use them properly when I first started. In the beginning, instead of maintaining a code history, I would only upload to GitHub when I was done coding or create separate repositories for each phase, sprint, etc., of coding.</p>
 <pre>cd C:\Users\[USERNAME]\source\repos # Go to where your repositories are stored</pre>
 <p>For new projects:</p>
@@ -63,13 +63,13 @@ git branch -D [USERNAME] # Delete the old branch
 <table style="border-collapse: collapse; border: 1px solid;">
 <thead>
 <tr>
-<td></td>
-<td>C++</td>
-<td>C#</td>
-<td>Java</td>
-<td>PHP</td>
-<td>Python</td>
-<td>JavaScript</td>
+<th></th>
+<th>C++</th>
+<th>C#</th>
+<th>Java</th>
+<th>PHP</th>
+<th>Python</th>
+<th>JavaScript</th>
 </tr>
 </thead>
 <tbody>
@@ -161,9 +161,9 @@ method_name</td>
 <table style="border-collapse: collapse; border: 1px solid;">
 <thead>
 <tr>
-<td></td>
-<td>MySQL / MariaDB</td>
-<td>SQLServer</td>
+<th></th>
+<th>MySQL / MariaDB</th>
+<th>SQLServer</th>
 </tr>
 </thead>
 <tbody>
