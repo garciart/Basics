@@ -44,21 +44,21 @@ git push origin [USERNAME] # Push your branch to the REMOTE MASTER repository fo
 </pre>
 <p>If you are using GitHub, take the following steps:</p>
 <p>Open a browser and sign into GitHub:</p>
-<img href="https://github.com/garciart/Basics/master/image01.png" />
+<img src="image01.png" />
 <p>Select Repositories and open the repository:</p>
-<img href="https://github.com/garciart/Basics/master/image02.png" />
+<img src="image02.png" />
 <p>Note the information banner immediately above the list of recently pushed branches; it shows that there are two branches, which must be resolved into one branch. Open the pull request by clicking on "Compare & pull request":</p>
-<img href="https://github.com/garciart/Basics/master/image03.png" />
+<img src="image03.png" />
 <p>Here, acting as [USERNAME], you can review changes, add comments to the request, assign additional reviewers, etc., before creating the pull request. For now, click on "Create Pull Request":</p>
-<img href="https://github.com/garciart/Basics/master/image04.png" />
+<img src="image04.png" />
 <p>That would be the last step for user branch, unless there were conflicts. Next, the repository master would sign in to review changes, add comments to the request, assign additional reviewers, etc., before merging the branch pull request with the master repository. For now, since the branch has no conflicts with the base branch, click on "Merge Pull Request", followed by "Confirm merge":</p>
-<img href="https://github.com/garciart/Basics/master/image05.png" />
-<img href="https://github.com/garciart/Basics/master/image06.png" />
+<img src="image05.png" />
+<img src="image06.png" />
 <p>Once the merge is successful, you can delete the branch:</p>
-<img href="https://github.com/garciart/Basics/master/image07.png" />
-<img href="https://github.com/garciart/Basics/master/image08.png" />
+<img src="image07.png" />
+<img src="image08.png" />
 <p>Return to the repository's main page and you will see that there is now only one branch:</p>
-<img href="https://github.com/garciart/Basics/master/image09.png" />
+<img src="image09.png" />
 <p>At the terminal:</p>
 <pre>
 git status # Get the status of the repository
