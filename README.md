@@ -43,6 +43,9 @@ git commit -m "[COMMIT MESSAGE]" # Commit all changes to the HEAD (i.e., the fin
 git push origin [USERNAME] # Push your branch to the REMOTE MASTER repository for approval
 </pre>
 <p>[GITHUB STUFF HERE https://product.hubspot.com/blog/git-and-github-tutorial-for-beginners]</p>
+Sign into GitHub.
+Select Repositories and open the repository.
+
 <pre>
 git status # Get the status of the repository
 git checkout master # Switch back to the master branch
