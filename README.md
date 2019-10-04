@@ -42,16 +42,34 @@ git add --all # Move changes to the INDEX (i.e., the staging area)
 git commit -m "[COMMIT MESSAGE]" # Commit all changes to the HEAD (i.e., the final product to submit to the REMOTE MASTER repository)
 git push origin [USERNAME] # Push your branch to the REMOTE MASTER repository for approval
 </pre>
-<p>[GITHUB STUFF HERE https://product.hubspot.com/blog/git-and-github-tutorial-for-beginners]</p>
-Sign into GitHub.
-Select Repositories and open the repository.
-
+<p>If you are using GitHub, take the following steps:</p>
+<p>Open a browser and sign into GitHub:</p>
+<img href="https://github.com/garciart/Basics/master/image01.png" />
+<p>Select Repositories and open the repository:</p>
+<img href="https://github.com/garciart/Basics/master/image02.png" />
+<p>Note the information banner immediately above the list of recently pushed branches; it shows that there are two branches, which must be resolved into one branch. Open the pull request by clicking on "Compare & pull request":</p>
+<img href="https://github.com/garciart/Basics/master/image03.png" />
+<p>Here, acting as [USERNAME], you can review changes, add comments to the request, assign additional reviewers, etc., before creating the pull request. For now, click on "Create Pull Request":</p>
+<img href="https://github.com/garciart/Basics/master/image04.png" />
+<p>That would be the last step for user branch, unless there were conflicts. Next, the repository master would sign in to review changes, add comments to the request, assign additional reviewers, etc., before merging the branch pull request with the master repository. For now, since the branch has no conflicts with the base branch, click on "Merge Pull Request", followed by "Confirm merge":</p>
+<img href="https://github.com/garciart/Basics/master/image05.png" />
+<img href="https://github.com/garciart/Basics/master/image06.png" />
+<p>Once the merge is successful, you can delete the branch:</p>
+<img href="https://github.com/garciart/Basics/master/image07.png" />
+<img href="https://github.com/garciart/Basics/master/image08.png" />
+<p>Return to the repository's main page and you will see that there is now only one branch:</p>
+<img href="https://github.com/garciart/Basics/master/image09.png" />
+<p>At the terminal:</p>
 <pre>
 git status # Get the status of the repository
 git checkout master # Switch back to the master branch
 git pull # Update master branch
+</pre>
+<p>If the user branch will not be used again, you may delete it using the following command:</p>
+<pre>
 git branch -D [USERNAME] # Delete the old branch
 </pre>
+<p>However, you can leave the branch open and continue updating the repository as necessary.</p>
 <h3>Security:</h3>
 <p>if you ever get a chance to intern at NASA, especially as a developer, do it! Working with the best and brightest is a great experience and you will learn a lot. However, you will also learn about the struggle of balancing Dev-Sec-Ops. For example, in order to do localhost development, you had to have a security plan. For many developers, this was an example of government "red tape", but, truthfully, it is a sound practice.</p>
 <p>Therefore, I decided to create a set of boilerplate system security plans I could pull off the shelf and modify as needed. The gold standard for government work is the <a href="https://csrc.nist.gov/publications/detail/sp/800-18/rev-1/final" title="NIST SP 800-18">NIST SP 800-18 Rev. 1, Guide for Developing Security Plans for Federal Information Systems</a>, and Appendix A contains a sample information system security plan template.  For me, the most important part is paragraph 13, Minimum Security Controls, where you explain the steps you will take to secure your system, mapping them to the controls in <a href="https://csrc.nist.gov/publications/detail/sp/800-53/rev-4/final" title="NIST SP 800-53">NIST SP 800-53 Rev. 4, Security and Privacy Controls for Federal Information Systems and Organizations</a>. I found the easiest way to accomplish this was to use <a href=" https://www.cisecurity.org/" title="Center for Internet Security">the benchmarks</a> published by the Center for Internet Security and <a href="https://www.cisecurity.org/white-papers/cis-controls-v7-1-mapping-to-nist-csf/" title="CIS Controls V7.1 Mapping to NIST CSF">map them to the NIST 800-53 controls.</a></p>
