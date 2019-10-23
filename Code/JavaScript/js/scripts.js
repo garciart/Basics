@@ -1,7 +1,9 @@
 import Challenge from './challenge.js';
-import Computer from './computer';
+// import Computer from './computer';
 
 var challenge = new Challenge();
+
+
 
 var upperLimit = prompt("Enter a number from 1 to 100:");
 if (upperLimit != null) {

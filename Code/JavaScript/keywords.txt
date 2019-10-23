@@ -1,7 +1,7 @@
 break - challenges.js(1)
 case - challenges.js(1)
 catch - scripts.js(1)
-class - challenges.js(1)
+class - computer.js(1)
 const
 continue
 debugger
@@ -9,8 +9,8 @@ default - challenges.js(1)
 delete
 do
 else - challenges.js(1)
-export - challenges.js(1)
-extends
+export - computer.js(1)
+extends - computer.js(1)
 finally
 for - challenges.js(1)
 function
@@ -21,9 +21,9 @@ instanceof
 let - challenges.js(1)
 new - scripts.js(1)
 return - challenges.js(1)
-super
+super - computer.js(1)
 switch - challenges.js(1)
-this
+this - computer.js(1)
 throw - challenges.js(1)
 try - scripts.js(1)
 typeof

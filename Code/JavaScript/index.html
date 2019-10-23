@@ -7,6 +7,7 @@
     <meta name="description" content="JavaScript Practice">
     <meta name="author" content="Rob Garcia">
     <link rel="stylesheet" href="css/styles.css?v=1.0">
+    <script src="js/main.js"></script>
 </head>
 
 <body>
@@ -23,7 +24,15 @@
     <p>I'm talking about the guys no one knows about, the ones that are invisible. The top 1% of the top 1%, the guys
         that play God without permission.</p>
     <p>And now I think they're following me.</p>
-    <script type="module" src="js/scripts.js"></script>
+    <hr>
+    <p>Select your computer type:</p>
+    <select id="computerType">
+        <option value="1" selected="selected">Desktop</option>
+        <option value="2">Laptop</option>
+        <option value="3">Tablet</option>
+        <option value="4">Smart Phone</option>
+    </select>
+    <button onclick="getComputerType()">Submit</button>
 </body>
 
 </html>
