@@ -1,11 +1,73 @@
-import Computer from './computer';
+// import Computer from './computer.js';
 
 function getComputerType() {
     var eID = document.getElementById("computerType");
     var computerTypeValue = eID.options[eID.selectedIndex].value;
-    var computerTypeText = eID.options[eID.selectedIndex].text;
-    alert("Your system is a " + computerTypeText + ".");
+    var computerTypeName = eID.options[eID.selectedIndex].text;
+    document.getElementById("specsDiv").innerHTML = "";
+    var para = document.createElement("p");
+    para.appendChild(getComputerBrand());
+    para.appendChild(getComputerProcessorSpeed());
+    para.appendChild(getComputerPrimaryMemorySize());
+    para.appendChild(getComputerSecondaryMemorySize());
+    para.appendChild(getComputerPrice());
+    if (computerTypeValue === '1') {
+        para.appendChild(getComputerMonitorBrand());
+        para.appendChild(getComputerKeyboardBrand());
+    }
+    if (computerTypeValue === '2' || computerTypeValue === '3' || computerTypeValue === '4') {
+        para.appendChild(getComputerWeight());
+    }
+    if (computerTypeValue === '4') {
+        para.appendChild(getComputerCarrier());
+    }
+    var element = document.getElementById("specsDiv");
+    element.appendChild(para);
+}
 
+function getComputerBrand() {
+    // var para = document.createElement("p");
+    var node = document.createTextNode("Enter the brand:");
+    return node;
+    // para.appendChild(node);
+    // var element = document.getElementById("specsDiv");
+    // element.appendChild(para);
+}
+
+function getComputerProcessorSpeed() {
+    return document.createTextNode("Enter the processor speed:");
+}
+
+function getComputerPrimaryMemorySize() {
+    return document.createTextNode("Enter the RAM size:");
+}
+
+function getComputerSecondaryMemorySize() {
+    return document.createTextNode("Enter the disk or card size:");
+}
+
+function getComputerPrice() {
+    return document.createTextNode("Enter the price:");
+}
+
+
+function getComputerMonitorBrand() {
+    return document.createTextNode("Enter the monitor's brand:");
+}
+
+
+function getComputerKeyboardBrand() {
+    return document.createTextNode("Enter the keyboard's brand:");
+}
+
+
+function getComputerWeight() {
+    return document.createTextNode("Enter the weight:");
+}
+
+
+function getComputerCarrier() {
+    return document.createTextNode("Enter the carrier:");
 }
 
 function fizzBuzz(upperLimit) {
