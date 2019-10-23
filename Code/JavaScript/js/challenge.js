@@ -1,4 +1,4 @@
-export default class Challenges {
+export default class Challenge {
     fizzBuzz(upperLimit) {
         if (upperLimit < 1) {
             throw "The FizzBuzz method requires a number greater than 0.";
