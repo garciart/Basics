@@ -4,34 +4,34 @@ function getComputerType() {
     var eID = document.getElementById("computerType");
     var computerTypeValue = eID.options[eID.selectedIndex].value;
     var computerTypeName = eID.options[eID.selectedIndex].text;
-    document.getElementById("specsDiv").innerHTML = "";
-    var para = document.createElement("p");
-    para.appendChild(getComputerBrand());
-    para.appendChild(getComputerProcessorSpeed());
-    para.appendChild(getComputerPrimaryMemorySize());
-    para.appendChild(getComputerSecondaryMemorySize());
-    para.appendChild(getComputerPrice());
+    var element = document.getElementById("specsDiv");
+    element.innerHTML = "";
+    element.appendChild(createParagraph(getComputerBrand()));
+    element.appendChild(createParagraph(getComputerProcessorSpeed()));
+    element.appendChild(createParagraph(getComputerPrimaryMemorySize()));
+    element.appendChild(createParagraph(getComputerSecondaryMemorySize()));
+    element.appendChild(createParagraph(getComputerPrice()));
     if (computerTypeValue === '1') {
-        para.appendChild(getComputerMonitorBrand());
-        para.appendChild(getComputerKeyboardBrand());
+        element.appendChild(createParagraph(getComputerMonitorBrand()));
+        element.appendChild(createParagraph(getComputerKeyboardBrand()));
     }
     if (computerTypeValue === '2' || computerTypeValue === '3' || computerTypeValue === '4') {
-        para.appendChild(getComputerWeight());
+        element.appendChild(createParagraph(getComputerWeight()));
     }
     if (computerTypeValue === '4') {
-        para.appendChild(getComputerCarrier());
+        element.appendChild(createParagraph(getComputerCarrier()));
     }
-    var element = document.getElementById("specsDiv");
-    element.appendChild(para);
+}
+
+function createParagraph(node) {
+    var para = document.createElement("p");
+    para.appendChild(node);
+    return para;
 }
 
 function getComputerBrand() {
-    // var para = document.createElement("p");
     var node = document.createTextNode("Enter the brand:");
     return node;
-    // para.appendChild(node);
-    // var element = document.getElementById("specsDiv");
-    // element.appendChild(para);
 }
 
 function getComputerProcessorSpeed() {
