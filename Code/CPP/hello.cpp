@@ -1,21 +1,45 @@
 /**
- * Implementation of all 32 reserved keywords from C, as well as other common tasks and features, in various languages:
+ * @brief Implementation of all C++ reserved keywords:
  * 
- * auto, break, case, char, const, continue, default, do,
- * double, else, enum, extern, float, for, goto, if,
- * int, long, register, return, short, signed, sizeof, static,
- * struct, switch, typedef, union, unsigned, void, volatile, and while
+ * and, and_eq, asm, auto, bitand, bitor, bool, break, case, catch, char,
+ * class, compl, const, const_cast, continue, default, delete, do, double,
+ * dynamic_cast, else, enum, explicit, export, extern, false, float, for,
+ * friend, goto, if, inline, int, long, mutable, namespace, new, not, not_eq,
+ * operator, or, or_eq, private, protected, public, register, reinterpret_cast,
+ * return, short, signed, sizeof, static, static_cast, struct, switch,
+ * template, this, throw, true, try, typedef, typeid, typename, union,
+ * unsigned, using, virtual, void, volatile, wchar_t, while, xor, and xor_eq
  * 
- * Styling using the Google Java Style Guide at https://google.github.io/styleguide/cppguide.html
+ * Styling using the Google C++ Style Guide at https://google.github.io/styleguide/cppguide.html
  * 
  * @author  Rob Garcia
- * @see     Kernighan, B. W., & Ritchie, D. (1988). A.2.4 Keywords. In C Programming Language (2nd ed.). Upper Saddle River, NJ: Prentice Hall.
  * @version 1.0
  * @since   2019-02-10
+ * 
+ * The MIT License
+ *
+ * Copyright 2019 Rob Garcia at rgarcia@rgprogramming.com.
+ *
+ * Permission is hereby granted, free of charge, to any person obtaining a copy
+ * of this software and associated documentation files (the "Software"), to deal
+ * in the Software without restriction, including without limitation the rights
+ * to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
+ * copies of the Software, and to permit persons to whom the Software is
+ * furnished to do so, subject to the following conditions:
+ *
+ * The above copyright notice and this permission notice shall be included in
+ * all copies or substantial portions of the Software.
+ *
+ * THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+ * IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+ * FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+ * AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+ * LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+ * OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
+ * THE SOFTWARE.
  */
 
 #include <iostream>
-#include <string>
 
 /**
  * To identify what functions are used by the standard namespace, we will preface each one with "std::",
@@ -24,55 +48,6 @@
 
 int main(int argc, char **argv)
 {
-    const char *kProgramName = (argc >= 0 ? argv[0] : "Hello");
-    std::string userName;
-    auto userNameLength = 0;
     std::cout << "hello, world" << std::endl;
-    std::cout << "My name is " << kProgramName << " and I am written in C++." << std::endl;
-    std::cout << "What is your name: ";
-    std::getline(std::cin, userName);
-    std::cout << "Hello " << userName << "!" << std::endl;
-    userNameLength = userName.length();
-    std::cout << "Your name is " << userNameLength << " characters long!" << std::endl;
-    std::cout << std::endl << "Using a for loop..." << std::endl;
-    int i = 0;
-    for (i = 1; i < 100; i++)
-    {
-        std::cout << i << ": ";
-        if (i % 3 == 0)
-            std::cout << "Fizz";
-        if (i % 5 == 0)
-            std::cout << "Buzz";
-        std::cout << std::endl;
-    }
-    std::cout << std::endl << "Using a while loop..." << std::endl;
-    i = 0;
-    while (i < 100)
-    {
-        std::cout << i << ": ";
-        switch (i % 15)
-        {
-            case 0:
-                std::cout << "FizzBuzz" << std::endl;
-                break;
-
-            case 5:
-            case 10:
-                std::cout << "Buzz" << std::endl;
-                break;
-
-            case 3:
-            case 6:
-            case 9:
-            case 12:
-                std::cout << "Fizz" << std::endl;
-                break;
-
-            default:
-                std::cout << std::endl;
-                break;
-        }
-        i++;
-    }
     return EXIT_SUCCESS;
 }
