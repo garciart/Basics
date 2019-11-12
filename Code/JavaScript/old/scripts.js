@@ -1,4 +1,4 @@
-import Challenge from './challenge.js';
+import Challenge from '../js/challenge.js';
 // import Computer from './computer';
 
 var challenge = new Challenge();

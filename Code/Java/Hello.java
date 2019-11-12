@@ -2,12 +2,19 @@
 /**
  * @brief Implementation of all Java reserved keywords:
  * 
- * abstract, assert, boolean, break, byte, case, catch, char, class, const, continue, default, do, double, else, enum, extends, false, final, finally, float, for, goto, if, implements, import, instanceof, int, interface, long, native, new, null, package, private, protected, public, return, short, static, strictfp, super, switch, synchronized, this, throw, throws, transient, true, try, void, volatile, and while
+ * abstract, assert, boolean, break, byte, case, catch, char, class, const,
+ * continue, default, do, double, else, enum, extends, false, final, finally,
+ * float, for, goto, if, implements, import, instanceof, int, interface, long,
+ * native, new, null, package, private, protected, public, return, short,
+ * static, strictfp, super, switch, synchronized, this, throw, throws,
+ * transient, true, try, void, volatile, and while
  * 
- * Styling using the Google Java Style Guide at https://google.github.io/styleguide/javaguide.html
+ * Styling using the Google Java Style Guide at
+ * https://google.github.io/styleguide/javaguide.html
  * 
  * @author  Rob Garcia
  * @version 1.0
+ * @see https://www.php.net/manual/en/reserved.keywords.php
  * @since   2019-02-10
  * 
  * The MIT License

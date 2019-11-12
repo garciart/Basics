@@ -1,17 +1,13 @@
 /**
- * @brief Implementation of all C++ reserved keywords:
+ * @brief Implementation of all JavaScript reserved keywords:
  * 
- * and, and_eq, asm, auto, bitand, bitor, bool, break, case, catch, char,
- * class, compl, const, const_cast, continue, default, delete, do, double,
- * dynamic_cast, else, enum, explicit, export, extern, false, float, for,
- * friend, goto, if, inline, int, long, mutable, namespace, new, not, not_eq,
- * operator, or, or_eq, private, protected, public, register, reinterpret_cast,
- * return, short, signed, sizeof, static, static_cast, struct, switch,
- * template, this, throw, true, try, typedef, typeid, typename, union,
- * unsigned, using, virtual, void, volatile, wchar_t, while, xor, and xor_eq
+ * break, case, catch, class, const, continue, debugger, default, delete, do,
+ * else, export, extends, finally, for, function, if, import, in, instanceof,
+ * new, return, super, switch, this, throw, try, typeof, var, void, while,
+ * with, yield
  * 
- * Styling using the Google C++ Style Guide at
- * https://google.github.io/styleguide/cppguide.html
+ * Styling using the Google JavaScript Style Guide at
+ * https://google.github.io/styleguide/jsguide.html
  * 
  * @author  Rob Garcia
  * @version 1.0
@@ -41,15 +37,4 @@
  * THE SOFTWARE.
  */
 
-#include <iostream>
-
-/**
- * To identify what functions are used by the standard namespace, we will preface each one with "std::",
- * instead of implementing the preprocessor directive "using namespace std;"
- */
-
-int main(int argc, char **argv)
-{
-    std::cout << "hello, world" << std::endl;
-    return EXIT_SUCCESS;
-}
+alert('Hello, world!');
