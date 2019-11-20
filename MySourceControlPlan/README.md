@@ -1,7 +1,9 @@
 # The Basics - My Source Control Plan
 <p>While I do use Git and GitHub, I did not use them properly when I first started. In the beginning, instead of maintaining a code history, I would only upload to GitHub when I was done coding or create separate repositories for each phase, sprint, etc., of coding.</p>
 <pre>cd C:\Users\[USERNAME]\source\repos # Go to where your repositories are stored</pre>
-<p>For new projects:</p>
+<p>If this is a new projects, create a repository on GitHub first. Do not check the "Initialize this repository with a README" or add a .gitignore or license; we'll do that locally to avoid a pull request:</p>
+<img src="image00.png" />
+<p>Next, we'll create a local repository and connect it to the remote repository:</p>
 <pre>
 md GitTest # Create the project folder
 cd GitTest # Go to the project folder
