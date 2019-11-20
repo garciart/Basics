@@ -1,19 +1,11 @@
 /**
- * @brief Implementation of all C reserved keywords:
- * 
- * auto, break, case, char, const, continue, default, do,
- * double, else, enum, extern, float, for, goto, if,
- * int, long, register, return, short, signed, sizeof, static,
- * struct, switch, typedef, union, unsigned, void, volatile, and while
- *
- * @author  Rob Garcia
- * @see     Kernighan, B. W., & Ritchie, D. (1988). A.2.4 Keywords. In C Programming Language (2nd ed.). Upper Saddle River, NJ: Prentice Hall.
+ * @brief Template for C language coding
+ * @author  Copyright 2019 Rob Garcia at rgarcia@rgprogramming.com.
  * @version 1.0
  * @since   2019-02-10
+ * @see     Kernighan, B. W., & Ritchie, D. (1988). A.2.4 Keywords. In C Programming Language (2nd ed.). Upper Saddle River, NJ: Prentice Hall.
  * 
  * The MIT License
- *
- * Copyright 2019 Rob Garcia at rgarcia@rgprogramming.com.
  *
  * Permission is hereby granted, free of charge, to any person obtaining a copy
  * of this software and associated documentation files (the "Software"), to deal
@@ -34,7 +26,16 @@
  * THE SOFTWARE.
  */
 
+/* ========== Include files and other header files ========== */
 #include <stdio.h>
+
+/* ========== Constants, #define, and enum statements ========== */
+
+/* ========== Global variables ========== */
+
+/* ========== Datatypes ========== */
+
+/* ========== Function prototypes ========== */
 
 /**
  * @brief 
