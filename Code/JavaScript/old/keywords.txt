@@ -1,0 +1,34 @@
+break - challenges.js(1)
+case - challenges.js(1)
+catch - scripts.js(1)
+class - computer.js(1)
+const
+continue
+debugger
+default - challenges.js(1)
+delete
+do
+else - challenges.js(1)
+export - computer.js(1)
+extends - computer.js(1)
+finally
+for - challenges.js(1)
+function
+if - challenges.js(1)
+import - scripts.js(1)
+in
+instanceof
+let - challenges.js(1)
+new - scripts.js(1)
+return - challenges.js(1)
+super - computer.js(1)
+switch - challenges.js(1)
+this - computer.js(1)
+throw - challenges.js(1)
+try - scripts.js(1)
+typeof
+var - challenges.js(1)
+void
+while - challenges.js(1)
+with
+yield
