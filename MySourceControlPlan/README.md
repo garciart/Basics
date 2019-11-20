@@ -1,6 +1,7 @@
 # The Basics - My Source Control Plan
-<p>While I do use Git and GitHub, I did not use them properly when I first started. In the beginning, instead of maintaining a code history, I would only upload to GitHub when I was done coding or create separate repositories for each phase, sprint, etc., of coding.</p>
-<pre>cd C:\Users\[USERNAME]\source\repos # Go to where your repositories are stored</pre>
+<h2>Introduction</h2>
+<p>When I first started using Git and GitHub, I did not use them properly. Instead of maintaining a code history, I would only upload to GitHub when I was done coding or create separate repositories for each phase, sprint, etc., of coding. Now, regardeless of how small the application is, I commit on a separate branch (as I would with a development team) and I use pull requests to update the master branch.</p>
+<h2>The Plan</h2>
 <p>If you are using GitHub, take the following steps:</p>
 <p>Open a browser and sign into GitHub:</p>
 <img src="image01.png" />
@@ -8,6 +9,7 @@
 <img src="image00.png" />
 <p>Next, we'll create a local repository and connect it to the remote repository:</p>
 <pre>
+cd C:\Users\[USERNAME]\source\repos # Go to where your repositories are stored (Windows shown here)
 md GitTest # Create the project folder
 cd GitTest # Go to the project folder
 git init # Initialize a repository
@@ -69,3 +71,5 @@ git pull # Update master branch
 git branch -D [USERNAME] # Delete the old branch
 </pre>
 <p>However, you can leave the branch open and continue updating the repository as necessary.</p>
+<h2>Summary</h2>
+<p>This is a basic, get-you-started guide to source control. I suggest you sit down with your team and create your own version, to ensure everyone is on the same sheet of music. Good luck!</p>
