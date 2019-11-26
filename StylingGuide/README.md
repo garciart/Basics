@@ -117,12 +117,12 @@ method_name</td>
 </tr>
 <tr>
 <td>Tables</td>
-<td>table_name</td>
+<td>Table_Name<br>(singular)</td>
 <td>table_name</td>
 </tr>
 <tr>
 <td>Fields</td>
-<td>field_name</td>
+<td>Field_Name</td>
 <td>field_name</td>
 </tr>
 <tr>
@@ -142,6 +142,10 @@ method_name</td>
 </tr>
 </tbody>
 </table>
+<h3>Foreign Key Naming:</h3>
+<p>FK_[Foreign_Key_Table]_[Primary_Key_Table]_[Field_Name]</p>
+<p>FK_[Child_Key_Table]_[Parent_Key_Table]_[Field_Name]</p>
+<p>FK_[Referencing_Table]_[Referenced_Table]_[Referencing_Field_Name]</p>
 <p>However, the best practice is to review an actual style guide and decide on the styling rules for your application, whether you are coding by yourself or with a team. Here is a list of corporate style guides you can use:</p>
 <p>C++ - Google Style Guide (with Visual Studio extensions): <a href="https://google.github.io/styleguide/cppguide.html" title="Google Style Guide">https://google.github.io/styleguide/cppguide.html</a></p>
 <p>C# - Microsoft Framework Design Guidelines: <a href="https://docs.microsoft.com/en-us/dotnet/standard/design-guidelines/capitalization-conventions" title="Microsoft Framework Design Guidelines">https://docs.microsoft.com/en-us/dotnet/standard/design-guidelines/capitalization-conventions</a></p>
