@@ -72,7 +72,12 @@ git push origin [USERNAME] # Push your branch to the REMOTE MASTER repository fo
 <div style="text-align: center;"><img src="image08.png" style="width: 640px;" /></div>
 <p>Return to the repository's main page and you will see that there is now only one branch:</p>
 <div style="text-align: center;"><img src="image09.png" style="width: 640px;" /></div>
-<p>At the terminal:</p>
+<p>If you make changes to the repository in GitHub, you can update the local repository by using the following command at the terminal:</p>
+<pre>
+git status # Get the status of the repository
+git pull origin [USERNAME] # Combines git fetch origin and git merge origin/[USERNAME]
+</pre>
+<p>Or you can switch back to the master branch and pull:</p>
 <pre>
 git status # Get the status of the repository
 git checkout master # Switch back to the master branch
