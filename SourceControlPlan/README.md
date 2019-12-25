@@ -75,7 +75,7 @@ git push origin [USERNAME] # Push your branch to the REMOTE MASTER repository fo
 <p>If you make changes to the repository in GitHub, you can update the local repository by using the following command at the terminal:</p>
 <pre>
 git status # Get the status of the repository
-git pull origin [USERNAME] # Combines git fetch origin and git merge origin/[USERNAME]
+git pull origin master # Combines git fetch origin and git merge origin/[USERNAME]
 </pre>
 <p>Or you can switch back to the master branch and pull:</p>
 <pre>
