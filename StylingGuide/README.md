@@ -1,144 +1,85 @@
 # The Basics - My Styling Guide Reference
-<p>Having worked with ASP.NET for so long, I tended to camelCase everything, even if I was programming in C++ or Python. Of course, this is bad form, since the code </p>
-<p>So, here is my down and dirty Naming Convention Cheat Sheet:</p>
-<p>First, the case names I use are camelCase, CONSTANT_CASE, kebab-case, PascalCase, and snake_case.</p>
-<p>Second, here are the general capitalization rules for the languages I use:</p>
+
+I never gave much thought to coding styles until I started to work with other programmers. For example, while working on a Java project, one of the programmers whose main language was Python, would use underscores (i.e., snake_case) when naming classes, methods, etc. I, whose go-to language at the time was C#, would use PascalCase or camelCase for the same thing, while another student, whose main language was a version of SQL, would only use uppercase or lowercase to name things.
+
+It really wasn't a problem during development, since we all could recognize the purpose of each element of code, but since C#'s convention was closest to Java's, I cleaned up the code
+  Having worked with ASP.NET for so long, I tended to camelCase everything, even if I was programming in C++ or Python. Of course, this is bad form, since the code
+
+So, here is my down and dirty Naming Convention Cheat Sheet:
+
+First, the case names I use are camelCase, CONSTANT_CASE, kebab-case, PascalCase, and snake_case.
+
+Second, here are the general capitalization rules for the languages I use:
+
+|            | C++           | C#          | Java          | PHP          | Python       | JavaScript   |
+---------------------------------------------------------------------------------------------------------
+| Extensions | file_name.cpp | FileName.cs | FileName.java | FileName.php | file_name.py | file-name.js |
+---------------------------------------------------------------------------------------------------------
+| Projects   | ProjectName   | ProjectName | ProjectName   | ProjectName  | ProjectName  | ProjectName  |
+---------------------------------------------------------------------------------------------------------
+| Folders    | folder_name   | FolderName  | foldername    | FolderName   | folder_name  | folder-name  |
+---------------------------------------------------------------------------------------------------------
+| Files      | file_name     | FileName    | FileName      | FileName     | module_name  | file-name    |
+---------------------------------------------------------------------------------------------------------
+| Modules    | file_name     | FileName    | FileName      | FileName     | module_name  | file-name    |
+---------------------------------------------------------------------------------------------------------
+| Namespaces | namespace_name | NamespaceName | com.example.packagename | NamespaceName | package_name | com.example.packageName |
+---------------------------------------------------------------------------------------------------------
+| Packages   | namespace_name | NamespaceName | com.example.packagename | NamespaceName | package_name | com.example.packageName |
+---------------------------------------------------------------------------------------------------------
+| Classes    | ClassName     | ClassName   | ClassName     | ClassName    | ClassName    | ClassName    |
+---------------------------------------------------------------------------------------------------------
+| Functions  | FunctionName  | FunctionName | methodName | methodName | function_name
+method_name | methodName |
+---------------------------------------------------------------------------------------------------------
+| Methods    | FunctionName | FunctionName | methodName | methodName | function_name
+method_name | methodName |
+---------------------------------------------------------------------------------------------------------
+| Constants  | CONSTANT_NAME | ConstantName | CONSTANT_NAME | CONSTANT_NAME | CONSTANT_NAME | CONSTANT_NAME |
+---------------------------------------------------------------------------------------------------------
+| Variables  | variable_name | variableName | variableName | $variableName | variable_name | variableName |
+---------------------------------------------------------------------------------------------------------
+| Parameters | variable_name | variableName | variableName | $variableName | variable_name | variableName |
+---------------------------------------------------------------------------------------------------------
+
+Projects
+Folders
+Files
+Modules
+Extensions
+Comments
+Namespaces
+Packages
+Classes
+Functions
+Methods
+Variables
+Constants
+Parameters
+
+
+
+For Structured Query Language (SQL):
+
 <table style="border-collapse: collapse; border: 1px solid;">
 <thead>
 <tr>
-<th></th>
-<th>C++</th>
-<th>C#</th>
-<th>Java</th>
-<th>PHP</th>
-<th>Python</th>
-<th>JavaScript</th>
+<th> | MySQL / MariaDB | SQLServer</th>
 </tr>
 </thead>
 <tbody>
 <tr>
-<td>Extensions</td>
-<td>file_name.cpp</td>
-<td>FileName.cs</td>
-<td>FileName.java</td>
-<td>FileName.php</td>
-<td>file_name.py</td>
-<td>file-name.js</td>
-</tr>
-<tr>
-<td>Projects</td>
-<td>ProjectName</td>
-<td>ProjectName</td>
-<td>ProjectName</td>
-<td>ProjectName</td>
-<td>ProjectName</td>
-<td>ProjectName</td>
-</tr>
-<tr>
-<td>Folders</td>
-<td>folder_name</td>
-<td>FolderName</td>
-<td>foldername</td>
-<td>FolderName</td>
-<td>folder_name</td>
-<td>folder-name</td>
-</tr>
-<tr>
-<td>Files / Modules</td>
-<td>file_name</td>
-<td>FileName</td>
-<td>FileName</td>
-<td>FileName</td>
-<td>module_name</td>
-<td>file-name</td>
-</tr>
-<tr>
-<td>Namespaces / Packages</td>
-<td>namespace_name</td>
-<td>NamespaceName</td>
-<td>com.example.packagename</td>
-<td>NamespaceName</td>
-<td>package_name</td>
-<td>com.example.packageName</td>
-</tr>
-<tr>
-<td>Classes</td>
-<td>ClassName</td>
-<td>ClassName</td>
-<td>ClassName</td>
-<td>ClassName</td>
-<td>ClassName</td>
-<td>ClassName</td>
-</tr>
-<tr>
-<td>Functions / Methods</td>
-<td>FunctionName</td>
-<td>FunctionName</td>
-<td>methodName</td>
-<td>methodName</td>
-<td>function_name
-method_name</td>
-<td>methodName</td>
-</tr>
-<tr>
-<td>Constants</td>
-<td>CONSTANT_NAME</td>
-<td>ConstantName</td>
-<td>CONSTANT_NAME</td>
-<td>CONSTANT_NAME</td>
-<td>CONSTANT_NAME</td>
-<td>CONSTANT_NAME</td>
-</tr>
-<tr>
-<td>Variables / Parameters</td>
-<td>variable_name</td>
-<td>variableName</td>
-<td>variableName</td>
-<td>$variableName</td>
-<td>variable_name</td>
-<td>variableName</td>
-</tr>
-</tbody>
-</table>
-<p>For Structured Query Language (SQL):</p>
-<table style="border-collapse: collapse; border: 1px solid;">
-<thead>
-<tr>
-<th></th>
-<th>MySQL / MariaDB</th>
-<th>SQLServer</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>Database</td>
-<td>Database_Name</td>
-<td>Database_Name</td>
-</tr>
-<tr>
-<td>Tables</td>
-<td>Table_Name<br>(singular)</td>
-<td>table_name</td>
-</tr>
-<tr>
-<td>Fields</td>
-<td>Field_Name</td>
-<td>field_name</td>
-</tr>
-<tr>
-<td>Aliases (append number)</td>
-<td>a1, a2, etc.</td>
-<td>a1, a2, etc.</td>
-</tr>
-<tr>
-<td>Stored Procedures (must have a verb)</td>
-<td>create_record, update_record, etc.</td>
-<td>create_record, update_record, etc.</td>
-</tr>
-<tr>
-<td>Indexes</td>
-<td>index_idx</td>
-<td>index_idx</td>
+| Database | Database_Name | Database_Name |
+------------------------------
+| Tables | Table_Name<br>(singular) | table_name |
+------------------------------
+| Fields | Field_Name | field_name |
+------------------------------
+| Aliases (append number) | a1, a2, etc. | a1, a2, etc. |
+------------------------------
+| Stored Procedures (must have a verb) | create_record, update_record, etc. | create_record, update_record, etc. |
+------------------------------
+| Indexes | index_idx | index_idx |
 </tr>
 </tbody>
 </table>
@@ -150,16 +91,16 @@ method_name</td>
 <table>
 <tr>
 <th>SQLite</th>
-</tr><tr>
-<td>NULL</td>
-</tr><tr>
-<td>INTEGER</td>
-</tr><tr>
-<td>REAL</td>
-</tr><tr>
-<td>TEXT</td>
-</tr><tr>
-<td>BLOB</td>
+------------------------------
+| NULL |
+------------------------------
+| INTEGER |
+------------------------------
+| REAL |
+------------------------------
+| TEXT |
+------------------------------
+| BLOB |
 </tr>
 </table>
 <hr>
