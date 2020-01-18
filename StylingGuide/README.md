@@ -142,7 +142,7 @@ method_name</td>
 </tr>
 </tbody>
 </table>
-<h3>Foreign Key Naming:</h3>
+### Foreign Key Naming:</h3>
 <p>FK_[Foreign_Key_Table]_[Primary_Key_Table]_[Field_Name]</p>
 <p>FK_[Child_Key_Table]_[Parent_Key_Table]_[Field_Name]</p>
 <p>FK_[Referencing_Table]_[Referenced_Table]_[Referencing_Field_Name]</p>
