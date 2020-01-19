@@ -15,6 +15,7 @@ namespace PHP;
 
 class User {
 
+    // Class fields:
     private $_userID;
     private $_firstName;
     private $_lastName;
@@ -23,16 +24,27 @@ class User {
     private $_createDate;
     private $_comment;
 
+    /**
+     * Class constructor.
+     * @param integer $userID The user's ID.
+     * @param string $firstName The user's first name.
+     * @param string $lastName The user's last name.
+     * @param string $email The user's email address (used for user name).
+     * @param float $score The user's score from 0.0 to 100.0.
+     * @param string $createDate The date the user was added to the database.
+     * @param string $comment Any additional comments.
+     */
     public function __construct($userID, $firstName, $lastName, $email, $score, $createDate, $comment) {
-        $this->setUserID($userID);
-        $this->setUsername($firstName);
-        $this->setNickname($lastName);
-        $this->setEmail($email);
-        $this->setRoleID($score);
-        $this->setCreateDate($createDate);
-        $this->setComment($comment);
+        $this->_userID = $userID;
+        $this->_firstName = $firstName;
+        $this->_lastName = $lastName;
+        $this->_email = $email;
+        $this->_score = $score;
+        $this->_createDate = $createDate;
+        $this->_comment = $comment;
     }
 
+    // Class methods:
     public function getUserID() {
         return $this->_userID;
     }
@@ -41,7 +53,7 @@ class User {
         $this->_userID = $userID;
     }
 
-    function getFirstName() {
+    public function getFirstName() {
         return $this->_firstName;
     }
 
@@ -49,7 +61,7 @@ class User {
         $this->_firstName = $firstName;
     }
 
-    function getLastName() {
+    public function getLastName() {
         return $this->_lastName;
     }
 
@@ -88,4 +100,5 @@ class User {
     public function setComment($comment) {
         $this->_comment = $comment;
     }
+
 }
