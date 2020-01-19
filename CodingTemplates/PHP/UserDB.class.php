@@ -15,21 +15,19 @@ namespace PHP;
 
 class UserDB {
 
-    /**
-     * Path to database
-     */
-    const PATH_TO_SQLITE_DB = "db/users.db";
+    // Class constants:
+    // const PATH_TO_SQLITE_DB =  __DIR__ . DIRECTORY_SEPARATOR . 'db' . DIRECTORY_SEPARATOR . 'users.db';
+    const PATH_TO_SQLITE_DB = 'db\users.db';
 
-    /**
-     * PDO instance
-     * @var type
-     */
+    // Class fields:
     private $_pdo;
+    
+    // Class properties:
+    public $pathToSQLiteDB =  __DIR__ . DIRECTORY_SEPARATOR . 'db' . DIRECTORY_SEPARATOR . 'users.db';
 
     /**
-     * Main methods:
+     * Class methods:
      * _construct
-     * connect()
      * createUserTable()
      * createUser($firstName, $lastName, $email, $score, $comment)
      * getAllUsers()
@@ -39,39 +37,23 @@ class UserDB {
      * deleteUser($userID)
      * getNextUserID()
      * userExists($email)
+     * connect()
      */
 
     /**
-     * Constructor. If the database is not found, it creates it.
+     * Class constructor. If the database is not found, it creates it.
      */
     public function __construct() {
         if (!file_exists(self::PATH_TO_SQLITE_DB)) {
-            // Create table if it does not exist
+            // Create database and table if it does not exist
+            echo "Creating user database...\n";
             $this->createUserTable();
+            echo "Database created...\n";
         }
     }
 
-    /**
-     * Connects to the database.
-     * @return \PDO The PDO object that connects to the SQLite database
-     */
-    public function connect() {
-        // Check if connection does not exists
-        if (!isset($this->_pdo)) {
-            try {
-                // Create (connect to) SQLite database in file
-                $this->_pdo = new \PDO("sqlite:" . self::PATH_TO_SQLITE_DB);
-                // Turn on foreign key constraints
-                $this->_pdo->exec("PRAGMA foreign_keys = ON;");
-                // Set errormode to exceptions
-                $this->_pdo->setAttribute(\PDO::ATTR_ERRMODE, \PDO::ERRMODE_EXCEPTION);
-            } catch (\PDOException $e) {
-                error_log($e->getMessage());
-            }
-        }
-        return $this->_pdo;
-    }
-
+    // Class methods:
+    
     /**
      * Creates the User table if it does not exist.
      * @return integer The new user's ID. A value less than 0 indicates an error.
@@ -84,15 +66,15 @@ class UserDB {
                 FirstName text NOT NULL,
                 LastName text NOT NULL,
                 Email text UNIQUE NOT NULL,
-                Score real NOT NULL DEFAULT '100.0'
+                Score real NOT NULL DEFAULT '100.0',
                 CreateDate string NOT NULL,
-                Comment text,
+                Comment text
             );";
             $this->_pdo->exec($sql);
             // Set initial values
-            $this->createUser("Robert", "Garcia", "rgarcia@rgprogramming.com", 100, "Administrator.");
-            $this->createUser("Ben", "Franklin", "bfranklin@rgprogramming.com", 100, "Old user.");
-            $lastInsertId = $this->createUser("Baby", "Yoda", "byoda@rgprogramming.com", 100, "New user.");
+            $this->createUser('Rob', 'Garcia', 'rgarcia@rgprogramming.com', 100, 'Administrator.');
+            $this->createUser('Ben', 'Franklin', 'bfranklin@rgprogramming.com', 100, 'Old user.');
+            $lastInsertId = $this->createUser('Baby', 'Yoda', 'byoda@rgprogramming.com', 100, 'New user.');
             return $lastInsertId;
         } catch (\PDOException $e) {
             error_log($e->getMessage());
@@ -111,19 +93,19 @@ class UserDB {
     public function createUser($firstName, $lastName, $email, $score, $comment) {
         try {
             $this->_pdo = $this->connect();
-            $sql = "INSERT INTO User
-                VALUES (:UserID, :FirstName, :LastName, :Email, :Score, :CreateDate, :Comment);";
+            $sql = 'INSERT INTO User
+                VALUES (:UserID, :FirstName, :LastName, :Email, :Score, :CreateDate, :Comment);';
             // Set other initial values
-            $createDate = date("Y-m-d H:i:s");
+            $createDate = date('Y-m-d H:i:s');
             // Execute SQL
             $stmt = $this->_pdo->prepare($sql);
-            $stmt->bindValue(":UserID", $this->getNextUserID());
-            $stmt->bindValue(":FirstName", $firstName);
-            $stmt->bindValue(":LastName", $lastName);
-            $stmt->bindValue(":Email", $email);
-            $stmt->bindValue(":Score", $score);
-            $stmt->bindValue(":CreateDate", $createDate);
-            $stmt->bindValue(":Comment", $comment);
+            $stmt->bindValue(':UserID', $this->getNextUserID());
+            $stmt->bindValue(':FirstName', $firstName);
+            $stmt->bindValue(':LastName', $lastName);
+            $stmt->bindValue(':Email', $email);
+            $stmt->bindValue(':Score', $score);
+            $stmt->bindValue(':CreateDate', $createDate);
+            $stmt->bindValue(':Comment', $comment);
             $stmt->execute();
             // The last insert ID should be greater than 0
             $lastInsertId = $this->_pdo->lastInsertId();
@@ -140,13 +122,13 @@ class UserDB {
     public function getAllUsers() {
         try {
             $this->_pdo = $this->connect();
-            $sql = "SELECT *
+            $sql = 'SELECT *
                 FROM User
-                ORDER BY Username ASC;";
+                ORDER BY LastName ASC;';
             // Returns an empty result set if not found
             $stmt = $this->_pdo->prepare($sql);
             $stmt->execute();
-			$result = $stmt->fetchAll();
+            $result = $stmt->fetchAll();
             return $result;
         } catch (\PDOException $e) {
             error_log($e->getMessage());
@@ -161,11 +143,11 @@ class UserDB {
     public function getUserByUserID($userID) {
         try {
             $this->_pdo = $this->connect();
-            $sql = "SELECT *
+            $sql = 'SELECT *
                 FROM User
-                WHERE UserID = :UserID;";
+                WHERE UserID = :UserID;';
             $stmt = $this->_pdo->prepare($sql);
-            $stmt->bindValue(":UserID", $userID);
+            $stmt->bindValue(':UserID', $userID);
             $stmt->execute();
             // Returns an empty result set if not found
             $result = $stmt->fetch(\PDO::FETCH_ASSOC);
@@ -183,11 +165,11 @@ class UserDB {
     public function getUserByEmail($email) {
         try {
             $this->_pdo = $this->connect();
-            $sql = "SELECT *
+            $sql = 'SELECT *
                 FROM User
-                WHERE Email = :Email;";
+                WHERE Email = :Email;';
             $stmt = $this->_pdo->prepare($sql);
-            $stmt->bindValue(":Email", $email);
+            $stmt->bindValue(':Email', $email);
             $stmt->execute();
             // Returns an empty result set if not found
             $result = $stmt->fetch(\PDO::FETCH_ASSOC);
@@ -210,20 +192,20 @@ class UserDB {
     public function updateUser($userID, $firstName, $lastName, $email, $score, $comment) {
         try {
             $this->_pdo = $this->connect();
-            $sql = "UPDATE User
+            $sql = 'UPDATE User
                 SET FirstName = :FirstName,
                 LastName = :LastName,
                 Email = :Email,
                 Score = :Score,
                 Comment = :Comment
-                WHERE  UserID = :UserID;";
+                WHERE  UserID = :UserID;';
             $stmt = $this->_pdo->prepare($sql);
-            $stmt->bindValue(":UserID", $userID);
-            $stmt->bindValue(":FirstName", $username);
-            $stmt->bindValue(":LastName", $nickname);
-            $stmt->bindValue(":Email", $email);
-            $stmt->bindValue(":Score", $score);
-            $stmt->bindValue(":Comment", $comment);
+            $stmt->bindValue(':UserID', $userID);
+            $stmt->bindValue(':FirstName', $firstName);
+            $stmt->bindValue(':LastName', $lastName);
+            $stmt->bindValue(':Email', $email);
+            $stmt->bindValue(':Score', $score);
+            $stmt->bindValue(':Comment', $comment);
             $stmt->execute();
             // Rows affected should equal 1
             $rowsAffected = $stmt->rowCount();
@@ -241,10 +223,10 @@ class UserDB {
     public function deleteUser($userID) {
         try {
             $this->_pdo = $this->connect();
-            $sql = "DELETE FROM User
-                WHERE UserID = :UserID;";
+            $sql = 'DELETE FROM User
+                WHERE UserID = :UserID;';
             $stmt = $this->_pdo->prepare($sql);
-            $stmt->bindValue(":UserID", $userID);
+            $stmt->bindValue(':UserID', $userID);
             $stmt->execute();
             // Rows affected should equal 1
             $rowsAffected = $stmt->rowCount();
@@ -261,11 +243,11 @@ class UserDB {
     private function getNextUserID() {
         try {
             $this->_pdo = $this->connect();
-            $sql = "SELECT MAX(UserID) as maxUserID FROM User;";
-			$stmt = $this->_pdo->prepare($sql);
+            $sql = 'SELECT MAX(UserID) as maxUserID FROM User;';
+            $stmt = $this->_pdo->prepare($sql);
             $stmt->execute();
             $row = $stmt->fetch();
-            $maxUserID = $row["maxUserID"] == "" ? 0 : $row["maxUserID"];
+            $maxUserID = $row['maxUserID'] == '' ? 0 : $row['maxUserID'];
             // Add 1 to the last us
             return $maxUserID + 1;
         } catch (\PDOException $e) {
@@ -275,29 +257,51 @@ class UserDB {
 
     /**
      * Checks if the given users exists in the database.
-     * Julen Pardo came up with this. 
+     * Julen Pardo came up with this.
      * Thought about changing the method to retrieve the UserID instead,
      * but Email is supposed to be unique.
      * If the count != 1, that means there are no users or more than one,
      * which means something is wrong. This is a better method.
-     * @param $username The username to check if exists.
+     * @param $email The username to check if exists.
      * @return True if the users exists, false if not.
      */
     public function userExists($email) {
         try {
             $this->_pdo = $this->connect();
-            $sql = "SELECT COUNT(*) AS Count
+            $sql = 'SELECT COUNT(*) AS Count
                 FROM User
-                WHERE Email = :Email;";
+                WHERE Email = :Email;';
             $stmt = $this->_pdo->prepare($sql);
-            $stmt->bindValue(":Email", $email);
+            $stmt->bindValue(':Email', $email);
             $stmt->execute();
             // Fetch the result set
             $result = $stmt->fetch(\PDO::FETCH_ASSOC);
-            $exists = ($result["Count"]) == 1 ? true : false;
+            $exists = ($result['Count']) == 1 ? true : false;
             return $exists;
         } catch (\PDOException $e) {
             error_log($e->getMessage());
         }
     }
+
+    /**
+     * Connects to the database.
+     * @return \PDO The PDO object that connects to the SQLite database
+     */
+    private function connect() {
+        // Check if connection does not exists
+        if (!isset($this->_pdo)) {
+            try {
+                // Create (connect to) SQLite database in file
+                $this->_pdo = new \PDO('sqlite:' . self::PATH_TO_SQLITE_DB);
+                // Turn on foreign key constraints
+                $this->_pdo->exec('PRAGMA foreign_keys = ON;');
+                // Set errormode to exceptions
+                $this->_pdo->setAttribute(\PDO::ATTR_ERRMODE, \PDO::ERRMODE_EXCEPTION);
+            } catch (\PDOException $e) {
+                error_log($e->getMessage());
+            }
+        }
+        return $this->_pdo;
+    }
+
 }
