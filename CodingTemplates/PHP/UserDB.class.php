@@ -26,7 +26,6 @@ class UserDB
     public $pathToSQLiteDB = ROOT_DIR . 'db' . DIRECTORY_SEPARATOR . 'users.db';
 
     // Class constants:
-    // const PATH_TO_SQLITE_DB = 'db\users.db';
     const PATH_TO_SQLITE_DB = ROOT_DIR . 'db' . DIRECTORY_SEPARATOR . 'users.db';
 
     /**
@@ -80,10 +79,10 @@ class UserDB
             // Set initial values
             $this->createUser('Rob', 'Garcia', 'rgarcia@rgprogramming.com', 100, 'Administrator.');
             $this->createUser('Ben', 'Franklin', 'bfranklin@rgprogramming.com', 100, 'Old user.');
-            $lastInsertId = $this->createUser('Baby', 'Yoda', 'byoda@rgprogramming.com', 100, 'New user.');
-            return $lastInsertId;
-        } catch (\PDOException $e) {
-            error_log($e->getMessage());
+            $lastRowId = $this->createUser('Baby', 'Yoda', 'byoda@rgprogramming.com', 100, 'New user.');
+            return $lastRowId;
+        } catch (\PDOException $ex) {
+            error_log($ex->getMessage());
         }
     }
 
@@ -115,10 +114,10 @@ class UserDB
             $stmt->bindValue(':Comment', $comment);
             $stmt->execute();
             // The last insert ID should be greater than 0
-            $lastInsertId = $this->_pdo->lastInsertId();
-            return $lastInsertId;
-        } catch (\PDOException $e) {
-            error_log($e->getMessage());
+            $lastRowId = $this->_pdo->lastInsertId();
+            return $lastRowId;
+        } catch (\PDOException $ex) {
+            error_log($ex->getMessage());
         }
     }
 
@@ -138,8 +137,8 @@ class UserDB
             $stmt->execute();
             $result = $stmt->fetchAll();
             return $result;
-        } catch (\PDOException $e) {
-            error_log($e->getMessage());
+        } catch (\PDOException $ex) {
+            error_log($ex->getMessage());
         }
     }
 
@@ -161,8 +160,8 @@ class UserDB
             // Returns an empty result set if not found
             $result = $stmt->fetch(\PDO::FETCH_ASSOC);
             return $result;
-        } catch (\PDOException $e) {
-            error_log($e->getMessage());
+        } catch (\PDOException $ex) {
+            error_log($ex->getMessage());
         }
     }
 
@@ -184,8 +183,8 @@ class UserDB
             // Returns an empty result set if not found
             $result = $stmt->fetch(\PDO::FETCH_ASSOC);
             return $result;
-        } catch (\PDOException $e) {
-            error_log($e->getMessage());
+        } catch (\PDOException $ex) {
+            error_log($ex->getMessage());
         }
     }
 
@@ -221,8 +220,8 @@ class UserDB
             // Rows affected should equal 1
             $rowsAffected = $stmt->rowCount();
             return $rowsAffected;
-        } catch (\PDOException $e) {
-            error_log($e->getMessage());
+        } catch (\PDOException $ex) {
+            error_log($ex->getMessage());
         }
     }
 
@@ -243,8 +242,8 @@ class UserDB
             // Rows affected should equal 1
             $rowsAffected = $stmt->rowCount();
             return $rowsAffected;
-        } catch (\PDOException $e) {
-            error_log($e->getMessage());
+        } catch (\PDOException $ex) {
+            error_log($ex->getMessage());
         }
     }
 
@@ -261,10 +260,10 @@ class UserDB
             $stmt->execute();
             $row = $stmt->fetch();
             $maxUserID = $row['maxUserID'] == '' ? 0 : $row['maxUserID'];
-            // Add 1 to the last us
+            // Add 1 to the last user ID
             return $maxUserID + 1;
-        } catch (\PDOException $e) {
-            error_log($e->getMessage());
+        } catch (\PDOException $ex) {
+            error_log($ex->getMessage());
         }
     }
 
@@ -292,8 +291,8 @@ class UserDB
             $result = $stmt->fetch(\PDO::FETCH_ASSOC);
             $exists = ($result['Count']) == 1 ? true : false;
             return $exists;
-        } catch (\PDOException $e) {
-            error_log($e->getMessage());
+        } catch (\PDOException $ex) {
+            error_log($ex->getMessage());
         }
     }
 
@@ -307,16 +306,16 @@ class UserDB
         if (!isset($this->_pdo)) {
             try {
                 // Create (connect to) SQLite database in file
-                $this->_pdo = new \PDO('sqlite:' . self::PATH_TO_SQLITE_DB);
+                $pdo = new \PDO('sqlite:' . self::PATH_TO_SQLITE_DB);
                 // Turn on foreign key constraints
-                $this->_pdo->exec('PRAGMA foreign_keys = ON;');
+                $pdo->exec('PRAGMA foreign_keys = ON;');
                 // Set errormode to exceptions
-                $this->_pdo->setAttribute(\PDO::ATTR_ERRMODE, \PDO::ERRMODE_EXCEPTION);
-            } catch (\PDOException $e) {
-                error_log($e->getMessage());
+                $pdo->setAttribute(\PDO::ATTR_ERRMODE, \PDO::ERRMODE_EXCEPTION);
+            } catch (\PDOException $ex) {
+                error_log($ex->getMessage());
             }
         }
-        return $this->_pdo;
+        return $pdo;
     }
 
 }

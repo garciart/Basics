@@ -47,13 +47,13 @@ function helloUsers()
         if ($result) {
             foreach ($result as $row) {
                 $user = new User($row['UserID'], $row['FirstName'], $row['LastName'], $row['Email'], $row['Score'], $row['CreateDate'], $row['Comment']);
-                echo "Hello, {$user->getFirstName()} {$user->getLastName()}!\n";
+                echo "Hello, {$user->getFirstName()} {$user->getLastName()}! {$user->getCreateDate()}\n";
             }
         } else {
             echo "No records were found.\n";
         }
-    } catch (Exception $e) {
-        error_log($e);
-        echo "Error: {$e->getMessage()}\n";
+    } catch (Exception $ex) {
+        error_log($ex);
+        echo "Error: {$ex->getMessage()}\n";
     }
 }
