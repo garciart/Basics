@@ -12,7 +12,7 @@ Styling guide: PEP 8 (https://www.python.org/dev/peps/pep-0008/)
 from __future__ import print_function
 
 import datetime
-from pathlib import Path
+import sys
 
 import common
 import user_class
@@ -28,10 +28,16 @@ def hello_users():
         user_db = userdb_class.UserDB()
         result = user_db.get_all_users()
         for row in result:
-            user = user_class.User(row['UserID'], row['FirstName'], row['LastName'], row['Email'], row['Score'], row['CreateDate'], row['Comment'])
-            print("Hello {} {}! {}".format(row['FirstName'], row['LastName'], row['CreateDate']))
+            user = user_class.User(
+                row['UserID'], row['FirstName'], row['LastName'], row['Email'],
+                row['Score'], row['CreateDate'], row['Comment'])
+            print("Hello {} {}! {}".format(
+                row['FirstName'], row['LastName'], row['CreateDate']))
     except:
-        print('Unable to connect to the database and retrieve data.')
+        ex = common.error_log(sys.exc_info())
+        print(ex) if common.display_errors else print(
+            "Unable to connect to the database and retrieve data. " \
+            "Check the error log for details.")
 
 
 def main():
