@@ -1,46 +1,51 @@
 # The Basics - My Styling Guide Reference
 
-I never gave much thought to coding styles until I started to work with other programmers. For example, while working on a Java project, one of the programmers whose main language was Python, would use underscores (i.e., snake_case) when naming classes, methods, etc. I, whose go-to language at the time was C#, would use PascalCase or camelCase for the same thing, while another student, whose main language was a version of SQL, would only use uppercase or lowercase to name things.
+I never paid attention to coding styles until I started to work with other programmers. I usually just followed the conventions in the book I was reading; the tutorial I was using; or class I was taking. When working with others, though, you should be on the same page. For example, while working on a Java project, the Python programers would mostly use underscores (i.e., snake_case) when naming files, while others would use to PascalCase or camelCase.
 
-It really wasn't a problem during development, since we all could recognize the purpose of each element of code, but since C#'s convention was closest to Java's, I cleaned up the code
-  Having worked with ASP.NET for so long, I tended to camelCase everything, even if I was programming in C++ or Python. Of course, this is bad form, since the code
+The good news is that most programmers can recognize a class, property, etc., for what it is, regardless of the case. However, it makes for ugly code and problems during refactoring (e.g., firstName, first_name, FirstName, etc.)
 
-So, here is my down and dirty Naming Convention Cheat Sheet:
+So, to mitigate that in my own repos, here is my down and dirty Naming Convention Cheat Sheet:
 
-First, the case names I use are camelCase, CONSTANT_CASE, kebab-case, PascalCase, and snake_case.
+- First, the case names I use are:
+  - **camelCase**
+  - **CONSTANT_CASE**
+  - **kebab-case**
+  - **PascalCase**
+  - **snake_case**
+- Second, the definitions of coding elements I use are:
+  - Project (All) - A project is a structured set of files and data that, together, produce a product or service, such as a web site or an application (e.g., the Basics repo is a project, etc.).
+  - Folders (All) - A folder is a repository of files and data within a project, usually used for organization (e.g., CodingTemplates is a folder within the Basics project, etc.).
+  - Files (All) - A file is a repository of code or data used by the project to produce a product or service (i.e., Hello.php, user.db, readme01.png, etc., are all files).
+  - Modules (Python) - A module is a reusable set of functions and variables.
+  - Extensions
+  - Comments
+  - Namespaces
+  - Packages (Python) - A package is a collection of reusable modules and sub-packages.
+  - Classes
+  - Functions
+  - Methods
+  - Variables
+  - Constants
+  - Parameters
+- Third, the general capitalization rules I use for different languages are:
 
-Second, here are the general capitalization rules for the languages I use:
+|            | C++            | C#            | Java                    | PHP           | Python        | JavaScript              |
+|------------|----------------|---------------|-------------------------|---------------|---------------|-------------------------|
+| Extensions | file_name.cpp  | FileName.cs   | FileName.java           | FileName.php  | file_name.py  | file-name.js            |
+| Projects   | ProjectName    | ProjectName   | ProjectName             | ProjectName   | ProjectName   | ProjectName             |
+| Folders    | folder_name    | FolderName    | foldername              | FolderName    | folder_name   | folder-name             |
+| Files      | file_name      | FileName      | FileName                | FileName      | module_name   | file-name               |
+| Modules    | file_name      | FileName      | FileName                | FileName      | module_name   | file-name               |
+| Namespaces | namespace_name | NamespaceName | com.example.packagename | NamespaceName | package_name  | com.example.packageName |
+| Packages   | namespace_name | NamespaceName | com.example.packagename | NamespaceName | package_name  | com.example.packageName |
+| Classes    | ClassName      | ClassName     | ClassName               | ClassName     | ClassName     | ClassName               |
+| Functions  | FunctionName   | FunctionName  | methodName              | methodName    | function_name | method_name | methodName |
+| Methods    | FunctionName   | FunctionName  | methodName              | methodName    | function_name | method_name | methodName |
+| Constants  | CONSTANT_NAME  | ConstantName  | CONSTANT_NAME           | CONSTANT_NAME | CONSTANT_NAME | CONSTANT_NAME           |
+| Variables  | variable_name  | variableName  | variableName            | $variableName | variable_name | variableName            |
+| Parameters | variable_name  | variableName  | variableName            | $variableName | variable_name | variableName            |
 
-|            | C++           | C#          | Java          | PHP          | Python       | JavaScript   |
----------------------------------------------------------------------------------------------------------
-| Extensions | file_name.cpp | FileName.cs | FileName.java | FileName.php | file_name.py | file-name.js |
----------------------------------------------------------------------------------------------------------
-| Projects   | ProjectName   | ProjectName | ProjectName   | ProjectName  | ProjectName  | ProjectName  |
----------------------------------------------------------------------------------------------------------
-| Folders    | folder_name   | FolderName  | foldername    | FolderName   | folder_name  | folder-name  |
----------------------------------------------------------------------------------------------------------
-| Files      | file_name     | FileName    | FileName      | FileName     | module_name  | file-name    |
----------------------------------------------------------------------------------------------------------
-| Modules    | file_name     | FileName    | FileName      | FileName     | module_name  | file-name    |
----------------------------------------------------------------------------------------------------------
-| Namespaces | namespace_name | NamespaceName | com.example.packagename | NamespaceName | package_name | com.example.packageName |
----------------------------------------------------------------------------------------------------------
-| Packages   | namespace_name | NamespaceName | com.example.packagename | NamespaceName | package_name | com.example.packageName |
----------------------------------------------------------------------------------------------------------
-| Classes    | ClassName     | ClassName   | ClassName     | ClassName    | ClassName    | ClassName    |
----------------------------------------------------------------------------------------------------------
-| Functions  | FunctionName  | FunctionName | methodName | methodName | function_name
-method_name | methodName |
----------------------------------------------------------------------------------------------------------
-| Methods    | FunctionName | FunctionName | methodName | methodName | function_name
-method_name | methodName |
----------------------------------------------------------------------------------------------------------
-| Constants  | CONSTANT_NAME | ConstantName | CONSTANT_NAME | CONSTANT_NAME | CONSTANT_NAME | CONSTANT_NAME |
----------------------------------------------------------------------------------------------------------
-| Variables  | variable_name | variableName | variableName | $variableName | variable_name | variableName |
----------------------------------------------------------------------------------------------------------
-| Parameters | variable_name | variableName | variableName | $variableName | variable_name | variableName |
----------------------------------------------------------------------------------------------------------
+
 
 Projects
 Folders
@@ -61,55 +66,38 @@ Parameters
 
 For Structured Query Language (SQL):
 
-<table style="border-collapse: collapse; border: 1px solid;">
-<thead>
-<tr>
-<th> | MySQL / MariaDB | SQLServer</th>
-</tr>
-</thead>
-<tbody>
-<tr>
+| MySQL / MariaDB | SQLServer |
+|----------|---------------|---------------|
 | Database | Database_Name | Database_Name |
-------------------------------
 | Tables | Table_Name<br>(singular) | table_name |
-------------------------------
 | Fields | Field_Name | field_name |
-------------------------------
 | Aliases (append number) | a1, a2, etc. | a1, a2, etc. |
-------------------------------
 | Stored Procedures (must have a verb) | create_record, update_record, etc. | create_record, update_record, etc. |
-------------------------------
 | Indexes | index_idx | index_idx |
-</tr>
-</tbody>
-</table>
-### Foreign Key Naming:</h3>
-<p>FK_[Foreign_Key_Table]_[Primary_Key_Table]_[Field_Name]</p>
-<p>FK_[Child_Key_Table]_[Parent_Key_Table]_[Field_Name]</p>
-<p>FK_[Referencing_Table]_[Referenced_Table]_[Referencing_Field_Name]</p>
-<hr>
-<table>
-<tr>
-<th>SQLite</th>
-------------------------------
-| NULL |
-------------------------------
-| INTEGER |
-------------------------------
-| REAL |
-------------------------------
-| TEXT |
-------------------------------
-| BLOB |
-</tr>
-</table>
-<hr>
-<p>However, the best practice is to review an actual style guide and decide on the styling rules for your application, whether you are coding by yourself or with a team. Here is a list of corporate style guides you can use:</p>
-<p>C++ - Google Style Guide (with Visual Studio extensions): <a href="https://google.github.io/styleguide/cppguide.html" title="Google Style Guide">https://google.github.io/styleguide/cppguide.html</a></p>
-<p>C# - Microsoft Framework Design Guidelines: <a href="https://docs.microsoft.com/en-us/dotnet/standard/design-guidelines/capitalization-conventions" title="Microsoft Framework Design Guidelines">https://docs.microsoft.com/en-us/dotnet/standard/design-guidelines/capitalization-conventions</a></p>
-<p>Java – Google Style Guide: <a href="https://google.github.io/styleguide/javaguide.html" title="Google Style Guide">https://google.github.io/styleguide/javaguide.html</a></p>
-<p>PHP - PHP Standard Recommendation (PSR): <a href="https://www.php-fig.org/psr/" title="PHP Standard Recommendation (PSR)">https://www.php-fig.org/psr/</a></p>
-<p>Python - Google Style Guide: <a href="https://google.github.io/styleguide/pyguide.html" title="Google Style Guide">https://google.github.io/styleguide/pyguide.html</a></p>
-<p>JavaScript – Google Style Guide: <a href="https://google.github.io/styleguide/jsguide.html" title="Google Style Guide">https://google.github.io/styleguide/jsguide.html</a></p>
-<p>MySQL - MySQL Internals Manual: <a href="https://dev.mysql.com/doc/internals/en/coding-style.html" title="MySQL Internals Manual">https://dev.mysql.com/doc/internals/en/coding-style.html</a></p>
-<p>SQL Server - Transact-SQL Syntax Conventions: <a href="https://docs.microsoft.com/en-us/sql/t-sql/language-elements/transact-sql-syntax-conventions-transact-sql?view=sql-server-2017" title="Transact-SQL Syntax Conventions">https://docs.microsoft.com/en-us/sql/t-sql/language-elements/transact-sql-syntax-conventions-transact-sql?view=sql-server-2017</a></p>
+
+## Foreign Key Naming
+
+FK_[Foreign_Key_Table]_[Primary_Key_Table]_[Field_Name]
+
+FK_[Child_Key_Table]_[Parent_Key_Table]_[Field_Name]
+
+FK_[Referencing_Table]_[Referenced_Table]_[Referencing_Field_Name]
+
+|SQLite|MySQL / MariaDB|SQL Server|
+|---|---|---|
+| NULL |   |   |
+| INTEGER |   |   |
+| REAL |   |   |
+| TEXT |   |   |
+| BLOB |   |   |
+
+However, the best practice is to review an actual style guide and decide on the styling rules for your application, whether you are coding by yourself or with a team. Here is a list of corporate style guides you can use:
+
+- C++ - Google Style Guide (with Visual Studio extensions): [https://google.github.io/styleguide/cppguide.html](https://google.github.io/styleguide/cppguide.html)
+- C# - Microsoft Framework Design Guidelines: [https://docs.microsoft.com/en-us/dotnet/standard/design-guidelines/capitalization-conventions](https://docs.microsoft.com/en-us/dotnet/standard/design-guidelines/capitalization-conventions)
+- Java – Google Style Guide: [https://google.github.io/styleguide/javaguide.html](https://google.github.io/styleguide/javaguide.html)
+- PHP - PHP Standard Recommendation (PSR): [https://www.php-fig.org/psr/](https://www.php-fig.org/psr/)
+- Python - Google Style Guide: [https://google.github.io/styleguide/pyguide.html](https://google.github.io/styleguide/pyguide.html)
+- JavaScript – Google Style Guide: [https://google.github.io/styleguide/jsguide.html](https://google.github.io/styleguide/jsguide.html)
+- MySQL - MySQL Internals Manual: [https://dev.mysql.com/doc/internals/en/coding-style.html](https://dev.mysql.com/doc/internals/en/coding-style.html)
+- SQL Server - Transact-SQL Syntax Conventions: [https://docs.microsoft.com/en-us/sql/t-sql/language-elements/transact-sql-syntax-conventions-transact-sql?view=sql-server-2017](https://docs.microsoft.com/en-us/sql/t-sql/language-elements/transact-sql-syntax-conventions-transact-sql?view=sql-server-2017)
