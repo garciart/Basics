@@ -11,10 +11,38 @@ Styling guide: PEP 8 (https://www.python.org/dev/peps/pep-0008/)
 
 from __future__ import print_function
 
-from pathlib import Path
+import datetime
+import logging
+import os
+import sys
+import traceback
 
 __author__ = 'Rob Garcia'
 __email__ = 'rgarcia@rgprogramming.com'
 __license__ = 'MIT'
 
-ROOT_DIR = Path(__file__).resolve().parent
+# Removed Pathlib (redundant) and needed to set PWD to correct
+# directory using os
+ROOT_DIR = os.path.dirname(__file__)
+os.chdir(ROOT_DIR)
+
+# Enable error and exception logging
+logging.basicConfig(
+    filename='error_log.txt', filemode='a+', level=logging.DEBUG)
+display_errors = True
+
+
+def error_log(exc_info):
+    exc_type, exc_value, exc_traceback = exc_info
+    local_timezone = datetime.datetime.now(
+        datetime.timezone.utc).astimezone().tzinfo
+    time_stamp = datetime.datetime.now(
+        local_timezone).strftime("%Y-%m-%d %H:%M:%S %Z")
+    exception = ("[{}] Type {} Exception: {} in {} at line {}.".format(
+        time_stamp,
+        exc_type.__name__,
+        exc_value,
+        exc_traceback.tb_frame.f_code.co_filename,
+        exc_traceback.tb_lineno))
+    logging.debug(exception)
+    return exception

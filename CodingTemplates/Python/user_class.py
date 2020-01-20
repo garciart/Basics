@@ -28,7 +28,8 @@ class User:
     _create_date = ''
     _comment = ''
 
-    def __init__(self, user_id, first_name, last_name, email, score, create_date, comment):
+    def __init__(self, user_id, first_name, last_name, email, score,
+                 create_date, comment):
         self._user_id = user_id
         self._first_name = first_name
         self._last_name = last_name
