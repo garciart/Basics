@@ -1,0 +1,30 @@
+[19-Jan-2020 17:56:15 America/New_York] OutOfRangeException: Score must be equal to or between 0.0 and 100.0 in C:\Users\Rob\source\repos\Basics\CodingTemplates\PHP\User.class.php:119
+Stack trace:
+#0 C:\Users\Rob\source\repos\Basics\CodingTemplates\PHP\User.class.php(47): PHP\User->setScore(-1)
+#1 C:\Users\Rob\source\repos\Basics\CodingTemplates\PHP\Hello.php(48): PHP\User->__construct('2', 'Ben', 'Franklin', 'bfranklin@rgpro...', -1, '2020-01-19 00:1...', 'Old user.')
+#2 C:\Users\Rob\source\repos\Basics\CodingTemplates\PHP\Hello.php(32): helloUsers()
+#3 {main}
+[19-Jan-2020 18:06:51 America/New_York] Type 2 Error: Division by zero in C:\Users\Rob\source\repos\Basics\CodingTemplates\PHP\Hello.php at line 58.
+[19-Jan-2020 18:22:34 America/New_York] Error: Class 'PHP\Exception' not found in C:\Users\Rob\source\repos\Basics\CodingTemplates\PHP\UserDB.class.php:309
+Stack trace:
+#0 C:\Users\Rob\source\repos\Basics\CodingTemplates\PHP\UserDB.class.php(132): PHP\UserDB->connect()
+#1 C:\Users\Rob\source\repos\Basics\CodingTemplates\PHP\Hello.php(45): PHP\UserDB->getAllUsers()
+#2 C:\Users\Rob\source\repos\Basics\CodingTemplates\PHP\Hello.php(32): helloUsers()
+#3 {main}
+[19-Jan-2020 18:24:18 America/New_York] Wee!
+[19-Jan-2020 18:24:18 America/New_York] Error: Call to a member function prepare() on null in C:\Users\Rob\source\repos\Basics\CodingTemplates\PHP\UserDB.class.php:137
+Stack trace:
+#0 C:\Users\Rob\source\repos\Basics\CodingTemplates\PHP\Hello.php(45): PHP\UserDB->getAllUsers()
+#1 C:\Users\Rob\source\repos\Basics\CodingTemplates\PHP\Hello.php(32): helloUsers()
+#2 {main}
+[19-Jan-2020 18:25:26 America/New_York] Type 2 Error: Division by zero in C:\Users\Rob\source\repos\Basics\CodingTemplates\PHP\UserDB.class.php at line 309.
+[19-Jan-2020 18:26:20 America/New_York] Type 2 Error: Division by zero in C:\Users\Rob\source\repos\Basics\CodingTemplates\PHP\UserDB.class.php at line 309.
+[19-Jan-2020 18:30:13 America/New_York] Type 0 Exception: Check! in C:\Users\Rob\source\repos\Basics\CodingTemplates\PHP\Hello.php at line 43.
+[19-Jan-2020 18:31:47 America/New_York] Exception: Test. in C:\Users\Rob\source\repos\Basics\CodingTemplates\PHP\Hello.php:43
+Stack trace:
+#0 C:\Users\Rob\source\repos\Basics\CodingTemplates\PHP\Hello.php(32): helloUsers()
+#1 {main}
+[19-Jan-2020 18:32:33 America/New_York] Exception: Test. in C:\Users\Rob\source\repos\Basics\CodingTemplates\PHP\Hello.php:43
+Stack trace:
+#0 C:\Users\Rob\source\repos\Basics\CodingTemplates\PHP\Hello.php(32): helloUsers()
+#1 {main}

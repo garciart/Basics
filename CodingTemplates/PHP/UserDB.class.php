@@ -3,27 +3,31 @@
 /**
  * User database class. Handles all interactions with the User database using PDO.
  *
- * PHP version 5.3
+ * PHP version used: 7.3.12
+ *
+ * Styling guide: PSR-12: Extended Coding Style (https://www.php-fig.org/psr/psr-12/)
  *
  * @author  Rob Garcia <rgarcia@rgprogramming.com>
  * @license https://opensource.org/licenses/MIT The MIT License
- * @version 1.0
- * @link    https://github.com/garciart/Basics/tree/master/CodingTemplates/PHP GitHub Repository
  */
 
 namespace PHP;
 
-class UserDB {
+// Include this file to access common functions and variables
+require_once 'Common.php';
 
-    // Class constants:
-    // const PATH_TO_SQLITE_DB =  __DIR__ . DIRECTORY_SEPARATOR . 'db' . DIRECTORY_SEPARATOR . 'users.db';
-    const PATH_TO_SQLITE_DB = 'db\users.db';
+class UserDB
+{
 
     // Class fields:
     private $_pdo;
-    
+
     // Class properties:
-    public $pathToSQLiteDB =  __DIR__ . DIRECTORY_SEPARATOR . 'db' . DIRECTORY_SEPARATOR . 'users.db';
+    public $pathToSQLiteDB = ROOT_DIR . 'db' . DIRECTORY_SEPARATOR . 'users.db';
+
+    // Class constants:
+    // const PATH_TO_SQLITE_DB = 'db\users.db';
+    const PATH_TO_SQLITE_DB = ROOT_DIR . 'db' . DIRECTORY_SEPARATOR . 'users.db';
 
     /**
      * Class methods:
@@ -43,7 +47,8 @@ class UserDB {
     /**
      * Class constructor. If the database is not found, it creates it.
      */
-    public function __construct() {
+    public function __construct()
+    {
         if (!file_exists(self::PATH_TO_SQLITE_DB)) {
             // Create database and table if it does not exist
             echo "Creating user database...\n";
@@ -53,12 +58,13 @@ class UserDB {
     }
 
     // Class methods:
-    
+
     /**
      * Creates the User table if it does not exist.
      * @return integer The new user's ID. A value less than 0 indicates an error.
      */
-    private function createUserTable() {
+    private function createUserTable()
+    {
         try {
             $this->_pdo = $this->connect();
             $sql = "CREATE TABLE IF NOT EXISTS User (
@@ -90,7 +96,8 @@ class UserDB {
      * @param string $comment Any additional comments.
      * @return integer The rowid of the new user. A value other than 1 indicates an error.
      */
-    public function createUser($firstName, $lastName, $email, $score, $comment) {
+    public function createUser($firstName, $lastName, $email, $score, $comment)
+    {
         try {
             $this->_pdo = $this->connect();
             $sql = 'INSERT INTO User
@@ -119,7 +126,8 @@ class UserDB {
      * Gets all the users in the database and their information.
      * @return array An array of all the users in the database and their information. An empty array indicates an error.
      */
-    public function getAllUsers() {
+    public function getAllUsers()
+    {
         try {
             $this->_pdo = $this->connect();
             $sql = 'SELECT *
@@ -140,7 +148,8 @@ class UserDB {
      * @param integer $userID The user's ID.
      * @return array The user's information indexed by column name or empty if the user's ID is not found.
      */
-    public function getUserByUserID($userID) {
+    public function getUserByUserID($userID)
+    {
         try {
             $this->_pdo = $this->connect();
             $sql = 'SELECT *
@@ -162,7 +171,8 @@ class UserDB {
      * @param string $email The user's email.
      * @return array The user's information indexed by column name or empty if the user's email is not found.
      */
-    public function getUserByEmail($email) {
+    public function getUserByEmail($email)
+    {
         try {
             $this->_pdo = $this->connect();
             $sql = 'SELECT *
@@ -189,7 +199,8 @@ class UserDB {
      * @param string $comment Any additional comments.
      * @return integer The number of rows affected. A value other than 1 indicates an error.
      */
-    public function updateUser($userID, $firstName, $lastName, $email, $score, $comment) {
+    public function updateUser($userID, $firstName, $lastName, $email, $score, $comment)
+    {
         try {
             $this->_pdo = $this->connect();
             $sql = 'UPDATE User
@@ -220,7 +231,8 @@ class UserDB {
      * @param integer $userID The user's ID.
      * @return integer The number of rows affected. A value other than 1 indicates an error.
      */
-    public function deleteUser($userID) {
+    public function deleteUser($userID)
+    {
         try {
             $this->_pdo = $this->connect();
             $sql = 'DELETE FROM User
@@ -240,7 +252,8 @@ class UserDB {
      * Gets the highest value of UserID (usually the last row inserted) from the User table.
      * @return integer The anticipated value of the next UserID or 0 if there is no data.
      */
-    private function getNextUserID() {
+    private function getNextUserID()
+    {
         try {
             $this->_pdo = $this->connect();
             $sql = 'SELECT MAX(UserID) as maxUserID FROM User;';
@@ -265,7 +278,8 @@ class UserDB {
      * @param $email The username to check if exists.
      * @return True if the users exists, false if not.
      */
-    public function userExists($email) {
+    public function userExists($email)
+    {
         try {
             $this->_pdo = $this->connect();
             $sql = 'SELECT COUNT(*) AS Count
@@ -287,7 +301,8 @@ class UserDB {
      * Connects to the database.
      * @return \PDO The PDO object that connects to the SQLite database
      */
-    private function connect() {
+    private function connect()
+    {
         // Check if connection does not exists
         if (!isset($this->_pdo)) {
             try {
