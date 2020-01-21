@@ -30,7 +30,7 @@ os.chdir(ROOT_DIR)
 logging.basicConfig(
     filename='error_log.txt', filemode='a+', level=logging.DEBUG)
 # Set to True during development and to False during production
-display_errors = True
+display_errors = False
 
 
 def error_log(exc_info):
