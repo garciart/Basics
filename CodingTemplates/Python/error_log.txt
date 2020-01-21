@@ -13,3 +13,15 @@ DEBUG:root:[2020-01-20 14:17:59 Eastern Standard Time] Type OperationalError Exc
 DEBUG:root:[2020-01-20 14:17:59 Eastern Standard Time] Type TypeError Exception: 'NoneType' object is not iterable in c:\Users\Rob\source\repos\Basics\CodingTemplates\Python\hello.py at line 30.
 DEBUG:root:[2020-01-20 14:18:20 Eastern Standard Time] Type OperationalError Exception: no such table: Users in c:\Users\Rob\source\repos\Basics\CodingTemplates\Python\userdb_class.py at line 114.
 DEBUG:root:[2020-01-20 14:18:20 Eastern Standard Time] Type TypeError Exception: 'NoneType' object is not iterable in c:\Users\Rob\source\repos\Basics\CodingTemplates\Python\hello.py at line 30.
+DEBUG:root:[2020-01-20 17:01:29 Eastern Standard Time] Type TypeError Exception: 'User' object is not subscriptable in c:\Users\Rob\source\repos\Basics\CodingTemplates\Python\hello.py at line 36.
+DEBUG:root:[2020-01-20 17:03:02 Eastern Standard Time] Type AttributeError Exception: 'list' object has no attribute 'add' in c:\Users\Rob\source\repos\Basics\CodingTemplates\Python\hello.py at line 31.
+DEBUG:root:[2020-01-20 17:04:34 Eastern Standard Time] Type TypeError Exception: 'User' object does not support indexing in c:\Users\Rob\source\repos\Basics\CodingTemplates\Python\hello.py at line 36.
+DEBUG:root:[2020-01-20 17:05:38 Eastern Standard Time] Type TypeError Exception: 'User' object is not subscriptable in c:\Users\Rob\source\repos\Basics\CodingTemplates\Python\hello.py at line 37.
+DEBUG:root:[2020-01-20 17:07:59 Eastern Standard Time] Type TypeError Exception: 'User' object is not subscriptable in c:\Users\Rob\source\repos\Basics\CodingTemplates\Python\hello.py at line 36.
+DEBUG:root:[2020-01-20 17:09:05 Eastern Standard Time] Type TypeError Exception: list indices must be integers or slices, not str in c:\Users\Rob\source\repos\Basics\CodingTemplates\Python\hello.py at line 36.
+DEBUG:root:[2020-01-20 17:11:15 Eastern Standard Time] Type TypeError Exception: list indices must be integers or slices, not str in c:\Users\Rob\source\repos\Basics\CodingTemplates\Python\hello.py at line 35.
+DEBUG:root:[2020-01-20 17:14:34 Eastern Standard Time] Type TypeError Exception: 'User' object does not support indexing in c:\Users\Rob\source\repos\Basics\CodingTemplates\Python\hello.py at line 35.
+DEBUG:root:[2020-01-20 17:19:25 Eastern Standard Time] Type NameError Exception: name 'user' is not defined in c:\Users\Rob\source\repos\Basics\CodingTemplates\Python\hello.py at line 36.
+DEBUG:root:[2020-01-20 17:24:01 Eastern Standard Time] Type TypeError Exception: 'User' object is not subscriptable in c:\Users\Rob\source\repos\Basics\CodingTemplates\Python\hello.py at line 36.
+DEBUG:root:[2020-01-20 17:25:14 Eastern Standard Time] Type TypeError Exception: 'User' object does not support indexing in c:\Users\Rob\source\repos\Basics\CodingTemplates\Python\hello.py at line 36.
+DEBUG:root:[2020-01-20 17:25:35 Eastern Standard Time] Type TypeError Exception: 'User' object is not callable in c:\Users\Rob\source\repos\Basics\CodingTemplates\Python\hello.py at line 36.

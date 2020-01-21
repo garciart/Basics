@@ -29,10 +29,17 @@ os.chdir(ROOT_DIR)
 # Enable error and exception logging
 logging.basicConfig(
     filename='error_log.txt', filemode='a+', level=logging.DEBUG)
+# Set to True during development and to False during production
 display_errors = True
 
 
 def error_log(exc_info):
+    '''
+    Reformats error and exception details and records them in plain text in
+    the error_log file.
+    :param tuple exc_info: Exception details from sys module.
+    :returns string: Exception details in plain text.
+    '''
     exc_type, exc_value, exc_traceback = exc_info
     local_timezone = datetime.datetime.now(
         datetime.timezone.utc).astimezone().tzinfo

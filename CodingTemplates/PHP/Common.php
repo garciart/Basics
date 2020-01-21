@@ -14,6 +14,7 @@
 
 <?php
 const ROOT_DIR = __DIR__ . DIRECTORY_SEPARATOR;
+chdir(ROOT_DIR);
 
 // Report all errors and log them in ErrorLog.txt
 error_reporting(-1);
