@@ -30,6 +30,19 @@ class User:
 
     def __init__(self, user_id, first_name, last_name, email, score,
                  create_date, comment):
+        '''
+        Updates a user's information in the database.
+        :param object self: The instance of the class object.
+        :param int user_id: The user's ID.
+        :param str first_name: The user's first name.
+        :param str last_name: The user's last name.
+        :param str email: The user's email address (used for user name).
+        :param float score: The user's score from 0.0 to 100.0.
+        :param str create_date: The date the user was added to the database.
+        :param str comment: Any additional comments.
+        return int: The number of rows affected. A value other than 1
+                    indicates an error.
+        '''
         self._user_id = user_id
         self._first_name = first_name
         self._last_name = last_name

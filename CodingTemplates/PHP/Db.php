@@ -44,7 +44,8 @@ class UserDB
      */
 
     /**
-     * Class constructor. If the database is not found, it creates it.
+     * Class constructor. Creates the database and loads initial values if the
+     * database does not exists.
      */
     public function __construct()
     {
@@ -59,7 +60,7 @@ class UserDB
     // Class methods:
 
     /**
-     * Creates the User table if it does not exist.
+     * Creates the User table if it does not exist in the database.
      * @return integer The new user's ID. A value less than 0 indicates an error.
      */
     private function createUserTable()
@@ -72,7 +73,7 @@ class UserDB
                 LastName text NOT NULL,
                 Email text UNIQUE NOT NULL,
                 Score real NOT NULL DEFAULT '100.0',
-                CreateDate string NOT NULL,
+                CreateDate text NOT NULL,
                 Comment text
             );";
             $this->_pdo->exec($sql);
@@ -248,8 +249,8 @@ class UserDB
     }
 
     /**
-     * Gets the highest value of UserID (usually the last row inserted) from the User table.
-     * @return integer The anticipated value of the next UserID or 0 if there is no data.
+     * Gets the anticipated value of the next UserID (usually the last row inserted) from the User table.
+     * @return integer The value of the next UserID or 0 if there is no data.
      */
     private function getNextUserID()
     {
@@ -274,8 +275,8 @@ class UserDB
      * but Email is supposed to be unique.
      * If the count != 1, that means there are no users or more than one,
      * which means something is wrong. This is a better method.
-     * @param $email The username to check if exists.
-     * @return True if the users exists, false if not.
+     * @param string $email The email to check.
+     * @return boolean True if the users exists, false if not.
      */
     public function userExists($email)
     {
@@ -288,7 +289,8 @@ class UserDB
             $stmt->bindValue(':Email', $email);
             $stmt->execute();
             // Fetch the result set
-            $result = $stmt->fetch(\PDO::FETCH_ASSOC);
+            // $result = $stmt->fetch(\PDO::FETCH_ASSOC);
+            $result = $stmt->fetchAll();
             $exists = ($result['Count']) == 1 ? true : false;
             return $exists;
         } catch (\PDOException $ex) {
