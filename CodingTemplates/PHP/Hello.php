@@ -56,7 +56,8 @@ function helloUsers()
                 $user = new User(
                     $row['UserID'], $row['FirstName'], $row['LastName'],
                     $row['Email'], $row['Score'], $row['CreationDate'],
-                    $row['Comment']);
+                    $row['Comment']
+                );
                 echo "Hello, {$user->getFirstName()} {$user->getLastName()}! " .
                      "{$user->getCreationDate()}\n";
             }

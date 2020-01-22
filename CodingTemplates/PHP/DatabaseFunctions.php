@@ -69,6 +69,8 @@ function createUserTable()
         return $lastRowId;
     } catch (\PDOException $ex) {
         error_log($ex->getMessage());
+    } finally {
+        unset($conn);
     }
 }
 
@@ -108,6 +110,8 @@ function createUser($firstName, $lastName, $email, $score, $comment)
         return $lastRowId;
     } catch (\PDOException $ex) {
         error_log($ex->getMessage());
+    } finally {
+        unset($conn);
     }
 }
 
@@ -131,6 +135,8 @@ function getAllUsers()
         return $result;
     } catch (\PDOException $ex) {
         error_log($ex->getMessage());
+    } finally {
+        unset($conn);
     }
 }
 
@@ -157,6 +163,8 @@ function getUserByUserID($userID)
         return $result;
     } catch (\PDOException $ex) {
         error_log($ex->getMessage());
+    } finally {
+        unset($conn);
     }
 }
 
@@ -183,6 +191,8 @@ function getUserByEmail($email)
         return $result;
     } catch (\PDOException $ex) {
         error_log($ex->getMessage());
+    } finally {
+        unset($conn);
     }
 }
 
@@ -223,6 +233,8 @@ function updateUser($userID, $firstName, $lastName, $email, $score, $comment)
         return $rowsAffected;
     } catch (\PDOException $ex) {
         error_log($ex->getMessage());
+    } finally {
+        unset($conn);
     }
 }
 
@@ -248,6 +260,8 @@ function deleteUser($userID)
         return $rowsAffected;
     } catch (\PDOException $ex) {
         error_log($ex->getMessage());
+    } finally {
+        unset($conn);
     }
 }
 
@@ -270,6 +284,8 @@ function getNextUserID()
         return $maxUserID + 1;
     } catch (\PDOException $ex) {
         error_log($ex->getMessage());
+    } finally {
+        unset($conn);
     }
 }
 
@@ -302,6 +318,8 @@ function userExists($email)
         return $exists;
     } catch (\PDOException $ex) {
         error_log($ex->getMessage());
+    } finally {
+        unset($conn);
     }
 }
 
@@ -313,7 +331,7 @@ function userExists($email)
 function connect()
 {
     // Check if connection does not exists
-    if (!isset($conn)) {
+    if (!isset($pdo) || !isset($conn)) {
         try {
             // Create (connect to) SQLite database in file
             $pdo = new \PDO('sqlite:' . PATH_TO_SQLITE_DB);
