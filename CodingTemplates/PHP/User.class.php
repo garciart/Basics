@@ -6,7 +6,7 @@
  *
  * Styling guide: PSR-12: Extended Coding Style
  *     (https://www.php-fig.org/psr/psr-12/)
- *
+ * 
  * @category Basics
  * @package  PHP
  * @author   Rob Garcia <rgarcia@rgprogramming.com>
@@ -22,8 +22,11 @@ require_once 'Common.php';
 /**
  * User class.
  *
- * Properties: Explained below.
- * Methods: Constructor, getters, and setters only.
+ * @category Basics
+ * @package  PHP
+ * @author   Rob Garcia <rgarcia@rgprogramming.com>
+ * @license  https://opensource.org/licenses/MIT The MIT License
+ * @link     https://github.com/garciart/Basics
  */
 class User
 {
@@ -51,8 +54,9 @@ class User
      *
      * @return void
      */
-    public function __construct(
-        $userID, $firstName, $lastName, $email, $score, $creationDate, $comment) {
+    public function __construct($userID, $firstName, $lastName, $email, $score,
+        $creationDate, $comment
+    ) {
         $this->setUserID($userID);
         $this->setFirstName($firstName);
         $this->setLastName($lastName);
@@ -159,7 +163,7 @@ class User
     /**
      * Email setter.
      *
-     * @param integer $userID The user's email address (used for user name).
+     * @param integer $email The user's email address (used for user name).
      *
      * @return void
      */

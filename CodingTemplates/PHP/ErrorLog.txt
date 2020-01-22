@@ -40,3 +40,4 @@ Stack trace:
 Stack trace:
 #0 C:\Users\Rob\source\repos\Basics\CodingTemplates\PHP\Hello.php(35): helloUsers()
 #1 {main}
+[22-Jan-2020 01:19:03 America/New_York] Type 8 Error: Undefined variable: stmt in C:\Users\Rob\source\repos\Basics\CodingTemplates\PHP\DatabaseFunctions.php at line 124.
