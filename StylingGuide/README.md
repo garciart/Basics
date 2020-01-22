@@ -26,7 +26,7 @@ So, to mitigate that in my own repos, here is my down and dirty Naming Conventio
   - Methods
   - Variables
   - Constants
-  - Parameters
+  - Parameters and Arguments - A parameter is the definition of data a function or method requires, while and argument is the actual data (i.e., for int 1 = 1, int i is a parameter, while 1 is the argument).
 - Third, the general capitalization rules I use for different languages are:
 
 |            | C++            | C#            | Java                    | PHP           | Python        | JavaScript              |
@@ -90,6 +90,8 @@ FK_[Referencing_Table]_[Referenced_Table]_[Referencing_Field_Name]
 | REAL |   |   |
 | TEXT |   |   |
 | BLOB |   |   |
+
+Quotes = Single quotes when there is no text manipulation (e.g., 'My name is Rob', etc.) and double quotes when ther is text manipulation (e.g., "My name is {user->getName()}.\n").
 
 However, the best practice is to review an actual style guide and decide on the styling rules for your application, whether you are coding by yourself or with a team. Here is a list of corporate style guides you can use:
 

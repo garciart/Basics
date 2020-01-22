@@ -83,8 +83,7 @@ function createUserTable()
  * @param float  $score     The user's score from 0.0 to 100.0.
  * @param string $comment   Any additional comments.
  * 
- * @return integer The rowid of the new user. A value other than 1 indicates
- *                 an error.
+ * @return integer The rowid of the new user. A value of 0 indicates an error.
  */
 function createUser($firstName, $lastName, $email, $score, $comment)
 {
@@ -127,7 +126,7 @@ function getAllUsers()
         $conn = connect();
         $sql = 'SELECT *
                 FROM User
-                ORDER BY LastName ASC;';
+                ORDER BY UserID ASC;';
         // Returns an empty result set if not found
         $stmt = $conn->prepare($sql);
         $stmt->execute();
@@ -312,8 +311,8 @@ function userExists($email)
         $stmt->bindValue(':Email', $email);
         $stmt->execute();
         // Fetch the result set
-        // $result = $stmt->fetch(\PDO::FETCH_ASSOC);
-        $result = $stmt->fetchAll();
+        $result = $stmt->fetch(\PDO::FETCH_ASSOC);
+        // $result = $stmt->fetchAll();
         $exists = ($result['Count']) == 1 ? true : false;
         return $exists;
     } catch (\PDOException $ex) {

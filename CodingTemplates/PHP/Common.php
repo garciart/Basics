@@ -48,13 +48,13 @@ set_error_handler("errorHandler", 32767);
 set_exception_handler("exceptionHandler");
 
 /**
- * Error handler. Can be used to redirect users to error page
- * 
- * @param integer $errno   The error report level
- * @param string  $errstr  The error message
- * @param string  $errfile The filename with the error
- * @param integer $errline The line number of the error
- * 
+ * Error handler. Can be used to redirect users to error page.
+ *
+ * @param integer $errno   The error report level.
+ * @param string  $errstr  The error message.
+ * @param string  $errfile The filename with the error.
+ * @param integer $errline The line number of the error.
+ *
  * @return void
  */
 function errorHandler($errno, $errstr, $errfile, $errline)
@@ -66,16 +66,66 @@ function errorHandler($errno, $errstr, $errfile, $errline)
 }
 
 /**
- * Exception handler. Can be used to redirect users to exception page
- * 
- * @param string $exception Exception class object
- * 
+ * Exception handler. Can be used to redirect users to exception page.
+ *
+ * @param string $exception Exception class object.
+ *
  * @return void
  */
 function exceptionHandler($exception)
 {
     echo "Type {$exception->getCode()} Exception: {$exception->getMessage()} " .
-         "in {$exception->getFile()} at line {$exception->getLine()}.\n";
+        "in {$exception->getFile()} at line {$exception->getLine()}.\n";
     error_log($exception);
     // Do not die. Redirect the user to an appropriate exception page.
+}
+
+/**
+ * Validate UserID.
+ *
+ * @param int $userID The UserID that will be entered in the database.
+ *
+ * @return boolean True if the UserID is an integer greater than 0, false if not.
+ */
+function validateUserID($userID)
+{
+    if (empty($userID) || $userID < 1 || !filter_var($userID, FILTER_VALIDATE_INT)) {
+        return false;
+    } else {
+        return true;
+    }
+}
+
+/**
+ * Validate text input.
+ *
+ * @param string $text The text that will be entered into the database.
+ *
+ * @return boolean True if the text is valid, false if not.
+ */
+function validateText($text)
+{
+    if (empty(trim($text)) ||
+        (!preg_match("/^[A-Za-z0-9\s\-._~:\/?#\[\]@!$&'()*+,;=]*$/", trim($text)))
+    ) {
+        return false;
+    } else {
+        return true;
+    }
+}
+
+/**
+ * Validate email address.
+ *
+ * @param string $email The email address that will be entered into the database.
+ *
+ * @return boolean True if the email is valid, false if not.
+ */
+function validateEmail($email)
+{
+    if (empty($email) || (!filter_var($email, FILTER_VALIDATE_EMAIL))) {
+        return false;
+    } else {
+        return true;
+    }
 }

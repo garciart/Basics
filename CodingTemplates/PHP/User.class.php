@@ -85,12 +85,12 @@ class User
      */
     public function setUserID($userID)
     {
-        if (empty($userID)) {
+        if (validateUserID($userID)) {
+            $this->_userID = $userID;
+        } else {
             throw new \InvalidArgumentException(
                 'User ID cannot be empty, 0, NULL, or FALSE.'
             );
-        } else {
-            $this->_userID = $userID;
         }
     }
 
@@ -113,12 +113,12 @@ class User
      */
     public function setFirstName($firstName)
     {
-        if (empty($firstName)) {
+        if (validateText($firstName)) {
+            $this->_firstName = $firstName;
+        } else {
             throw new \InvalidArgumentException(
                 'First name cannot be empty, 0, NULL, or FALSE.'
             );
-        } else {
-            $this->_firstName = $firstName;
         }
     }
 
@@ -141,12 +141,12 @@ class User
      */
     public function setLastName($lastName)
     {
-        if (empty($lastName)) {
+        if (validateText($lastName)) {
+            $this->_lastName = $lastName;
+        } else {
             throw new \InvalidArgumentException(
                 'Last name cannot be empty, 0, NULL, or FALSE.'
             );
-        } else {
-            $this->_lastName = $lastName;
         }
     }
 
@@ -169,19 +169,19 @@ class User
      */
     public function setEmail($email)
     {
-        if (empty($email)) {
+        if (validateEmail($email)) {
+            $this->_email = $email;
+        } else {
             throw new \InvalidArgumentException(
                 'Email cannot be empty, 0, NULL, or FALSE.'
             );
-        } else {
-            $this->_email = $email;
         }
     }
 
     /**
      * Score getter.
      *
-     * @return integer The score property.
+     * @return float The score property.
      */
     public function getScore()
     {
@@ -191,7 +191,7 @@ class User
     /**
      * Score setter.
      *
-     * @param integer $score The user's score from 0.0 to 100.0.
+     * @param float $score The user's score from 0.0 to 100.0.
      *
      * @return void
      */

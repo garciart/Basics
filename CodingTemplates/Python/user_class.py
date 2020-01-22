@@ -19,10 +19,7 @@ __license__ = 'MIT'
 
 class User:
     '''
-    User class.
-
-    Attributes: Explained below.
-    Methods: Constructor, getters, and setters only.
+    User class. Uses @property instead of getters and setters.
     '''
 
     # Class attributes
