@@ -76,3 +76,35 @@ DEBUG:root:[2020-01-21 13:24:13 Eastern Standard Time] Type ProgrammingError Exc
 DEBUG:root:[2020-01-21 13:24:13 Eastern Standard Time] Type TypeError Exception: type object argument after * must be an iterable, not NoneType in c:\Users\Rob\source\repos\Basics\CodingTemplates\Python\hello.py at line 50.
 DEBUG:root:[2020-01-21 13:41:12 Eastern Standard Time] Type TypeError Exception: update_user() argument after * must be an iterable, not User in c:\Users\Rob\source\repos\Basics\CodingTemplates\Python\hello.py at line 64.
 DEBUG:root:[2020-01-21 14:11:15 Eastern Standard Time] Type ZeroDivisionError Exception: division by zero in c:\Users\Rob\source\repos\Basics\CodingTemplates\Python\hello.py at line 31.
+DEBUG:root:[2020-01-21 14:56:11 Eastern Standard Time] Type TypeError Exception: 'module' object is not callable in c:\Users\Rob\source\repos\Basics\CodingTemplates\Python\hello.py at line 31.
+DEBUG:root:[2020-01-21 15:11:17 Eastern Standard Time] Type OperationalError Exception: no such table: User in c:\Users\Rob\source\repos\Basics\CodingTemplates\Python\database_functions.py at line 142.
+DEBUG:root:[2020-01-21 15:11:17 Eastern Standard Time] Type TypeError Exception: 'NoneType' object is not iterable in c:\Users\Rob\source\repos\Basics\CodingTemplates\Python\hello.py at line 36.
+DEBUG:root:[2020-01-21 15:13:56 Eastern Standard Time] Type OperationalError Exception: no such table: User in c:\Users\Rob\source\repos\Basics\CodingTemplates\Python\database_functions.py at line 142.
+DEBUG:root:[2020-01-21 15:13:56 Eastern Standard Time] Type TypeError Exception: 'NoneType' object is not iterable in c:\Users\Rob\source\repos\Basics\CodingTemplates\Python\hello.py at line 36.
+DEBUG:root:[2020-01-21 15:15:23 Eastern Standard Time] Type OperationalError Exception: no such table: User in c:\Users\Rob\source\repos\Basics\CodingTemplates\Python\database_functions.py at line 143.
+DEBUG:root:[2020-01-21 15:15:23 Eastern Standard Time] Type TypeError Exception: 'NoneType' object is not iterable in c:\Users\Rob\source\repos\Basics\CodingTemplates\Python\hello.py at line 36.
+DEBUG:root:[2020-01-21 15:15:54 Eastern Standard Time] Type OperationalError Exception: no such table: User in c:\Users\Rob\source\repos\Basics\CodingTemplates\Python\database_functions.py at line 143.
+DEBUG:root:[2020-01-21 15:15:54 Eastern Standard Time] Type TypeError Exception: 'NoneType' object is not iterable in c:\Users\Rob\source\repos\Basics\CodingTemplates\Python\hello.py at line 36.
+DEBUG:root:[2020-01-21 15:16:17 Eastern Standard Time] Type OperationalError Exception: no such table: User in c:\Users\Rob\source\repos\Basics\CodingTemplates\Python\database_functions.py at line 144.
+DEBUG:root:[2020-01-21 15:16:17 Eastern Standard Time] Type TypeError Exception: 'NoneType' object is not iterable in c:\Users\Rob\source\repos\Basics\CodingTemplates\Python\hello.py at line 36.
+DEBUG:root:[2020-01-21 15:16:43 Eastern Standard Time] Type OperationalError Exception: no such table: User in c:\Users\Rob\source\repos\Basics\CodingTemplates\Python\database_functions.py at line 143.
+DEBUG:root:[2020-01-21 15:16:43 Eastern Standard Time] Type TypeError Exception: 'NoneType' object is not iterable in c:\Users\Rob\source\repos\Basics\CodingTemplates\Python\hello.py at line 36.
+DEBUG:root:[2020-01-21 15:17:01 Eastern Standard Time] Type OperationalError Exception: no such table: User in c:\Users\Rob\source\repos\Basics\CodingTemplates\Python\database_functions.py at line 144.
+DEBUG:root:[2020-01-21 15:17:01 Eastern Standard Time] Type TypeError Exception: 'NoneType' object is not iterable in c:\Users\Rob\source\repos\Basics\CodingTemplates\Python\hello.py at line 36.
+DEBUG:root:[2020-01-21 15:17:44 Eastern Standard Time] Type OperationalError Exception: no such table: User in c:\Users\Rob\source\repos\Basics\CodingTemplates\Python\database_functions.py at line 145.
+DEBUG:root:[2020-01-21 15:17:44 Eastern Standard Time] Type TypeError Exception: 'NoneType' object is not iterable in c:\Users\Rob\source\repos\Basics\CodingTemplates\Python\hello.py at line 36.
+DEBUG:root:[2020-01-21 15:21:40 Eastern Standard Time] Type NameError Exception: name 'create_user_table' is not defined in c:\Users\Rob\source\repos\Basics\CodingTemplates\Python\database_functions.py at line 52.
+DEBUG:root:[2020-01-21 15:21:40 Eastern Standard Time] Type OperationalError Exception: no such table: User in c:\Users\Rob\source\repos\Basics\CodingTemplates\Python\database_functions.py at line 140.
+DEBUG:root:[2020-01-21 15:21:40 Eastern Standard Time] Type TypeError Exception: 'NoneType' object is not iterable in c:\Users\Rob\source\repos\Basics\CodingTemplates\Python\hello.py at line 35.
+DEBUG:root:[2020-01-21 15:22:22 Eastern Standard Time] Type NameError Exception: name 'create_user_table' is not defined in c:\Users\Rob\source\repos\Basics\CodingTemplates\Python\database_functions.py at line 53.
+DEBUG:root:[2020-01-21 15:22:22 Eastern Standard Time] Type OperationalError Exception: no such table: User in c:\Users\Rob\source\repos\Basics\CodingTemplates\Python\database_functions.py at line 141.
+DEBUG:root:[2020-01-21 15:22:22 Eastern Standard Time] Type TypeError Exception: 'NoneType' object is not iterable in c:\Users\Rob\source\repos\Basics\CodingTemplates\Python\hello.py at line 35.
+DEBUG:root:[2020-01-21 15:24:41 Eastern Standard Time] Type NameError Exception: name 'create_user_table' is not defined in c:\Users\Rob\source\repos\Basics\CodingTemplates\Python\database_functions.py at line 53.
+DEBUG:root:[2020-01-21 15:24:41 Eastern Standard Time] Type OperationalError Exception: no such table: User in c:\Users\Rob\source\repos\Basics\CodingTemplates\Python\database_functions.py at line 141.
+DEBUG:root:[2020-01-21 15:24:41 Eastern Standard Time] Type TypeError Exception: 'NoneType' object is not iterable in c:\Users\Rob\source\repos\Basics\CodingTemplates\Python\hello.py at line 35.
+DEBUG:root:[2020-01-21 15:26:12 Eastern Standard Time] Type NameError Exception: name 'create_user_table' is not defined in c:\Users\Rob\source\repos\Basics\CodingTemplates\Python\database_functions.py at line 52.
+DEBUG:root:[2020-01-21 15:26:12 Eastern Standard Time] Type OperationalError Exception: no such table: User in c:\Users\Rob\source\repos\Basics\CodingTemplates\Python\database_functions.py at line 140.
+DEBUG:root:[2020-01-21 15:26:12 Eastern Standard Time] Type TypeError Exception: 'NoneType' object is not iterable in c:\Users\Rob\source\repos\Basics\CodingTemplates\Python\hello.py at line 35.
+DEBUG:root:[2020-01-21 15:26:43 Eastern Standard Time] Type NameError Exception: name 'create_user_table' is not defined in c:\Users\Rob\source\repos\Basics\CodingTemplates\Python\database_functions.py at line 52.
+DEBUG:root:[2020-01-21 15:26:43 Eastern Standard Time] Type OperationalError Exception: no such table: User in c:\Users\Rob\source\repos\Basics\CodingTemplates\Python\database_functions.py at line 141.
+DEBUG:root:[2020-01-21 15:26:43 Eastern Standard Time] Type TypeError Exception: 'NoneType' object is not iterable in c:\Users\Rob\source\repos\Basics\CodingTemplates\Python\hello.py at line 35.
