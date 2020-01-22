@@ -51,3 +51,18 @@ def error_log(exc_info):
         exc_traceback.tb_lineno))
     logging.debug(exception)
     return exception
+
+def validateUserID(user_id):
+    '''
+    '''
+    pass
+
+def validateText(text):
+    '''
+    '''
+    pass
+
+def validateEmail(email):
+    '''
+    '''
+    pass

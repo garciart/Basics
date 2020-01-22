@@ -41,3 +41,109 @@ Stack trace:
 #0 C:\Users\Rob\source\repos\Basics\CodingTemplates\PHP\Hello.php(35): helloUsers()
 #1 {main}
 [22-Jan-2020 01:19:03 America/New_York] Type 8 Error: Undefined variable: stmt in C:\Users\Rob\source\repos\Basics\CodingTemplates\PHP\DatabaseFunctions.php at line 124.
+[22-Jan-2020 15:47:07 America/New_York] Error: Cannot use object of type PHP\User as array in C:\Users\Rob\source\repos\Basics\CodingTemplates\PHP\Hello.php:67
+Stack trace:
+#0 C:\Users\Rob\source\repos\Basics\CodingTemplates\PHP\Hello.php(35): helloUsers()
+#1 {main}
+[22-Jan-2020 15:50:18 America/New_York] Error: Call to a member function getCreationDate() on array in C:\Users\Rob\source\repos\Basics\CodingTemplates\PHP\Hello.php:63
+Stack trace:
+#0 C:\Users\Rob\source\repos\Basics\CodingTemplates\PHP\Hello.php(35): helloUsers()
+#1 {main}
+[22-Jan-2020 15:59:54 America/New_York] Type 8 Error: Array to string conversion in C:\Users\Rob\source\repos\Basics\CodingTemplates\PHP\Hello.php at line 67.
+[22-Jan-2020 16:13:55 America/New_York] Type 2 Error: A non-numeric value encountered in C:\Users\Rob\source\repos\Basics\CodingTemplates\PHP\Hello.php at line 67.
+[22-Jan-2020 16:13:55 America/New_York] Type 2 Error: A non-numeric value encountered in C:\Users\Rob\source\repos\Basics\CodingTemplates\PHP\Hello.php at line 67.
+[22-Jan-2020 16:13:55 America/New_York] Type 2 Error: A non-numeric value encountered in C:\Users\Rob\source\repos\Basics\CodingTemplates\PHP\Hello.php at line 67.
+[22-Jan-2020 16:29:39 America/New_York] Error: Call to undefined function get_user_by_email() in C:\Users\Rob\source\repos\Basics\CodingTemplates\PHP\Hello.php:78
+Stack trace:
+#0 C:\Users\Rob\source\repos\Basics\CodingTemplates\PHP\Hello.php(35): helloUsers()
+#1 {main}
+[22-Jan-2020 16:30:05 America/New_York] Type 2 Error: Only arrays and Traversables can be unpacked in C:\Users\Rob\source\repos\Basics\CodingTemplates\PHP\Hello.php at line 79.
+[22-Jan-2020 16:30:05 America/New_York] Type 2 Error: var_dump() expects at least 1 parameter, 0 given in C:\Users\Rob\source\repos\Basics\CodingTemplates\PHP\Hello.php at line 79.
+[22-Jan-2020 16:30:05 America/New_York] ArgumentCountError: Too few arguments to function PHP\User::__construct(), 1 passed in C:\Users\Rob\source\repos\Basics\CodingTemplates\PHP\Hello.php on line 79 and exactly 7 expected in C:\Users\Rob\source\repos\Basics\CodingTemplates\PHP\User.class.php:57
+Stack trace:
+#0 C:\Users\Rob\source\repos\Basics\CodingTemplates\PHP\Hello.php(79): PHP\User->__construct(NULL)
+#1 C:\Users\Rob\source\repos\Basics\CodingTemplates\PHP\Hello.php(35): helloUsers()
+#2 {main}
+[22-Jan-2020 16:30:28 America/New_York] Error: Cannot unpack array with string keys in C:\Users\Rob\source\repos\Basics\CodingTemplates\PHP\Hello.php:79
+Stack trace:
+#0 C:\Users\Rob\source\repos\Basics\CodingTemplates\PHP\Hello.php(35): helloUsers()
+#1 {main}
+[22-Jan-2020 16:31:48 America/New_York] ArgumentCountError: Too few arguments to function PHP\User::__construct(), 1 passed in C:\Users\Rob\source\repos\Basics\CodingTemplates\PHP\Hello.php on line 80 and exactly 7 expected in C:\Users\Rob\source\repos\Basics\CodingTemplates\PHP\User.class.php:57
+Stack trace:
+#0 C:\Users\Rob\source\repos\Basics\CodingTemplates\PHP\Hello.php(80): PHP\User->__construct(NULL)
+#1 C:\Users\Rob\source\repos\Basics\CodingTemplates\PHP\Hello.php(35): helloUsers()
+#2 {main}
+[22-Jan-2020 16:33:22 America/New_York] ArgumentCountError: Too few arguments to function PHP\User::__construct(), 1 passed in C:\Users\Rob\source\repos\Basics\CodingTemplates\PHP\Hello.php on line 83 and exactly 7 expected in C:\Users\Rob\source\repos\Basics\CodingTemplates\PHP\User.class.php:57
+Stack trace:
+#0 C:\Users\Rob\source\repos\Basics\CodingTemplates\PHP\Hello.php(83): PHP\User->__construct(Array)
+#1 C:\Users\Rob\source\repos\Basics\CodingTemplates\PHP\Hello.php(35): helloUsers()
+#2 {main}
+[22-Jan-2020 16:33:43 America/New_York] ArgumentCountError: Too few arguments to function PHP\User::__construct(), 1 passed in C:\Users\Rob\source\repos\Basics\CodingTemplates\PHP\Hello.php on line 80 and exactly 7 expected in C:\Users\Rob\source\repos\Basics\CodingTemplates\PHP\User.class.php:57
+Stack trace:
+#0 C:\Users\Rob\source\repos\Basics\CodingTemplates\PHP\Hello.php(80): PHP\User->__construct(NULL)
+#1 C:\Users\Rob\source\repos\Basics\CodingTemplates\PHP\Hello.php(35): helloUsers()
+#2 {main}
+[22-Jan-2020 16:37:09 America/New_York] ArgumentCountError: Too few arguments to function PHP\User::__construct(), 1 passed in C:\Users\Rob\source\repos\Basics\CodingTemplates\PHP\Hello.php on line 80 and exactly 7 expected in C:\Users\Rob\source\repos\Basics\CodingTemplates\PHP\User.class.php:57
+Stack trace:
+#0 C:\Users\Rob\source\repos\Basics\CodingTemplates\PHP\Hello.php(80): PHP\User->__construct(NULL)
+#1 C:\Users\Rob\source\repos\Basics\CodingTemplates\PHP\Hello.php(35): helloUsers()
+#2 {main}
+[22-Jan-2020 16:59:55 America/New_York] Type 8 Error: Undefined property: PHP\User::$firstName in C:\Users\Rob\source\repos\Basics\CodingTemplates\PHP\Hello.php at line 65.
+[22-Jan-2020 16:59:55 America/New_York] Type 8 Error: Undefined property: PHP\User::$firstName in C:\Users\Rob\source\repos\Basics\CodingTemplates\PHP\Hello.php at line 68.
+[22-Jan-2020 16:59:55 America/New_York] Type 8 Error: Undefined property: PHP\User::$lastName in C:\Users\Rob\source\repos\Basics\CodingTemplates\PHP\Hello.php at line 68.
+[22-Jan-2020 16:59:55 America/New_York] Type 8 Error: Undefined property: PHP\User::$creationDate in C:\Users\Rob\source\repos\Basics\CodingTemplates\PHP\Hello.php at line 70.
+[22-Jan-2020 16:59:55 America/New_York] Type 8 Error: Undefined property: PHP\User::$firstName in C:\Users\Rob\source\repos\Basics\CodingTemplates\PHP\Hello.php at line 68.
+[22-Jan-2020 16:59:55 America/New_York] Type 8 Error: Undefined property: PHP\User::$lastName in C:\Users\Rob\source\repos\Basics\CodingTemplates\PHP\Hello.php at line 68.
+[22-Jan-2020 16:59:55 America/New_York] Type 8 Error: Undefined property: PHP\User::$creationDate in C:\Users\Rob\source\repos\Basics\CodingTemplates\PHP\Hello.php at line 70.
+[22-Jan-2020 16:59:55 America/New_York] Type 8 Error: Undefined property: PHP\User::$firstName in C:\Users\Rob\source\repos\Basics\CodingTemplates\PHP\Hello.php at line 68.
+[22-Jan-2020 16:59:55 America/New_York] Type 8 Error: Undefined property: PHP\User::$lastName in C:\Users\Rob\source\repos\Basics\CodingTemplates\PHP\Hello.php at line 68.
+[22-Jan-2020 16:59:55 America/New_York] Type 8 Error: Undefined property: PHP\User::$creationDate in C:\Users\Rob\source\repos\Basics\CodingTemplates\PHP\Hello.php at line 70.
+[22-Jan-2020 17:19:43 America/New_York] Error: Call to undefined function user_exists() in C:\Users\Rob\source\repos\Basics\CodingTemplates\PHP\Hello.php:79
+Stack trace:
+#0 C:\Users\Rob\source\repos\Basics\CodingTemplates\PHP\Hello.php(35): helloUsers()
+#1 {main}
+[22-Jan-2020 17:20:02 America/New_York] Type 8 Error: Undefined index: Count in C:\Users\Rob\source\repos\Basics\CodingTemplates\PHP\DatabaseFunctions.php at line 317.
+[22-Jan-2020 17:20:02 America/New_York] Type 8 Error: Undefined property: PHP\User::$getFirstName in C:\Users\Rob\source\repos\Basics\CodingTemplates\PHP\Hello.php at line 93.
+[22-Jan-2020 17:20:02 America/New_York] Type 8 Error: Undefined property: PHP\User::$getLastName in C:\Users\Rob\source\repos\Basics\CodingTemplates\PHP\Hello.php at line 93.
+[22-Jan-2020 17:20:02 America/New_York] Type 8 Error: Undefined property: PHP\User::$getCreationDate in C:\Users\Rob\source\repos\Basics\CodingTemplates\PHP\Hello.php at line 94.
+[22-Jan-2020 17:20:02 America/New_York] Type 8 Error: Undefined property: PHP\User::$getComment in C:\Users\Rob\source\repos\Basics\CodingTemplates\PHP\Hello.php at line 95.
+[22-Jan-2020 17:20:03 America/New_York] Error: Call to undefined function delete_user() in C:\Users\Rob\source\repos\Basics\CodingTemplates\PHP\Hello.php:114
+Stack trace:
+#0 C:\Users\Rob\source\repos\Basics\CodingTemplates\PHP\Hello.php(35): helloUsers()
+#1 {main}
+[22-Jan-2020 17:21:00 America/New_York] Type 8 Error: Undefined index: Count in C:\Users\Rob\source\repos\Basics\CodingTemplates\PHP\DatabaseFunctions.php at line 317.
+[22-Jan-2020 17:21:00 America/New_York] SQLSTATE[23000]: Integrity constraint violation: 19 UNIQUE constraint failed: User.Email
+[22-Jan-2020 17:21:00 America/New_York] Type 2 Error: array_values() expects parameter 1 to be array, bool given in C:\Users\Rob\source\repos\Basics\CodingTemplates\PHP\Hello.php at line 91.
+[22-Jan-2020 17:21:00 America/New_York] Type 2 Error: Only arrays and Traversables can be unpacked in C:\Users\Rob\source\repos\Basics\CodingTemplates\PHP\Hello.php at line 92.
+[22-Jan-2020 17:21:00 America/New_York] ArgumentCountError: Too few arguments to function PHP\User::__construct(), 0 passed in C:\Users\Rob\source\repos\Basics\CodingTemplates\PHP\Hello.php on line 92 and exactly 7 expected in C:\Users\Rob\source\repos\Basics\CodingTemplates\PHP\User.class.php:57
+Stack trace:
+#0 C:\Users\Rob\source\repos\Basics\CodingTemplates\PHP\Hello.php(92): PHP\User->__construct()
+#1 C:\Users\Rob\source\repos\Basics\CodingTemplates\PHP\Hello.php(35): helloUsers()
+#2 {main}
+[22-Jan-2020 17:22:50 America/New_York] Type 8 Error: Undefined index: Count in C:\Users\Rob\source\repos\Basics\CodingTemplates\PHP\DatabaseFunctions.php at line 317.
+[22-Jan-2020 17:22:51 America/New_York] SQLSTATE[23000]: Integrity constraint violation: 19 UNIQUE constraint failed: User.Email
+[22-Jan-2020 17:22:51 America/New_York] Type 2 Error: array_values() expects parameter 1 to be array, bool given in C:\Users\Rob\source\repos\Basics\CodingTemplates\PHP\Hello.php at line 92.
+[22-Jan-2020 17:22:51 America/New_York] Type 2 Error: Only arrays and Traversables can be unpacked in C:\Users\Rob\source\repos\Basics\CodingTemplates\PHP\Hello.php at line 94.
+[22-Jan-2020 17:22:51 America/New_York] ArgumentCountError: Too few arguments to function PHP\User::__construct(), 0 passed in C:\Users\Rob\source\repos\Basics\CodingTemplates\PHP\Hello.php on line 94 and exactly 7 expected in C:\Users\Rob\source\repos\Basics\CodingTemplates\PHP\User.class.php:57
+Stack trace:
+#0 C:\Users\Rob\source\repos\Basics\CodingTemplates\PHP\Hello.php(94): PHP\User->__construct()
+#1 C:\Users\Rob\source\repos\Basics\CodingTemplates\PHP\Hello.php(35): helloUsers()
+#2 {main}
+[22-Jan-2020 17:24:55 America/New_York] Type 8 Error: Undefined index: Count in C:\Users\Rob\source\repos\Basics\CodingTemplates\PHP\DatabaseFunctions.php at line 317.
+[22-Jan-2020 17:24:55 America/New_York] SQLSTATE[23000]: Integrity constraint violation: 19 UNIQUE constraint failed: User.Email
+[22-Jan-2020 17:24:55 America/New_York] Type 2 Error: array_values() expects parameter 1 to be array, bool given in C:\Users\Rob\source\repos\Basics\CodingTemplates\PHP\Hello.php at line 92.
+[22-Jan-2020 17:24:55 America/New_York] Type 2 Error: Only arrays and Traversables can be unpacked in C:\Users\Rob\source\repos\Basics\CodingTemplates\PHP\Hello.php at line 94.
+[22-Jan-2020 17:24:55 America/New_York] ArgumentCountError: Too few arguments to function PHP\User::__construct(), 0 passed in C:\Users\Rob\source\repos\Basics\CodingTemplates\PHP\Hello.php on line 94 and exactly 7 expected in C:\Users\Rob\source\repos\Basics\CodingTemplates\PHP\User.class.php:57
+Stack trace:
+#0 C:\Users\Rob\source\repos\Basics\CodingTemplates\PHP\Hello.php(94): PHP\User->__construct()
+#1 C:\Users\Rob\source\repos\Basics\CodingTemplates\PHP\Hello.php(35): helloUsers()
+#2 {main}
+[22-Jan-2020 17:25:41 America/New_York] Type 8 Error: Array to string conversion in C:\Users\Rob\source\repos\Basics\CodingTemplates\PHP\Hello.php at line 84.
+[22-Jan-2020 17:25:41 America/New_York] Type 8 Error: Undefined property: PHP\User::$getUserID in C:\Users\Rob\source\repos\Basics\CodingTemplates\PHP\Hello.php at line 116.
+[22-Jan-2020 17:26:49 America/New_York] Type 2 Error: array_values() expects parameter 1 to be array, bool given in C:\Users\Rob\source\repos\Basics\CodingTemplates\PHP\Hello.php at line 83.
+[22-Jan-2020 17:26:49 America/New_York] Type 2 Error: Only arrays and Traversables can be unpacked in C:\Users\Rob\source\repos\Basics\CodingTemplates\PHP\Hello.php at line 84.
+[22-Jan-2020 17:26:49 America/New_York] ArgumentCountError: Too few arguments to function PHP\User::__construct(), 0 passed in C:\Users\Rob\source\repos\Basics\CodingTemplates\PHP\Hello.php on line 84 and exactly 7 expected in C:\Users\Rob\source\repos\Basics\CodingTemplates\PHP\User.class.php:57
+Stack trace:
+#0 C:\Users\Rob\source\repos\Basics\CodingTemplates\PHP\Hello.php(84): PHP\User->__construct()
+#1 C:\Users\Rob\source\repos\Basics\CodingTemplates\PHP\Hello.php(35): helloUsers()
+#2 {main}

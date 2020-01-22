@@ -74,8 +74,7 @@ def create_user(first_name, last_name, email, score, comment):
     :param str email: The user's email address (used for user name).
     :param float score: The user's score from 0.0 to 100.0.
     :param str comment: Any additional comments.
-    :returns int: The rowid of the new user. A value other than 1
-        indicates an error
+    :returns int: The rowid of the new user. A value of 0 indicates an error
     '''
     try:
         # Set other initial values
@@ -110,7 +109,7 @@ def get_all_users():
     try:
         conn = connect()
         cursor = conn.cursor()
-        sql = 'SELECT * FROM User ORDER BY LastName ASC;'
+        sql = 'SELECT * FROM User ORDER BY UserID ASC;'
         cursor.execute(sql)
         result = cursor.fetchall()
         cursor.close()
@@ -259,7 +258,7 @@ def user_exists(email):
         If the count != 1, that means there are no users or more than one,
         which means something is wrong. This is a better method.
     :param str email: The email to check.
-    :returns bool: True if the users exists, false if not.
+    :returns bool: True if the users exists, False if not.
     '''
     try:
         conn = connect()
