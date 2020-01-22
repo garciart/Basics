@@ -1,14 +1,17 @@
 <?php
-
 /**
  * Code common to one or more files.
  *
  * PHP version used: 7.3.12
  *
- * Styling guide: PSR-12: Extended Coding Style (https://www.php-fig.org/psr/psr-12/)
+ * Styling guide: PSR-12: Extended Coding Style
+ *     (https://www.php-fig.org/psr/psr-12/)
  *
- * @author  Rob Garcia <rgarcia@rgprogramming.com>
- * @license https://opensource.org/licenses/MIT The MIT License
+ * @category Basics
+ * @package  PHP
+ * @author   Rob Garcia <rgarcia@rgprogramming.com>
+ * @license  https://opensource.org/licenses/MIT The MIT License
+ * @link     https://github.com/garciart/Basics
  */
 ?>
 
@@ -25,28 +28,34 @@ ini_set('error_log', ROOT_DIR . 'ErrorLog.txt');
  * IMPORTANT!
  *
  * FOR DEVELOPMENT ERROR REPORTING:
- * Uncomment ini_set('display_errors', 1) and comment out set_error_handler() and set_exception_handler()
+ * Uncomment ini_set('DISPLAY_ERRORS', 1) and comment out set_error_handler()
+ * and set_exception_handler()
  *
  * FOR PRODUCTION ERROR REPORTING:
- * Uncomment set_error_handler() and set_exception_handler() and comment out ini_set('display_errors', 1)
+ * Uncomment set_error_handler() and set_exception_handler() and comment out
+ * ini_set('DISPLAY_ERRORS', 1)
  */
 
 // Development error reporting
-// ini_set('display_errors', 1);
+// ini_set('DISPLAY_ERRORS', 1);
 
 /*
  * Production error reporting
- * Use '32767' instead of 'E_ALL' and make sure to set 'display_errors = On' in php.ini
+ * Use '32767' instead of 'E_ALL' and make sure to set 'DISPLAY_ERRORS = On'
+ * in php.ini
  */
 set_error_handler("errorHandler", 32767);
 set_exception_handler("exceptionHandler");
 
 /**
  * Error handler. Can be used to redirect users to error page
- * @param integer $errno Specifies the error report level
- * @param string $errstr Specifies the error message
- * @param string $errfile Specifies the filename that the error was raised in
- * @param integer $errline Specifies the the line number the error was raised at
+ * 
+ * @param integer $errno   The error report level
+ * @param string  $errstr  The error message
+ * @param string  $errfile The filename with the error
+ * @param integer $errline The line number of the error
+ * 
+ * @return void
  */
 function errorHandler($errno, $errstr, $errfile, $errline)
 {
@@ -58,12 +67,15 @@ function errorHandler($errno, $errstr, $errfile, $errline)
 
 /**
  * Exception handler. Can be used to redirect users to exception page
+ * 
  * @param string $exception Exception class object
+ * 
+ * @return void
  */
 function exceptionHandler($exception)
 {
-    echo "Type {$exception->getCode()} Exception: {$exception->getMessage()}
-     in {$exception->getFile()} at line {$exception->getLine()}.\n";
+    echo "Type {$exception->getCode()} Exception: {$exception->getMessage()} " .
+         "in {$exception->getFile()} at line {$exception->getLine()}.\n";
     error_log($exception);
     // Do not die. Redirect the user to an appropriate exception page.
 }

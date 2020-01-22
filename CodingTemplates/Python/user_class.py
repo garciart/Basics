@@ -17,19 +17,26 @@ __author__ = 'Rob Garcia'
 __email__ = 'rgarcia@rgprogramming.com'
 __license__ = 'MIT'
 
-
 class User:
-    # Class fields
+    '''
+    User class.
+
+    Attributes: Explained below.
+    Methods: Constructor, getters, and setters only.
+    '''
+
+    # Class attributes
     _user_id = ''
     _first_name = ''
     _last_name = ''
     _email = ''
     _score = 0.0
-    _create_date = ''
+    _creation_date = ''
     _comment = ''
 
+    # Class methods
     def __init__(self, user_id, first_name, last_name, email, score,
-                 create_date, comment):
+                 creation_date, comment):
         '''
         Updates a user's information in the database.
         :param object self: The instance of the class object.
@@ -38,7 +45,7 @@ class User:
         :param str last_name: The user's last name.
         :param str email: The user's email address (used for user name).
         :param float score: The user's score from 0.0 to 100.0.
-        :param str create_date: The date the user was added to the database.
+        :param str creation_date: The date the user was added to the database.
         :param str comment: Any additional comments.
         return int: The number of rows affected. A value other than 1
                     indicates an error.
@@ -48,27 +55,30 @@ class User:
         self._last_name = last_name
         self._email = email
         self._score = score
-        self._create_date = create_date
+        self._creation_date = creation_date
         self._comment = comment
 
     @property
     def user_id(self):
+        '''Gets/Sets user ID, verifying it is an integer.'''
         return self._user_id
 
     @user_id.setter
     def user_id(self, user_id):
-        self._user_id = user_id
+        self._user_id = int(user_id)
 
     @property
     def first_name(self):
+        '''Gets/Sets first name, verifying it is an alphanumeric string.'''
         return self._first_name
 
     @first_name.setter
-    def first_name(self, user_id):
+    def first_name(self, first_name):
         self._first_name = first_name
 
     @property
     def last_name(self):
+        '''Gets/Sets last name, verifying it is an alphanumeric string.'''
         return self._last_name
 
     @last_name.setter
@@ -77,6 +87,7 @@ class User:
 
     @property
     def email(self):
+        '''Gets/Sets email, verifying it is a valid email address.'''
         return self._email
 
     @email.setter
@@ -85,6 +96,7 @@ class User:
 
     @property
     def score(self):
+        '''Gets/Sets score, verifying it is between 0.0 and 100.0.'''
         return self._score
 
     @score.setter
@@ -92,15 +104,17 @@ class User:
         self._score = score
 
     @property
-    def create_date(self):
-        return self._create_date
+    def creation_date(self):
+        '''Gets/Sets creation date, verifying it is valid and formatted.'''
+        return self._creation_date
 
-    @create_date.setter
-    def create_date(self, create_date):
-        self._create_date = create_date
+    @creation_date.setter
+    def creation_date(self, creation_date):
+        self._creation_date = creation_date
 
     @property
     def comment(self):
+        '''Gets/Sets comments: no validation necessary.'''
         return self._comment
 
     @comment.setter

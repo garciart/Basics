@@ -2,7 +2,7 @@
 # -*- coding: utf-8 -*-
 
 '''
-User database module. Handles all interactions with the User database.
+Database module. Handles all calls to the User database.
 
 Python version used: 3.6.8
 
@@ -24,7 +24,6 @@ __license__ = 'MIT'
 
 '''
 Module methods:
-    :void: main()
     :void: create_user_table()
     :int: create_user(first_name, last_name, email, score, comment)
     :list: get_all_users()
@@ -35,36 +34,9 @@ Module methods:
     :int: get_next_user_id()
     :bool: user_exists(email)
     :conn: connect()
+
+Initialization code at bottom.
 '''
-
-
-def main():
-    '''
-    Creates and populates the database if it does not exists.
-    '''
-    try:
-        # Removed Pathlib (redundant) and needed to set PWD to correct
-        # directory using os
-        os.chdir(common.ROOT_DIR)
-
-        if not os.path.isdir('./db'):
-            os.makedirs('db')
-
-        if not os.path.exists('./db/user.db'):
-            create_user_table()
-            create_user(
-                'Rob', 'Garcia', 'rgarcia@rgprogramming.com',
-                80.0, 'Administrator.')
-            create_user(
-                'George', 'Washington', 'gwashington@rgprogramming.com',
-                90.0, 'Old user.')
-            create_user(
-                'Baby', 'Yoda', 'byoda@rgprogramming.com',
-                100.0, 'New user.')
-    except:
-        ex = common.error_log(sys.exc_info())
-        if common.display_errors:
-            print(ex)
 
 
 def create_user_table():
@@ -81,16 +53,16 @@ def create_user_table():
             LastName text NOT NULL,
             Email text UNIQUE NOT NULL,
             Score real NOT NULL DEFAULT '100.0',
-            CreateDate text NOT NULL,
+            CreationDate text NOT NULL,
             Comment text
         ); """
         cursor.execute(sql)
         conn.commit()
         cursor.close()
         conn.close()
-    except:
+    except Exception:
         ex = common.error_log(sys.exc_info())
-        if common.display_errors:
+        if common.DISPLAY_ERRORS:
             print(ex)
 
 
@@ -110,22 +82,22 @@ def create_user(first_name, last_name, email, score, comment):
         user_id = get_next_user_id()
         local_timezone = datetime.datetime.now(
             datetime.timezone.utc).astimezone().tzinfo
-        create_date = datetime.datetime.now(
+        creation_date = datetime.datetime.now(
             local_timezone).strftime("%Y-%m-%d %H:%M:%S")
         conn = connect()
         cursor = conn.cursor()
         sql = 'INSERT INTO User VALUES (?, ?, ?, ?, ?, ?, ?);'
         data = (str(user_id), first_name, last_name,
-                email, str(score), create_date, comment)
+                email, str(score), creation_date, comment)
         cursor.execute(sql, data)
         conn.commit()
         last_row_id = cursor.lastrowid
         cursor.close()
         conn.close()
         return last_row_id
-    except:
+    except Exception:
         ex = common.error_log(sys.exc_info())
-        if common.display_errors:
+        if common.DISPLAY_ERRORS:
             print(ex)
 
 
@@ -144,9 +116,9 @@ def get_all_users():
         cursor.close()
         conn.close()
         return result
-    except:
+    except Exception:
         ex = common.error_log(sys.exc_info())
-        if common.display_errors:
+        if common.DISPLAY_ERRORS:
             print(ex)
 
 
@@ -166,9 +138,9 @@ def get_user_by_user_id(user_id):
         cursor.close()
         conn.close()
         return result
-    except:
+    except Exception:
         ex = common.error_log(sys.exc_info())
-        if common.display_errors:
+        if common.DISPLAY_ERRORS:
             print(ex)
 
 
@@ -188,9 +160,9 @@ def get_user_by_email(email):
         cursor.close()
         conn.close()
         return result
-    except:
+    except Exception:
         ex = common.error_log(sys.exc_info())
-        if common.display_errors:
+        if common.DISPLAY_ERRORS:
             print(ex)
 
 
@@ -225,9 +197,9 @@ def update_user(user_id, first_name, last_name, email, score, comment):
         cursor.close()
         conn.close()
         return row_count
-    except:
+    except Exception:
         ex = common.error_log(sys.exc_info())
-        if common.display_errors:
+        if common.DISPLAY_ERRORS:
             print(ex)
 
 
@@ -248,9 +220,9 @@ def delete_user(user_id):
         cursor.close()
         conn.close()
         return row_count
-    except:
+    except Exception:
         ex = common.error_log(sys.exc_info())
-        if common.display_errors:
+        if common.DISPLAY_ERRORS:
             print(ex)
 
 
@@ -272,9 +244,9 @@ def get_next_user_id():
             None else row['LastUserID']
         # Add 1 to the last user ID
         return last_user_id + 1
-    except:
+    except Exception:
         ex = common.error_log(sys.exc_info())
-        if common.display_errors:
+        if common.DISPLAY_ERRORS:
             print(ex)
 
 
@@ -295,13 +267,13 @@ def user_exists(email):
         sql = 'SELECT COUNT(*) AS Count FROM User WHERE Email = ?;'
         cursor.execute(sql, email)
         result = cursor.fetchone()
-        exists = True if result['Count'] == 1 else False
+        exists = (result['Count'] == 1)
         cursor.close()
         conn.close()
         return exists
-    except:
+    except Exception:
         ex = common.error_log(sys.exc_info())
-        if common.display_errors:
+        if common.DISPLAY_ERRORS:
             print(ex)
 
 
@@ -317,11 +289,34 @@ def connect():
         # instead of their column indexes
         conn.row_factory = sqlite3.Row
         return conn
-    except:
+    except Exception:
         ex = common.error_log(sys.exc_info())
-        if common.display_errors:
+        if common.DISPLAY_ERRORS:
             print(ex)
 
 
-if __name__ == '__main__':
-    main()
+# Create and populate the database if it does not exists.
+try:
+    # Removed Pathlib (redundant) and needed to set PWD to correct
+    # directory using os
+    os.chdir(common.ROOT_DIR)
+
+    if not os.path.isdir('./db'):
+        os.makedirs('db')
+
+    if not os.path.exists('./db/user.db'):
+        create_user_table()
+        create_user(
+            'Rob', 'Garcia', 'rgarcia@rgprogramming.com',
+            80.0, 'Administrator.')
+        create_user(
+            'George', 'Washington', 'gwashington@rgprogramming.com',
+            90.0, 'Old user.')
+        create_user(
+            'Baby', 'Yoda', 'byoda@rgprogramming.com',
+            100.0, 'New user.')
+# Use MODULE_EX to prevent overwriting function internal exceptions (ex)
+except Exception:
+    MODULE_EX = common.error_log(sys.exc_info())
+    if common.DISPLAY_ERRORS:
+        print(MODULE_EX)

@@ -28,3 +28,15 @@ Stack trace:
 Stack trace:
 #0 C:\Users\Rob\source\repos\Basics\CodingTemplates\PHP\Hello.php(32): helloUsers()
 #1 {main}
+[21-Jan-2020 15:04:35 America/New_York] ParseError: syntax error, unexpected '}', expecting end of file in C:\Users\Rob\source\repos\Basics\CodingTemplates\PHP\DatabaseFunctions.php:311
+Stack trace:
+#0 {main}
+[21-Jan-2020 15:05:51 America/New_York] SQLSTATE[HY000]: General error: 1 no such table: User
+[21-Jan-2020 22:53:30 America/New_York] Exception: WTF? in C:\Users\Rob\source\repos\Basics\CodingTemplates\PHP\Hello.php:50
+Stack trace:
+#0 C:\Users\Rob\source\repos\Basics\CodingTemplates\PHP\Hello.php(35): helloUsers()
+#1 {main}
+[21-Jan-2020 23:41:05 America/New_York] Exception: WTF? in C:\Users\Rob\source\repos\Basics\CodingTemplates\PHP\Hello.php:50
+Stack trace:
+#0 C:\Users\Rob\source\repos\Basics\CodingTemplates\PHP\Hello.php(35): helloUsers()
+#1 {main}
