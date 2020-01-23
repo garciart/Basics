@@ -11,25 +11,17 @@ Styling guide: PEP 8 (https://www.python.org/dev/peps/pep-0008/)
 
 from __future__ import print_function
 
-import common
+import common as co
 
 __author__ = 'Rob Garcia'
 __email__ = 'rgarcia@rgprogramming.com'
 __license__ = 'MIT'
 
+
 class User:
     '''
     User class. Uses @property instead of getters and setters.
     '''
-
-    # Class attributes
-    _user_id = ''
-    _first_name = ''
-    _last_name = ''
-    _email = ''
-    _score = 0.0
-    _creation_date = ''
-    _comment = ''
 
     # Class methods
     def __init__(self, user_id, first_name, last_name, email, score,
@@ -47,73 +39,94 @@ class User:
         return int: The number of rows affected. A value other than 1
                     indicates an error.
         '''
-        self._user_id = user_id
-        self._first_name = first_name
-        self._last_name = last_name
-        self._email = email
-        self._score = score
-        self._creation_date = creation_date
-        self._comment = comment
+        self.user_id = user_id
+        self.first_name = first_name
+        self.last_name = last_name
+        self.email = email
+        self.score = score
+        self.creation_date = creation_date
+        self.comment = comment
 
     @property
     def user_id(self):
         '''Gets/Sets user ID, verifying it is an integer.'''
-        return self._user_id
+        return self.__user_id
 
     @user_id.setter
     def user_id(self, user_id):
-        self._user_id = int(user_id)
+        if not co.validateUserID(user_id):
+            raise ValueError('User ID cannot be empty, 0, NULL, or FALSE.')
+        self.__user_id = int(user_id)
 
     @property
     def first_name(self):
         '''Gets/Sets first name, verifying it is an alphanumeric string.'''
-        return self._first_name
+        return self.__first_name
 
     @first_name.setter
     def first_name(self, first_name):
-        self._first_name = first_name
+        first_name = first_name.strip()
+        if not co.validateText(first_name):
+            raise ValueError(
+                'First name cannot be empty or contain illegal characters.')
+        self.__first_name = first_name
 
     @property
     def last_name(self):
         '''Gets/Sets last name, verifying it is an alphanumeric string.'''
-        return self._last_name
+        return self.__last_name
 
     @last_name.setter
     def last_name(self, last_name):
-        self._last_name = last_name
+        last_name = last_name.strip()
+        if not co.validateText(last_name):
+            raise ValueError('Last name cannot be empty'
+                             'or contain illegal characters.')
+        self.__last_name = last_name
 
     @property
     def email(self):
         '''Gets/Sets email, verifying it is a valid email address.'''
-        return self._email
+        return self.__email
 
     @email.setter
     def email(self, email):
-        self._email = email
+        email = email.strip()
+        if not co.validateEmail(email):
+            raise ValueError('Email cannot be empty, incorrectly formatted,'
+                             'or contain illegal characters.')
+        self.__email = email
 
     @property
     def score(self):
         '''Gets/Sets score, verifying it is between 0.0 and 100.0.'''
-        return self._score
+        return self.__score
 
     @score.setter
     def score(self, score):
-        self._score = score
+        if not score or score < 0.0 or score > 100.0:
+            raise ValueError(
+                'Score cannot be empty and must be equal to or between 0.0 and 100.0'
+            )
+        self.__score = score
 
     @property
     def creation_date(self):
         '''Gets/Sets creation date, verifying it is valid and formatted.'''
-        return self._creation_date
+        return self.__creation_date
 
     @creation_date.setter
     def creation_date(self, creation_date):
-        self._creation_date = creation_date
+        if not co.validateDate(creation_date):
+            raise ValueError(
+                'Creation date cannot be empty or incorrectly formatted.')
+        self.__creation_date = creation_date
 
     @property
     def comment(self):
         '''Gets/Sets comments: no validation necessary.'''
-        return self._comment
+        return self.__comment
 
     @comment.setter
     def comment(self, comment):
-        self._comment = comment
+        self.__comment = comment

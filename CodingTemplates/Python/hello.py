@@ -13,7 +13,7 @@ from __future__ import print_function
 
 import sys
 
-import common
+import common as co
 import database_functions as db
 import user_class as uc
 
@@ -102,8 +102,8 @@ def hello_users():
         else:
             print("No records were found.")
     except Exception:
-        ex = common.error_log(sys.exc_info())
-        if common.DISPLAY_ERRORS:
+        ex = co.error_log(sys.exc_info())
+        if co.DISPLAY_ERRORS:
             print(ex)
         else:
             print('Unable to connect to the database and retrieve data. '

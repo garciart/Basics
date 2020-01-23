@@ -147,3 +147,27 @@ Stack trace:
 #0 C:\Users\Rob\source\repos\Basics\CodingTemplates\PHP\Hello.php(84): PHP\User->__construct()
 #1 C:\Users\Rob\source\repos\Basics\CodingTemplates\PHP\Hello.php(35): helloUsers()
 #2 {main}
+[23-Jan-2020 00:44:37 America/New_York] InvalidArgumentException: First name cannot be empty or contain illegal characters. in C:\Users\Rob\source\repos\Basics\CodingTemplates\PHP\User.class.php:119
+Stack trace:
+#0 C:\Users\Rob\source\repos\Basics\CodingTemplates\PHP\User.class.php(61): PHP\User->setFirstName(' ')
+#1 C:\Users\Rob\source\repos\Basics\CodingTemplates\PHP\Hello.php(101): PHP\User->__construct('4', ' ', 'The Mad Titan', 'thanos@rgprogra...', '100.0', '2020-01-23 00:4...', 'Unbalanced user...')
+#2 C:\Users\Rob\source\repos\Basics\CodingTemplates\PHP\Hello.php(35): helloUsers()
+#3 {main}
+[23-Jan-2020 00:44:53 America/New_York] InvalidArgumentException: First name cannot be empty or contain illegal characters. in C:\Users\Rob\source\repos\Basics\CodingTemplates\PHP\User.class.php:119
+Stack trace:
+#0 C:\Users\Rob\source\repos\Basics\CodingTemplates\PHP\User.class.php(61): PHP\User->setFirstName(' ')
+#1 C:\Users\Rob\source\repos\Basics\CodingTemplates\PHP\Hello.php(60): PHP\User->__construct('4', ' ', 'The Mad Titan', 'thanos@rgprogra...', '100.0', '2020-01-23 00:4...', 'Unbalanced user...')
+#2 C:\Users\Rob\source\repos\Basics\CodingTemplates\PHP\Hello.php(35): helloUsers()
+#3 {main}
+[23-Jan-2020 00:45:06 America/New_York] InvalidArgumentException: Score cannot be empty and must be equal to or between 0.0 and 100.0 in C:\Users\Rob\source\repos\Basics\CodingTemplates\PHP\User.class.php:203
+Stack trace:
+#0 C:\Users\Rob\source\repos\Basics\CodingTemplates\PHP\User.class.php(64): PHP\User->setScore('-100.0')
+#1 C:\Users\Rob\source\repos\Basics\CodingTemplates\PHP\Hello.php(101): PHP\User->__construct('4', 'Thanos', 'The Mad Titan', 'thanos@rgprogra...', '-100.0', '2020-01-23 00:4...', 'Unbalanced user...')
+#2 C:\Users\Rob\source\repos\Basics\CodingTemplates\PHP\Hello.php(35): helloUsers()
+#3 {main}
+[23-Jan-2020 00:45:26 America/New_York] InvalidArgumentException: Email cannot be empty, incorrectly formatted, or contain illegal characters. in C:\Users\Rob\source\repos\Basics\CodingTemplates\PHP\User.class.php:175
+Stack trace:
+#0 C:\Users\Rob\source\repos\Basics\CodingTemplates\PHP\User.class.php(63): PHP\User->setEmail('thanos.rgprogra...')
+#1 C:\Users\Rob\source\repos\Basics\CodingTemplates\PHP\Hello.php(101): PHP\User->__construct('4', 'Thanos', 'The Mad Titan', 'thanos.rgprogra...', '100.0', '2020-01-23 00:4...', 'Unbalanced user...')
+#2 C:\Users\Rob\source\repos\Basics\CodingTemplates\PHP\Hello.php(35): helloUsers()
+#3 {main}

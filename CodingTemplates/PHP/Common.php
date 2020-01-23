@@ -13,9 +13,7 @@
  * @license  https://opensource.org/licenses/MIT The MIT License
  * @link     https://github.com/garciart/Basics
  */
-?>
 
-<?php
 const ROOT_DIR = __DIR__ . DIRECTORY_SEPARATOR;
 chdir(ROOT_DIR);
 
@@ -106,7 +104,7 @@ function validateUserID($userID)
 function validateText($text)
 {
     if (empty(trim($text)) ||
-        (!preg_match("/^[A-Za-z0-9\s\-._~:\/?#\[\]@!$&'()*+,;=]*$/", trim($text)))
+        (!preg_match("/^[A-Za-z0-9\s\-._~:\/?#\[\]@!$&'()*+,;=]*$/", $text))
     ) {
         return false;
     } else {
@@ -123,7 +121,29 @@ function validateText($text)
  */
 function validateEmail($email)
 {
-    if (empty($email) || (!filter_var($email, FILTER_VALIDATE_EMAIL))) {
+    if (empty(trim($email)) || (!filter_var($email, FILTER_VALIDATE_EMAIL))) {
+        return false;
+    } else {
+        return true;
+    }
+}
+
+/**
+ * Validate date format.
+ *
+ * @param string $date The date that will be entered into the database.
+ *
+ * @return boolean True if the date format is valid, false if not.
+ */
+function validateDate($date)
+{
+    if (empty(trim($date)) ||
+        (!preg_match(
+            "/^([0-9]){4}-([0-9]){2}-([0-9]){2} ([0-9]){2}:([0-9]){2}:([0-9]){2}$/",
+            $date)
+        ) ||
+        strlen($date) != 19
+    ) {
         return false;
     } else {
         return true;

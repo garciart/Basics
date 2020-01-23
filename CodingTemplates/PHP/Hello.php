@@ -13,9 +13,6 @@
  * @license  https://opensource.org/licenses/MIT The MIT License
  * @link     https://github.com/garciart/Basics
  */
-?>
-
-<?php
 
 // Include this file to access common functions and variables
 require_once 'Common.php';
@@ -87,7 +84,7 @@ function helloUsers()
                 $thanos = new User(...$args);
             } else {
                 $userID = createUser(
-                    'Thanos', 'The Mad Titan', 'thanos@rgprogramming.com', 100,
+                    '    Thanos   ', 'The Mad Titan', 'thanos@rgprogramming.com', 100,
                     'Unbalanced user.');
                 if ($userID == 0) {
                     throw new Exception('Cannot create user!');
@@ -132,7 +129,6 @@ function helloUsers()
             } else {
                 echo "Thanos cannot be deleted; he is inevitable!";
             }
-
         } else {
             echo "No records were found.\n";
         }
