@@ -5,6 +5,7 @@
 Code common to one or more files.
 
 Python version used: 3.6.8
+SQLite version used: 3.21.0
 
 Styling guide: PEP 8 (https://www.python.org/dev/peps/pep-0008/)
 '''
@@ -37,7 +38,7 @@ def error_log(exc_info):
     Reformats error and exception details and records them in plain text in
     the error_log file.
     :param tuple exc_info: Exception details from sys module.
-    :returns string: Exception details in plain text.
+    :returns string: Reformated exception details in plain text.
     '''
     exc_type, exc_value, exc_traceback = exc_info
     local_timezone = datetime.datetime.now(
@@ -84,7 +85,7 @@ def validateEmail(email):
     :param string email: The email address that will be entered into the database.
     :return boolean: True if the email is valid, false if not.
     '''
-    if not (email.strip()) or re.search("^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$", email) is None:
+    if not (email.strip()) or re.search("^[A-Za-z0-9\-._~\/?#!$&'%*+=`{|}^]+@[A-Za-z0-9.-]+$", email) is None:
         return False
     else:
         return True

@@ -3,6 +3,7 @@
  * Hello World in PHP with database integration.
  *
  * PHP version used: 7.3.12
+ * SQLite version used: 3.28.0
  *
  * Styling guide: PSR-12: Extended Coding Style
  *     (https://www.php-fig.org/psr/psr-12/)

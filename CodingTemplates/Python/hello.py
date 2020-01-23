@@ -5,6 +5,7 @@
 Hello World in Python with database integration.
 
 Python version used: 3.6.8
+SQLite version used: 3.21.0
 
 Styling guide: PEP 8 (https://www.python.org/dev/peps/pep-0008/)
 '''

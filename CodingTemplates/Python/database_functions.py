@@ -5,6 +5,7 @@
 Database module. Handles all calls to the User database.
 
 Python version used: 3.6.8
+SQLite version used: 3.21.0
 
 Styling guide: PEP 8 (https://www.python.org/dev/peps/pep-0008/)
 '''
@@ -284,6 +285,7 @@ def connect():
     conn = None
     try:
         conn = sqlite3.connect('db/user.db')
+        print("SQLite Version is:", sqlite3.sqlite_version)
         # Use this to get objects by their column names
         # instead of their column indexes
         conn.row_factory = sqlite3.Row
