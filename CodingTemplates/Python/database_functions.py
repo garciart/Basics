@@ -16,7 +16,7 @@ import os
 import sqlite3
 import sys
 
-import common
+import common as co
 
 __author__ = 'Rob Garcia'
 __email__ = 'rgarcia@rgprogramming.com'
@@ -61,8 +61,8 @@ def create_user_table():
         cursor.close()
         conn.close()
     except Exception:
-        ex = common.error_log(sys.exc_info())
-        if common.DISPLAY_ERRORS:
+        ex = co.error_log(sys.exc_info())
+        if co.DISPLAY_ERRORS:
             print(ex)
 
 
@@ -95,8 +95,8 @@ def create_user(first_name, last_name, email, score, comment):
         conn.close()
         return last_row_id
     except Exception:
-        ex = common.error_log(sys.exc_info())
-        if common.DISPLAY_ERRORS:
+        ex = co.error_log(sys.exc_info())
+        if co.DISPLAY_ERRORS:
             print(ex)
 
 
@@ -116,8 +116,8 @@ def get_all_users():
         conn.close()
         return result
     except Exception:
-        ex = common.error_log(sys.exc_info())
-        if common.DISPLAY_ERRORS:
+        ex = co.error_log(sys.exc_info())
+        if co.DISPLAY_ERRORS:
             print(ex)
 
 
@@ -138,8 +138,8 @@ def get_user_by_user_id(user_id):
         conn.close()
         return result
     except Exception:
-        ex = common.error_log(sys.exc_info())
-        if common.DISPLAY_ERRORS:
+        ex = co.error_log(sys.exc_info())
+        if co.DISPLAY_ERRORS:
             print(ex)
 
 
@@ -160,8 +160,8 @@ def get_user_by_email(email):
         conn.close()
         return result
     except Exception:
-        ex = common.error_log(sys.exc_info())
-        if common.DISPLAY_ERRORS:
+        ex = co.error_log(sys.exc_info())
+        if co.DISPLAY_ERRORS:
             print(ex)
 
 
@@ -197,8 +197,8 @@ def update_user(user_id, first_name, last_name, email, score, comment):
         conn.close()
         return row_count
     except Exception:
-        ex = common.error_log(sys.exc_info())
-        if common.DISPLAY_ERRORS:
+        ex = co.error_log(sys.exc_info())
+        if co.DISPLAY_ERRORS:
             print(ex)
 
 
@@ -220,8 +220,8 @@ def delete_user(user_id):
         conn.close()
         return row_count
     except Exception:
-        ex = common.error_log(sys.exc_info())
-        if common.DISPLAY_ERRORS:
+        ex = co.error_log(sys.exc_info())
+        if co.DISPLAY_ERRORS:
             print(ex)
 
 
@@ -244,8 +244,8 @@ def get_next_user_id():
         # Add 1 to the last user ID
         return last_user_id + 1
     except Exception:
-        ex = common.error_log(sys.exc_info())
-        if common.DISPLAY_ERRORS:
+        ex = co.error_log(sys.exc_info())
+        if co.DISPLAY_ERRORS:
             print(ex)
 
 
@@ -271,8 +271,8 @@ def user_exists(email):
         conn.close()
         return exists
     except Exception:
-        ex = common.error_log(sys.exc_info())
-        if common.DISPLAY_ERRORS:
+        ex = co.error_log(sys.exc_info())
+        if co.DISPLAY_ERRORS:
             print(ex)
 
 
@@ -289,8 +289,8 @@ def connect():
         conn.row_factory = sqlite3.Row
         return conn
     except Exception:
-        ex = common.error_log(sys.exc_info())
-        if common.DISPLAY_ERRORS:
+        ex = co.error_log(sys.exc_info())
+        if co.DISPLAY_ERRORS:
             print(ex)
 
 
@@ -298,7 +298,7 @@ def connect():
 try:
     # Removed Pathlib (redundant) and needed to set PWD to correct
     # directory using os
-    os.chdir(common.ROOT_DIR)
+    os.chdir(co.ROOT_DIR)
 
     if not os.path.isdir('./db'):
         os.makedirs('db')
@@ -316,6 +316,6 @@ try:
             100.0, 'New user.')
 # Use MODULE_EX to prevent overwriting function internal exceptions (ex)
 except Exception:
-    MODULE_EX = common.error_log(sys.exc_info())
-    if common.DISPLAY_ERRORS:
+    MODULE_EX = co.error_log(sys.exc_info())
+    if co.DISPLAY_ERRORS:
         print(MODULE_EX)

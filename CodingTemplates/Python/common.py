@@ -14,6 +14,7 @@ from __future__ import print_function
 import datetime
 import logging
 import os
+import re
 
 __author__ = 'Rob Garcia'
 __email__ = 'rgarcia@rgprogramming.com'
@@ -52,17 +53,52 @@ def error_log(exc_info):
     logging.debug(exception)
     return exception
 
+
 def validateUserID(user_id):
     '''
+    Validate UserID.
+    :param int user_id: The UserID that will be entered in the database.
+    :return bool: True if the UserID is an integer greater than 0, false if not.
     '''
-    pass
+    if not user_id or user_id <= 0:
+        return False
+    else:
+        return True
+
 
 def validateText(text):
     '''
+    Validate text input.
+    :param string text: The text that will be entered into the database.
+    :return boolean: True if the text is valid, false if not.
     '''
-    pass
+    if not (text.strip()) or re.search("^[A-Za-z0-9\s\-._~:\/?#\[\]@!$&'()*+,;=]*$", text.strip()) is None:
+        return False
+    else:
+        return True
+
 
 def validateEmail(email):
     '''
+    Validate email address.
+    :param string email: The email address that will be entered into the database.
+    :return boolean: True if the email is valid, false if not.
     '''
-    pass
+    if not (email.strip()) or re.search("^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$", email) is None:
+        return False
+    else:
+        return True
+
+
+def validateDate(date):
+    '''
+    Validate date format.
+    :param string date: The date that will be entered into the database.
+    :return boolean: True if the date format is valid, false if not.
+    '''
+    r = re.compile('.{4}-.{2}-.{2} .{2}:.{2}:.{2}')
+    s = 'xxxx-xx-xx xx:xx:xx'
+    if not (date.strip()) or r.match(s) is None or len(s) != 19:
+        return False
+    else:
+        return True

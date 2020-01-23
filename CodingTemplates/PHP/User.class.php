@@ -6,7 +6,7 @@
  *
  * Styling guide: PSR-12: Extended Coding Style
  *     (https://www.php-fig.org/psr/psr-12/)
- * 
+ *
  * @category Basics
  * @package  PHP
  * @author   Rob Garcia <rgarcia@rgprogramming.com>
@@ -113,11 +113,12 @@ class User
      */
     public function setFirstName($firstName)
     {
+        $firstName = trim($firstName);
         if (validateText($firstName)) {
             $this->_firstName = $firstName;
         } else {
             throw new \InvalidArgumentException(
-                'First name cannot be empty, 0, NULL, or FALSE.'
+                'First name cannot be empty or contain illegal characters.'
             );
         }
     }
@@ -141,11 +142,12 @@ class User
      */
     public function setLastName($lastName)
     {
+        $firstName = trim($lastName);
         if (validateText($lastName)) {
             $this->_lastName = $lastName;
         } else {
             throw new \InvalidArgumentException(
-                'Last name cannot be empty, 0, NULL, or FALSE.'
+                'Last name cannot be empty or contain illegal characters.'
             );
         }
     }
@@ -169,11 +171,13 @@ class User
      */
     public function setEmail($email)
     {
+        $email = trim($email);
         if (validateEmail($email)) {
             $this->_email = $email;
         } else {
             throw new \InvalidArgumentException(
-                'Email cannot be empty, 0, NULL, or FALSE.'
+                'Email cannot be empty, incorrectly formatted, or contain ' .
+                'illegal characters.'
             );
         }
     }
@@ -197,13 +201,10 @@ class User
      */
     public function setScore($score)
     {
-        if ($score == "" || $score == null || $score == false || $score == array()) {
+        if (($score == "" || $score == null || $score == false || $score == array())
+            || ($score < 0.0 || $score > 100.0)) {
             throw new \InvalidArgumentException(
-                'Score cannot be empty, NULL, or FALSE.'
-            );
-        } else if ($score < 0.0 || $score > 100.0) {
-            throw new \OutOfRangeException(
-                'Score must be equal to or between 0.0 and 100.0'
+                'Score cannot be empty and must be equal to or between 0.0 and 100.0'
             );
         } else {
             $this->_score = $score;
@@ -229,12 +230,12 @@ class User
      */
     public function setCreationDate($creationDate)
     {
-        if (empty($creationDate)) {
-            throw new \InvalidArgumentException(
-                'Creation date cannot be empty, 0, NULL, or FALSE.'
-            );
-        } else {
+        if (validateDate($creationDate)) {
             $this->_creationDate = $creationDate;
+        } else {
+            throw new \InvalidArgumentException(
+                'Creation date cannot be empty or incorrectly formatted.'
+            );
         }
     }
 
