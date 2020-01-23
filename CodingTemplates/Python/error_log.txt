@@ -138,3 +138,4 @@ DEBUG:root:[2020-01-23 00:27:18 Eastern Standard Time] Type ValueError Exception
 DEBUG:root:[2020-01-23 00:27:50 Eastern Standard Time] Type TypeError Exception: object of type '_sre.SRE_Pattern' has no len() in c:\Users\Rob\source\repos\Basics\CodingTemplates\Python\hello.py at line 38.
 DEBUG:root:[2020-01-23 00:29:37 Eastern Standard Time] Type ValueError Exception: Score cannot be empty and must be equal to or between 0.0 and 100.0 in c:\Users\Rob\source\repos\Basics\CodingTemplates\Python\hello.py at line 38.
 DEBUG:root:[2020-01-23 00:46:02 Eastern Standard Time] Type ValueError Exception: Email cannot be empty, incorrectly formatted,or contain illegal characters. in c:\Users\Rob\source\repos\Basics\CodingTemplates\Python\hello.py at line 72.
+DEBUG:root:[2020-01-23 16:02:13 Eastern Standard Time] Type NameError Exception: name 'sqlite3' is not defined in c:\Users\Rob\source\repos\Basics\CodingTemplates\Python\hello.py at line 30.
