@@ -8,11 +8,12 @@
  * Styling guide: PSR-12: Extended Coding Style
  *     (https://www.php-fig.org/psr/psr-12/)
  *
- * @category Basics
- * @package  PHP
- * @author   Rob Garcia <rgarcia@rgprogramming.com>
- * @license  https://opensource.org/licenses/MIT The MIT License
- * @link     https://github.com/garciart/Basics
+ * @category  Basics
+ * @package   PHP
+ * @author    Rob Garcia <rgarcia@rgprogramming.com>
+ * @license   https://opensource.org/licenses/MIT The MIT License
+ * @link      https://github.com/garciart/Basics
+ * @copyright Copyright 2018-2019, Rob Garcia
  */
 
 const ROOT_DIR = __DIR__ . DIRECTORY_SEPARATOR;

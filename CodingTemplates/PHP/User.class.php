@@ -8,11 +8,12 @@
  * Styling guide: PSR-12: Extended Coding Style
  *     (https://www.php-fig.org/psr/psr-12/)
  *
- * @category Basics
- * @package  PHP
- * @author   Rob Garcia <rgarcia@rgprogramming.com>
- * @license  https://opensource.org/licenses/MIT The MIT License
- * @link     https://github.com/garciart/Basics
+ * @category  Basics
+ * @package   PHP
+ * @author    Rob Garcia <rgarcia@rgprogramming.com>
+ * @license   https://opensource.org/licenses/MIT The MIT License
+ * @link      https://github.com/garciart/Basics
+ * @copyright Copyright 2018-2019, Rob Garcia
  */
 
 namespace PHP;
@@ -23,11 +24,12 @@ require_once 'Common.php';
 /**
  * User class.
  *
- * @category Basics
- * @package  PHP
- * @author   Rob Garcia <rgarcia@rgprogramming.com>
- * @license  https://opensource.org/licenses/MIT The MIT License
- * @link     https://github.com/garciart/Basics
+ * @category  Basics
+ * @package   PHP
+ * @author    Rob Garcia <rgarcia@rgprogramming.com>
+ * @license   https://opensource.org/licenses/MIT The MIT License
+ * @link      https://github.com/garciart/Basics
+ * @copyright Copyright 2018-2019, Rob Garcia
  */
 class User
 {
@@ -41,31 +43,6 @@ class User
     private $_score;
     private $_creationDate;
     private $_comment;
-
-    /**
-     * Class constructor.
-     *
-     * @param integer $userID       The user's ID.
-     * @param string  $firstName    The user's first name.
-     * @param string  $lastName     The user's last name.
-     * @param string  $email        The user's email address (used for user name).
-     * @param float   $score        The user's score from 0.0 to 100.0.
-     * @param string  $creationDate The date the user was added to the database.
-     * @param string  $comment      Any additional comments.
-     *
-     * @return void
-     */
-    public function __construct($userID, $firstName, $lastName, $email, $score,
-        $creationDate, $comment
-    ) {
-        $this->setUserID($userID);
-        $this->setFirstName($firstName);
-        $this->setLastName($lastName);
-        $this->setEmail($email);
-        $this->setScore($score);
-        $this->setCreationDate($creationDate);
-        $this->_comment = $comment;
-    }
 
     /**
      * User ID getter.
@@ -262,4 +239,28 @@ class User
         $this->_comment = $comment;
     }
 
+    /**
+     * Class constructor.
+     *
+     * @param integer $userID       The user's ID.
+     * @param string  $firstName    The user's first name.
+     * @param string  $lastName     The user's last name.
+     * @param string  $email        The user's email address (used for user name).
+     * @param float   $score        The user's score from 0.0 to 100.0.
+     * @param string  $creationDate The date the user was added to the database.
+     * @param string  $comment      Any additional comments.
+     *
+     * @return void
+     */
+    public function __construct($userID, $firstName, $lastName, $email, $score,
+        $creationDate, $comment
+    ) {
+        $this->setUserID($userID);
+        $this->setFirstName($firstName);
+        $this->setLastName($lastName);
+        $this->setEmail($email);
+        $this->setScore($score);
+        $this->setCreationDate($creationDate);
+        $this->_comment = $comment;
+    }
 }

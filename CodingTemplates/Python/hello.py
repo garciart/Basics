@@ -18,9 +18,12 @@ import common as co
 import database_functions as db
 import user_class as uc
 
+# Module metadata dunders
 __author__ = 'Rob Garcia'
+__copyright__ = 'Copyright 2018-2019, Rob Garcia'
 __email__ = 'rgarcia@rgprogramming.com'
 __license__ = 'MIT'
+__package__ = 'Python'
 
 
 def hello_users():

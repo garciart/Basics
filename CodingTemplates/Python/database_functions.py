@@ -19,9 +19,12 @@ import sys
 
 import common as co
 
+# Module metadata dunders
 __author__ = 'Rob Garcia'
+__copyright__ = 'Copyright 2018-2019, Rob Garcia'
 __email__ = 'rgarcia@rgprogramming.com'
 __license__ = 'MIT'
+__package__ = 'Python'
 
 '''
 Module methods:
@@ -91,7 +94,7 @@ def create_user(first_name, last_name, email, score, comment):
                 email, str(score), creation_date, comment)
         cursor.execute(sql, data)
         conn.commit()
-        last_row_id = cursor.lastrowid
+        last_row_id = cursor.lastRowID
         cursor.close()
         conn.close()
         return last_row_id
@@ -285,7 +288,6 @@ def connect():
     conn = None
     try:
         conn = sqlite3.connect('db/user.db')
-        print("SQLite Version is:", sqlite3.sqlite_version)
         # Use this to get objects by their column names
         # instead of their column indexes
         conn.row_factory = sqlite3.Row
@@ -296,6 +298,7 @@ def connect():
             print(ex)
 
 
+# Initialization code.
 # Create and populate the database if it does not exists.
 try:
     # Removed Pathlib (redundant) and needed to set PWD to correct

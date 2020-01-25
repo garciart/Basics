@@ -17,9 +17,12 @@ import logging
 import os
 import re
 
+# Module metadata dunders
 __author__ = 'Rob Garcia'
+__copyright__ = 'Copyright 2018-2019, Rob Garcia'
 __email__ = 'rgarcia@rgprogramming.com'
 __license__ = 'MIT'
+__package__ = 'Python'
 
 # Removed Pathlib (redundant) and needed to set PWD to correct
 # directory using os

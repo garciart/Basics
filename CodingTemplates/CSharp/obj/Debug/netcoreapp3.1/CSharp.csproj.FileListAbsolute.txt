@@ -1,6 +1,3 @@
-C:\Users\Rob\source\repos\Basics\CodingTemplates\CSharp\obj\Debug\netcoreapp3.1\CSharp.csprojAssemblyReference.cache
-C:\Users\Rob\source\repos\Basics\CodingTemplates\CSharp\obj\Debug\netcoreapp3.1\CSharp.AssemblyInfoInputs.cache
-C:\Users\Rob\source\repos\Basics\CodingTemplates\CSharp\obj\Debug\netcoreapp3.1\CSharp.AssemblyInfo.cs
 C:\Users\Rob\source\repos\Basics\CodingTemplates\CSharp\bin\Debug\netcoreapp3.1\CSharp.exe
 C:\Users\Rob\source\repos\Basics\CodingTemplates\CSharp\bin\Debug\netcoreapp3.1\CSharp.deps.json
 C:\Users\Rob\source\repos\Basics\CodingTemplates\CSharp\bin\Debug\netcoreapp3.1\CSharp.runtimeconfig.json
@@ -12,6 +9,9 @@ C:\Users\Rob\source\repos\Basics\CodingTemplates\CSharp\bin\Debug\netcoreapp3.1\
 C:\Users\Rob\source\repos\Basics\CodingTemplates\CSharp\bin\Debug\netcoreapp3.1\runtimes\osx-x64\native\netstandard2.0\SQLite.Interop.dll
 C:\Users\Rob\source\repos\Basics\CodingTemplates\CSharp\bin\Debug\netcoreapp3.1\runtimes\win-x64\native\netstandard2.0\SQLite.Interop.dll
 C:\Users\Rob\source\repos\Basics\CodingTemplates\CSharp\bin\Debug\netcoreapp3.1\runtimes\win-x86\native\netstandard2.0\SQLite.Interop.dll
+C:\Users\Rob\source\repos\Basics\CodingTemplates\CSharp\obj\Debug\netcoreapp3.1\CSharp.csprojAssemblyReference.cache
+C:\Users\Rob\source\repos\Basics\CodingTemplates\CSharp\obj\Debug\netcoreapp3.1\CSharp.AssemblyInfoInputs.cache
+C:\Users\Rob\source\repos\Basics\CodingTemplates\CSharp\obj\Debug\netcoreapp3.1\CSharp.AssemblyInfo.cs
 C:\Users\Rob\source\repos\Basics\CodingTemplates\CSharp\obj\Debug\netcoreapp3.1\CSharp.csproj.CopyComplete
 C:\Users\Rob\source\repos\Basics\CodingTemplates\CSharp\obj\Debug\netcoreapp3.1\CSharp.dll
 C:\Users\Rob\source\repos\Basics\CodingTemplates\CSharp\obj\Debug\netcoreapp3.1\CSharp.pdb

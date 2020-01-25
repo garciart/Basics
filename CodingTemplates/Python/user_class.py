@@ -14,39 +14,18 @@ from __future__ import print_function
 
 import common as co
 
+# Module metadata dunders
 __author__ = 'Rob Garcia'
+__copyright__ = 'Copyright 2018-2019, Rob Garcia'
 __email__ = 'rgarcia@rgprogramming.com'
 __license__ = 'MIT'
+__package__ = 'Python'
 
 
 class User:
     '''
     User class. Uses @property instead of getters and setters.
     '''
-
-    # Class methods
-    def __init__(self, user_id, first_name, last_name, email, score,
-                 creation_date, comment):
-        '''
-        Updates a user's information in the database.
-        :param object self: The instance of the class object.
-        :param int user_id: The user's ID.
-        :param str first_name: The user's first name.
-        :param str last_name: The user's last name.
-        :param str email: The user's email address (used for user name).
-        :param float score: The user's score from 0.0 to 100.0.
-        :param str creation_date: The date the user was added to the database.
-        :param str comment: Any additional comments.
-        return int: The number of rows affected. A value other than 1
-                    indicates an error.
-        '''
-        self.user_id = user_id
-        self.first_name = first_name
-        self.last_name = last_name
-        self.email = email
-        self.score = score
-        self.creation_date = creation_date
-        self.comment = comment
 
     @property
     def user_id(self):
@@ -131,3 +110,26 @@ class User:
     @comment.setter
     def comment(self, comment):
         self.__comment = comment
+
+    def __init__(self, user_id, first_name, last_name, email, score,
+                 creation_date, comment):
+        '''
+        Updates a user's information in the database.
+        :param object self: The instance of the class object.
+        :param int user_id: The user's ID.
+        :param str first_name: The user's first name.
+        :param str last_name: The user's last name.
+        :param str email: The user's email address (used for user name).
+        :param float score: The user's score from 0.0 to 100.0.
+        :param str creation_date: The date the user was added to the database.
+        :param str comment: Any additional comments.
+        return int: The number of rows affected. A value other than 1
+                    indicates an error.
+        '''
+        self.user_id = user_id
+        self.first_name = first_name
+        self.last_name = last_name
+        self.email = email
+        self.score = score
+        self.creation_date = creation_date
+        self.comment = comment

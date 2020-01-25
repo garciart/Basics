@@ -8,11 +8,12 @@
  * Styling guide: PSR-12: Extended Coding Style
  *     (https://www.php-fig.org/psr/psr-12/)
  *
- * @category Basics
- * @package  PHP
- * @author   Rob Garcia <rgarcia@rgprogramming.com>
- * @license  https://opensource.org/licenses/MIT The MIT License
- * @link     https://github.com/garciart/Basics
+ * @category  Basics
+ * @package   PHP
+ * @author    Rob Garcia <rgarcia@rgprogramming.com>
+ * @license   https://opensource.org/licenses/MIT The MIT License
+ * @link      https://github.com/garciart/Basics
+ * @copyright Copyright 2018-2019, Rob Garcia
  */
 
 // Include this file to access common functions and variables
@@ -57,17 +58,17 @@ function createUserTable()
         $conn->exec($sql);
         // Set initial values
         createUser(
-            'Rob', 'Garcia', 'rgarcia@rgprogramming.com', 100,
+            'Rob', 'Garcia', 'rgarcia@rgprogramming.com', 80.0,
             'Administrator.'
         );
         createUser(
-            'Ben', 'Franklin', 'bfranklin@rgprogramming.com', 100,
+            'Ben', 'Franklin', 'bfranklin@rgprogramming.com', 90.0,
             'Old user.'
         );
-        $lastRowId = createUser(
-            'Baby', 'Yoda', 'byoda@rgprogramming.com', 100, 'New user.'
+        $lastRowID = createUser(
+            'Baby', 'Yoda', 'byoda@rgprogramming.com', 100.0, 'New user.'
         );
-        return $lastRowId;
+        return $lastRowID;
     } catch (\PDOException $ex) {
         error_log($ex->getMessage());
     } finally {
@@ -106,8 +107,8 @@ function createUser($firstName, $lastName, $email, $score, $comment)
         $stmt->bindValue(':Comment', $comment);
         $stmt->execute();
         // The last insert ID should be greater than 0
-        $lastRowId = $conn->lastInsertId();
-        return $lastRowId;
+        $lastRowID = $conn->lastInsertId();
+        return $lastRowID;
     } catch (\PDOException $ex) {
         error_log($ex->getMessage());
     } finally {
@@ -346,6 +347,8 @@ function connect()
     return $pdo;
 }
 
+// Initialization code.
+chdir(ROOT_DIR);
 if (!file_exists(PATH_TO_SQLITE_DB)) {
     // Create and populate the database if it does not exists.
     echo "Creating user database...\n";
