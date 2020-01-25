@@ -19,6 +19,9 @@
  */
 
 using System;
+using System.Collections;
+using System.Collections.Generic;
+using System.Data;
 using System.Data.SQLite;
 
 namespace CSharp
@@ -32,15 +35,25 @@ namespace CSharp
         {
             try
             {
-                Console.WriteLine(db.PathToSQLiteDB);
-                Console.WriteLine("Next available user ID: {0}", db.GetNextUserID());
+                // DatabaseFunctions db = new DatabaseFunctions();
+                // Console.WriteLine("Next available user ID: {0}", db.GetNextUserID());
 
                 SQLiteDataReader result = db.GetAllUsers();
-                 if (result.HasRows)
+
+                if (result.HasRows)
                 {
-                    foreach (SQLiteDataReader row in result)
+                    List<User> listOfUsers = new List<User>();
+
+                    foreach (IDataRecord row in result)
                     {
-                        Console.WriteLine(row[0]);
+                        listOfUsers.Add(new User(int.Parse(row["UserID"].ToString()), row["FirstName"].ToString(), row["LastName"].ToString(), row["Email"].ToString(), float.Parse(row["Score"].ToString()), row["CreationDate"].ToString(), row["Comment"].ToString()));
+                    }
+
+                    Console.WriteLine(string.Format("Number of users in the database: {0}", listOfUsers.Count));
+                    Console.WriteLine(string.Format("The first user is {0}.", listOfUsers[0].FirstName));
+                    foreach (User user in listOfUsers)
+                    {
+                        Console.WriteLine("Hello, {0} {1}! You are #{2}, created on {3}, and you are a(n) {4}\n", user.FirstName, user.LastName, listOfUsers.IndexOf(user) + 1, user.CreationDate, user.Comment);
                     }
                 }
                 else
@@ -51,14 +64,8 @@ namespace CSharp
             catch (Exception ex)
             {
                 string exception = c.ErrorLog(ex);
-                if (Common.DisplayErrors)
-                {
-                    Console.WriteLine(exception);
-                }
-                else
-                {
-                    Console.WriteLine("Unable to connect to the database and retrieve data. Check the error log for details.");
-                }
+                if (Common.DisplayErrors) Console.WriteLine(exception);
+                else Console.WriteLine("Unable to connect to the database and retrieve data. Check the error log for details.");
             }
         }
 

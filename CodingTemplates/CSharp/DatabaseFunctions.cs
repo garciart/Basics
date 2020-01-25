@@ -38,13 +38,14 @@ namespace CSharp
      */
 
     using System;
+    using System.Data;
     using System.IO;
 
     public class DatabaseFunctions
     {
         private static readonly Common c = new Common();
         // Use readonly instead of const for PathToSQLiteDB, since it must be generated dynamically in C#
-        public readonly string PathToSQLiteDB = string.Format("{0}db{1}users.db", c.RootDir, Path.DirectorySeparatorChar);
+        private readonly string PathToSQLiteDB = string.Format("{0}db{1}users.db", c.RootDir, Path.DirectorySeparatorChar);
 
         public long CreateUserTable()
         {
@@ -73,25 +74,22 @@ namespace CSharp
                 cmd.ExecuteNonQuery();
                 // Set initial values
                 CreateUser(
-                    "Rob", "Garcia", "rgarcia@rgprogramming.com", 80.0,
+                    "Rob", "Garcia", "rgarcia@rgprogramming.com", 80.0f,
                     "Administrator."
                 );
                 CreateUser(
-                    "Thomas", "Jefferson", "tjefferson@rgprogramming.com", 90.0,
+                    "Thomas", "Jefferson", "tjefferson@rgprogramming.com", 90.0f,
                     "Old user."
                 );
                 lastRowID = CreateUser(
-                    "Baby", "Yoda", "byoda@rgprogramming.com", 100.0, "New user."
+                    "Baby", "Yoda", "byoda@rgprogramming.com", 100.0f, "New user."
                 );
 
             }
             catch (Exception ex)
             {
                 string exception = c.ErrorLog(ex);
-                if (Common.DisplayErrors)
-                {
-                    Console.WriteLine(exception);
-                }
+                if (Common.DisplayErrors) Console.WriteLine(exception);
             }
             finally
             {
@@ -101,7 +99,7 @@ namespace CSharp
             return lastRowID;
         }
 
-        public long CreateUser(string firstName, string lastName, string email, double score, string comment)
+        public long CreateUser(string firstName, string lastName, string email, float score, string comment)
         {
             long lastRowID = 0;
             SQLiteConnection conn = null;
@@ -136,10 +134,7 @@ namespace CSharp
             catch (Exception ex)
             {
                 string exception = c.ErrorLog(ex);
-                if (Common.DisplayErrors)
-                {
-                    Console.WriteLine(exception);
-                }
+                if (Common.DisplayErrors) Console.WriteLine(exception);
             }
             finally
             {
@@ -163,24 +158,15 @@ namespace CSharp
                     FROM User
                     ORDER BY UserID ASC;";
                 cmd = new SQLiteCommand(sql, conn);
-                result = cmd.ExecuteReader();
-                while (result.Read())
-                {
-                    Console.WriteLine(string.Format("{0} {1}", result["FirstName"], result["LastName"]));
-                }
+                // Use this to allow result to persist after connection is closed
+                result = cmd.ExecuteReader(CommandBehavior.CloseConnection);
             }
             catch (Exception ex)
             {
-                string exception = c.ErrorLog(ex);
-                if (Common.DisplayErrors)
-                {
-                    Console.WriteLine(exception);
-                }
-            }
-            finally
-            {
                 cmd.Dispose();
                 conn.Close();
+                string exception = c.ErrorLog(ex);
+                if (Common.DisplayErrors) Console.WriteLine(exception);
             }
             return result;
         }
@@ -202,10 +188,7 @@ namespace CSharp
             catch (Exception ex)
             {
                 string exception = c.ErrorLog(ex);
-                if (Common.DisplayErrors)
-                {
-                    Console.WriteLine(exception);
-                }
+                if (Common.DisplayErrors) Console.WriteLine(exception);
             }
             finally
             {
@@ -223,15 +206,12 @@ namespace CSharp
             Directory.SetCurrentDirectory(c.RootDir);
             string dbFolder = string.Format("{0}db", c.RootDir);
             string dbFile = string.Format("{0}{1}users.db", dbFolder, Path.DirectorySeparatorChar);
-            if (Directory.Exists(dbFolder) == false)
+            if (!Directory.Exists(dbFolder) || !File.Exists(dbFile))
             {
+                Console.WriteLine("Creating user database...");
                 // Creates the db directory if it does not exist
                 Directory.CreateDirectory(dbFolder);
-            }
-            if (File.Exists(dbFile) == false)
-            {
                 // Creates the db file if it does not exist
-                Console.WriteLine("Creating user database...");
                 CreateUserTable();
                 Console.WriteLine("Database created...");
             }
