@@ -30,7 +30,7 @@ namespace CSharp
         private string _firstName;
         private string _lastName;
         private string _email;
-        private double _score;
+        private float _score;
         private string _creationDate;
 
         public int UserID
@@ -38,14 +38,8 @@ namespace CSharp
             get { return this._userID; }
             set
             {
-                if (c.ValidateUserID(value))
-                {
-                    this._userID = value;
-                }
-                else
-                {
-                    throw new ArgumentException("User ID cannot be empty, 0, NULL, or FALSE.");
-                }
+                if (c.ValidateUserID(value)) this._userID = value;
+                else throw new ArgumentException("User ID cannot be empty, 0, NULL, or FALSE.");
             }
         }
         public string FirstName
@@ -54,14 +48,8 @@ namespace CSharp
             set
             {
                 value.Trim();
-                if (c.ValidateText(value))
-                {
-                    this._firstName = value;
-                }
-                else
-                {
-                    throw new ArgumentException("First name cannot be empty or contain illegal characters.");
-                }
+                if (c.ValidateText(value)) this._firstName = value;
+                else throw new ArgumentException("First name cannot be empty or contain illegal characters.");
             }
         }
         public string LastName
@@ -70,14 +58,8 @@ namespace CSharp
             set
             {
                 value.Trim();
-                if (c.ValidateText(value))
-                {
-                    this._lastName = value;
-                }
-                else
-                {
-                    throw new ArgumentException("Last name cannot be empty or contain illegal characters.");
-                }
+                if (c.ValidateText(value)) this._lastName = value;
+                else throw new ArgumentException("Last name cannot be empty or contain illegal characters.");
             }
         }
         public string Email
@@ -86,29 +68,17 @@ namespace CSharp
             set
             {
                 value.Trim();
-                if (c.ValidateEmail(value))
-                {
-                    this._email = value;
-                }
-                else
-                {
-                    throw new ArgumentException("Email cannot be empty, incorrectly formatted, or contain illegal characters.");
-                }
+                if (c.ValidateEmail(value)) this._email = value;
+                else throw new ArgumentException("Email cannot be empty, incorrectly formatted, or contain illegal characters.");
             }
         }
-        public double Score
+        public float Score
         {
             get { return this._score; }
             set
             {
-                if (value < 0.0 || value > 100.0)
-                {
-                    this._score = value;
-                }
-                else
-                {
-                    throw new ArgumentException("Score cannot be empty and must be equal to or between 0.0 and 100.0");
-                }
+                if (value >= 0.0 || value <= 100.0) this._score = value;
+                else throw new ArgumentException("Score cannot be empty and must be equal to or between 0.0 and 100.0");
             }
         }
         public string CreationDate
@@ -117,20 +87,14 @@ namespace CSharp
             set
             {
                 value.Trim();
-                if (c.ValidateDate(value))
-                {
-                    this._creationDate = value;
-                }
-                else
-                {
-                    throw new ArgumentException("Creation date cannot be empty or incorrectly formatted.");
-                }
+                if (c.ValidateDate(value)) this._creationDate = value;
+                else throw new ArgumentException("Creation date cannot be empty or incorrectly formatted.");
             }
         }
 
         public string Comment { get; set; }
 
-        public User(int userID, string firstName, string lastName, string email, double score, string creationDate, string comment)
+        public User(int userID, string firstName, string lastName, string email, float score, string creationDate, string comment)
         {
             UserID = userID;
             FirstName = firstName;

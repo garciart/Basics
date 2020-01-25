@@ -99,3 +99,90 @@
    at System.Data.SQLite.SQLiteDataReader.CheckClosed()
    at System.Data.SQLite.SQLiteDataReader.get_HasRows()
    at CSharp.Program.HelloUsers() in C:\Users\Rob\source\repos\Basics\CodingTemplates\CSharp\Program.cs:line 39
+[2020-01-25 00:07:12 -05:00] System.InvalidOperationException: Connection was closed, statement was terminated
+   at System.Data.SQLite.SQLiteDataReader.CheckClosed()
+   at System.Data.SQLite.SQLiteDataReader.get_HasRows()
+   at CSharp.Program.HelloUsers() in C:\Users\Rob\source\repos\Basics\CodingTemplates\CSharp\Program.cs:line 39
+[2020-01-25 00:17:49 -05:00] System.ObjectDisposedException: Cannot access a disposed object.
+Object name: 'SQLiteConnection'.
+   at System.Data.SQLite.SQLiteConnection.CheckDisposed()
+   at System.Data.SQLite.SQLiteConnection.get_State()
+   at System.Data.SQLite.SQLiteDataReader.CheckClosed()
+   at System.Data.SQLite.SQLiteDataReader.get_HasRows()
+   at CSharp.Program.HelloUsers() in C:\Users\Rob\source\repos\Basics\CodingTemplates\CSharp\Program.cs:line 39
+[2020-01-25 00:20:18 -05:00] System.InvalidOperationException: Connection was closed, statement was terminated
+   at System.Data.SQLite.SQLiteDataReader.CheckClosed()
+   at System.Data.SQLite.SQLiteDataReader.get_HasRows()
+   at CSharp.Program.HelloUsers() in C:\Users\Rob\source\repos\Basics\CodingTemplates\CSharp\Program.cs:line 39
+[2020-01-25 00:22:47 -05:00] System.InvalidOperationException: Connection was closed, statement was terminated
+   at System.Data.SQLite.SQLiteDataReader.CheckClosed()
+   at System.Data.SQLite.SQLiteDataReader.get_HasRows()
+   at CSharp.Program.HelloUsers() in C:\Users\Rob\source\repos\Basics\CodingTemplates\CSharp\Program.cs:line 39
+[2020-01-25 00:23:35 -05:00] System.InvalidOperationException: Connection was closed, statement was terminated
+   at System.Data.SQLite.SQLiteDataReader.CheckClosed()
+   at System.Data.SQLite.SQLiteDataReader.get_HasRows()
+   at CSharp.Program.HelloUsers() in C:\Users\Rob\source\repos\Basics\CodingTemplates\CSharp\Program.cs:line 39
+[2020-01-25 00:30:16 -05:00] System.InvalidOperationException: Connection was closed, statement was terminated
+   at System.Data.SQLite.SQLiteDataReader.CheckClosed()
+   at System.Data.SQLite.SQLiteDataReader.get_HasRows()
+   at CSharp.Program.HelloUsers() in C:\Users\Rob\source\repos\Basics\CodingTemplates\CSharp\Program.cs:line 38
+[2020-01-25 00:32:01 -05:00] System.InvalidOperationException: Connection was closed, statement was terminated
+   at System.Data.SQLite.SQLiteDataReader.CheckClosed()
+   at System.Data.SQLite.SQLiteDataReader.get_HasRows()
+   at CSharp.Program.HelloUsers() in C:\Users\Rob\source\repos\Basics\CodingTemplates\CSharp\Program.cs:line 39
+[2020-01-25 00:33:20 -05:00] System.InvalidOperationException: Connection was closed, statement was terminated
+   at System.Data.SQLite.SQLiteDataReader.CheckClosed()
+   at System.Data.SQLite.SQLiteDataReader.get_HasRows()
+   at CSharp.Program.HelloUsers() in C:\Users\Rob\source\repos\Basics\CodingTemplates\CSharp\Program.cs:line 39
+[2020-01-25 00:37:34 -05:00] System.InvalidCastException: Unable to cast object of type 'System.Data.Common.DataRecordInternal' to type 'System.Data.SQLite.SQLiteDataReader'.
+   at CSharp.Program.HelloUsers() in C:\Users\Rob\source\repos\Basics\CodingTemplates\CSharp\Program.cs:line 41
+[2020-01-25 00:39:50 -05:00] System.InvalidCastException: Unable to cast object of type 'System.Data.Common.DataRecordInternal' to type 'System.Data.SQLite.SQLiteDataReader'.
+   at CSharp.Program.HelloUsers() in C:\Users\Rob\source\repos\Basics\CodingTemplates\CSharp\Program.cs:line 41
+[2020-01-25 01:01:03 -05:00] System.ArgumentException: Score cannot be empty and must be equal to or between 0.0 and 100.0
+   at CSharp.User.set_Score(Double value) in C:\Users\Rob\source\repos\Basics\CodingTemplates\CSharp\User.cs:line 82
+   at CSharp.User..ctor(Int32 userID, String firstName, String lastName, String email, Double score, String creationDate, String comment) in C:\Users\Rob\source\repos\Basics\CodingTemplates\CSharp\User.cs:line 103
+   at CSharp.Program.HelloUsers() in C:\Users\Rob\source\repos\Basics\CodingTemplates\CSharp\Program.cs:line 49
+[2020-01-25 01:02:48 -05:00] System.ArgumentException: Score cannot be empty and must be equal to or between 0.0 and 100.0
+   at CSharp.User.set_Score(Double value) in C:\Users\Rob\source\repos\Basics\CodingTemplates\CSharp\User.cs:line 82
+   at CSharp.User..ctor(Int32 userID, String firstName, String lastName, String email, Double score, String creationDate, String comment) in C:\Users\Rob\source\repos\Basics\CodingTemplates\CSharp\User.cs:line 103
+   at CSharp.Program.HelloUsers() in C:\Users\Rob\source\repos\Basics\CodingTemplates\CSharp\Program.cs:line 49
+[2020-01-25 01:03:33 -05:00] System.ArgumentException: Score cannot be empty and must be equal to or between 0.0 and 100.0
+   at CSharp.User.set_Score(Double value) in C:\Users\Rob\source\repos\Basics\CodingTemplates\CSharp\User.cs:line 82
+   at CSharp.User..ctor(Int32 userID, String firstName, String lastName, String email, Double score, String creationDate, String comment) in C:\Users\Rob\source\repos\Basics\CodingTemplates\CSharp\User.cs:line 103
+   at CSharp.Program.HelloUsers() in C:\Users\Rob\source\repos\Basics\CodingTemplates\CSharp\Program.cs:line 50
+[2020-01-25 01:05:25 -05:00] System.ArgumentException: Score cannot be empty and must be equal to or between 0.0 and 100.0
+   at CSharp.User.set_Score(Double value) in C:\Users\Rob\source\repos\Basics\CodingTemplates\CSharp\User.cs:line 82
+   at CSharp.User..ctor(Int32 userID, String firstName, String lastName, String email, Double score, String creationDate, String comment) in C:\Users\Rob\source\repos\Basics\CodingTemplates\CSharp\User.cs:line 103
+   at CSharp.Program.HelloUsers() in C:\Users\Rob\source\repos\Basics\CodingTemplates\CSharp\Program.cs:line 50
+[2020-01-25 01:05:47 -05:00] System.ArgumentException: Score cannot be empty and must be equal to or between 0.0 and 100.0
+   at CSharp.User.set_Score(Double value) in C:\Users\Rob\source\repos\Basics\CodingTemplates\CSharp\User.cs:line 82
+   at CSharp.User..ctor(Int32 userID, String firstName, String lastName, String email, Double score, String creationDate, String comment) in C:\Users\Rob\source\repos\Basics\CodingTemplates\CSharp\User.cs:line 103
+   at CSharp.Program.HelloUsers() in C:\Users\Rob\source\repos\Basics\CodingTemplates\CSharp\Program.cs:line 50
+[2020-01-25 01:08:47 -05:00] System.InvalidCastException: Unable to cast object of type 'System.Double' to type 'System.Single'.
+   at CSharp.Program.HelloUsers() in C:\Users\Rob\source\repos\Basics\CodingTemplates\CSharp\Program.cs:line 49
+[2020-01-25 01:09:22 -05:00] System.InvalidCastException: Unable to cast object of type 'System.Double' to type 'System.Single'.
+   at CSharp.Program.HelloUsers() in C:\Users\Rob\source\repos\Basics\CodingTemplates\CSharp\Program.cs:line 50
+[2020-01-25 01:12:20 -05:00] System.ArgumentException: Score cannot be empty and must be equal to or between 0.0 and 100.0
+   at CSharp.User.set_Score(Single value) in C:\Users\Rob\source\repos\Basics\CodingTemplates\CSharp\User.cs:line 82
+   at CSharp.User..ctor(Int32 userID, String firstName, String lastName, String email, Single score, String creationDate, String comment) in C:\Users\Rob\source\repos\Basics\CodingTemplates\CSharp\User.cs:line 103
+   at CSharp.Program.HelloUsers() in C:\Users\Rob\source\repos\Basics\CodingTemplates\CSharp\Program.cs:line 50
+[2020-01-25 01:13:59 -05:00] System.ArgumentException: Score cannot be empty and must be equal to or between 0.0 and 100.0
+   at CSharp.User.set_Score(Single value) in C:\Users\Rob\source\repos\Basics\CodingTemplates\CSharp\User.cs:line 82
+   at CSharp.User..ctor(Int32 userID, String firstName, String lastName, String email, Single score, String creationDate, String comment) in C:\Users\Rob\source\repos\Basics\CodingTemplates\CSharp\User.cs:line 103
+   at CSharp.Program.HelloUsers() in C:\Users\Rob\source\repos\Basics\CodingTemplates\CSharp\Program.cs:line 50
+[2020-01-25 01:14:26 -05:00] System.ArgumentException: Score cannot be empty and must be equal to or between 0.0 and 100.0
+   at CSharp.User.set_Score(Single value) in C:\Users\Rob\source\repos\Basics\CodingTemplates\CSharp\User.cs:line 82
+   at CSharp.User..ctor(Int32 userID, String firstName, String lastName, String email, Single score, String creationDate, String comment) in C:\Users\Rob\source\repos\Basics\CodingTemplates\CSharp\User.cs:line 103
+   at CSharp.Program.HelloUsers() in C:\Users\Rob\source\repos\Basics\CodingTemplates\CSharp\Program.cs:line 50
+[2020-01-25 01:15:56 -05:00] System.ArgumentException: Score cannot be empty and must be equal to or between 0.0 and 100.0
+   at CSharp.User.set_Score(Single value) in C:\Users\Rob\source\repos\Basics\CodingTemplates\CSharp\User.cs:line 82
+   at CSharp.User..ctor(Int32 userID, String firstName, String lastName, String email, Single score, String creationDate, String comment) in C:\Users\Rob\source\repos\Basics\CodingTemplates\CSharp\User.cs:line 103
+   at CSharp.Program.HelloUsers() in C:\Users\Rob\source\repos\Basics\CodingTemplates\CSharp\Program.cs:line 50
+[2020-01-25 01:35:47 -05:00] System.FormatException: Input string was not in a correct format.
+   at System.Text.StringBuilder.FormatError()
+   at System.Text.StringBuilder.AppendFormatHelper(IFormatProvider provider, String format, ParamsArray args)
+   at System.IO.StreamWriter.WriteFormatHelper(String format, ParamsArray args, Boolean appendNewLine)
+   at System.IO.StreamWriter.WriteLine(String format, Object[] arg)
+   at System.IO.TextWriter.SyncTextWriter.WriteLine(String format, Object[] arg)
+   at System.Console.WriteLine(String format, Object[] arg)
+   at CSharp.Program.HelloUsers() in C:\Users\Rob\source\repos\Basics\CodingTemplates\CSharp\Program.cs:line 56
