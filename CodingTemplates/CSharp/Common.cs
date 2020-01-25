@@ -13,9 +13,9 @@
  * @category  Basics
  * @package   CSharp
  * @author    Rob Garcia <rgarcia@rgprogramming.com>
- * @copyright 2018-2019 Rob Garcia
  * @license   https://opensource.org/licenses/MIT The MIT License
  * @link      https://github.com/garciart/Basics
+ * @copyright 2018-2019 Rob Garcia
  */
 
 using System;

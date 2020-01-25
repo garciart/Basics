@@ -5,5 +5,5 @@ Must include the SQLite package using the following command:
 cd CSharp
 dotnet add package System.Data.SQLite.Core
 
-To run from terminal, run from repo directory (e.g., CodingTemplates, etc.):
-dotnet run --project CSharp
+To run from terminal, make sure you are in the project directory and run the following command:
+dotnet run

@@ -13,9 +13,9 @@
  * @category  Basics
  * @package   CSharp
  * @author    Rob Garcia <rgarcia@rgprogramming.com>
- * @copyright 2018-2019 Rob Garcia
  * @license   https://opensource.org/licenses/MIT The MIT License
  * @link      https://github.com/garciart/Basics
+ * @copyright 2018-2019 Rob Garcia
  */
 
 using System;
@@ -26,29 +26,27 @@ namespace CSharp
     class Program
     {
         private static readonly Common c = new Common();
+        private static DatabaseFunctions db = new DatabaseFunctions();
 
         static void HelloUsers()
         {
             try
             {
-                Console.WriteLine(DateTime.Now.ToString("yyyy-MM-dd HH:mm:ss K"));
+                Console.WriteLine(db.PathToSQLiteDB);
+                Console.WriteLine("Next available user ID: {0}", db.GetNextUserID());
 
-                Console.WriteLine("Version: {0}", Environment.Version.ToString());
-                string cs = "Data Source=:memory:";
-                string stm = "SELECT SQLITE_VERSION()";
-
-                using var con = new SQLiteConnection(cs);
-                con.Open();
-
-                using var cmd = new SQLiteCommand(stm, con);
-                string version = cmd.ExecuteScalar().ToString();
-
-                Console.WriteLine($"SQLite version: {version}");
-
-                Console.WriteLine(c.ValidateDate("2009-03-31 00:59:00"));
-                Console.WriteLine(c.ValidateUserID(1));
-                Console.WriteLine(c.ValidateText("Robert"));
-                Console.WriteLine(c.ValidateEmail("rgarcia@rgprogramming.com"));
+                SQLiteDataReader result = db.GetAllUsers();
+                 if (result.HasRows)
+                {
+                    foreach (SQLiteDataReader row in result)
+                    {
+                        Console.WriteLine(row[0]);
+                    }
+                }
+                else
+                {
+                    Console.WriteLine("No records were found.");
+                }
             }
             catch (Exception ex)
             {
