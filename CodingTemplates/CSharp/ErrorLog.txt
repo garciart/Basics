@@ -186,3 +186,287 @@ Object name: 'SQLiteConnection'.
    at System.IO.TextWriter.SyncTextWriter.WriteLine(String format, Object[] arg)
    at System.Console.WriteLine(String format, Object[] arg)
    at CSharp.Program.HelloUsers() in C:\Users\Rob\source\repos\Basics\CodingTemplates\CSharp\Program.cs:line 56
+[2020-01-25 11:53:55 -05:00] code = Unknown (-1), message = System.Data.SQLite.SQLiteException (0x80004005): unknown error
+Insufficient parameters supplied to the command
+   at System.Data.SQLite.SQLiteStatement.BindParameter(Int32 index, SQLiteParameter param)
+   at System.Data.SQLite.SQLiteStatement.BindParameters()
+   at System.Data.SQLite.SQLiteCommand.BuildNextCommand()
+   at System.Data.SQLite.SQLiteCommand.GetStatement(Int32 index)
+   at System.Data.SQLite.SQLiteDataReader.NextResult()
+   at System.Data.SQLite.SQLiteDataReader..ctor(SQLiteCommand cmd, CommandBehavior behave)
+   at System.Data.SQLite.SQLiteCommand.ExecuteReader(CommandBehavior behavior)
+   at System.Data.SQLite.SQLiteCommand.ExecuteScalar(CommandBehavior behavior)
+   at System.Data.SQLite.SQLiteCommand.ExecuteScalar()
+   at CSharp.DatabaseFunctions.UserExists(String email) in C:\Users\Rob\source\repos\Basics\CodingTemplates\CSharp\DatabaseFunctions.cs:line 395
+[2020-01-25 12:01:51 -05:00] code = Unknown (-1), message = System.Data.SQLite.SQLiteException (0x80004005): unknown error
+Insufficient parameters supplied to the command
+   at System.Data.SQLite.SQLiteStatement.BindParameter(Int32 index, SQLiteParameter param)
+   at System.Data.SQLite.SQLiteStatement.BindParameters()
+   at System.Data.SQLite.SQLiteCommand.BuildNextCommand()
+   at System.Data.SQLite.SQLiteCommand.GetStatement(Int32 index)
+   at System.Data.SQLite.SQLiteDataReader.NextResult()
+   at System.Data.SQLite.SQLiteDataReader..ctor(SQLiteCommand cmd, CommandBehavior behave)
+   at System.Data.SQLite.SQLiteCommand.ExecuteReader(CommandBehavior behavior)
+   at System.Data.SQLite.SQLiteCommand.ExecuteScalar(CommandBehavior behavior)
+   at System.Data.SQLite.SQLiteCommand.ExecuteScalar()
+   at CSharp.DatabaseFunctions.UserExists(String email) in C:\Users\Rob\source\repos\Basics\CodingTemplates\CSharp\DatabaseFunctions.cs:line 395
+[2020-01-25 12:03:12 -05:00] System.InvalidCastException: Unable to cast object of type 'System.Int64' to type 'System.Int32'.
+   at CSharp.DatabaseFunctions.UserExists(String email) in C:\Users\Rob\source\repos\Basics\CodingTemplates\CSharp\DatabaseFunctions.cs:line 406
+[2020-01-25 12:39:07 -05:00] System.InvalidOperationException: No current row
+   at System.Data.SQLite.SQLiteDataReader.CheckValidRow()
+   at System.Data.SQLite.SQLiteDataReader.VerifyForGet()
+   at System.Data.SQLite.SQLiteDataReader.IsDBNull(Int32 i)
+   at CSharp.Program.HelloUsers() in C:\Users\Rob\source\repos\Basics\CodingTemplates\CSharp\Program.cs:line 65
+[2020-01-25 12:39:47 -05:00] System.InvalidOperationException: No current row
+   at System.Data.SQLite.SQLiteDataReader.CheckValidRow()
+   at System.Data.SQLite.SQLiteDataReader.VerifyForGet()
+   at System.Data.SQLite.SQLiteDataReader.IsDBNull(Int32 i)
+   at CSharp.Program.HelloUsers() in C:\Users\Rob\source\repos\Basics\CodingTemplates\CSharp\Program.cs:line 65
+[2020-01-25 12:40:33 -05:00] System.IndexOutOfRangeException: Index was outside the bounds of the array.
+   at System.Data.SQLite.SQLiteDataReader.GetSQLiteType(SQLiteConnectionFlags flags, Int32 i)
+   at System.Data.SQLite.SQLiteDataReader.GetValue(Int32 i)
+   at System.Data.SQLite.SQLiteDataReader.get_Item(String name)
+   at CSharp.Program.HelloUsers() in C:\Users\Rob\source\repos\Basics\CodingTemplates\CSharp\Program.cs:line 67
+[2020-01-25 12:41:41 -05:00] System.Exception: Cannot retrieve user data!
+   at CSharp.Program.HelloUsers() in C:\Users\Rob\source\repos\Basics\CodingTemplates\CSharp\Program.cs:line 72
+[2020-01-25 12:48:50 -05:00] System.Exception: Cannot retrieve user data!
+   at CSharp.Program.HelloUsers() in C:\Users\Rob\source\repos\Basics\CodingTemplates\CSharp\Program.cs:line 72
+[2020-01-25 12:49:11 -05:00] System.IndexOutOfRangeException: Index was outside the bounds of the array.
+   at System.Data.SQLite.SQLiteDataReader.GetSQLiteType(SQLiteConnectionFlags flags, Int32 i)
+   at System.Data.SQLite.SQLiteDataReader.GetValue(Int32 i)
+   at System.Data.SQLite.SQLiteDataReader.get_Item(String name)
+   at CSharp.Program.HelloUsers() in C:\Users\Rob\source\repos\Basics\CodingTemplates\CSharp\Program.cs:line 67
+[2020-01-25 16:38:21 -05:00] System.FormatException: Index (zero based) must be greater than or equal to zero and less than the size of the argument list.
+   at System.Text.StringBuilder.AppendFormatHelper(IFormatProvider provider, String format, ParamsArray args)
+   at System.IO.StreamWriter.WriteFormatHelper(String format, ParamsArray args, Boolean appendNewLine)
+   at System.IO.StreamWriter.WriteLine(String format, Object[] arg)
+   at System.IO.TextWriter.SyncTextWriter.WriteLine(String format, Object[] arg)
+   at System.Console.WriteLine(String format, Object[] arg)
+   at CSharp.Program.HelloUsers() in C:\Users\Rob\source\repos\Basics\CodingTemplates\CSharp\Program.cs:line 90
+[2020-01-25 16:58:08 -05:00] code = Busy (5), message = System.Data.SQLite.SQLiteException (0x800007AF): database is locked
+database is locked
+   at System.Data.SQLite.SQLite3.Step(SQLiteStatement stmt)
+   at System.Data.SQLite.SQLiteDataReader.NextResult()
+   at System.Data.SQLite.SQLiteDataReader..ctor(SQLiteCommand cmd, CommandBehavior behave)
+   at System.Data.SQLite.SQLiteCommand.ExecuteReader(CommandBehavior behavior)
+   at System.Data.SQLite.SQLiteCommand.ExecuteNonQuery(CommandBehavior behavior)
+   at System.Data.SQLite.SQLiteCommand.ExecuteNonQuery()
+   at CSharp.DatabaseFunctions.UpdateUser(Int64 userID, String firstName, String lastName, String email, Single score, String comment) in C:\Users\Rob\source\repos\Basics\CodingTemplates\CSharp\DatabaseFunctions.cs:line 289
+[2020-01-25 16:58:38 -05:00] code = Busy (5), message = System.Data.SQLite.SQLiteException (0x800007AF): database is locked
+database is locked
+   at System.Data.SQLite.SQLite3.Step(SQLiteStatement stmt)
+   at System.Data.SQLite.SQLiteDataReader.NextResult()
+   at System.Data.SQLite.SQLiteDataReader..ctor(SQLiteCommand cmd, CommandBehavior behave)
+   at System.Data.SQLite.SQLiteCommand.ExecuteReader(CommandBehavior behavior)
+   at System.Data.SQLite.SQLiteCommand.ExecuteNonQuery(CommandBehavior behavior)
+   at System.Data.SQLite.SQLiteCommand.ExecuteNonQuery()
+   at CSharp.DatabaseFunctions.DeleteUser(Int64 userID) in C:\Users\Rob\source\repos\Basics\CodingTemplates\CSharp\DatabaseFunctions.cs:line 325
+[2020-01-25 17:01:00 -05:00] code = Busy (5), message = System.Data.SQLite.SQLiteException (0x800007AF): database is locked
+database is locked
+   at System.Data.SQLite.SQLite3.Step(SQLiteStatement stmt)
+   at System.Data.SQLite.SQLiteDataReader.NextResult()
+   at System.Data.SQLite.SQLiteDataReader..ctor(SQLiteCommand cmd, CommandBehavior behave)
+   at System.Data.SQLite.SQLiteCommand.ExecuteReader(CommandBehavior behavior)
+   at System.Data.SQLite.SQLiteCommand.ExecuteNonQuery(CommandBehavior behavior)
+   at System.Data.SQLite.SQLiteCommand.ExecuteNonQuery()
+   at CSharp.DatabaseFunctions.UpdateUser(Int64 userID, String firstName, String lastName, String email, Single score, String comment) in C:\Users\Rob\source\repos\Basics\CodingTemplates\CSharp\DatabaseFunctions.cs:line 289
+[2020-01-25 17:01:30 -05:00] code = Busy (5), message = System.Data.SQLite.SQLiteException (0x800007AF): database is locked
+database is locked
+   at System.Data.SQLite.SQLite3.Step(SQLiteStatement stmt)
+   at System.Data.SQLite.SQLiteDataReader.NextResult()
+   at System.Data.SQLite.SQLiteDataReader..ctor(SQLiteCommand cmd, CommandBehavior behave)
+   at System.Data.SQLite.SQLiteCommand.ExecuteReader(CommandBehavior behavior)
+   at System.Data.SQLite.SQLiteCommand.ExecuteNonQuery(CommandBehavior behavior)
+   at System.Data.SQLite.SQLiteCommand.ExecuteNonQuery()
+   at CSharp.DatabaseFunctions.DeleteUser(Int64 userID) in C:\Users\Rob\source\repos\Basics\CodingTemplates\CSharp\DatabaseFunctions.cs:line 325
+[2020-01-25 17:07:02 -05:00] code = Busy (5), message = System.Data.SQLite.SQLiteException (0x800007AF): database is locked
+database is locked
+   at System.Data.SQLite.SQLite3.Step(SQLiteStatement stmt)
+   at System.Data.SQLite.SQLiteDataReader.NextResult()
+   at System.Data.SQLite.SQLiteDataReader..ctor(SQLiteCommand cmd, CommandBehavior behave)
+   at System.Data.SQLite.SQLiteCommand.ExecuteReader(CommandBehavior behavior)
+   at System.Data.SQLite.SQLiteCommand.ExecuteNonQuery(CommandBehavior behavior)
+   at System.Data.SQLite.SQLiteCommand.ExecuteNonQuery()
+   at CSharp.DatabaseFunctions.UpdateUser(Int64 userID, String firstName, String lastName, String email, Single score, String comment) in C:\Users\Rob\source\repos\Basics\CodingTemplates\CSharp\DatabaseFunctions.cs:line 289
+[2020-01-25 17:07:32 -05:00] code = Busy (5), message = System.Data.SQLite.SQLiteException (0x800007AF): database is locked
+database is locked
+   at System.Data.SQLite.SQLite3.Step(SQLiteStatement stmt)
+   at System.Data.SQLite.SQLiteDataReader.NextResult()
+   at System.Data.SQLite.SQLiteDataReader..ctor(SQLiteCommand cmd, CommandBehavior behave)
+   at System.Data.SQLite.SQLiteCommand.ExecuteReader(CommandBehavior behavior)
+   at System.Data.SQLite.SQLiteCommand.ExecuteNonQuery(CommandBehavior behavior)
+   at System.Data.SQLite.SQLiteCommand.ExecuteNonQuery()
+   at CSharp.DatabaseFunctions.DeleteUser(Int64 userID) in C:\Users\Rob\source\repos\Basics\CodingTemplates\CSharp\DatabaseFunctions.cs:line 325
+[2020-01-25 17:11:13 -05:00] code = Busy (5), message = System.Data.SQLite.SQLiteException (0x800007AF): database is locked
+database is locked
+   at System.Data.SQLite.SQLite3.Step(SQLiteStatement stmt)
+   at System.Data.SQLite.SQLiteDataReader.NextResult()
+   at System.Data.SQLite.SQLiteDataReader..ctor(SQLiteCommand cmd, CommandBehavior behave)
+   at System.Data.SQLite.SQLiteCommand.ExecuteReader(CommandBehavior behavior)
+   at System.Data.SQLite.SQLiteCommand.ExecuteNonQuery(CommandBehavior behavior)
+   at CSharp.DatabaseFunctions.UpdateUser(Int64 userID, String firstName, String lastName, String email, Single score, String comment) in C:\Users\Rob\source\repos\Basics\CodingTemplates\CSharp\DatabaseFunctions.cs:line 289
+[2020-01-25 17:11:43 -05:00] code = Busy (5), message = System.Data.SQLite.SQLiteException (0x800007AF): database is locked
+database is locked
+   at System.Data.SQLite.SQLite3.Step(SQLiteStatement stmt)
+   at System.Data.SQLite.SQLiteDataReader.NextResult()
+   at System.Data.SQLite.SQLiteDataReader..ctor(SQLiteCommand cmd, CommandBehavior behave)
+   at System.Data.SQLite.SQLiteCommand.ExecuteReader(CommandBehavior behavior)
+   at System.Data.SQLite.SQLiteCommand.ExecuteNonQuery(CommandBehavior behavior)
+   at CSharp.DatabaseFunctions.DeleteUser(Int64 userID) in C:\Users\Rob\source\repos\Basics\CodingTemplates\CSharp\DatabaseFunctions.cs:line 322
+[2020-01-25 23:01:05 -05:00] System.ObjectDisposedException: Cannot access a disposed object.
+Object name: 'SQLiteConnection'.
+   at System.Data.SQLite.SQLiteConnection.CheckDisposed()
+   at System.Data.SQLite.SQLiteConnection.get_State()
+   at System.Data.SQLite.SQLiteDataReader.CheckClosed()
+   at System.Data.SQLite.SQLiteDataReader.get_HasRows()
+   at CSharp.Program.HelloUsers() in C:\Users\Rob\source\repos\Basics\CodingTemplates\CSharp\Program.cs:line 41
+[2020-01-25 23:05:11 -05:00] System.ObjectDisposedException: Cannot access a disposed object.
+Object name: 'SQLiteConnection'.
+   at System.Data.SQLite.SQLiteConnection.CheckDisposed()
+   at System.Data.SQLite.SQLiteConnection.get_State()
+   at System.Data.SQLite.SQLiteDataReader.CheckClosed()
+   at System.Data.SQLite.SQLiteDataReader.get_HasRows()
+   at CSharp.Program.HelloUsers() in C:\Users\Rob\source\repos\Basics\CodingTemplates\CSharp\Program.cs:line 40
+[2020-01-25 23:05:50 -05:00] System.ObjectDisposedException: Cannot access a disposed object.
+Object name: 'SQLiteConnection'.
+   at System.Data.SQLite.SQLiteConnection.CheckDisposed()
+   at System.Data.SQLite.SQLiteConnection.get_State()
+   at System.Data.SQLite.SQLiteDataReader.CheckClosed()
+   at System.Data.SQLite.SQLiteDataReader.get_HasRows()
+   at CSharp.Program.HelloUsers() in C:\Users\Rob\source\repos\Basics\CodingTemplates\CSharp\Program.cs:line 40
+[2020-01-25 23:19:21 -05:00] System.ObjectDisposedException: Cannot access a disposed object.
+Object name: 'SQLiteConnection'.
+   at System.Data.SQLite.SQLiteConnection.CheckDisposed()
+   at System.Data.SQLite.SQLiteConnection.get_State()
+   at System.Data.SQLite.SQLiteDataReader.CheckClosed()
+   at System.Data.SQLite.SQLiteDataReader.Read()
+   at CSharp.Program.HelloUsers() in C:\Users\Rob\source\repos\Basics\CodingTemplates\CSharp\Program.cs:line 63
+[2020-01-25 23:20:37 -05:00] System.ObjectDisposedException: Cannot access a disposed object.
+Object name: 'SQLiteConnection'.
+   at System.Data.SQLite.SQLiteConnection.CheckDisposed()
+   at System.Data.SQLite.SQLiteConnection.get_State()
+   at System.Data.SQLite.SQLiteDataReader.CheckClosed()
+   at System.Data.SQLite.SQLiteDataReader.Read()
+   at CSharp.Program.HelloUsers() in C:\Users\Rob\source\repos\Basics\CodingTemplates\CSharp\Program.cs:line 63
+[2020-01-25 23:43:28 -05:00] code = Busy (5), message = System.Data.SQLite.SQLiteException (0x800007AF): database is locked
+database is locked
+   at System.Data.SQLite.SQLite3.Step(SQLiteStatement stmt)
+   at System.Data.SQLite.SQLiteDataReader.NextResult()
+   at System.Data.SQLite.SQLiteDataReader..ctor(SQLiteCommand cmd, CommandBehavior behave)
+   at System.Data.SQLite.SQLiteCommand.ExecuteReader(CommandBehavior behavior)
+   at System.Data.SQLite.SQLiteCommand.ExecuteNonQuery(CommandBehavior behavior)
+   at CSharp.DatabaseFunctions.UpdateUser(Int64 userID, String firstName, String lastName, String email, Single score, String comment) in C:\Users\Rob\source\repos\Basics\CodingTemplates\CSharp\DatabaseFunctions.cs:line 265
+[2020-01-25 23:43:58 -05:00] code = Busy (5), message = System.Data.SQLite.SQLiteException (0x800007AF): database is locked
+database is locked
+   at System.Data.SQLite.SQLite3.Step(SQLiteStatement stmt)
+   at System.Data.SQLite.SQLiteDataReader.NextResult()
+   at System.Data.SQLite.SQLiteDataReader..ctor(SQLiteCommand cmd, CommandBehavior behave)
+   at System.Data.SQLite.SQLiteCommand.ExecuteReader(CommandBehavior behavior)
+   at System.Data.SQLite.SQLiteCommand.ExecuteNonQuery(CommandBehavior behavior)
+   at CSharp.DatabaseFunctions.DeleteUser(Int64 userID) in C:\Users\Rob\source\repos\Basics\CodingTemplates\CSharp\DatabaseFunctions.cs:line 296
+[2020-01-25 23:46:42 -05:00] System.InvalidOperationException: Database is not open
+   at System.Data.SQLite.SQLiteCommand.InitializeForReader()
+   at System.Data.SQLite.SQLiteCommand.ExecuteReader(CommandBehavior behavior)
+   at System.Data.SQLite.SQLiteCommand.ExecuteNonQuery(CommandBehavior behavior)
+   at CSharp.DatabaseFunctions.CreateUserTable() in C:\Users\Rob\source\repos\Basics\CodingTemplates\CSharp\DatabaseFunctions.cs:line 78
+[2020-01-25 23:46:42 -05:00] code = Error (1), message = System.Data.SQLite.SQLiteException (0x800007BF): SQL logic error
+no such table: User
+   at System.Data.SQLite.SQLite3.Prepare(SQLiteConnection cnn, String strSql, SQLiteStatement previous, UInt32 timeoutMS, String& strRemain)
+   at System.Data.SQLite.SQLiteCommand.BuildNextCommand()
+   at System.Data.SQLite.SQLiteCommand.GetStatement(Int32 index)
+   at System.Data.SQLite.SQLiteDataReader.NextResult()
+   at System.Data.SQLite.SQLiteDataReader..ctor(SQLiteCommand cmd, CommandBehavior behave)
+   at System.Data.SQLite.SQLiteCommand.ExecuteReader(CommandBehavior behavior)
+   at System.Data.SQLite.SQLiteCommand.ExecuteScalar(CommandBehavior behavior)
+   at CSharp.DatabaseFunctions.GetNextUserID() in C:\Users\Rob\source\repos\Basics\CodingTemplates\CSharp\DatabaseFunctions.cs:line 322
+[2020-01-25 23:46:42 -05:00] code = Error (1), message = System.Data.SQLite.SQLiteException (0x800007BF): SQL logic error
+no such table: User
+   at System.Data.SQLite.SQLite3.Prepare(SQLiteConnection cnn, String strSql, SQLiteStatement previous, UInt32 timeoutMS, String& strRemain)
+   at System.Data.SQLite.SQLiteCommand.BuildNextCommand()
+   at System.Data.SQLite.SQLiteCommand.GetStatement(Int32 index)
+   at System.Data.SQLite.SQLiteDataReader.NextResult()
+   at System.Data.SQLite.SQLiteDataReader..ctor(SQLiteCommand cmd, CommandBehavior behave)
+   at System.Data.SQLite.SQLiteCommand.ExecuteReader(CommandBehavior behavior)
+   at System.Data.SQLite.SQLiteCommand.ExecuteNonQuery(CommandBehavior behavior)
+   at CSharp.DatabaseFunctions.CreateUser(String firstName, String lastName, String email, Single score, String comment) in C:\Users\Rob\source\repos\Basics\CodingTemplates\CSharp\DatabaseFunctions.cs:line 125
+[2020-01-25 23:46:42 -05:00] code = Error (1), message = System.Data.SQLite.SQLiteException (0x800007BF): SQL logic error
+no such table: User
+   at System.Data.SQLite.SQLite3.Prepare(SQLiteConnection cnn, String strSql, SQLiteStatement previous, UInt32 timeoutMS, String& strRemain)
+   at System.Data.SQLite.SQLiteCommand.BuildNextCommand()
+   at System.Data.SQLite.SQLiteCommand.GetStatement(Int32 index)
+   at System.Data.SQLite.SQLiteDataReader.NextResult()
+   at System.Data.SQLite.SQLiteDataReader..ctor(SQLiteCommand cmd, CommandBehavior behave)
+   at System.Data.SQLite.SQLiteCommand.ExecuteReader(CommandBehavior behavior)
+   at System.Data.SQLite.SQLiteCommand.ExecuteScalar(CommandBehavior behavior)
+   at CSharp.DatabaseFunctions.GetNextUserID() in C:\Users\Rob\source\repos\Basics\CodingTemplates\CSharp\DatabaseFunctions.cs:line 322
+[2020-01-25 23:46:42 -05:00] code = Error (1), message = System.Data.SQLite.SQLiteException (0x800007BF): SQL logic error
+no such table: User
+   at System.Data.SQLite.SQLite3.Prepare(SQLiteConnection cnn, String strSql, SQLiteStatement previous, UInt32 timeoutMS, String& strRemain)
+   at System.Data.SQLite.SQLiteCommand.BuildNextCommand()
+   at System.Data.SQLite.SQLiteCommand.GetStatement(Int32 index)
+   at System.Data.SQLite.SQLiteDataReader.NextResult()
+   at System.Data.SQLite.SQLiteDataReader..ctor(SQLiteCommand cmd, CommandBehavior behave)
+   at System.Data.SQLite.SQLiteCommand.ExecuteReader(CommandBehavior behavior)
+   at System.Data.SQLite.SQLiteCommand.ExecuteNonQuery(CommandBehavior behavior)
+   at CSharp.DatabaseFunctions.CreateUser(String firstName, String lastName, String email, Single score, String comment) in C:\Users\Rob\source\repos\Basics\CodingTemplates\CSharp\DatabaseFunctions.cs:line 125
+[2020-01-25 23:46:42 -05:00] code = Error (1), message = System.Data.SQLite.SQLiteException (0x800007BF): SQL logic error
+no such table: User
+   at System.Data.SQLite.SQLite3.Prepare(SQLiteConnection cnn, String strSql, SQLiteStatement previous, UInt32 timeoutMS, String& strRemain)
+   at System.Data.SQLite.SQLiteCommand.BuildNextCommand()
+   at System.Data.SQLite.SQLiteCommand.GetStatement(Int32 index)
+   at System.Data.SQLite.SQLiteDataReader.NextResult()
+   at System.Data.SQLite.SQLiteDataReader..ctor(SQLiteCommand cmd, CommandBehavior behave)
+   at System.Data.SQLite.SQLiteCommand.ExecuteReader(CommandBehavior behavior)
+   at System.Data.SQLite.SQLiteCommand.ExecuteScalar(CommandBehavior behavior)
+   at CSharp.DatabaseFunctions.GetNextUserID() in C:\Users\Rob\source\repos\Basics\CodingTemplates\CSharp\DatabaseFunctions.cs:line 322
+[2020-01-25 23:46:42 -05:00] code = Error (1), message = System.Data.SQLite.SQLiteException (0x800007BF): SQL logic error
+no such table: User
+   at System.Data.SQLite.SQLite3.Prepare(SQLiteConnection cnn, String strSql, SQLiteStatement previous, UInt32 timeoutMS, String& strRemain)
+   at System.Data.SQLite.SQLiteCommand.BuildNextCommand()
+   at System.Data.SQLite.SQLiteCommand.GetStatement(Int32 index)
+   at System.Data.SQLite.SQLiteDataReader.NextResult()
+   at System.Data.SQLite.SQLiteDataReader..ctor(SQLiteCommand cmd, CommandBehavior behave)
+   at System.Data.SQLite.SQLiteCommand.ExecuteReader(CommandBehavior behavior)
+   at System.Data.SQLite.SQLiteCommand.ExecuteNonQuery(CommandBehavior behavior)
+   at CSharp.DatabaseFunctions.CreateUser(String firstName, String lastName, String email, Single score, String comment) in C:\Users\Rob\source\repos\Basics\CodingTemplates\CSharp\DatabaseFunctions.cs:line 125
+[2020-01-25 23:46:42 -05:00] code = Error (1), message = System.Data.SQLite.SQLiteException (0x800007BF): SQL logic error
+no such table: User
+   at System.Data.SQLite.SQLite3.Prepare(SQLiteConnection cnn, String strSql, SQLiteStatement previous, UInt32 timeoutMS, String& strRemain)
+   at System.Data.SQLite.SQLiteCommand.BuildNextCommand()
+   at System.Data.SQLite.SQLiteCommand.GetStatement(Int32 index)
+   at System.Data.SQLite.SQLiteDataReader.NextResult()
+   at System.Data.SQLite.SQLiteDataReader..ctor(SQLiteCommand cmd, CommandBehavior behave)
+   at System.Data.SQLite.SQLiteCommand.ExecuteReader(CommandBehavior behavior)
+   at CSharp.DatabaseFunctions.GetAllUsers() in C:\Users\Rob\source\repos\Basics\CodingTemplates\CSharp\DatabaseFunctions.cs:line 155
+[2020-01-25 23:46:42 -05:00] System.NullReferenceException: Object reference not set to an instance of an object.
+   at CSharp.Program.HelloUsers() in C:\Users\Rob\source\repos\Basics\CodingTemplates\CSharp\Program.cs:line 40
+[2020-01-25 23:48:36 -05:00] System.InvalidOperationException: Database connection not valid for getting last insert rowid.
+   at System.Data.SQLite.SQLiteConnection.get_LastInsertRowId()
+   at CSharp.DatabaseFunctions.CreateUser(String firstName, String lastName, String email, Single score, String comment) in C:\Users\Rob\source\repos\Basics\CodingTemplates\CSharp\DatabaseFunctions.cs:line 127
+[2020-01-25 23:48:36 -05:00] System.InvalidOperationException: Database connection not valid for getting last insert rowid.
+   at System.Data.SQLite.SQLiteConnection.get_LastInsertRowId()
+   at CSharp.DatabaseFunctions.CreateUser(String firstName, String lastName, String email, Single score, String comment) in C:\Users\Rob\source\repos\Basics\CodingTemplates\CSharp\DatabaseFunctions.cs:line 127
+[2020-01-25 23:48:36 -05:00] System.InvalidOperationException: Database connection not valid for getting last insert rowid.
+   at System.Data.SQLite.SQLiteConnection.get_LastInsertRowId()
+   at CSharp.DatabaseFunctions.CreateUser(String firstName, String lastName, String email, Single score, String comment) in C:\Users\Rob\source\repos\Basics\CodingTemplates\CSharp\DatabaseFunctions.cs:line 127
+[2020-01-25 23:48:36 -05:00] System.InvalidOperationException: Database connection not valid for getting last insert rowid.
+   at System.Data.SQLite.SQLiteConnection.get_LastInsertRowId()
+   at CSharp.DatabaseFunctions.CreateUser(String firstName, String lastName, String email, Single score, String comment) in C:\Users\Rob\source\repos\Basics\CodingTemplates\CSharp\DatabaseFunctions.cs:line 127
+[2020-01-25 23:48:36 -05:00] System.Exception: Cannot create user!
+   at CSharp.Program.HelloUsers() in C:\Users\Rob\source\repos\Basics\CodingTemplates\CSharp\Program.cs:line 82
+[2020-01-25 23:49:51 -05:00] code = Busy (5), message = System.Data.SQLite.SQLiteException (0x800007AF): database is locked
+database is locked
+   at System.Data.SQLite.SQLite3.Step(SQLiteStatement stmt)
+   at System.Data.SQLite.SQLiteDataReader.NextResult()
+   at System.Data.SQLite.SQLiteDataReader..ctor(SQLiteCommand cmd, CommandBehavior behave)
+   at System.Data.SQLite.SQLiteCommand.ExecuteReader(CommandBehavior behavior)
+   at System.Data.SQLite.SQLiteCommand.ExecuteNonQuery(CommandBehavior behavior)
+   at CSharp.DatabaseFunctions.UpdateUser(Int64 userID, String firstName, String lastName, String email, Single score, String comment) in C:\Users\Rob\source\repos\Basics\CodingTemplates\CSharp\DatabaseFunctions.cs:line 266
+[2020-01-25 23:50:21 -05:00] code = Busy (5), message = System.Data.SQLite.SQLiteException (0x800007AF): database is locked
+database is locked
+   at System.Data.SQLite.SQLite3.Step(SQLiteStatement stmt)
+   at System.Data.SQLite.SQLiteDataReader.NextResult()
+   at System.Data.SQLite.SQLiteDataReader..ctor(SQLiteCommand cmd, CommandBehavior behave)
+   at System.Data.SQLite.SQLiteCommand.ExecuteReader(CommandBehavior behavior)
+   at System.Data.SQLite.SQLiteCommand.ExecuteNonQuery(CommandBehavior behavior)
+   at CSharp.DatabaseFunctions.DeleteUser(Int64 userID) in C:\Users\Rob\source\repos\Basics\CodingTemplates\CSharp\DatabaseFunctions.cs:line 297

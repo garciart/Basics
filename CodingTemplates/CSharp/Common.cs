@@ -56,7 +56,7 @@ namespace CSharp
         /// </summary>
         /// <param name="userID">The UserID that will be entered in the database.</param>
         /// <returns>True if the UserID is an integer greater than 0, false if not.</returns>
-        public bool ValidateUserID(int userID)
+        public bool ValidateUserID(long userID)
         {
             return userID > 0;
         }

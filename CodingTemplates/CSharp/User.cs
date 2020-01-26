@@ -26,14 +26,14 @@ namespace CSharp
     {
         // Comment does not need validation and is an autoimplemeted property
         private static readonly Common c = new Common();
-        private int _userID;
+        private long _userID;
         private string _firstName;
         private string _lastName;
         private string _email;
         private float _score;
         private string _creationDate;
 
-        public int UserID
+        public long UserID
         {
             get { return this._userID; }
             set
@@ -94,7 +94,7 @@ namespace CSharp
 
         public string Comment { get; set; }
 
-        public User(int userID, string firstName, string lastName, string email, float score, string creationDate, string comment)
+        public User(long userID, string firstName, string lastName, string email, float score, string creationDate, string comment)
         {
             UserID = userID;
             FirstName = firstName;

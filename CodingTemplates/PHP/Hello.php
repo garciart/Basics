@@ -80,13 +80,14 @@ function helloUsers()
                 $result = getUserByEmail('thanos@rgprogramming.com');
                 if (empty($result)) {
                     throw new Exception('Cannot retrieve user data!');
+                } else {
+                    # Use splat (...) to unpack array into class
+                    $args = array_values($result);
+                    $thanos = new User(...$args);
                 }
-                # Use splat (...) to unpack array into class
-                $args = array_values($result);
-                $thanos = new User(...$args);
             } else {
                 $userID = createUser(
-                    '    Thanos   ', 'The Mad Titan', 'thanos@rgprogramming.com', 100,
+                    'Thanos', 'The Mad Titan', 'thanos@rgprogramming.com', 100,
                     'Unbalanced user.');
                 if ($userID == 0) {
                     throw new Exception('Cannot create user!');
@@ -94,13 +95,14 @@ function helloUsers()
                 $result = getUserByUserID($userID);
                 if (empty($result)) {
                     throw new Exception('Cannot retrieve user data!');
+                } else {
+                    # Use splat (...) to unpack array into class
+                    $args = array_values($result);
+                    $thanos = new User(...$args);
+                    print("Welcome {$thanos->getFirstName()} {$thanos->getLastName()}! " .
+                        "You were created on {$thanos->getCreationDate()} and you are " .
+                        "a(n) {$thanos->getComment()}\n\n");
                 }
-                # Use splat (...) to unpack array into class
-                $args = array_values($result);
-                $thanos = new User(...$args);
-                print("Welcome {$thanos->getFirstName()} {$thanos->getLastName()}! " .
-                    "You were created on {$thanos->getCreationDate()} and you are " .
-                    "a(n) {$thanos->getComment()}\n\n");
             }
 
             if ($thanos->getComment() == 'Unbalanced user.') {
@@ -120,7 +122,7 @@ function helloUsers()
                     $thanos->getScore(), $thanos->getComment()) == 1) {
                     echo "Thanos, you've become unbalanced!\n\n";
                 } else {
-                    echo "Can't be unbalanced! Should've gone for the head!\n\n";
+                    echo "You can't be unbalanced! Should've gone for the head!\n\n";
                 }
             }
 
