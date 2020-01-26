@@ -27,7 +27,7 @@ __license__ = 'MIT'
 __package__ = 'Python'
 
 '''
-Module methods:
+Module functions:
     :void: create_user_table()
     :int: create_user(first_name, last_name, email, score, comment)
     :list: get_all_users()
@@ -94,7 +94,7 @@ def create_user(first_name, last_name, email, score, comment):
                 email, str(score), creation_date, comment)
         cursor.execute(sql, data)
         conn.commit()
-        last_row_id = cursor.lastRowID
+        last_row_id = cursor.lastrowid
         cursor.close()
         conn.close()
         return last_row_id

@@ -22,7 +22,7 @@ require_once 'Common.php';
 const PATH_TO_SQLITE_DB = ROOT_DIR . 'db' . DIRECTORY_SEPARATOR . 'users.db';
 
 /**
- * Class methods:
+ * List of Functions:
  * createUserTable()
  * createUser($firstName, $lastName, $email, $score, $comment)
  * getAllUsers()
@@ -209,7 +209,7 @@ function updateUser($userID, $firstName, $lastName, $email, $score, $comment)
                 Email = :Email,
                 Score = :Score,
                 Comment = :Comment
-                WHERE  UserID = :UserID;';
+                WHERE UserID = :UserID;';
         $stmt = $conn->prepare($sql);
         $stmt->bindValue(':UserID', $userID);
         $stmt->bindValue(':FirstName', $firstName);

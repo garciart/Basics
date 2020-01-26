@@ -1,4 +1,4 @@
-/**
+/*
  * Handles all calls to the User database.
  *
  * .NET Core version used: 3.1.0
@@ -6,7 +6,7 @@
  * SQLite version used: 3.30.1
  *
  * Styling guide: .NET Core Engineering guidelines
- *     (https://github.com/dotnet/aspnetcore/wiki/Engineering-guidelines) and
+ *     (https://github.com/dotnet/aspnetcore/wiki/Engineering-guidelines#coding-guidelines) and
  *     C# Programming Guide
  *     (https://docs.microsoft.com/en-us/dotnet/csharp/programming-guide/inside-a-program/coding-conventions)
  *
@@ -21,26 +21,24 @@ using System.Data.SQLite;
 
 namespace CSharp
 {
-    /**
-     * Class methods:
-     * int CreateUserTable()
-     * long CreateUser(string firstName, string lastName, string email, float score, string comment)
-     * SQLiteDataReader GetAllUsers()
-     * SQLiteDataReader GetUserByUserID(long userID)
-     * SQLiteDataReader GetUserByEmail(string email)
-     * int UpdateUser(long userID, string firstName, string lastName, string email, float score, string comment)
-     * int DeleteUser(long userID)
-     * long GetNextUserID()
-     * bool UserExists(string email)
-     * DatabaseFunctions()
-     * 
-     * Initialization code at bottom
-     */
-
     using System;
     using System.Data;
     using System.IO;
 
+    /// <summary>
+    /// Database Class. Handles all calls to the User database.
+    /// Class methods:
+    /// int CreateUserTable()
+    /// long CreateUser(string firstName, string lastName, string email, float score, string comment)
+    /// SQLiteDataReader GetAllUsers()
+    /// SQLiteDataReader GetUserByUserID(long userID)
+    /// SQLiteDataReader GetUserByEmail(string email)
+    /// int UpdateUser(long userID, string firstName, string lastName, string email, float score, string comment)
+    /// int DeleteUser(long userID)
+    /// long GetNextUserID()
+    /// bool UserExists(string email)
+    /// DatabaseFunctions()
+    /// </summary>
     public class DatabaseFunctions
     {
         private static readonly Common c = new Common();
@@ -50,18 +48,18 @@ namespace CSharp
         /// <summary>
         /// Creates the User table if it does not exist in the database.
         /// </summary>
-        /// <returns>The number of rows affected. A value less than 0 indicates an error.</returns>
+        /// <returns>The number of rows affected. A value not equal to 0 indicates an error.</returns>
         public int CreateUserTable()
         {
-            int rowsAffected = 0;
+            int rowsAffected = -1;
             try
             {
                 SQLiteConnection conn = new SQLiteConnection(string.Format("URI=file:{0}", PathToSQLiteDB));
-                string sql = "DROP TABLE IF EXISTS User;";
+                conn.Open();
+                string sql = @"DROP TABLE IF EXISTS User;";
                 using (SQLiteCommand cmd = new SQLiteCommand(sql, conn))
                 {
-                    conn.Open();
-                    cmd.ExecuteNonQuery(CommandBehavior.CloseConnection);
+                    cmd.ExecuteNonQuery();
                 }
                 sql = @"CREATE TABLE IF NOT EXISTS User (
                     UserID integer PRIMARY KEY,
@@ -74,8 +72,8 @@ namespace CSharp
                 );";
                 using (SQLiteCommand cmd = new SQLiteCommand(sql, conn))
                 {
-                    conn.Open();
-                    rowsAffected = cmd.ExecuteNonQuery(CommandBehavior.CloseConnection);
+                    rowsAffected = cmd.ExecuteNonQuery();
+                    return rowsAffected;
                 }
             }
             catch (Exception ex)
@@ -101,6 +99,7 @@ namespace CSharp
             try
             {
                 SQLiteConnection conn = new SQLiteConnection(string.Format("URI=file:{0}", PathToSQLiteDB));
+                conn.Open();
                 string sql = @"INSERT INTO User VALUES (
                     @UserID,
                     @FirstName,
@@ -112,7 +111,6 @@ namespace CSharp
                 );";
                 using (SQLiteCommand cmd = new SQLiteCommand(sql, conn))
                 {
-                    conn.Open();
                     string creationDate = DateTime.Now.ToString("yyyy-MM-dd HH:mm:ss");
                     cmd.Parameters.AddWithValue("@UserID", GetNextUserID());
                     cmd.Parameters.AddWithValue("@FirstName", firstName);
@@ -122,8 +120,10 @@ namespace CSharp
                     cmd.Parameters.AddWithValue("@CreationDate", creationDate);
                     cmd.Parameters.AddWithValue("@Comment", comment);
                     cmd.Prepare();
-                    cmd.ExecuteNonQuery(CommandBehavior.CloseConnection);
+                    cmd.ExecuteNonQuery();
                     lastRowID = conn.LastInsertRowId;
+                    conn.Close();
+                    return lastRowID;
                 }
             }
             catch (Exception ex)
@@ -146,13 +146,14 @@ namespace CSharp
             try
             {
                 SQLiteConnection conn = new SQLiteConnection(string.Format("URI=file:{0}", PathToSQLiteDB));
+                conn.Open();
                 string sql = @"SELECT *
                     FROM User
                     ORDER BY UserID ASC;";
                 using (SQLiteCommand cmd = new SQLiteCommand(sql, conn))
                 {
-                    conn.Open();
                     result = cmd.ExecuteReader(CommandBehavior.CloseConnection);
+                    return result;
                 }
             }
             catch (Exception ex)
@@ -176,15 +177,16 @@ namespace CSharp
             try
             {
                 SQLiteConnection conn = new SQLiteConnection(string.Format("URI=file:{0}", PathToSQLiteDB));
+                conn.Open();
                 string sql = @"SELECT *
                     FROM User
                     WHERE UserID = @UserID;";
                 using (SQLiteCommand cmd = new SQLiteCommand(sql, conn))
                 {
-                    conn.Open();
                     cmd.Parameters.AddWithValue("@UserID", userID);
                     cmd.Prepare();
                     result = cmd.ExecuteReader(CommandBehavior.CloseConnection);
+                    return result;
                 }
             }
             catch (Exception ex)
@@ -208,15 +210,16 @@ namespace CSharp
             try
             {
                 SQLiteConnection conn = new SQLiteConnection(string.Format("URI=file:{0}", PathToSQLiteDB));
+                conn.Open();
                 string sql = @"SELECT *
                     FROM User
                     WHERE Email = @Email;";
                 using (SQLiteCommand cmd = new SQLiteCommand(sql, conn))
                 {
-                    conn.Open();
                     cmd.Parameters.AddWithValue("@Email", email);
                     cmd.Prepare();
                     result = cmd.ExecuteReader(CommandBehavior.CloseConnection);
+                    return result;
                 }
             }
             catch (Exception ex)
@@ -245,16 +248,16 @@ namespace CSharp
             try
             {
                 SQLiteConnection conn = new SQLiteConnection(string.Format("URI=file:{0}", PathToSQLiteDB));
+                conn.Open();
                 string sql = @"UPDATE User
-                SET FirstName = @FirstName,
-                LastName = @LastName,
-                Email = @Email,
-                Score = @Score,
-                Comment = @Comment
-                WHERE  UserID = @UserID;";
+                    SET FirstName = @FirstName,
+                    LastName = @LastName,
+                    Email = @Email,
+                    Score = @Score,
+                    Comment = @Comment
+                    WHERE UserID = @UserID;";
                 using (SQLiteCommand cmd = new SQLiteCommand(sql, conn))
                 {
-                    conn.Open();
                     cmd.Parameters.AddWithValue("@FirstName", firstName);
                     cmd.Parameters.AddWithValue("@LastName", lastName);
                     cmd.Parameters.AddWithValue("@Email", email);
@@ -262,7 +265,8 @@ namespace CSharp
                     cmd.Parameters.AddWithValue("@Comment", comment);
                     cmd.Parameters.AddWithValue("@UserID", userID);
                     cmd.Prepare();
-                    rowsAffected = cmd.ExecuteNonQuery(CommandBehavior.CloseConnection);
+                    rowsAffected = cmd.ExecuteNonQuery();
+                    return rowsAffected;
                 }
             }
             catch (Exception ex)
@@ -287,13 +291,13 @@ namespace CSharp
             {
                 SQLiteConnection conn = new SQLiteConnection(string.Format("URI=file:{0}", PathToSQLiteDB));
                 conn.Open();
-
                 string sql = @"DELETE FROM User WHERE UserID = @UserID;";
                 using (SQLiteCommand cmd = new SQLiteCommand(sql, conn))
                 {
                     cmd.Parameters.AddWithValue("@UserID", userID);
                     cmd.Prepare();
-                    rowsAffected = cmd.ExecuteNonQuery(CommandBehavior.CloseConnection);
+                    rowsAffected = cmd.ExecuteNonQuery();
+                    return rowsAffected;
                 }
             }
             catch (Exception ex)
@@ -315,12 +319,13 @@ namespace CSharp
             try
             {
                 SQLiteConnection conn = new SQLiteConnection(string.Format("URI=file:{0}", PathToSQLiteDB));
-                string sql = "SELECT MAX(UserID) as maxUserID FROM User;";
+                conn.Open();
+                string sql = @"SELECT MAX(UserID) as maxUserID FROM User;";
                 using (SQLiteCommand cmd = new SQLiteCommand(sql, conn))
                 {
-                    conn.Open();
-                    object o = cmd.ExecuteScalar(CommandBehavior.CloseConnection);
+                    object o = cmd.ExecuteScalar();
                     lastRowID = (o is System.DBNull) ? 0 : Convert.ToInt64(o);
+                    return lastRowID + 1;
                 }
             }
             catch (Exception ex)
@@ -328,7 +333,7 @@ namespace CSharp
                 string exception = c.ErrorLog(ex);
                 if (Common.DisplayErrors) Console.WriteLine(exception);
             }
-            return lastRowID + 1;
+            return lastRowID;
         }
 
         /// <summary>
@@ -347,16 +352,17 @@ namespace CSharp
             try
             {
                 SQLiteConnection conn = new SQLiteConnection(string.Format("URI=file:{0}", PathToSQLiteDB));
+                conn.Open();
                 string sql = @"SELECT COUNT(*) AS Count
                     FROM User
                     WHERE Email = @Email;";
                 using (SQLiteCommand cmd = new SQLiteCommand(sql, conn))
                 {
-                    conn.Open();
                     cmd.Parameters.AddWithValue("@Email", email);
                     cmd.Prepare();
-                    long count = (long)cmd.ExecuteScalar(CommandBehavior.CloseConnection);
+                    long count = (long)cmd.ExecuteScalar();
                     exists = count == 1 ? true : false;
+                    return exists;
                 }
             }
             catch (Exception ex)
@@ -384,17 +390,9 @@ namespace CSharp
                 // Creates the db file if it does not exist
                 CreateUserTable();
                 // Set initial values
-                CreateUser(
-                    "Rob", "Garcia", "rgarcia@rgprogramming.com", 80.0f,
-                    "Administrator."
-                );
-                CreateUser(
-                    "Thomas", "Jefferson", "tjefferson@rgprogramming.com", 90.0f,
-                    "Old user."
-                );
-                CreateUser(
-                    "Baby", "Yoda", "byoda@rgprogramming.com", 100.0f, "New user."
-                );
+                CreateUser("Rob", "Garcia", "rgarcia@rgprogramming.com", 80.0f, "Administrator.");
+                CreateUser("Thomas", "Jefferson", "tjefferson@rgprogramming.com", 90.0f, "Old user.");
+                CreateUser("Baby", "Yoda", "byoda@rgprogramming.com", 100.0f, "New user.");
                 Console.WriteLine("Database created...");
             }
         }
