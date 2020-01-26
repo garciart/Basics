@@ -40,7 +40,8 @@ const PATH_TO_SQLITE_DB = ROOT_DIR . 'db' . DIRECTORY_SEPARATOR . 'users.db';
 /**
  * Creates the User table if it does not exist in the database.
  * 
- * @return integer The new user's ID. A value less than 0 indicates an error.
+ * @return integer The number of rows affected.
+ *                 A value less than 0 indicates an error.
  */
 function createUserTable()
 {
@@ -55,20 +56,8 @@ function createUserTable()
                 CreationDate text NOT NULL,
                 Comment text
             );";
-        $conn->exec($sql);
-        // Set initial values
-        createUser(
-            'Rob', 'Garcia', 'rgarcia@rgprogramming.com', 80.0,
-            'Administrator.'
-        );
-        createUser(
-            'Ben', 'Franklin', 'bfranklin@rgprogramming.com', 90.0,
-            'Old user.'
-        );
-        $lastRowID = createUser(
-            'Baby', 'Yoda', 'byoda@rgprogramming.com', 100.0, 'New user.'
-        );
-        return $lastRowID;
+        $rowsAffected = $conn->exec($sql);
+        return $rowsAffected;
     } catch (\PDOException $ex) {
         error_log($ex->getMessage());
     } finally {
@@ -314,7 +303,6 @@ function userExists($email)
         $stmt->execute();
         // Fetch the result set
         $result = $stmt->fetch(\PDO::FETCH_ASSOC);
-        // $result = $stmt->fetchAll();
         $exists = ($result['Count']) == 1 ? true : false;
         return $exists;
     } catch (\PDOException $ex) {
@@ -353,5 +341,17 @@ if (!file_exists(PATH_TO_SQLITE_DB)) {
     // Create and populate the database if it does not exists.
     echo "Creating user database...\n";
     createUserTable();
+    // Set initial values
+    createUser(
+        'Rob', 'Garcia', 'rgarcia@rgprogramming.com', 80.0,
+        'Administrator.'
+    );
+    createUser(
+        'Ben', 'Franklin', 'bfranklin@rgprogramming.com', 90.0,
+        'Old user.'
+    );
+    createUser(
+        'Baby', 'Yoda', 'byoda@rgprogramming.com', 100.0, 'New user.'
+    );
     echo "Database created...\n";
 }

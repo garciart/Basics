@@ -61,23 +61,26 @@ def hello_users():
                 result = db.get_user_by_email(['thanos@rgprogramming.com'])
                 if result is None:
                     raise Exception('Cannot retrieve user data!')
-                # Use asterisk to unpack tuple into class
-                thanos = uc.User(*result)
+                else:
+                    # Use asterisk to unpack tuple into class
+                    thanos = uc.User(*result)
             else:
                 user_id = db.create_user(
                     'Thanos', 'The Mad Titan', 'thanos@rgprogramming.com', 100,
                     'Unbalanced user.')
                 if user_id == 0:
                     raise Exception('Cannot create user!')
-                result = db.get_user_by_user_id(user_id)
-                if result is None:
-                    raise Exception('Cannot retrieve user data!')
-                # Use asterisk to unpack tuple into class
-                thanos = uc.User(*result)
-                print("Welcome {} {}! You were created on {} "
-                      "and you are a(n) {}\n".format(
-                          thanos.first_name, thanos.last_name, thanos.creation_date,
-                          thanos.comment))
+                else:
+                    result = db.get_user_by_user_id(user_id)
+                    if result is None:
+                        raise Exception('Cannot retrieve user data!')
+                    else:
+                        # Use asterisk to unpack tuple into class
+                        thanos = uc.User(*result)
+                        print("Welcome {} {}! You were created on {} "
+                              "and you are a(n) {}\n".format(
+                                  thanos.first_name, thanos.last_name,
+                                  thanos.creation_date, thanos.comment))
 
             if thanos.comment == 'Unbalanced user.':
                 print("Uh oh, Thanos, you are unbalanced! Let's fix that!\n")
