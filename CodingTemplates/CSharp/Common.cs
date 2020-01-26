@@ -1,4 +1,4 @@
-/**
+/*
  * Code common to one or more files.
  *
  * .NET Core version used: 3.1.0
@@ -6,7 +6,7 @@
  * SQLite version used: 3.30.1
  *
  * Styling guide: .NET Core Engineering guidelines
- *     (https://www.php-fig.org/psr/psr-12/) and
+ *     (https://github.com/dotnet/aspnetcore/wiki/Engineering-guidelines#coding-guidelines) and
  *     C# Programming Guide
  *     (https://docs.microsoft.com/en-us/dotnet/csharp/programming-guide/inside-a-program/coding-conventions)
  *
@@ -24,10 +24,22 @@ using System.Text.RegularExpressions;
 
 namespace CSharp
 {
+    /// <summary>
+    /// Code common to one or more files.
+    /// </summary>
     public class Common
     {
-        // Use readonly instead of const for RootDir, since it must be generated dynamically in C#
+        /// <summary>
+        /// RootDir constant.
+        /// Use readonly instead of const for RootDir, since it must be generated dynamically in C#
+        /// </summary>
+        /// <returns>The application's root directory.</returns>
         public readonly string RootDir = string.Format("{0}{1}", Directory.GetCurrentDirectory(), Path.DirectorySeparatorChar);
+
+        /// <summary>
+        /// Display errors constant.
+        /// Set to True during development and to False during production.
+        /// </summary>
         public const bool DisplayErrors = true;
 
         /// <summary>
@@ -68,8 +80,8 @@ namespace CSharp
         /// <returns>True if the text is valid, false if not.</returns>
         public bool ValidateText(string text)
         {
-            return (string.IsNullOrEmpty(text.Trim())
-                    || (Regex.IsMatch(text, @"^[A-Za-z0-9\s\-._~:\/?#\[\]@!$&'()*+,;=]*$") == false)) ? false : true;
+            return (string.IsNullOrEmpty(text.Trim()) ||
+                (Regex.IsMatch(text, @"^[A-Za-z0-9\s\-._~:\/?#\[\]@!$&'()*+,;=]*$") == false)) ? false : true;
         }
 
         /// <summary>
@@ -79,8 +91,8 @@ namespace CSharp
         /// <returns>True if the email is valid, false if not.</returns>
         public bool ValidateEmail(string email)
         {
-            return (string.IsNullOrEmpty(email.Trim())
-                    || (Regex.IsMatch(email, @"^[A-Za-z0-9\-._~\/?#!$&'%*+=`{|}^]+@[A-Za-z0-9.-]+$") == false)) ? false : true;
+            return (string.IsNullOrEmpty(email.Trim()) ||
+                (Regex.IsMatch(email, @"^[A-Za-z0-9\-._~\/?#!$&'%*+=`{|}^]+@[A-Za-z0-9.-]+$") == false)) ? false : true;
         }
 
         /// <summary>
@@ -90,10 +102,9 @@ namespace CSharp
         /// <returns>True if the date format is valid, false if not.</returns>
         public bool ValidateDate(string date)
         {
-            return (string.IsNullOrEmpty(date.Trim())
-                    || (Regex.IsMatch(date, @"^([0-9]){4}-([0-9]){2}-([0-9]){2} ([0-9]){2}:([0-9]){2}:([0-9]){2}$") == false)
-                    || date.Length != 19) ? false : true;
+            return (string.IsNullOrEmpty(date.Trim()) ||
+                (Regex.IsMatch(date, @"^([0-9]){4}-([0-9]){2}-([0-9]){2} ([0-9]){2}:([0-9]){2}:([0-9]){2}$") == false) ||
+                date.Length != 19) ? false : true;
         }
-
     }
 }

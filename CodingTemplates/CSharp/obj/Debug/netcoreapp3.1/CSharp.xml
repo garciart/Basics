@@ -1,0 +1,242 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>CSharp</name>
+    </assembly>
+    <members>
+        <member name="T:CSharp.Common">
+            <summary>
+            Code common to one or more files.
+            </summary>
+        </member>
+        <member name="F:CSharp.Common.RootDir">
+            <summary>
+            RootDir constant.
+            Use readonly instead of const for RootDir, since it must be generated dynamically in C#
+            </summary>
+            <returns>The application's root directory.</returns>
+        </member>
+        <member name="F:CSharp.Common.DisplayErrors">
+            <summary>
+            Display errors constant.
+            Set to True during development and to False during production.
+            </summary>
+        </member>
+        <member name="M:CSharp.Common.#ctor">
+            <summary>
+            Constructor. Also sets the correct path for the application.
+            </summary>
+        </member>
+        <member name="M:CSharp.Common.ErrorLog(System.Exception)">
+            <summary>
+            Reformats error and exception details and records them in plain text in the error_log file.
+            </summary>
+            <param name="ex">The exception's details.</param>
+            <returns>Reformated exception details in plain text.</returns>
+        </member>
+        <member name="M:CSharp.Common.ValidateUserID(System.Int64)">
+            <summary>
+            Validate UserID.
+            </summary>
+            <param name="userID">The UserID that will be entered in the database.</param>
+            <returns>True if the UserID is an integer greater than 0, false if not.</returns>
+        </member>
+        <member name="M:CSharp.Common.ValidateText(System.String)">
+            <summary>
+            Validate text input.
+            </summary>
+            <param name="text">The text that will be entered into the database.</param>
+            <returns>True if the text is valid, false if not.</returns>
+        </member>
+        <member name="M:CSharp.Common.ValidateEmail(System.String)">
+            <summary>
+            Validate email address.
+            </summary>
+            <param name="email">The email address that will be entered into the database.</param>
+            <returns>True if the email is valid, false if not.</returns>
+        </member>
+        <member name="M:CSharp.Common.ValidateDate(System.String)">
+            <summary>
+            Validate date format.
+            </summary>
+            <param name="date">The date that will be entered into the database.</param>
+            <returns>True if the date format is valid, false if not.</returns>
+        </member>
+        <member name="T:CSharp.DatabaseFunctions">
+            <summary>
+            Database Class. Handles all calls to the User database.
+            Class methods:
+            int CreateUserTable()
+            long CreateUser(string firstName, string lastName, string email, float score, string comment)
+            SQLiteDataReader GetAllUsers()
+            SQLiteDataReader GetUserByUserID(long userID)
+            SQLiteDataReader GetUserByEmail(string email)
+            int UpdateUser(long userID, string firstName, string lastName, string email, float score, string comment)
+            int DeleteUser(long userID)
+            long GetNextUserID()
+            bool UserExists(string email)
+            DatabaseFunctions()
+            </summary>
+        </member>
+        <member name="M:CSharp.DatabaseFunctions.CreateUserTable">
+            <summary>
+            Creates the User table if it does not exist in the database.
+            </summary>
+            <returns>The number of rows affected. A value not equal to 0 indicates an error.</returns>
+        </member>
+        <member name="M:CSharp.DatabaseFunctions.CreateUser(System.String,System.String,System.String,System.Single,System.String)">
+            <summary>
+            Inserts a new user into the database.
+            </summary>
+            <param name="firstName">The user's first name.</param>
+            <param name="lastName">The user's last name.</param>
+            <param name="email">The user's email address (used for user name).</param>
+            <param name="score">The user's score from 0.0 to 100.0.</param>
+            <param name="comment">Any additional comments.</param>
+            <returns>The rowid of the new user. A value of 0 indicates an error.</returns>
+        </member>
+        <member name="M:CSharp.DatabaseFunctions.GetAllUsers">
+            <summary>
+            Gets all the users in the database and their information.
+            </summary>
+            <returns>
+            An reader object of all the users in the database and their information. An empty object indicates an error.
+            </returns>
+        </member>
+        <member name="M:CSharp.DatabaseFunctions.GetUserByUserID(System.Int64)">
+            <summary>
+            Returns a single user and his or her information.
+            </summary>
+            <param name="userID">The user's ID.</param>
+            <returns>
+            The user's information indexed by column name or empty if the user's ID is not found.
+            </returns>
+        </member>
+        <member name="M:CSharp.DatabaseFunctions.GetUserByEmail(System.String)">
+            <summary>
+            Returns a single user and his or her information.
+            </summary>
+            <param name="email">The user's email.</param>
+            <returns>
+            The user's information indexed by column name or empty if the user's email is not found.
+            </returns>
+        </member>
+        <member name="M:CSharp.DatabaseFunctions.UpdateUser(System.Int64,System.String,System.String,System.String,System.Single,System.String)">
+            <summary>
+            Updates a user's information in the database.
+            </summary>
+            <param name="userID">The user's ID.</param>
+            <param name="firstName">The user's first name.</param>
+            <param name="lastName">The user's last name.</param>
+            <param name="email">The user's email address (used for user name).</param>
+            <param name="score">The user's score from 0.0 to 100.0.</param>
+            <param name="comment">Any additional comments.</param>
+            <returns>
+            The number of rows affected. A value other than 1 indicates an error.
+            </returns>
+        </member>
+        <member name="M:CSharp.DatabaseFunctions.DeleteUser(System.Int64)">
+            <summary>
+            Deletes a user from the database.
+            </summary>
+            <param name="userID">The user's ID.</param>
+            <returns>
+            The number of rows affected. A value other than 1 indicates an error.
+            </returns>
+        </member>
+        <member name="M:CSharp.DatabaseFunctions.GetNextUserID">
+            <summary>
+            Gets the anticipated value of the next UserID (usually the last row
+            inserted) from the User table.
+            </summary>
+            <returns>The value of the next UserID or 0 if there is no data.</returns>
+        </member>
+        <member name="M:CSharp.DatabaseFunctions.UserExists(System.String)">
+            <summary>
+            Checks if the given users exists in the database.
+            Julen Pardo came up with this.
+            Thought about changing the method to retrieve the UserID instead,
+            but Email is supposed to be unique.
+            If the count != 1, that means there are no users or more than one,
+            which means something is wrong. This is a better method.
+            </summary>
+            <param name="email">The email to check.</param>
+            <returns>True if the users exists, false if not.</returns>
+        </member>
+        <member name="M:CSharp.DatabaseFunctions.#ctor">
+            <summary>
+            Constructor.
+            </summary>
+        </member>
+        <member name="T:CSharp.Program">
+            <summary>
+            Hello World in C# with database integration.
+            </summary>
+        </member>
+        <member name="M:CSharp.Program.Main">
+            <summary>
+            Application entry point.
+            </summary>
+        </member>
+        <member name="T:CSharp.User">
+            <summary>
+            User class.
+            </summary>
+        </member>
+        <member name="P:CSharp.User.UserID">
+            <summary>
+            Getters and setters for the UserID property.
+            </summary>
+            <value>The user's ID.</value>
+        </member>
+        <member name="P:CSharp.User.FirstName">
+            <summary>
+            Getters and setters for the FirstName property.
+            </summary>
+            <value>The user's first name.</value>
+        </member>
+        <member name="P:CSharp.User.LastName">
+            <summary>
+            Getters and setters for the LastName property.
+            </summary>
+            <value>The user's last name.</value>
+        </member>
+        <member name="P:CSharp.User.Email">
+            <summary>
+            Getters and setters for the Email property.
+            </summary>
+            <value>The user's email address (used for user name).</value>
+        </member>
+        <member name="P:CSharp.User.Score">
+            <summary>
+            Getters and setters for the Score property.
+            </summary>
+            <value>The user's score from 0.0 to 100.0.</value>
+        </member>
+        <member name="P:CSharp.User.CreationDate">
+            <summary>
+            Getters and setters for the CreationDate property.
+            </summary>
+            <value>The date the user was added to the database.</value>
+        </member>
+        <member name="P:CSharp.User.Comment">
+            <summary>
+            Getters and setters for the Comment property.
+            The comment field does not need validation and is an autoimplemeted property
+            </summary>
+            <value>Any additional comments.</value>
+        </member>
+        <member name="M:CSharp.User.#ctor(System.Int64,System.String,System.String,System.String,System.Single,System.String,System.String)">
+            <summary>
+            Class constructor.
+            </summary>
+            <param name="userID">The user's ID.</param>
+            <param name="firstName">The user's first name.</param>
+            <param name="lastName">The user's last name.</param>
+            <param name="email">The user's email address (used for user name).</param>
+            <param name="score">The user's score from 0.0 to 100.0.</param>
+            <param name="creationDate">The date the user was added to the database.</param>
+            <param name="comment">Any additional comments.</param>
+        </member>
+    </members>
+</doc>
