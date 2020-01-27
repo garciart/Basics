@@ -21,9 +21,36 @@
 
 package model;
 
+import java.io.File;
+
 public class DatabaseFunctions {
 
+    public static final String PATH_TO_SQLITE_DB = CommonFunctions.MODEL_DIR + "DB" + File.separator + "Users.db";
+
+    public int CreateUserTable()
+    {
+        int rowsAffected = -1;
+        try
+        {
+
+        }
+        catch (Exception ex)
+        {
+            String exception = CommonFunctions.ErrorLog(ex);
+            if (CommonFunctions.DisplayErrors) System.out.println(exception);
+        }
+        return rowsAffected;
+    }
+
     public DatabaseFunctions() {
+        File dbFolder = new File(CommonFunctions.MODEL_DIR + "DB");
+        File dbFile = new File(PATH_TO_SQLITE_DB);
+        if(!dbFolder.exists() || dbFile.exists()) {
+            System.out.println("Creating user database...");
+            // Creates the db directory if it does not exist
+            dbFolder.mkdirs();
+        }
+
 
     }
  }

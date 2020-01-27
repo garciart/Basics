@@ -58,7 +58,7 @@ namespace Model
         public string ErrorLog(Exception ex)
         {
             using StreamWriter errorLog = File.AppendText(Path.Combine(ModelDir, "ErrorLog.txt"));
-            string exception = string.Format("[{0}] {1}", DateTime.Now.ToString("yyyy-MM-dd HH:mm:ss K"), ex);
+            string exception = string.Format("[{0}] {1}", DateTime.Now.ToString("yyyy-MM-dd HH:mm:ss K"), ex.ToString());
             errorLog.WriteLine(exception);
             return exception;
         }

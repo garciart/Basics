@@ -21,11 +21,31 @@
 
 package model;
 
+import java.io.BufferedWriter;
+import java.io.File;
+import java.io.FileWriter;
+import java.io.IOException;
+import java.time.LocalDateTime;
+import java.time.format.DateTimeFormatter;
+
 public class CommonFunctions {
 
-    public static final String MODEL_DIR = System.getProperty("user.dir");
+    public static final String MODEL_DIR = System.getProperty("user.dir") + File.separator + "model" + File.separator;
 
-    public CommonFunctions() {
+    public static final Boolean DisplayErrors = true;
 
+    public String ErrorLog(Exception ex) throws IOException
+    {
+        BufferedWriter errorLog = new BufferedWriter(new FileWriter(MODEL_DIR + "ErrorLog.txt"));
+        LocalDateTime localDateTime = LocalDateTime.now();
+        DateTimeFormatter dateTimeFormat = DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm:ss K");
+        String exception = String.format("[{0}] {1}", localDateTime.format(dateTimeFormat), ex.toString());
+        errorLog.append(exception);
+        errorLog.close();
+        return exception;
+    }
+
+    public CommonFunctions() throws IOException {
+        ErrorLog(new Exception("Test"));
     }
  }

@@ -1,5 +1,7 @@
 To compile the file, make sure you are in the project directory (i.e., Java) and run the following command:
-javac -d . hello/Hello.java
+javac -d . Hello.java
 
 To run from terminal, make sure you are in the project directory (i.e., Java) and run the following command:
-java hello.Hello
+java -classpath ";jar/*" Hello
+or
+java -cp ";jar/*" Hello
