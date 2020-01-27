@@ -156,9 +156,10 @@ namespace CSharp
         /// <summary>
         /// Application entry point.
         /// </summary>
-        static void Main()
+        /// <param name="args">Command line arguments.</param>
+        static void Main(string[] args)
         {
-            Console.WriteLine("Hello, World!\n");
+            Console.WriteLine("Hello, World from C#!\n");
             HelloUsers();
         }
     }

@@ -381,7 +381,7 @@ namespace Model
         {
             Directory.SetCurrentDirectory(c.ModelDir);
             string dbFolder = string.Format("{0}db", c.ModelDir);
-            string dbFile = string.Format("{0}{1}Users.db", dbFolder, Path.DirectorySeparatorChar);
+            string dbFile = PathToSQLiteDB;
             if (!Directory.Exists(dbFolder) || !File.Exists(dbFile))
             {
                 Console.WriteLine("Creating user database...");
