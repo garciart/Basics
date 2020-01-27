@@ -15,13 +15,14 @@
  * @author    Rob Garcia <rgarcia@rgprogramming.com>
  * @license   https://opensource.org/licenses/MIT The MIT License
  * @link      https://github.com/garciart/Basics
- * @copyright 2018-2019 Rob Garcia
+ * @copyright 2019-2020 Rob Garcia
  */
 
 using System;
 using System.Collections.Generic;
 using System.Data;
 using System.Data.SQLite;
+using Model;
 
 namespace CSharp
 {
@@ -30,10 +31,10 @@ namespace CSharp
     /// </summary>
     class Program
     {
-        private static readonly Common c = new Common();
+        private static readonly CommonFunctions c = new CommonFunctions();
         private static DatabaseFunctions db = new DatabaseFunctions();
 
-        static void HelloUsers()
+        private static void HelloUsers()
         {
             try
             {
@@ -137,7 +138,7 @@ namespace CSharp
 
                 if (db.DeleteUser(thanos.UserID) == 1)
                 {
-                    Console.WriteLine("Destiny fulfilled.");
+                    Console.WriteLine("Thanos deleted. Destiny fulfilled.");
                 }
                 else
                 {
@@ -147,7 +148,7 @@ namespace CSharp
             catch (Exception ex)
             {
                 string exception = c.ErrorLog(ex);
-                if (Common.DisplayErrors) Console.WriteLine(exception);
+                if (c.DisplayErrors) Console.WriteLine(exception);
                 else Console.WriteLine("Unable to connect to the database and retrieve data. Check the error log for details.");
             }
         }
@@ -157,7 +158,7 @@ namespace CSharp
         /// </summary>
         static void Main()
         {
-            Console.WriteLine("Hello World!\n");
+            Console.WriteLine("Hello, World!\n");
             HelloUsers();
         }
     }

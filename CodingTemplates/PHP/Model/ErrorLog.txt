@@ -1,0 +1,9 @@
+[26-Jan-2020 19:10:01 America/New_York] Exception: Test... in C:\Users\Rob\source\repos\Basics\CodingTemplates\PHP\Model\DatabaseFunctions.php:117
+Stack trace:
+#0 C:\Users\Rob\source\repos\Basics\CodingTemplates\PHP\Hello.php(51): getAllUsers()
+#1 C:\Users\Rob\source\repos\Basics\CodingTemplates\PHP\Hello.php(34): helloUsers()
+#2 {main}
+[26-Jan-2020 19:10:36 America/New_York] Exception: Test #2... in C:\Users\Rob\source\repos\Basics\CodingTemplates\PHP\Hello.php:50
+Stack trace:
+#0 C:\Users\Rob\source\repos\Basics\CodingTemplates\PHP\Hello.php(34): helloUsers()
+#1 {main}

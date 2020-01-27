@@ -1,0 +1,1 @@
+DEBUG:root:[2020-01-26 19:03:36 Eastern Standard Time] Type Exception Exception: Test... in c:\Users\Rob\source\repos\Basics\CodingTemplates\Python\model\database_functions.py at line 114.

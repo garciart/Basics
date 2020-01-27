@@ -1,53 +1,35 @@
-
 /**
- * @brief Implementation of all Java reserved keywords:
- * 
- * abstract, assert, boolean, break, byte, case, catch, char, class, const,
- * continue, default, do, double, else, enum, extends, false, final, finally,
- * float, for, goto, if, implements, import, instanceof, int, interface, long,
- * native, new, null, package, private, protected, public, return, short,
- * static, strictfp, super, switch, synchronized, this, throw, throws,
- * transient, true, try, void, volatile, and while
- * 
- * Styling using the Google Java Style Guide at
- * https://google.github.io/styleguide/javaguide.html
- * 
- * @author  Rob Garcia
- * @version 1.0
- * @see https://www.php.net/manual/en/reserved.keywords.php
- * @since   2019-02-10
- * 
- * The MIT License
+ * Hello World in Java with database integration.
  *
- * Copyright 2019 Rob Garcia at rgarcia@rgprogramming.com.
+ * Java Runtime Environment (JRE) version used: 1.8.0_241
+ * Java Development Kit (JDK) version used: 1.8.0_212
+ * SQLite Java Database Connectivity (JDBC) API version used: 3.30.1
+ * SQLite version used: 3.30.1
  *
- * Permission is hereby granted, free of charge, to any person obtaining a copy
- * of this software and associated documentation files (the "Software"), to deal
- * in the Software without restriction, including without limitation the rights
- * to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
- * copies of the Software, and to permit persons to whom the Software is
- * furnished to do so, subject to the following conditions:
+ * Styling guide: Google Java Style Guide
+ *     (https://google.github.io/styleguide/javaguide.html) and
+ *     Code Conventions for the Java Programming Language (Oracle: Deprecated)
+ *     (https://www.oracle.com/technetwork/java/javase/documentation/codeconvtoc-136057.html)
  *
- * The above copyright notice and this permission notice shall be included in
- * all copies or substantial portions of the Software.
- *
- * THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
- * IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
- * FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
- * AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
- * LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
- * OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
- * THE SOFTWARE.
+ * @category  Basics
+ * @package   Java
+ * @author    Rob Garcia <rgarcia@rgprogramming.com>
+ * @license   https://opensource.org/licenses/MIT The MIT License
+ * @link      https://github.com/garciart/Basics
+ * @copyright 2019-2020 Rob Garcia
  */
 
-import java.util.Scanner;
+import model.*;
 
 public class Hello {
 
-    public static int main(String[] args) {
-        // Unlike C/C++, Java does not include the program name in its command-line
-        // arguments, so args[0] does not exist
-        System.out.println("hello, world");
-        return 0;
+    private static void helloUsers() {
+        System.out.println("Hello, from helloUsers!");
+    }
+
+    public static void main(String[] args) {
+        System.out.println("Hello, World!");
+        System.out.println(CommonFunctions.MODEL_DIR);
+        helloUsers();
     }
 }

@@ -14,13 +14,13 @@ from __future__ import print_function
 
 import sys
 
-import common as co
-import database_functions as db
-import user_class as uc
+from model import common_functions as co
+from model import database_functions as db
+from model import user_class as uc
 
 # Module metadata dunders
 __author__ = 'Rob Garcia'
-__copyright__ = 'Copyright 2018-2019, Rob Garcia'
+__copyright__ = 'Copyright 2019-2020, Rob Garcia'
 __email__ = 'rgarcia@rgprogramming.com'
 __license__ = 'MIT'
 __package__ = 'Python'
@@ -103,7 +103,7 @@ def hello_users():
             print("Sorry, Thanos; I am Iron Man, and you've got to go!\n")
 
             if db.delete_user(thanos.user_id) == 1:
-                print('Destiny fulfilled.')
+                print('Thanos deleted. Destiny fulfilled.')
             else:
                 print('Thanos cannot be deleted; he is inevitable!')
         else:
@@ -121,7 +121,7 @@ def main():
     '''
     Application entry point.
     '''
-    print("Hello, World!\n")
+    print("Hello, World from Python!\n")
     hello_users()
 
 
