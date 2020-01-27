@@ -13,24 +13,24 @@
  * @author    Rob Garcia <rgarcia@rgprogramming.com>
  * @license   https://opensource.org/licenses/MIT The MIT License
  * @link      https://github.com/garciart/Basics
- * @copyright Copyright 2018-2019, Rob Garcia
+ * @copyright Copyright 2019-2020, Rob Garcia
  */
 
 // Include this file to access common functions and variables
-require_once 'Common.php';
+require_once 'Model\CommonFunctions.php';
 
 // Include this file to access database methods and create user objects
-require_once 'DatabaseFunctions.php';
-require_once 'User.class.php';
+require_once 'Model\DatabaseFunctions.php';
+require_once 'Model\User.class.php';
 
 /*
  * Get the class names. Must be declared in the global scope of the file:
  * see https://www.php.net/manual/en/language.namespaces.importing.php
  */
 
-use PHP\User;
+use Model\User;
 
-echo "Hello, World!\n\n";
+echo "Hello, World from PHP!\n\n";
 helloUsers();
 
 // Functions:
@@ -44,7 +44,7 @@ function helloUsers()
 {
     /*
      * Remove the try...catch to use enhanced error logging and reporting
-     * (in Common.php)
+     * (in CommonFunctions.php)
      */
     try {
         // Task 1: Connect and retrieve information from the database
@@ -129,7 +129,7 @@ function helloUsers()
             echo "Sorry, Thanos; I am Iron Man, and you've got to go!\n\n";
 
             if (deleteUser($thanos->getUserID()) == 1) {
-                echo 'Destiny fulfilled.';
+                echo 'Thanos deleted. Destiny fulfilled.';
             } else {
                 echo "Thanos cannot be deleted; he is inevitable!";
             }

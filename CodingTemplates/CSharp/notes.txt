@@ -1,9 +1,9 @@
-Initialize from repo directory (e.g., CodingTemplates, etc.):
+Initialize from repo directory (i.e., CodingTemplates):
 dotnet new console -o CSharp
 
 Must include the SQLite package using the following command:
 cd CSharp
 dotnet add package System.Data.SQLite.Core
 
-To run from terminal, make sure you are in the project directory and run the following command:
+To run from terminal, make sure you are in the project directory  (i.e., CSharp) and run the following command:
 dotnet run
