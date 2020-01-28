@@ -1,5 +1,6 @@
 /*
  * Handles all calls to the User database.
+ * Do not instantiate; the methods in CommonFunctions should be accessed in a static way.
  *
  * .NET Core version used: 3.1.0
  * C# version used: 8.0
@@ -41,15 +42,14 @@ namespace Model
     /// </summary>
     public class DatabaseFunctions
     {
-        private static readonly CommonFunctions c = new CommonFunctions();
         // Use readonly instead of const for PathToSQLiteDB, since it must be generated dynamically in C#
-        private readonly string PathToSQLiteDB = string.Format("{0}db{1}users.db", c.ModelDir, Path.DirectorySeparatorChar);
+        private static readonly string PathToSQLiteDB = string.Format("{0}{1}db{1}users.db", CommonFunctions.ModelDir, Path.DirectorySeparatorChar);
 
         /// <summary>
         /// Creates the User table if it does not exist in the database.
         /// </summary>
         /// <returns>The number of rows affected. A value not equal to 0 indicates an error.</returns>
-        public int CreateUserTable()
+        public static int CreateUserTable()
         {
             int rowsAffected = -1;
             try
@@ -78,8 +78,8 @@ namespace Model
             }
             catch (Exception ex)
             {
-                string exception = c.ErrorLog(ex);
-                if (c.DisplayErrors) Console.WriteLine(exception);
+                string exception = CommonFunctions.LogError(ex);
+                if (CommonFunctions.DisplayErrors) Console.WriteLine(exception);
             }
             return rowsAffected;
         }
@@ -93,7 +93,7 @@ namespace Model
         /// <param name="score">The user's score from 0.0 to 100.0.</param>
         /// <param name="comment">Any additional comments.</param>
         /// <returns>The rowid of the new user. A value of 0 indicates an error.</returns>
-        public long CreateUser(string firstName, string lastName, string email, float score, string comment)
+        public static long CreateUser(string firstName, string lastName, string email, float score, string comment)
         {
             long lastRowID = 0;
             try
@@ -128,8 +128,8 @@ namespace Model
             }
             catch (Exception ex)
             {
-                string exception = c.ErrorLog(ex);
-                if (c.DisplayErrors) Console.WriteLine(exception);
+                string exception = CommonFunctions.LogError(ex);
+                if (CommonFunctions.DisplayErrors) Console.WriteLine(exception);
             }
             return lastRowID;
         }
@@ -140,7 +140,7 @@ namespace Model
         /// <returns>
         /// An reader object of all the users in the database and their information. An empty object indicates an error.
         /// </returns>
-        public SQLiteDataReader GetAllUsers()
+        public static SQLiteDataReader GetAllUsers()
         {
             SQLiteDataReader result = null;
             try
@@ -158,8 +158,8 @@ namespace Model
             }
             catch (Exception ex)
             {
-                string exception = c.ErrorLog(ex);
-                if (c.DisplayErrors) Console.WriteLine(exception);
+                string exception = CommonFunctions.LogError(ex);
+                if (CommonFunctions.DisplayErrors) Console.WriteLine(exception);
             }
             return result;
         }
@@ -171,7 +171,7 @@ namespace Model
         /// <returns>
         /// The user's information indexed by column name or empty if the user's ID is not found.
         /// </returns>
-        public SQLiteDataReader GetUserByUserID(long userID)
+        public static SQLiteDataReader GetUserByUserID(long userID)
         {
             SQLiteDataReader result = null;
             try
@@ -191,8 +191,8 @@ namespace Model
             }
             catch (Exception ex)
             {
-                string exception = c.ErrorLog(ex);
-                if (c.DisplayErrors) Console.WriteLine(exception);
+                string exception = CommonFunctions.LogError(ex);
+                if (CommonFunctions.DisplayErrors) Console.WriteLine(exception);
             }
             return result;
         }
@@ -204,7 +204,7 @@ namespace Model
         /// <returns>
         /// The user's information indexed by column name or empty if the user's email is not found.
         /// </returns>
-        public SQLiteDataReader GetUserByEmail(string email)
+        public static SQLiteDataReader GetUserByEmail(string email)
         {
             SQLiteDataReader result = null;
             try
@@ -224,8 +224,8 @@ namespace Model
             }
             catch (Exception ex)
             {
-                string exception = c.ErrorLog(ex);
-                if (c.DisplayErrors) Console.WriteLine(exception);
+                string exception = CommonFunctions.LogError(ex);
+                if (CommonFunctions.DisplayErrors) Console.WriteLine(exception);
             }
             return result;
         }
@@ -242,7 +242,7 @@ namespace Model
         /// <returns>
         /// The number of rows affected. A value other than 1 indicates an error.
         /// </returns>
-        public int UpdateUser(long userID, string firstName, string lastName, string email, float score, string comment)
+        public static int UpdateUser(long userID, string firstName, string lastName, string email, float score, string comment)
         {
             int rowsAffected = 0;
             try
@@ -271,8 +271,8 @@ namespace Model
             }
             catch (Exception ex)
             {
-                string exception = c.ErrorLog(ex);
-                if (c.DisplayErrors) Console.WriteLine(exception);
+                string exception = CommonFunctions.LogError(ex);
+                if (CommonFunctions.DisplayErrors) Console.WriteLine(exception);
             }
             return rowsAffected;
         }
@@ -284,7 +284,7 @@ namespace Model
         /// <returns>
         /// The number of rows affected. A value other than 1 indicates an error.
         /// </returns>
-        public int DeleteUser(long userID)
+        public static int DeleteUser(long userID)
         {
             int rowsAffected = 0;
             try
@@ -302,8 +302,8 @@ namespace Model
             }
             catch (Exception ex)
             {
-                string exception = c.ErrorLog(ex);
-                if (c.DisplayErrors) Console.WriteLine(exception);
+                string exception = CommonFunctions.LogError(ex);
+                if (CommonFunctions.DisplayErrors) Console.WriteLine(exception);
             }
             return rowsAffected;
         }
@@ -313,7 +313,7 @@ namespace Model
         /// inserted) from the User table.
         /// </summary>
         /// <returns>The value of the next UserID or 0 if there is no data.</returns>
-        public long GetNextUserID()
+        public static long GetNextUserID()
         {
             long lastRowID = 0;
             try
@@ -330,8 +330,8 @@ namespace Model
             }
             catch (Exception ex)
             {
-                string exception = c.ErrorLog(ex);
-                if (c.DisplayErrors) Console.WriteLine(exception);
+                string exception = CommonFunctions.LogError(ex);
+                if (CommonFunctions.DisplayErrors) Console.WriteLine(exception);
             }
             return lastRowID;
         }
@@ -346,7 +346,7 @@ namespace Model
         /// </summary>
         /// <param name="email">The email to check.</param>
         /// <returns>True if the users exists, false if not.</returns>
-        public bool UserExists(string email)
+        public static bool UserExists(string email)
         {
             bool exists = false;
             try
@@ -367,34 +367,57 @@ namespace Model
             }
             catch (Exception ex)
             {
-                string exception = c.ErrorLog(ex);
-                if (c.DisplayErrors) Console.WriteLine(exception);
+                string exception = CommonFunctions.LogError(ex);
+                if (CommonFunctions.DisplayErrors) Console.WriteLine(exception);
             }
             return exists;
         }
 
+        /// <summary>
+        /// Creates and populates the database if it does not exist.
+        /// </summary>
+        /// <returns>True if the database exists or was create, false if not.</returns>
+        public static bool DatabaseExists()
+        {
+            bool exists = false;
+            try
+            {
+                Directory.SetCurrentDirectory(CommonFunctions.ModelDir);
+                string dbFolder = string.Format("{0}{1}db", CommonFunctions.ModelDir, Path.DirectorySeparatorChar);
+                string dbFile = PathToSQLiteDB;
+                if (!Directory.Exists(dbFolder) || !File.Exists(dbFile))
+                {
+                    Console.WriteLine("Creating user database...");
+                    // Creates the db directory if it does not exist
+                    Directory.CreateDirectory(dbFolder);
+                    // Creates the db file if it does not exist
+                    CreateUserTable();
+                    // Set initial values
+                    CreateUser("Rob", "Garcia", "rgarcia@rgprogramming.com", 80.0f, "Administrator.");
+                    CreateUser("Thomas", "Jefferson", "tjefferson@rgprogramming.com", 90.0f, "Old user.");
+                    CreateUser("Baby", "Yoda", "byoda@rgprogramming.com", 100.0f, "New user.");
+                    Console.WriteLine("Database created...\n");
+                    exists = true;
+                }
+                else {
+                    exists = true;
+                }
+            }
+            catch (Exception ex)
+            {
+                string exception = CommonFunctions.LogError(ex);
+                if (CommonFunctions.DisplayErrors) Console.WriteLine(exception);
+            }
+            return exists;
+        }
 
         /// <summary>
         /// Constructor.
         /// </summary>
         public DatabaseFunctions()
         {
-            Directory.SetCurrentDirectory(c.ModelDir);
-            string dbFolder = string.Format("{0}db", c.ModelDir);
-            string dbFile = PathToSQLiteDB;
-            if (!Directory.Exists(dbFolder) || !File.Exists(dbFile))
-            {
-                Console.WriteLine("Creating user database...");
-                // Creates the db directory if it does not exist
-                Directory.CreateDirectory(dbFolder);
-                // Creates the db file if it does not exist
-                CreateUserTable();
-                // Set initial values
-                CreateUser("Rob", "Garcia", "rgarcia@rgprogramming.com", 80.0f, "Administrator.");
-                CreateUser("Thomas", "Jefferson", "tjefferson@rgprogramming.com", 90.0f, "Old user.");
-                CreateUser("Baby", "Yoda", "byoda@rgprogramming.com", 100.0f, "New user.");
-                Console.WriteLine("Database created...");
-            }
+            Console.WriteLine("Do not instantiate. The methods in DatabaseFunctions should be accessed in a static way.");
+            System.Environment.Exit(-1);
         }
     }
 }

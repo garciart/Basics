@@ -27,7 +27,6 @@ namespace Model
     /// </summary>
     public class User
     {
-        private static readonly CommonFunctions c = new CommonFunctions();
         private long _userID;
         private string _firstName;
         private string _lastName;
@@ -45,7 +44,7 @@ namespace Model
             get { return this._userID; }
             set
             {
-                if (c.ValidateUserID(value)) this._userID = value;
+                if (CommonFunctions.ValidateUserID(value)) this._userID = value;
                 else throw new ArgumentException("User ID cannot be empty, 0, NULL, or FALSE.");
             }
         }
@@ -60,7 +59,7 @@ namespace Model
             set
             {
                 value.Trim();
-                if (c.ValidateText(value)) this._firstName = value;
+                if (CommonFunctions.ValidateText(value)) this._firstName = value;
                 else throw new ArgumentException("First name cannot be empty or contain illegal characters.");
             }
         }
@@ -75,7 +74,7 @@ namespace Model
             set
             {
                 value.Trim();
-                if (c.ValidateText(value)) this._lastName = value;
+                if (CommonFunctions.ValidateText(value)) this._lastName = value;
                 else throw new ArgumentException("Last name cannot be empty or contain illegal characters.");
             }
         }
@@ -90,7 +89,7 @@ namespace Model
             set
             {
                 value.Trim();
-                if (c.ValidateEmail(value)) this._email = value;
+                if (CommonFunctions.ValidateEmail(value)) this._email = value;
                 else throw new ArgumentException("Email cannot be empty, incorrectly formatted, or contain illegal characters.");
             }
         }
@@ -119,7 +118,7 @@ namespace Model
             set
             {
                 value.Trim();
-                if (c.ValidateDate(value)) this._creationDate = value;
+                if (CommonFunctions.ValidateDate(value)) this._creationDate = value;
                 else throw new ArgumentException("Creation date cannot be empty or incorrectly formatted.");
             }
         }

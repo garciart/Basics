@@ -22,47 +22,40 @@
 
 import model.*;
 
-import java.io.File;
-import java.sql.Connection;
-import java.sql.DriverManager;
-import java.sql.SQLException;
-
 public class Hello {
 
+    /**
+     * Note - Only instantiate the User class, never the CommonFunctions and
+     * DatabaseFunctions classes. The methods in CommonFunctions and
+     * DatabaseFunctions should be accessed in a static way.
+     */
+
     private static void helloUsers() {
-        System.out.println("Hello, from helloUsers!");
-    }
-
-    public static void connect(String PATH_TO_SQLITE_DB) {
-        Connection conn = null;
         try {
-            // db parameters
-            String url = "jdbc:sqlite:" + PATH_TO_SQLITE_DB;
-            // create a connection to the database
-            conn = DriverManager.getConnection(url);
-
-            System.out.println("Connection to SQLite has been established.");
-
-        } catch (SQLException e) {
-            System.out.println(e.getMessage());
-        } finally {
-            try {
-                if (conn != null) {
-                    conn.close();
-                }
-            } catch (SQLException ex) {
-                System.out.println(ex.getMessage());
+            System.out.println("Hello, from helloUsers!");
+            System.out.println("Verifying database exists...");
+            if (DatabaseFunctions.databaseExists()) {
+                System.out.println("Database is good to go!");
+            } else {
+                System.out.println("Houston, we had a problem.");
             }
+            System.out.println("Hello, from helloUsers!");
+            System.out.println(CommonFunctions.validateEmail("<script>alert(\"Hello!\");</script>"));
+            System.out.println(CommonFunctions.validateEmail("rgarcia@rgprogramming.com"));
+            System.out.println(CommonFunctions.validateEmail(" "));
+        } catch (Exception ex) {
+            String exception = CommonFunctions.logError(ex);
+            if (CommonFunctions.DisplayErrors)
+                System.out.println(exception);
+            else
+                System.out.println(
+                        "Unable to connect to the database and retrieve data. Check the error log for details.");
         }
+
     }
 
     public static void main(String[] args) {
         System.out.println("Hello, World from Java!");
-        File f = new File(CommonFunctions.MODEL_DIR + "DB");
-        f.mkdir();
-        String PATH_TO_SQLITE_DB = CommonFunctions.MODEL_DIR + "DB" + File.separator + "Users.db";
-        System.out.println(PATH_TO_SQLITE_DB);
-        connect(PATH_TO_SQLITE_DB);
         helloUsers();
     }
 }

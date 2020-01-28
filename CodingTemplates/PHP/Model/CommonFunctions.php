@@ -16,7 +16,12 @@
  * @copyright Copyright 2019-2020, Rob Garcia
  */
 
-const MODEL_DIR = __DIR__ . DIRECTORY_SEPARATOR;
+/**
+ * Get the application's model directory.
+*/
+const MODEL_DIR = __DIR__;
+
+// To run these functions, switch to the model directory.
 chdir(MODEL_DIR);
 
 // Report all errors and log them in ErrorLog.txt

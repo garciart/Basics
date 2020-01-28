@@ -11,28 +11,23 @@
         </member>
         <member name="F:Model.CommonFunctions.ModelDir">
             <summary>
-            ModelDir constant.
+            Get the application's model directory.
             Use readonly instead of const for ModelDir, since it must be generated dynamically in C#
             </summary>
-            <returns>The application's root directory.</returns>
+            <returns>The application's model directory.</returns>
         </member>
         <member name="F:Model.CommonFunctions.DisplayErrors">
             <summary>
-            Display errors constant.
-            Set to True during development and to False during production.
+            Set the visibility of errors.
+            Set to True to log and display during development and to False to only log during production.
             </summary>
         </member>
-        <member name="M:Model.CommonFunctions.#ctor">
-            <summary>
-            Constructor. Also sets the correct path for the application.
-            </summary>
-        </member>
-        <member name="M:Model.CommonFunctions.ErrorLog(System.Exception)">
+        <member name="M:Model.CommonFunctions.LogError(System.Exception)">
             <summary>
             Reformats error and exception details and records them in plain text in the error_log file.
             </summary>
             <param name="ex">The exception's details.</param>
-            <returns>Reformated exception details in plain text.</returns>
+            <returns>Reformated error and exception details in plain text.</returns>
         </member>
         <member name="M:Model.CommonFunctions.ValidateUserID(System.Int64)">
             <summary>
@@ -61,6 +56,11 @@
             </summary>
             <param name="date">The date that will be entered into the database.</param>
             <returns>True if the date format is valid, false if not.</returns>
+        </member>
+        <member name="M:Model.CommonFunctions.#ctor">
+            <summary>
+            Constructor.
+            </summary>
         </member>
         <member name="T:Model.DatabaseFunctions">
             <summary>
@@ -163,6 +163,12 @@
             <param name="email">The email to check.</param>
             <returns>True if the users exists, false if not.</returns>
         </member>
+        <member name="M:Model.DatabaseFunctions.DatabaseExists">
+            <summary>
+            Creates and populates the database if it does not exist.
+            </summary>
+            <returns>True if the database exists or was create, false if not.</returns>
+        </member>
         <member name="M:Model.DatabaseFunctions.#ctor">
             <summary>
             Constructor.
@@ -233,10 +239,11 @@
             Hello World in C# with database integration.
             </summary>
         </member>
-        <member name="M:CSharp.Program.Main">
+        <member name="M:CSharp.Program.Main(System.String[])">
             <summary>
             Application entry point.
             </summary>
+            <param name="args">Command line arguments.</param>
         </member>
     </members>
 </doc>
