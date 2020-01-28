@@ -19,7 +19,7 @@
 // Include this file to access common functions and variables
 require_once 'CommonFunctions.php';
 
-const PATH_TO_SQLITE_DB = MODEL_DIR . 'DB' . DIRECTORY_SEPARATOR . 'Users.db';
+const PATH_TO_SQLITE_DB = MODEL_DIR . DIRECTORY_SEPARATOR . 'DB' . DIRECTORY_SEPARATOR . 'Users.db';
 
 /**
  * List of Functions:

@@ -26,7 +26,11 @@ __package__ = 'Python'
 
 # Removed Pathlib (redundant) and needed to set PWD to correct
 # directory using os
+
+# Get the application's model directory.
 MODEL_DIR = os.path.dirname(__file__)
+
+# To run these functions, switch to the model directory.
 os.chdir(MODEL_DIR)
 
 # Enable error and exception logging
@@ -35,7 +39,7 @@ logging.basicConfig(
 # Set to True during development and to False during production
 DISPLAY_ERRORS = True
 
-def error_log(exc_info):
+def log_error(exc_info):
     '''
     Reformats error and exception details and records them in plain text in
     the error_log file.

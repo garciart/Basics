@@ -1,5 +1,6 @@
 /*
  * Code common to one or more files.
+ * Do not instantiate; the methods in CommonFunctions should be accessed in a static way.
  *
  * .NET Core version used: 3.1.0
  * C# version used: 8.0
@@ -30,36 +31,37 @@ namespace Model
     public class CommonFunctions
     {
         /// <summary>
-        /// ModelDir constant.
+        /// Get the application's model directory.
         /// Use readonly instead of const for ModelDir, since it must be generated dynamically in C#
         /// </summary>
-        /// <returns>The application's root directory.</returns>
-        public readonly string ModelDir = string.Format("{0}{1}model{1}", Directory.GetCurrentDirectory(), Path.DirectorySeparatorChar);
+        /// <returns>The application's model directory.</returns>
+        public static readonly string ModelDir = string.Format("{0}{1}model", Directory.GetCurrentDirectory(), Path.DirectorySeparatorChar);
 
         /// <summary>
-        /// Display errors constant.
-        /// Set to True during development and to False during production.
+        /// Set the visibility of errors.
+        /// Set to True to log and display during development and to False to only log during production.
         /// </summary>
-        public readonly bool DisplayErrors = true;
-
-        /// <summary>
-        /// Constructor. Also sets the correct path for the application.
-        /// </summary>
-        public CommonFunctions()
-        {
-            // Directory.SetCurrentDirectory(ModelDir);
-        }
+        public static readonly bool DisplayErrors = true;
 
         /// <summary>
         /// Reformats error and exception details and records them in plain text in the error_log file.
         /// </summary>
         /// <param name="ex">The exception's details.</param>
-        /// <returns>Reformated exception details in plain text.</returns>
-        public string ErrorLog(Exception ex)
+        /// <returns>Reformated error and exception details in plain text.</returns>
+        public static string LogError(Exception ex)
         {
-            using StreamWriter errorLog = File.AppendText(Path.Combine(ModelDir, "ErrorLog.txt"));
-            string exception = string.Format("[{0}] {1}", DateTime.Now.ToString("yyyy-MM-dd HH:mm:ss K"), ex.ToString());
-            errorLog.WriteLine(exception);
+            string exception = null;
+            try
+            {
+                using StreamWriter errorLog = File.AppendText(Path.Combine(ModelDir, "ErrorLog.txt"));
+                exception = string.Format("[{0}] {1}", DateTime.Now.ToString("yyyy-MM-dd HH:mm:ss K"), ex.ToString());
+                errorLog.WriteLine(exception);
+            }
+            catch (Exception exc)
+            {
+                // if (CommonFunctions.DisplayErrors)
+                Console.WriteLine(exc.ToString());
+            }
             return exception;
         }
 
@@ -68,7 +70,7 @@ namespace Model
         /// </summary>
         /// <param name="userID">The UserID that will be entered in the database.</param>
         /// <returns>True if the UserID is an integer greater than 0, false if not.</returns>
-        public bool ValidateUserID(long userID)
+        public static bool ValidateUserID(long userID)
         {
             return userID > 0;
         }
@@ -78,7 +80,7 @@ namespace Model
         /// </summary>
         /// <param name="text">The text that will be entered into the database.</param>
         /// <returns>True if the text is valid, false if not.</returns>
-        public bool ValidateText(string text)
+        public static bool ValidateText(string text)
         {
             return (string.IsNullOrEmpty(text.Trim()) ||
                 (Regex.IsMatch(text, @"^[A-Za-z0-9\s\-._~:\/?#\[\]@!$&'()*+,;=]*$") == false)) ? false : true;
@@ -89,7 +91,7 @@ namespace Model
         /// </summary>
         /// <param name="email">The email address that will be entered into the database.</param>
         /// <returns>True if the email is valid, false if not.</returns>
-        public bool ValidateEmail(string email)
+        public static bool ValidateEmail(string email)
         {
             return (string.IsNullOrEmpty(email.Trim()) ||
                 (Regex.IsMatch(email, @"^[A-Za-z0-9\-._~\/?#!$&'%*+=`{|}^]+@[A-Za-z0-9.-]+$") == false)) ? false : true;
@@ -100,11 +102,20 @@ namespace Model
         /// </summary>
         /// <param name="date">The date that will be entered into the database.</param>
         /// <returns>True if the date format is valid, false if not.</returns>
-        public bool ValidateDate(string date)
+        public static bool ValidateDate(string date)
         {
             return (string.IsNullOrEmpty(date.Trim()) ||
                 (Regex.IsMatch(date, @"^([0-9]){4}-([0-9]){2}-([0-9]){2} ([0-9]){2}:([0-9]){2}:([0-9]){2}$") == false) ||
                 date.Length != 19) ? false : true;
+        }
+
+        /// <summary>
+        /// Constructor.
+        /// </summary>
+        public CommonFunctions()
+        {
+            Console.WriteLine("Do not instantiate. The methods in CommonFunctions should be accessed in a static way.");
+            System.Environment.Exit(-1);
         }
     }
 }

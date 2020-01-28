@@ -1,0 +1,3 @@
+[2020-01-27 17:42:07 EST] java.sql.SQLException: No suitable driver found for jdbc:sqlite:c:\Users\Rob\source\repos\Basics\CodingTemplates\Java\model\DB\Users.db
+[2020-01-27 17:42:11 EST] java.sql.SQLException: No suitable driver found for jdbc:sqlite:c:\Users\Rob\source\repos\Basics\CodingTemplates\Java\model\DB\Users.db
+[2020-01-27 20:54:54 EST] java.sql.SQLException: No suitable driver found for jdbc:sqlite:c:\Users\Rob\source\repos\Basics\CodingTemplates\Java\model\DB\Users.db
