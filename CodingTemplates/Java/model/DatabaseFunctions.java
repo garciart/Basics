@@ -23,17 +23,32 @@
 package model;
 
 import java.io.File;
-import java.sql.Connection;
-import java.sql.DriverManager;
+import java.sql.*;
+import java.text.SimpleDateFormat;
+import java.util.Date;
 
 public class DatabaseFunctions {
 
-    private static final String PATH_TO_SQLITE_DB = CommonFunctions.MODEL_DIR + File.separator + "DB" + File.separator + "Users.db";
+    /**
+     * Sets the path to the user database.
+     */
+    private static final String PATH_TO_SQLITE_DB = CommonFunctions.MODEL_DIR + File.separator + "DB" + File.separator
+            + "Users.db";
 
+    /**
+     * Creates the User table if it does not exist in the database.
+     * 
+     * @return integer The number of rows affected. A value less than 0 indicates an
+     *         error.
+     */
     public static int createUserTable() {
         int rowsAffected = -1;
-        try {
-            Connection conn = connect();
+        String sql = "CREATE TABLE IF NOT EXISTS User (" + "UserID integer PRIMARY KEY," + "FirstName text NOT NULL,"
+                + "LastName text NOT NULL," + "Email text UNIQUE NOT NULL," + "Score real NOT NULL DEFAULT '100.0',"
+                + "CreationDate text NOT NULL," + "Comment text);";
+        try (Connection conn = DriverManager.getConnection("jdbc:sqlite:" + PATH_TO_SQLITE_DB);
+                Statement stmt = conn.createStatement()) {
+            rowsAffected = stmt.executeUpdate(sql);
         } catch (Exception ex) {
             String exception = CommonFunctions.logError(ex);
             if (CommonFunctions.DisplayErrors)
@@ -42,21 +57,75 @@ public class DatabaseFunctions {
         return rowsAffected;
     }
 
-    private static Connection connect() {
-        Connection conn = null;
-        try {
-            System.out.println("jdbc:sqlite:" + PATH_TO_SQLITE_DB);
-            conn = DriverManager.getConnection("jdbc:sqlite:" + PATH_TO_SQLITE_DB);
+    /**
+     * Inserts a new user into the database.
+     * 
+     * @param string firstName The user's first name.
+     * @param string lastName The user's last name.
+     * @param string email The user's email address (used for user name).
+     * @param float  score The user's score from 0.0 to 100.0.
+     * @param string comment Any additional comments.
+     * 
+     * @return integer The rowid of the new user. A value of 0 indicates an error.
+     */
+    public static long CreateUser(String firstName, String lastName, String email, float score, String comment) {
+        long lastRowID = 0;
+        String sql = "INSERT INTO User VALUES (?, ?, ?, ?, ?, ?, ?);";
+        try (Connection conn = DriverManager.getConnection("jdbc:sqlite:" + PATH_TO_SQLITE_DB);
+                PreparedStatement pstmt = conn.prepareStatement(sql, Statement.RETURN_GENERATED_KEYS)) {
+            SimpleDateFormat simpleDateFormat = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss z");
+            String timestamp = simpleDateFormat.format(new Date());
+            pstmt.setLong(1, getNextUserID());
+            pstmt.setString(2, firstName);
+            pstmt.setString(3, lastName);
+            pstmt.setString(4, email);
+            pstmt.setFloat(5, score);
+            pstmt.setString(6, timestamp);
+            pstmt.setString(7, comment);
+            int rowsAffected = pstmt.executeUpdate();
+            if (rowsAffected == 0) {
+                throw new SQLException("Creating user failed, no rows affected.");
+            } else {
+                try (ResultSet generatedKeys = pstmt.getGeneratedKeys()) {
+                    if (generatedKeys.next()) {
+                        lastRowID = generatedKeys.getLong(1);
+                    } else {
+                        throw new SQLException("Creating user failed, no ID obtained.");
+                    }
+                }
+            }
         } catch (Exception ex) {
             String exception = CommonFunctions.logError(ex);
             if (CommonFunctions.DisplayErrors)
                 System.out.println(exception);
         }
-        return conn;
+        return lastRowID;
+    }
+
+    /**
+     * Gets the anticipated value of the next UserID (usually the last row inserted)
+     * from the User table.
+     * 
+     * @return long The value of the next UserID or 0 if there is no data.
+     */
+    public static long getNextUserID() {
+        long lastRowID = 0;
+        String sql = "SELECT MAX(UserID) as maxUserID FROM User;";
+        try (Connection conn = DriverManager.getConnection("jdbc:sqlite:" + PATH_TO_SQLITE_DB);
+                Statement stmt = conn.createStatement()) {
+            ResultSet rs = stmt.executeQuery(sql);
+            lastRowID = rs.getLong("maxUserID") + 1;
+        } catch (Exception ex) {
+            String exception = CommonFunctions.logError(ex);
+            if (CommonFunctions.DisplayErrors)
+                System.out.println(exception);
+        }
+        return lastRowID;
     }
 
     /**
      * Creates and populates the database if it does not exist.
+     * 
      * @return True if the database exists or was create, false if not.
      */
     public static Boolean databaseExists() {
@@ -67,9 +136,14 @@ public class DatabaseFunctions {
             if (!dbFolder.exists() || !dbFile.exists()) {
                 // Creates the db directory if it does not exist
                 dbFolder.mkdir();
-                if(connect() != null) {
-                    exists = true;
-                }
+                // Creates the db file if it does not exist
+                exists = (createUserTable() == 0) ? true : false;
+                // Set initial values
+                exists = (CreateUser("Rob", "Garcia", "rgarcia@rgprogramming.com", 80.0f, "Administrator.") != 0) ? true : false;
+                exists = (CreateUser("John", "Adams", "jadams@rgprogramming.com", 90.0f, "Old user.") != 0) ? true : false;
+                exists = (CreateUser("Baby", "Yoda", "byoda@rgprogramming.com", 100.0f, "New user.") != 0) ? true : false;
+            } else {
+                exists = true;
             }
         } catch (Exception ex) {
             String exception = CommonFunctions.logError(ex);
@@ -80,8 +154,9 @@ public class DatabaseFunctions {
     }
 
     /**
-     * Only instantiate the User class, never the CommonFunctions and DatabaseFunctions classes.
-     * The methods in CommonFunctions and DatabaseFunctions should be accessed in a static way.
+     * Only instantiate the User class, never the CommonFunctions and
+     * DatabaseFunctions classes. The methods in CommonFunctions and
+     * DatabaseFunctions should be accessed in a static way.
      */
     public DatabaseFunctions() {
         System.out.println("Do not instantiate. The methods in DatabaseFunctions should be accessed in a static way.");

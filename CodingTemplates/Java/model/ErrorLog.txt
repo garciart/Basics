@@ -1,3 +1,12 @@
 [2020-01-27 17:42:07 EST] java.sql.SQLException: No suitable driver found for jdbc:sqlite:c:\Users\Rob\source\repos\Basics\CodingTemplates\Java\model\DB\Users.db
 [2020-01-27 17:42:11 EST] java.sql.SQLException: No suitable driver found for jdbc:sqlite:c:\Users\Rob\source\repos\Basics\CodingTemplates\Java\model\DB\Users.db
 [2020-01-27 20:54:54 EST] java.sql.SQLException: No suitable driver found for jdbc:sqlite:c:\Users\Rob\source\repos\Basics\CodingTemplates\Java\model\DB\Users.db
+[2020-01-28 10:31:07 EST] org.sqlite.SQLiteException: [SQLITE_CONSTRAINT]  Abort due to constraint violation (UNIQUE constraint failed: User.UserID)
+[2020-01-28 10:31:07 EST] org.sqlite.SQLiteException: [SQLITE_CONSTRAINT]  Abort due to constraint violation (UNIQUE constraint failed: User.UserID)
+[2020-01-28 10:33:11 EST] org.sqlite.SQLiteException: [SQLITE_ERROR] SQL error or missing database (table User has 7 columns but 6 values were supplied)
+[2020-01-28 10:33:11 EST] org.sqlite.SQLiteException: [SQLITE_ERROR] SQL error or missing database (table User has 7 columns but 6 values were supplied)
+[2020-01-28 10:33:11 EST] org.sqlite.SQLiteException: [SQLITE_ERROR] SQL error or missing database (table User has 7 columns but 6 values were supplied)
+[2020-01-28 10:33:45 EST] org.sqlite.SQLiteException: [SQLITE_CONSTRAINT]  Abort due to constraint violation (UNIQUE constraint failed: User.UserID)
+[2020-01-28 10:33:45 EST] org.sqlite.SQLiteException: [SQLITE_CONSTRAINT]  Abort due to constraint violation (UNIQUE constraint failed: User.UserID)
+[2020-01-28 10:35:42 EST] org.sqlite.SQLiteException: [SQLITE_CONSTRAINT]  Abort due to constraint violation (UNIQUE constraint failed: User.UserID)
+[2020-01-28 10:35:42 EST] org.sqlite.SQLiteException: [SQLITE_CONSTRAINT]  Abort due to constraint violation (UNIQUE constraint failed: User.UserID)

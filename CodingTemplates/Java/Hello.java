@@ -39,10 +39,11 @@ public class Hello {
             } else {
                 System.out.println("Houston, we had a problem.");
             }
-            System.out.println("Hello, from helloUsers!");
+            /*
             System.out.println(CommonFunctions.validateEmail("<script>alert(\"Hello!\");</script>"));
             System.out.println(CommonFunctions.validateEmail("rgarcia@rgprogramming.com"));
             System.out.println(CommonFunctions.validateEmail(" "));
+            */
         } catch (Exception ex) {
             String exception = CommonFunctions.logError(ex);
             if (CommonFunctions.DisplayErrors)
