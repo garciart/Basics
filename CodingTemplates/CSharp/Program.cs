@@ -36,10 +36,11 @@ namespace CSharp
             try
             {
                 // throw new Exception("Test...");
+                Console.WriteLine("Verifying database exists...");
                 if (DatabaseFunctions.DatabaseExists())
                 {
+                    Console.WriteLine("Database is good to go!\n");
                     // Task 1: Connect and retrieve information from the database
-                    // SQLiteDataReader result;
                     DataTable result = DatabaseFunctions.GetAllUsers();
 
                     if (result != null)
@@ -57,17 +58,17 @@ namespace CSharp
                         {
                             Console.WriteLine("Hello, {0} {1}! You are #{2}, created on {3}, and you are a(n) {4}", user.FirstName, user.LastName, listOfUsers.IndexOf(user) + 1, user.CreationDate, user.Comment);
                         }
-                        result.Dispose();
                     }
                     else
                     {
                         Console.WriteLine("No records were found.");
                     }
+                    result.Dispose();
 
                     Console.WriteLine();
 
                     // Task 2: Add, update, and delete a new user
-                    User thanos;
+                    User thanos = null;
 
                     if (DatabaseFunctions.UserExists("thanos@rgprogramming.com"))
                     {

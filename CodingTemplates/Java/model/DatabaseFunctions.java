@@ -23,7 +23,12 @@
 package model;
 
 import java.io.File;
-import java.sql.*;
+import java.sql.Connection;
+import java.sql.DriverManager;
+import java.sql.PreparedStatement;
+import java.sql.ResultSet;
+import java.sql.SQLException;
+import java.sql.Statement;
 import java.text.SimpleDateFormat;
 import java.util.Date;
 
@@ -65,13 +70,13 @@ public class DatabaseFunctions {
     /**
      * Inserts a new user into the database.
      * 
-     * @param string firstName The user's first name.
-     * @param string lastName The user's last name.
-     * @param string email The user's email address (used for user name).
-     * @param float  score The user's score from 0.0 to 100.0.
-     * @param string comment Any additional comments.
+     * @param firstName The user's first name.
+     * @param lastName  The user's last name.
+     * @param email     The user's email address (used for user name).
+     * @param score     The user's score from 0.0 to 100.0.
+     * @param comment   Any additional comments.
      * 
-     * @return integer The rowid of the new user. A value of 0 indicates an error.
+     * @return The rowid of the new user. A value of 0 indicates an error.
      */
     public static long createUser(String firstName, String lastName, String email, float score, String comment) {
         long lastRowID = 0;
@@ -107,6 +112,12 @@ public class DatabaseFunctions {
         return lastRowID;
     }
 
+    /**
+     * Gets all the users in the database and their information.
+     * 
+     * @return A cachedRowSet of all the users in the database and their
+     *         information. An empty array indicates an error.
+     */
     public static CachedRowSet getAllUsers() {
         // Must use CacheRowSet to save the ResultSet after the connection closes
         CachedRowSet rowset = null;
@@ -126,14 +137,22 @@ public class DatabaseFunctions {
         return rowset;
     }
 
+    /**
+     * Returns a single user and his or her information.
+     * 
+     * @param userID The user's ID.
+     * 
+     * @return The user's information indexed by column name or empty if the user's
+     *         ID is not found.
+     */
     public static CachedRowSet getUserByUserID(long userID) {
         // Must use CacheRowSet to save the ResultSet after the connection closes
         CachedRowSet rowset = null;
         String sql = "SELECT * FROM User WHERE UserID = ?;";
         try (Connection conn = DriverManager.getConnection("jdbc:sqlite:" + PATH_TO_SQLITE_DB);
-                PreparedStatement pstmt = conn.prepareStatement(sql, Statement.RETURN_GENERATED_KEYS)) {
+                PreparedStatement pstmt = conn.prepareStatement(sql)) {
             pstmt.setLong(1, userID);
-            ResultSet result = pstmt.executeQuery(sql);
+            ResultSet result = pstmt.executeQuery();
             // Create factory here since its SQLException must be caught
             RowSetFactory factory = RowSetProvider.newFactory();
             rowset = factory.createCachedRowSet();
@@ -146,14 +165,22 @@ public class DatabaseFunctions {
         return rowset;
     }
 
+    /**
+     * Returns a single user and his or her information.
+     * 
+     * @param email The user's email.
+     * 
+     * @return The user's information indexed by column name or empty if the user's
+     *         email is not found.
+     */
     public static CachedRowSet getUserByEmail(String email) {
         // Must use CacheRowSet to save the ResultSet after the connection closes
         CachedRowSet rowset = null;
         String sql = "SELECT * FROM User WHERE Email = ?;";
         try (Connection conn = DriverManager.getConnection("jdbc:sqlite:" + PATH_TO_SQLITE_DB);
-                PreparedStatement pstmt = conn.prepareStatement(sql, Statement.RETURN_GENERATED_KEYS)) {
+                PreparedStatement pstmt = conn.prepareStatement(sql)) {
             pstmt.setString(1, email);
-            ResultSet result = pstmt.executeQuery(sql);
+            ResultSet result = pstmt.executeQuery();
             // Create factory here since its SQLException must be caught
             RowSetFactory factory = RowSetProvider.newFactory();
             rowset = factory.createCachedRowSet();
@@ -166,12 +193,24 @@ public class DatabaseFunctions {
         return rowset;
     }
 
-    public static int UpdateUser(long userID, String firstName, String lastName, String email, float score,
+    /**
+     * Updates a user's information in the database.
+     * 
+     * @param userID    The user's ID.
+     * @param firstName The user's first name.
+     * @param lastName  The user's last name.
+     * @param email     The user's email address (used for user name).
+     * @param score     The user's score from 0.0 to 100.0.
+     * @param comment   Any additional comments.
+     * 
+     * @return The number of rows affected. A value other than 1 indicates an error.
+     */
+    public static int updateUser(long userID, String firstName, String lastName, String email, float score,
             String comment) {
         int rowsAffected = 0;
         String sql = "UPDATE User SET FirstName = ?, LastName = ?, Email = ?, Score = ?, Comment = ? WHERE UserID = ?;";
         try (Connection conn = DriverManager.getConnection("jdbc:sqlite:" + PATH_TO_SQLITE_DB);
-                PreparedStatement pstmt = conn.prepareStatement(sql, Statement.RETURN_GENERATED_KEYS)) {
+                PreparedStatement pstmt = conn.prepareStatement(sql)) {
             pstmt.setString(1, firstName);
             pstmt.setString(2, lastName);
             pstmt.setString(3, email);
@@ -187,11 +226,18 @@ public class DatabaseFunctions {
         return rowsAffected;
     }
 
-    public static int DeleteUser(long userID) {
+    /**
+     * Deletes a user from the database.
+     * 
+     * @param userID The user's ID.
+     * 
+     * @return The number of rows affected. A value other than 1 indicates an error.
+     */
+    public static int deleteUser(long userID) {
         int rowsAffected = 0;
         String sql = "DELETE FROM User WHERE UserID = ?;";
         try (Connection conn = DriverManager.getConnection("jdbc:sqlite:" + PATH_TO_SQLITE_DB);
-                PreparedStatement pstmt = conn.prepareStatement(sql, Statement.RETURN_GENERATED_KEYS)) {
+                PreparedStatement pstmt = conn.prepareStatement(sql)) {
             pstmt.setLong(1, userID);
             rowsAffected = pstmt.executeUpdate();
         } catch (Exception ex) {
@@ -206,7 +252,7 @@ public class DatabaseFunctions {
      * Gets the anticipated value of the next UserID (usually the last row inserted)
      * from the User table.
      * 
-     * @return long The value of the next UserID or 0 if there is no data.
+     * @return The value of the next UserID or 0 if there is no data.
      */
     public static long getNextUserID() {
         long lastRowID = 0;
@@ -224,21 +270,27 @@ public class DatabaseFunctions {
         return lastRowID;
     }
 
-    public static Boolean UserExists(String email)
-    {
+    /**
+     * Checks if the given users exists in the database. Julen Pardo came up with
+     * this. Thought about changing the method to retrieve the UserID instead, but
+     * Email is supposed to be unique. If the count != 1, that means there are no
+     * users or more than one, which means something is wrong. This is a better
+     * method.
+     * 
+     * @param email The email to check.
+     * 
+     * @return True if the users exists, false if not.
+     */
+    public static Boolean userExists(String email) {
         Boolean exists = false;
-        String sql = "SELECT COUNT(*) AS Count FROM User WHERE Email = @Email;";
+        String sql = "SELECT COUNT(*) AS Count FROM User WHERE Email = ?;";
         try (Connection conn = DriverManager.getConnection("jdbc:sqlite:" + PATH_TO_SQLITE_DB);
-                PreparedStatement pstmt = conn.prepareStatement(sql, Statement.RETURN_GENERATED_KEYS)) {
+                PreparedStatement pstmt = conn.prepareStatement(sql)) {
             pstmt.setString(1, email);
-            ResultSet result = pstmt.executeQuery(sql);
+            ResultSet result = pstmt.executeQuery();
             int count = result.getInt("Count");
-            System.out.println("Delete count: " + count);
             exists = count == 1 ? true : false;
-            // exists = result.getInt("Count") == 1 ? true : false;
-        }
-        catch (Exception ex)
-        {
+        } catch (Exception ex) {
             String exception = CommonFunctions.logError(ex);
             if (CommonFunctions.DisplayErrors)
                 System.out.println(exception);

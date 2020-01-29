@@ -17,3 +17,59 @@
 [2020-01-28 20:25:06 EST] java.sql.SQLException: Invalid cursor position
 [2020-01-28 20:26:17 EST] java.lang.IllegalArgumentException: Creation date cannot be empty or incorrectly formatted.
 [2020-01-28 20:29:17 EST] java.lang.IllegalArgumentException: Creation date cannot be empty or incorrectly formatted.
+[2020-01-29 12:08:47 EST] java.sql.SQLException: not implemented by SQLite JDBC driver
+[2020-01-29 12:13:57 EST] [Ljava.lang.StackTraceElement;@4d76f3f8
+[2020-01-29 12:17:17 EST] 507
+[2020-01-29 12:21:55 EST] java.sql.SQLException: not implemented by SQLite JDBC driver at 507.
+java.sql.SQLException: not implemented by SQLite JDBC driver at 547.
+java.sql.SQLException: not implemented by SQLite JDBC driver at 234.
+java.sql.SQLException: not implemented by SQLite JDBC driver at 76.
+java.sql.SQLException: not implemented by SQLite JDBC driver at 99.
+[2020-01-29 12:23:16 EST] java.sql.SQLException: not implemented by SQLite JDBC driver in JDBC3PreparedStatement.java on line 507.
+java.sql.SQLException: not implemented by SQLite JDBC driver in JDBC3PreparedStatement.java on line 547.
+java.sql.SQLException: not implemented by SQLite JDBC driver in DatabaseFunctions.java on line 234.
+java.sql.SQLException: not implemented by SQLite JDBC driver in Hello.java on line 76.
+java.sql.SQLException: not implemented by SQLite JDBC driver in Hello.java on line 99.
+[2020-01-29 12:24:21 EST] - java.sql.SQLException: not implemented by SQLite JDBC driver in JDBC3PreparedStatement.java on line 507.
+- java.sql.SQLException: not implemented by SQLite JDBC driver in JDBC3PreparedStatement.java on line 547.
+- java.sql.SQLException: not implemented by SQLite JDBC driver in DatabaseFunctions.java on line 234.
+- java.sql.SQLException: not implemented by SQLite JDBC driver in Hello.java on line 76.
+- java.sql.SQLException: not implemented by SQLite JDBC driver in Hello.java on line 99.
+[2020-01-29 12:27:11 EST] - java.sql.SQLException: not implemented by SQLite JDBC driver in JDBC3PreparedStatement.java on line 507.
+- java.sql.SQLException: not implemented by SQLite JDBC driver in JDBC3PreparedStatement.java on line 547.
+- java.sql.SQLException: not implemented by SQLite JDBC driver in DatabaseFunctions.java on line 234.
+- java.sql.SQLException: not implemented by SQLite JDBC driver in Hello.java on line 76.
+- java.sql.SQLException: not implemented by SQLite JDBC driver in Hello.java on line 99.
+[2020-01-29 12:57:26 EST] - java.sql.SQLException: not implemented by SQLite JDBC driver in JDBC3PreparedStatement.java on line 507.
+- java.sql.SQLException: not implemented by SQLite JDBC driver in JDBC3PreparedStatement.java on line 547.
+- java.sql.SQLException: not implemented by SQLite JDBC driver in DatabaseFunctions.java on line 156.
+- java.sql.SQLException: not implemented by SQLite JDBC driver in Hello.java on line 78.
+- java.sql.SQLException: not implemented by SQLite JDBC driver in Hello.java on line 111.
+[2020-01-29 12:57:26 EST] - java.lang.NullPointerException in Hello.java on line 79.
+- java.lang.NullPointerException in Hello.java on line 111.
+[2020-01-29 12:58:25 EST] - java.sql.SQLException: Invalid cursor position in null on line -1.
+- java.sql.SQLException: Invalid cursor position in null on line -1.
+- java.sql.SQLException: Invalid cursor position in null on line -1.
+- java.sql.SQLException: Invalid cursor position in Hello.java on line 82.
+- java.sql.SQLException: Invalid cursor position in Hello.java on line 111.
+[2020-01-29 13:41:58 EST] - java.lang.ArrayIndexOutOfBoundsException: -1 in null on line -1.
+- java.lang.ArrayIndexOutOfBoundsException: -1 in null on line -1.
+- java.lang.ArrayIndexOutOfBoundsException: -1 in null on line -1.
+- java.lang.ArrayIndexOutOfBoundsException: -1 in null on line -1.
+- java.lang.ArrayIndexOutOfBoundsException: -1 in null on line -1.
+- java.lang.ArrayIndexOutOfBoundsException: -1 in Hello.java on line 100.
+- java.lang.ArrayIndexOutOfBoundsException: -1 in Hello.java on line 138.
+[2020-01-29 13:42:35 EST] - java.lang.ArrayIndexOutOfBoundsException: -1 in null on line -1.
+- java.lang.ArrayIndexOutOfBoundsException: -1 in null on line -1.
+- java.lang.ArrayIndexOutOfBoundsException: -1 in null on line -1.
+- java.lang.ArrayIndexOutOfBoundsException: -1 in null on line -1.
+- java.lang.ArrayIndexOutOfBoundsException: -1 in null on line -1.
+- java.lang.ArrayIndexOutOfBoundsException: -1 in Hello.java on line 100.
+- java.lang.ArrayIndexOutOfBoundsException: -1 in Hello.java on line 138.
+[2020-01-29 13:42:53 EST] - java.lang.ArrayIndexOutOfBoundsException: -1 in null on line -1.
+- java.lang.ArrayIndexOutOfBoundsException: -1 in null on line -1.
+- java.lang.ArrayIndexOutOfBoundsException: -1 in null on line -1.
+- java.lang.ArrayIndexOutOfBoundsException: -1 in null on line -1.
+- java.lang.ArrayIndexOutOfBoundsException: -1 in null on line -1.
+- java.lang.ArrayIndexOutOfBoundsException: -1 in Hello.java on line 120.
+- java.lang.ArrayIndexOutOfBoundsException: -1 in Hello.java on line 138.

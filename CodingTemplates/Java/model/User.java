@@ -37,7 +37,7 @@ public class User {
     /**
      * User ID getter.
      *
-     * @return integer The user ID property.
+     * @return The user ID property.
      */
     public long getUserID() {
         return this.userID;
@@ -46,7 +46,7 @@ public class User {
     /**
      * User ID setter.
      *
-     * @param integer userID The user's ID.
+     * @param userID The user's ID.
      *
      * @return void
      */
@@ -61,7 +61,7 @@ public class User {
     /**
      * First name getter.
      *
-     * @return integer The first name property.
+     * @return The first name property.
      */
     public String getFirstName() {
         return this.firstName;
@@ -70,7 +70,7 @@ public class User {
     /**
      * First name setter.
      *
-     * @param integer firstName The user's first name.
+     * @param firstName The user's first name.
      *
      * @return void
      */
@@ -86,7 +86,7 @@ public class User {
     /**
      * Last name getter.
      *
-     * @return integer The last name property.
+     * @return The last name property.
      */
     public String getLastName() {
         return this.lastName;
@@ -95,7 +95,7 @@ public class User {
     /**
      * Last name setter.
      *
-     * @param integer lastName The user's last name.
+     * @param lastName The user's last name.
      *
      * @return void
      */
@@ -111,7 +111,7 @@ public class User {
     /**
      * Email getter.
      *
-     * @return integer The email property.
+     * @return The email property.
      */
     public String getEmail() {
         return this.email;
@@ -120,7 +120,7 @@ public class User {
     /**
      * Email setter.
      *
-     * @param integer email The user's email address (used for user name).
+     * @param email The user's email address (used for user name).
      *
      * @return void
      */
@@ -146,7 +146,7 @@ public class User {
     /**
      * Score setter.
      *
-     * @param float score The user's score from 0.0 to 100.0.
+     * @param score The user's score from 0.0 to 100.0.
      *
      * @return void
      */
@@ -161,7 +161,7 @@ public class User {
     /**
      * Creation date getter.
      *
-     * @return integer The creation date property.
+     * @return The creation date property.
      */
     public String getCreationDate() {
         return this.creationDate;
@@ -170,7 +170,7 @@ public class User {
     /**
      * Creation date setter.
      *
-     * @param integer creationDate The date the user was added to the database.
+     * @param creationDate The date the user was added to the database.
      *
      * @return void
      */
@@ -185,7 +185,7 @@ public class User {
     /**
      * Comment getter.
      *
-     * @return integer The comment property.
+     * @return The comment property.
      */
     public String getComment() {
         return this.comment;
@@ -194,7 +194,7 @@ public class User {
     /**
      * Comment setter.
      *
-     * @param integer comment Any additional comments.
+     * @param comment Any additional comments.
      *
      * @return void
      */
@@ -205,13 +205,13 @@ public class User {
     /**
      * Class constructor.
      *
-     * @param integer userID The user's ID.
-     * @param string  firstName The user's first name.
-     * @param string  lastName The user's last name.
-     * @param string  email The user's email address (used for user name).
-     * @param float   score The user's score from 0.0 to 100.0.
-     * @param string  creationDate The date the user was added to the database.
-     * @param string  comment Any additional comments.
+     * @param userID       The user's ID.
+     * @param firstName    The user's first name.
+     * @param lastName     The user's last name.
+     * @param email        The user's email address (used for user name).
+     * @param score        The user's score from 0.0 to 100.0.
+     * @param creationDate The date the user was added to the database.
+     * @param comment      Any additional comments.
      *
      * @return void
      */
