@@ -39,14 +39,14 @@ namespace CSharp
                 if (DatabaseFunctions.DatabaseExists())
                 {
                     // Task 1: Connect and retrieve information from the database
-                    SQLiteDataReader result;
-                    DataTable result2 = DatabaseFunctions.GetAllUsers();
+                    // SQLiteDataReader result;
+                    DataTable result = DatabaseFunctions.GetAllUsers();
 
-                    if (result2 != null)
+                    if (result != null)
                     {
                         List<User> listOfUsers = new List<User>();
 
-                        foreach (DataRow row in result2.Rows)
+                        foreach (DataRow row in result.Rows)
                         {
                             listOfUsers.Add(new User(long.Parse(row["UserID"].ToString()), row["FirstName"].ToString(), row["LastName"].ToString(), row["Email"].ToString(), float.Parse(row["Score"].ToString()), row["CreationDate"].ToString(), row["Comment"].ToString()));
                         }
@@ -57,7 +57,7 @@ namespace CSharp
                         {
                             Console.WriteLine("Hello, {0} {1}! You are #{2}, created on {3}, and you are a(n) {4}", user.FirstName, user.LastName, listOfUsers.IndexOf(user) + 1, user.CreationDate, user.Comment);
                         }
-                        result2.Dispose();
+                        result.Dispose();
                     }
                     else
                     {
@@ -73,16 +73,16 @@ namespace CSharp
                     {
                         Console.WriteLine("Thanos, you are already in the database!\n");
                         result = DatabaseFunctions.GetUserByEmail("thanos@rgprogramming.com");
-                        if (result.Read())
+                        if (result != null)
                         {
-                            IDataRecord row = result;
+                            DataRow row = result.Rows[0];
                             thanos = new User(long.Parse(row["UserID"].ToString()), row["FirstName"].ToString(), row["LastName"].ToString(), row["Email"].ToString(), float.Parse(row["Score"].ToString()), row["CreationDate"].ToString(), row["Comment"].ToString());
                         }
                         else
                         {
                             throw new Exception("Cannot retrieve user data!");
                         }
-                        result.Close();
+                        result.Dispose();
                     }
                     else
                     {
@@ -95,9 +95,9 @@ namespace CSharp
                         else
                         {
                             result = DatabaseFunctions.GetUserByUserID(userID);
-                            if (result.Read())
+                            if (result != null)
                             {
-                                IDataRecord row = result;
+                                DataRow row = result.Rows[0];
                                 thanos = new User(long.Parse(row["UserID"].ToString()), row["FirstName"].ToString(), row["LastName"].ToString(), row["Email"].ToString(), float.Parse(row["Score"].ToString()), row["CreationDate"].ToString(), row["Comment"].ToString());
                                 Console.WriteLine("Welcome {0} {1}! You were created on {2} and you are a(n) {3}\n", thanos.FirstName, thanos.LastName, thanos.CreationDate, thanos.Comment);
                             }
@@ -105,7 +105,7 @@ namespace CSharp
                             {
                                 throw new Exception("Cannot retrieve user data!");
                             }
-                            result.Close();
+                            result.Dispose();
                         }
                     }
 

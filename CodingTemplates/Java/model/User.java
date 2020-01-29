@@ -24,7 +24,7 @@ package model;
 public class User {
 
     /**
-     *  Class properties.
+     * Class properties.
      */
     private long userID;
     private String firstName;
@@ -39,8 +39,7 @@ public class User {
      *
      * @return integer The user ID property.
      */
-    public long getUserID()
-    {
+    public long getUserID() {
         return this.userID;
     }
 
@@ -51,8 +50,7 @@ public class User {
      *
      * @return void
      */
-    public void setUserID(long userID)
-    {
+    public void setUserID(long userID) {
         if (CommonFunctions.validateUserID(userID)) {
             this.userID = userID;
         } else {
@@ -65,8 +63,7 @@ public class User {
      *
      * @return integer The first name property.
      */
-    public String getFirstName()
-    {
+    public String getFirstName() {
         return this.firstName;
     }
 
@@ -77,8 +74,7 @@ public class User {
      *
      * @return void
      */
-    public void setFirstName(String firstName)
-    {
+    public void setFirstName(String firstName) {
         firstName = firstName.trim();
         if (CommonFunctions.validateText(firstName)) {
             this.firstName = firstName;
@@ -92,8 +88,7 @@ public class User {
      *
      * @return integer The last name property.
      */
-    public String getLastName()
-    {
+    public String getLastName() {
         return this.lastName;
     }
 
@@ -104,15 +99,12 @@ public class User {
      *
      * @return void
      */
-    public void setLastName(String lastName)
-    {
+    public void setLastName(String lastName) {
         lastName = lastName.trim();
         if (CommonFunctions.validateText(lastName)) {
             this.lastName = lastName;
         } else {
-            throw new IllegalArgumentException(
-                "Last name cannot be empty or contain illegal characters."
-            );
+            throw new IllegalArgumentException("Last name cannot be empty or contain illegal characters.");
         }
     }
 
@@ -121,8 +113,7 @@ public class User {
      *
      * @return integer The email property.
      */
-    public String getEmail()
-    {
+    public String getEmail() {
         return this.email;
     }
 
@@ -133,13 +124,13 @@ public class User {
      *
      * @return void
      */
-    public void setEmail(String email)
-    {
+    public void setEmail(String email) {
         email = email.trim();
         if (CommonFunctions.validateEmail(email)) {
             this.email = email;
         } else {
-            throw new IllegalArgumentException("Email cannot be empty, incorrectly formatted, or contain illegal characters.");
+            throw new IllegalArgumentException(
+                    "Email cannot be empty, incorrectly formatted, or contain illegal characters.");
         }
     }
 
@@ -148,8 +139,7 @@ public class User {
      *
      * @return float The score property.
      */
-    public float getScore()
-    {
+    public float getScore() {
         return this.score;
     }
 
@@ -160,12 +150,9 @@ public class User {
      *
      * @return void
      */
-    public void setScore(float score)
-    {
+    public void setScore(float score) {
         if (score < 0.0 || score > 100.0) {
-            throw new IllegalArgumentException(
-                "Score cannot be empty and must be equal to or between 0.0 and 100.0"
-            );
+            throw new IllegalArgumentException("Score cannot be empty and must be equal to or between 0.0 and 100.0");
         } else {
             this.score = score;
         }
@@ -176,8 +163,7 @@ public class User {
      *
      * @return integer The creation date property.
      */
-    public String getCreationDate()
-    {
+    public String getCreationDate() {
         return this.creationDate;
     }
 
@@ -188,14 +174,11 @@ public class User {
      *
      * @return void
      */
-    public void setCreationDate(String creationDate)
-    {
+    public void setCreationDate(String creationDate) {
         if (CommonFunctions.validateDate(creationDate)) {
             this.creationDate = creationDate;
         } else {
-            throw new IllegalArgumentException(
-                "Creation date cannot be empty or incorrectly formatted."
-            );
+            throw new IllegalArgumentException("Creation date cannot be empty or incorrectly formatted.");
         }
     }
 
@@ -204,8 +187,7 @@ public class User {
      *
      * @return integer The comment property.
      */
-    public String getComment()
-    {
+    public String getComment() {
         return this.comment;
     }
 
@@ -216,25 +198,25 @@ public class User {
      *
      * @return void
      */
-    public void setComment(String comment)
-    {
+    public void setComment(String comment) {
         this.comment = comment;
     }
 
     /**
      * Class constructor.
      *
-     * @param integer userID       The user's ID.
-     * @param string  firstName    The user's first name.
-     * @param string  lastName     The user's last name.
-     * @param string  email        The user's email address (used for user name).
-     * @param float   score        The user's score from 0.0 to 100.0.
+     * @param integer userID The user's ID.
+     * @param string  firstName The user's first name.
+     * @param string  lastName The user's last name.
+     * @param string  email The user's email address (used for user name).
+     * @param float   score The user's score from 0.0 to 100.0.
      * @param string  creationDate The date the user was added to the database.
-     * @param string  comment      Any additional comments.
+     * @param string  comment Any additional comments.
      *
      * @return void
      */
-    public User(long userID, String firstName, String lastName, String email, float score, String creationDate, String comment) {
+    public User(long userID, String firstName, String lastName, String email, float score, String creationDate,
+            String comment) {
         this.setUserID(userID);
         this.setFirstName(firstName);
         this.setLastName(lastName);
@@ -243,4 +225,4 @@ public class User {
         this.setCreationDate(creationDate);
         this.comment = comment;
     }
- }
+}

@@ -70,6 +70,9 @@ public class Hello {
 
                 System.out.println();
 
+                // Task 2: Add, update, and delete a new user
+                User thanos;
+
             } else {
                 System.out.println("Houston, we had a problem.");
             }
@@ -81,7 +84,6 @@ public class Hello {
                 System.out.println(
                         "Unable to connect to the database and retrieve data. Check the error log for details.");
         }
-
     }
 
     public static void main(String[] args) {

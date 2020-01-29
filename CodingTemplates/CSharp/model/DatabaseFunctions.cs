@@ -31,9 +31,9 @@ namespace Model
     /// Class methods:
     /// int CreateUserTable()
     /// long CreateUser(string firstName, string lastName, string email, float score, string comment)
-    /// SQLiteDataReader GetAllUsers()
-    /// SQLiteDataReader GetUserByUserID(long userID)
-    /// SQLiteDataReader GetUserByEmail(string email)
+    /// DataTable GetAllUsers()
+    /// DataTable GetUserByUserID(long userID)
+    /// DataTable GetUserByEmail(string email)
     /// int UpdateUser(long userID, string firstName, string lastName, string email, float score, string comment)
     /// int DeleteUser(long userID)
     /// long GetNextUserID()
@@ -48,32 +48,33 @@ namespace Model
         /// <summary>
         /// Creates the User table if it does not exist in the database.
         /// </summary>
-        /// <returns>The number of rows affected. A value not equal to 0 indicates an error.</returns>
+        /// <returns>The number of rows affected. While DROP will return -1, the last call, CREATE, should return 0.</returns>
         public static int CreateUserTable()
         {
             int rowsAffected = -1;
             try
             {
-                SQLiteConnection conn = new SQLiteConnection(string.Format("URI=file:{0}", PathToSQLiteDB));
-                conn.Open();
-                string sql = @"DROP TABLE IF EXISTS User;";
-                using (SQLiteCommand cmd = new SQLiteCommand(sql, conn))
+                using (SQLiteConnection conn = new SQLiteConnection(string.Format("URI=file:{0}", PathToSQLiteDB)))
                 {
-                    cmd.ExecuteNonQuery();
-                }
-                sql = @"CREATE TABLE IF NOT EXISTS User (
-                    UserID integer PRIMARY KEY,
-                    FirstName text NOT NULL,
-                    LastName text NOT NULL,
-                    Email text UNIQUE NOT NULL,
-                    Score real NOT NULL DEFAULT '100.0',
-                    CreationDate text NOT NULL,
-                    Comment text
-                );";
-                using (SQLiteCommand cmd = new SQLiteCommand(sql, conn))
-                {
-                    rowsAffected = cmd.ExecuteNonQuery();
-                    return rowsAffected;
+                    conn.Open();
+                    string sql = @"DROP TABLE IF EXISTS User;";
+                    using (SQLiteCommand cmd = new SQLiteCommand(sql, conn))
+                    {
+                        rowsAffected = cmd.ExecuteNonQuery();
+                    }
+                    sql = @"CREATE TABLE IF NOT EXISTS User (
+                        UserID integer PRIMARY KEY,
+                        FirstName text NOT NULL,
+                        LastName text NOT NULL,
+                        Email text UNIQUE NOT NULL,
+                        Score real NOT NULL DEFAULT '100.0',
+                        CreationDate text NOT NULL,
+                        Comment text
+                    );";
+                    using (SQLiteCommand cmd = new SQLiteCommand(sql, conn))
+                    {
+                        rowsAffected = cmd.ExecuteNonQuery();
+                    }
                 }
             }
             catch (Exception ex)
@@ -98,32 +99,32 @@ namespace Model
             long lastRowID = 0;
             try
             {
-                SQLiteConnection conn = new SQLiteConnection(string.Format("URI=file:{0}", PathToSQLiteDB));
-                conn.Open();
-                string sql = @"INSERT INTO User VALUES (
-                    @UserID,
-                    @FirstName,
-                    @LastName,
-                    @Email,
-                    @Score,
-                    @CreationDate,
-                    @Comment
-                );";
-                using (SQLiteCommand cmd = new SQLiteCommand(sql, conn))
+                using (SQLiteConnection conn = new SQLiteConnection(string.Format("URI=file:{0}", PathToSQLiteDB)))
                 {
-                    string creationDate = DateTime.Now.ToString("yyyy-MM-dd HH:mm:ss");
-                    cmd.Parameters.AddWithValue("@UserID", GetNextUserID());
-                    cmd.Parameters.AddWithValue("@FirstName", firstName);
-                    cmd.Parameters.AddWithValue("@LastName", lastName);
-                    cmd.Parameters.AddWithValue("@Email", email);
-                    cmd.Parameters.AddWithValue("@Score", score);
-                    cmd.Parameters.AddWithValue("@CreationDate", creationDate);
-                    cmd.Parameters.AddWithValue("@Comment", comment);
-                    cmd.Prepare();
-                    cmd.ExecuteNonQuery();
-                    lastRowID = conn.LastInsertRowId;
-                    conn.Close();
-                    return lastRowID;
+                    conn.Open();
+                    string sql = @"INSERT INTO User VALUES (
+                        @UserID,
+                        @FirstName,
+                        @LastName,
+                        @Email,
+                        @Score,
+                        @CreationDate,
+                        @Comment
+                    );";
+                    using (SQLiteCommand cmd = new SQLiteCommand(sql, conn))
+                    {
+                        string creationDate = DateTime.Now.ToString("yyyy-MM-dd HH:mm:ss");
+                        cmd.Parameters.AddWithValue("@UserID", GetNextUserID());
+                        cmd.Parameters.AddWithValue("@FirstName", firstName);
+                        cmd.Parameters.AddWithValue("@LastName", lastName);
+                        cmd.Parameters.AddWithValue("@Email", email);
+                        cmd.Parameters.AddWithValue("@Score", score);
+                        cmd.Parameters.AddWithValue("@CreationDate", creationDate);
+                        cmd.Parameters.AddWithValue("@Comment", comment);
+                        cmd.Prepare();
+                        cmd.ExecuteNonQuery();
+                        lastRowID = conn.LastInsertRowId;
+                    }
                 }
             }
             catch (Exception ex)
@@ -158,7 +159,6 @@ namespace Model
                         {
                             result.Load(reader);
                         }
-                        return result;
                     }
                 }
             }
@@ -177,22 +177,27 @@ namespace Model
         /// <returns>
         /// The user's information indexed by column name or empty if the user's ID is not found.
         /// </returns>
-        public static SQLiteDataReader GetUserByUserID(long userID)
+        public static DataTable GetUserByUserID(long userID)
         {
-            SQLiteDataReader result = null;
+            // Must use DataTable to save the ResultSet after the connection closes
+            DataTable result = new DataTable();
             try
             {
-                SQLiteConnection conn = new SQLiteConnection(string.Format("URI=file:{0}", PathToSQLiteDB));
-                conn.Open();
-                string sql = @"SELECT *
-                    FROM User
-                    WHERE UserID = @UserID;";
-                using (SQLiteCommand cmd = new SQLiteCommand(sql, conn))
+                using (SQLiteConnection conn = new SQLiteConnection(string.Format("URI=file:{0}", PathToSQLiteDB)))
                 {
-                    cmd.Parameters.AddWithValue("@UserID", userID);
-                    cmd.Prepare();
-                    result = cmd.ExecuteReader(CommandBehavior.CloseConnection);
-                    return result;
+                    conn.Open();
+                    string sql = @"SELECT *
+                        FROM User
+                        WHERE UserID = @UserID;";
+                    using (SQLiteCommand cmd = new SQLiteCommand(sql, conn))
+                    {
+                        cmd.Parameters.AddWithValue("@UserID", userID);
+                        cmd.Prepare();
+                        using (SQLiteDataReader reader = cmd.ExecuteReader(CommandBehavior.CloseConnection))
+                        {
+                            result.Load(reader);
+                        }
+                    }
                 }
             }
             catch (Exception ex)
@@ -210,22 +215,27 @@ namespace Model
         /// <returns>
         /// The user's information indexed by column name or empty if the user's email is not found.
         /// </returns>
-        public static SQLiteDataReader GetUserByEmail(string email)
+        public static DataTable GetUserByEmail(string email)
         {
-            SQLiteDataReader result = null;
+            // Must use DataTable to save the ResultSet after the connection closes
+            DataTable result = new DataTable();
             try
             {
-                SQLiteConnection conn = new SQLiteConnection(string.Format("URI=file:{0}", PathToSQLiteDB));
-                conn.Open();
-                string sql = @"SELECT *
+                using (SQLiteConnection conn = new SQLiteConnection(string.Format("URI=file:{0}", PathToSQLiteDB)))
+                {
+                    conn.Open();
+                    string sql = @"SELECT *
                     FROM User
                     WHERE Email = @Email;";
-                using (SQLiteCommand cmd = new SQLiteCommand(sql, conn))
-                {
-                    cmd.Parameters.AddWithValue("@Email", email);
-                    cmd.Prepare();
-                    result = cmd.ExecuteReader(CommandBehavior.CloseConnection);
-                    return result;
+                    using (SQLiteCommand cmd = new SQLiteCommand(sql, conn))
+                    {
+                        cmd.Parameters.AddWithValue("@Email", email);
+                        cmd.Prepare();
+                        using (SQLiteDataReader reader = cmd.ExecuteReader(CommandBehavior.CloseConnection))
+                        {
+                            result.Load(reader);
+                        }
+                    }
                 }
             }
             catch (Exception ex)
@@ -253,26 +263,27 @@ namespace Model
             int rowsAffected = 0;
             try
             {
-                SQLiteConnection conn = new SQLiteConnection(string.Format("URI=file:{0}", PathToSQLiteDB));
-                conn.Open();
-                string sql = @"UPDATE User
+                using (SQLiteConnection conn = new SQLiteConnection(string.Format("URI=file:{0}", PathToSQLiteDB)))
+                {
+                    conn.Open();
+                    string sql = @"UPDATE User
                     SET FirstName = @FirstName,
                     LastName = @LastName,
                     Email = @Email,
                     Score = @Score,
                     Comment = @Comment
                     WHERE UserID = @UserID;";
-                using (SQLiteCommand cmd = new SQLiteCommand(sql, conn))
-                {
-                    cmd.Parameters.AddWithValue("@FirstName", firstName);
-                    cmd.Parameters.AddWithValue("@LastName", lastName);
-                    cmd.Parameters.AddWithValue("@Email", email);
-                    cmd.Parameters.AddWithValue("@Score", score);
-                    cmd.Parameters.AddWithValue("@Comment", comment);
-                    cmd.Parameters.AddWithValue("@UserID", userID);
-                    cmd.Prepare();
-                    rowsAffected = cmd.ExecuteNonQuery();
-                    return rowsAffected;
+                    using (SQLiteCommand cmd = new SQLiteCommand(sql, conn))
+                    {
+                        cmd.Parameters.AddWithValue("@FirstName", firstName);
+                        cmd.Parameters.AddWithValue("@LastName", lastName);
+                        cmd.Parameters.AddWithValue("@Email", email);
+                        cmd.Parameters.AddWithValue("@Score", score);
+                        cmd.Parameters.AddWithValue("@Comment", comment);
+                        cmd.Parameters.AddWithValue("@UserID", userID);
+                        cmd.Prepare();
+                        rowsAffected = cmd.ExecuteNonQuery();
+                    }
                 }
             }
             catch (Exception ex)
@@ -295,15 +306,16 @@ namespace Model
             int rowsAffected = 0;
             try
             {
-                SQLiteConnection conn = new SQLiteConnection(string.Format("URI=file:{0}", PathToSQLiteDB));
-                conn.Open();
-                string sql = @"DELETE FROM User WHERE UserID = @UserID;";
-                using (SQLiteCommand cmd = new SQLiteCommand(sql, conn))
+                using (SQLiteConnection conn = new SQLiteConnection(string.Format("URI=file:{0}", PathToSQLiteDB)))
                 {
-                    cmd.Parameters.AddWithValue("@UserID", userID);
-                    cmd.Prepare();
-                    rowsAffected = cmd.ExecuteNonQuery();
-                    return rowsAffected;
+                    conn.Open();
+                    string sql = @"DELETE FROM User WHERE UserID = @UserID;";
+                    using (SQLiteCommand cmd = new SQLiteCommand(sql, conn))
+                    {
+                        cmd.Parameters.AddWithValue("@UserID", userID);
+                        cmd.Prepare();
+                        rowsAffected = cmd.ExecuteNonQuery();
+                    }
                 }
             }
             catch (Exception ex)
@@ -324,14 +336,15 @@ namespace Model
             long lastRowID = 0;
             try
             {
-                SQLiteConnection conn = new SQLiteConnection(string.Format("URI=file:{0}", PathToSQLiteDB));
-                conn.Open();
-                string sql = @"SELECT MAX(UserID) as maxUserID FROM User;";
-                using (SQLiteCommand cmd = new SQLiteCommand(sql, conn))
+                using (SQLiteConnection conn = new SQLiteConnection(string.Format("URI=file:{0}", PathToSQLiteDB)))
                 {
-                    object o = cmd.ExecuteScalar();
-                    lastRowID = (o is System.DBNull) ? 0 : Convert.ToInt64(o);
-                    return lastRowID + 1;
+                    conn.Open();
+                    string sql = @"SELECT MAX(UserID) as maxUserID FROM User;";
+                    using (SQLiteCommand cmd = new SQLiteCommand(sql, conn))
+                    {
+                        object o = cmd.ExecuteScalar();
+                        lastRowID = (o is System.DBNull) ? 0 : Convert.ToInt64(o);
+                    }
                 }
             }
             catch (Exception ex)
@@ -339,7 +352,7 @@ namespace Model
                 string exception = CommonFunctions.LogError(ex);
                 if (CommonFunctions.DisplayErrors) Console.WriteLine(exception);
             }
-            return lastRowID;
+            return lastRowID + 1;
         }
 
         /// <summary>
@@ -357,18 +370,19 @@ namespace Model
             bool exists = false;
             try
             {
-                SQLiteConnection conn = new SQLiteConnection(string.Format("URI=file:{0}", PathToSQLiteDB));
-                conn.Open();
-                string sql = @"SELECT COUNT(*) AS Count
-                    FROM User
-                    WHERE Email = @Email;";
-                using (SQLiteCommand cmd = new SQLiteCommand(sql, conn))
+                using (SQLiteConnection conn = new SQLiteConnection(string.Format("URI=file:{0}", PathToSQLiteDB)))
                 {
-                    cmd.Parameters.AddWithValue("@Email", email);
-                    cmd.Prepare();
-                    long count = (long)cmd.ExecuteScalar();
-                    exists = count == 1 ? true : false;
-                    return exists;
+                    conn.Open();
+                    string sql = @"SELECT COUNT(*) AS Count
+                        FROM User
+                        WHERE Email = @Email;";
+                    using (SQLiteCommand cmd = new SQLiteCommand(sql, conn))
+                    {
+                        cmd.Parameters.AddWithValue("@Email", email);
+                        cmd.Prepare();
+                        long count = (long)cmd.ExecuteScalar();
+                        exists = count == 1 ? true : false;
+                    }
                 }
             }
             catch (Exception ex)

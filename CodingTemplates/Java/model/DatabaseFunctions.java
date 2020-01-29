@@ -42,18 +42,18 @@ public class DatabaseFunctions {
     /**
      * Creates the User table if it does not exist in the database.
      * 
-     * @return integer The number of rows affected. A value less than 0 indicates an
-     *         error.
+     * @return The number of rows affected. Both DROP and CREATE should return 0.
      */
     public static int createUserTable() {
         int rowsAffected = -1;
-        String sql = "CREATE TABLE IF NOT EXISTS User (" + "UserID integer PRIMARY KEY," + "FirstName text NOT NULL,"
-                + "LastName text NOT NULL," + "Email text UNIQUE NOT NULL," + "Score real NOT NULL DEFAULT '100.0',"
-                + "CreationDate text NOT NULL," + "Comment text);";
         try (Connection conn = DriverManager.getConnection("jdbc:sqlite:" + PATH_TO_SQLITE_DB);
                 Statement stmt = conn.createStatement()) {
+            String sql = "DROP TABLE IF EXISTS User;";
             rowsAffected = stmt.executeUpdate(sql);
-            return rowsAffected;
+            sql = "CREATE TABLE IF NOT EXISTS User (" + "UserID integer PRIMARY KEY," + "FirstName text NOT NULL,"
+                    + "LastName text NOT NULL," + "Email text UNIQUE NOT NULL," + "Score real NOT NULL DEFAULT '100.0',"
+                    + "CreationDate text NOT NULL," + "Comment text);";
+            rowsAffected = stmt.executeUpdate(sql);
         } catch (Exception ex) {
             String exception = CommonFunctions.logError(ex);
             if (CommonFunctions.DisplayErrors)
@@ -73,7 +73,7 @@ public class DatabaseFunctions {
      * 
      * @return integer The rowid of the new user. A value of 0 indicates an error.
      */
-    public static long CreateUser(String firstName, String lastName, String email, float score, String comment) {
+    public static long createUser(String firstName, String lastName, String email, float score, String comment) {
         long lastRowID = 0;
         String sql = "INSERT INTO User VALUES (?, ?, ?, ?, ?, ?, ?);";
         try (Connection conn = DriverManager.getConnection("jdbc:sqlite:" + PATH_TO_SQLITE_DB);
@@ -99,7 +99,6 @@ public class DatabaseFunctions {
                     }
                 }
             }
-            return lastRowID;
         } catch (Exception ex) {
             String exception = CommonFunctions.logError(ex);
             if (CommonFunctions.DisplayErrors)
@@ -147,6 +146,62 @@ public class DatabaseFunctions {
         return rowset;
     }
 
+    public static CachedRowSet getUserByEmail(String email) {
+        // Must use CacheRowSet to save the ResultSet after the connection closes
+        CachedRowSet rowset = null;
+        String sql = "SELECT * FROM User WHERE Email = ?;";
+        try (Connection conn = DriverManager.getConnection("jdbc:sqlite:" + PATH_TO_SQLITE_DB);
+                PreparedStatement pstmt = conn.prepareStatement(sql, Statement.RETURN_GENERATED_KEYS)) {
+            pstmt.setString(1, email);
+            ResultSet result = pstmt.executeQuery(sql);
+            // Create factory here since its SQLException must be caught
+            RowSetFactory factory = RowSetProvider.newFactory();
+            rowset = factory.createCachedRowSet();
+            rowset.populate(result);
+        } catch (Exception ex) {
+            String exception = CommonFunctions.logError(ex);
+            if (CommonFunctions.DisplayErrors)
+                System.out.println(exception);
+        }
+        return rowset;
+    }
+
+    public static int UpdateUser(long userID, String firstName, String lastName, String email, float score,
+            String comment) {
+        int rowsAffected = 0;
+        String sql = "UPDATE User SET FirstName = ?, LastName = ?, Email = ?, Score = ?, Comment = ? WHERE UserID = ?;";
+        try (Connection conn = DriverManager.getConnection("jdbc:sqlite:" + PATH_TO_SQLITE_DB);
+                PreparedStatement pstmt = conn.prepareStatement(sql, Statement.RETURN_GENERATED_KEYS)) {
+            pstmt.setString(1, firstName);
+            pstmt.setString(2, lastName);
+            pstmt.setString(3, email);
+            pstmt.setFloat(4, score);
+            pstmt.setString(5, comment);
+            pstmt.setLong(6, userID);
+            rowsAffected = pstmt.executeUpdate();
+        } catch (Exception ex) {
+            String exception = CommonFunctions.logError(ex);
+            if (CommonFunctions.DisplayErrors)
+                System.out.println(exception);
+        }
+        return rowsAffected;
+    }
+
+    public static int DeleteUser(long userID) {
+        int rowsAffected = 0;
+        String sql = "DELETE FROM User WHERE UserID = ?;";
+        try (Connection conn = DriverManager.getConnection("jdbc:sqlite:" + PATH_TO_SQLITE_DB);
+                PreparedStatement pstmt = conn.prepareStatement(sql, Statement.RETURN_GENERATED_KEYS)) {
+            pstmt.setLong(1, userID);
+            rowsAffected = pstmt.executeUpdate();
+        } catch (Exception ex) {
+            String exception = CommonFunctions.logError(ex);
+            if (CommonFunctions.DisplayErrors)
+                System.out.println(exception);
+        }
+        return rowsAffected;
+    }
+
     /**
      * Gets the anticipated value of the next UserID (usually the last row inserted)
      * from the User table.
@@ -158,8 +213,8 @@ public class DatabaseFunctions {
         String sql = "SELECT MAX(UserID) as maxUserID FROM User;";
         try (Connection conn = DriverManager.getConnection("jdbc:sqlite:" + PATH_TO_SQLITE_DB);
                 Statement stmt = conn.createStatement()) {
-            ResultSet rs = stmt.executeQuery(sql);
-            lastRowID = rs.getLong("maxUserID") + 1;
+            ResultSet result = stmt.executeQuery(sql);
+            lastRowID = result.getLong("maxUserID") + 1;
             return lastRowID;
         } catch (Exception ex) {
             String exception = CommonFunctions.logError(ex);
@@ -167,6 +222,28 @@ public class DatabaseFunctions {
                 System.out.println(exception);
         }
         return lastRowID;
+    }
+
+    public static Boolean UserExists(String email)
+    {
+        Boolean exists = false;
+        String sql = "SELECT COUNT(*) AS Count FROM User WHERE Email = @Email;";
+        try (Connection conn = DriverManager.getConnection("jdbc:sqlite:" + PATH_TO_SQLITE_DB);
+                PreparedStatement pstmt = conn.prepareStatement(sql, Statement.RETURN_GENERATED_KEYS)) {
+            pstmt.setString(1, email);
+            ResultSet result = pstmt.executeQuery(sql);
+            int count = result.getInt("Count");
+            System.out.println("Delete count: " + count);
+            exists = count == 1 ? true : false;
+            // exists = result.getInt("Count") == 1 ? true : false;
+        }
+        catch (Exception ex)
+        {
+            String exception = CommonFunctions.logError(ex);
+            if (CommonFunctions.DisplayErrors)
+                System.out.println(exception);
+        }
+        return exists;
     }
 
     /**
@@ -185,11 +262,11 @@ public class DatabaseFunctions {
                 // Creates the db file if it does not exist
                 exists = (createUserTable() == 0) ? true : false;
                 // Set initial values
-                exists = (CreateUser("Rob", "Garcia", "rgarcia@rgprogramming.com", 80.0f, "Administrator.") != 0) ? true
+                exists = (createUser("Rob", "Garcia", "rgarcia@rgprogramming.com", 80.0f, "Administrator.") != 0) ? true
                         : false;
-                exists = (CreateUser("John", "Adams", "jadams@rgprogramming.com", 90.0f, "Old user.") != 0) ? true
+                exists = (createUser("John", "Adams", "jadams@rgprogramming.com", 90.0f, "Old user.") != 0) ? true
                         : false;
-                exists = (CreateUser("Baby", "Yoda", "byoda@rgprogramming.com", 100.0f, "New user.") != 0) ? true
+                exists = (createUser("Baby", "Yoda", "byoda@rgprogramming.com", 100.0f, "New user.") != 0) ? true
                         : false;
             } else {
                 exists = true;
