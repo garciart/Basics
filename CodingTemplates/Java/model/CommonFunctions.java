@@ -13,7 +13,7 @@
  *     (https://www.oracle.com/technetwork/java/javase/documentation/codeconvtoc-136057.html)
  *
  * @category  Basics
- * @package   Java
+ * @package   Model
  * @author    Rob Garcia <rgarcia@rgprogramming.com>
  * @license   https://opensource.org/licenses/MIT The MIT License
  * @link      https://github.com/garciart/Basics
@@ -33,18 +33,21 @@ public class CommonFunctions {
 
     /**
      * Get the application's model directory.
+     * 
      * @return The application's model directory.
      */
     public static final String MODEL_DIR = System.getProperty("user.dir") + File.separator + "model";
 
     /**
-     * Set the visibility of errors.
-     * Set to True to log and display during development and to False to only log during production.
+     * Set the visibility of errors. Set to True to log and display during
+     * development and to False to only log during production.
      */
     public static final Boolean DisplayErrors = true;
 
     /**
-     * Reformats error and exception details and records them in plain text in the error_log file.
+     * Reformats error and exception details and records them in plain text in the
+     * error_log file.
+     * 
      * @param ex The exception's details.
      * @return Reformated error and exception details in plain text.
      */
@@ -54,7 +57,8 @@ public class CommonFunctions {
             SimpleDateFormat simpleDateFormat = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss z");
             String errorTimestamp = simpleDateFormat.format(new Date());
             exception = String.format("[%s] %s\n", errorTimestamp, ex.toString());
-            BufferedWriter errorLog = new BufferedWriter(new FileWriter(MODEL_DIR + File.separator + "ErrorLog.txt", true));
+            BufferedWriter errorLog = new BufferedWriter(
+                    new FileWriter(MODEL_DIR + File.separator + "ErrorLog.txt", true));
             errorLog.append(exception);
             errorLog.close();
         } catch (Exception exc) {
@@ -66,8 +70,10 @@ public class CommonFunctions {
 
     /**
      * Validate UserID.
+     * 
      * @param int $userID The UserID that will be entered in the database.
-     * @return boolean True if the UserID is an integer greater than 0, false if not.
+     * @return boolean True if the UserID is an integer greater than 0, false if
+     *         not.
      */
     public static Boolean validateUserID(long userID) {
         return userID > 0;
@@ -75,6 +81,7 @@ public class CommonFunctions {
 
     /**
      * Validate text input.
+     * 
      * @param string $text The text that will be entered into the database.
      * @return boolean True if the text is valid, false if not.
      */
@@ -85,7 +92,9 @@ public class CommonFunctions {
 
     /**
      * Validate email address.
-     * @param string $email The email address that will be entered into the database.
+     * 
+     * @param string $email The email address that will be entered into the
+     *               database.
      * @return boolean True if the email is valid, false if not.
      */
     public static Boolean validateEmail(String email) {
@@ -96,6 +105,7 @@ public class CommonFunctions {
 
     /**
      * Validate date format.
+     * 
      * @param string $date The date that will be entered into the database.
      * @return boolean True if the date format is valid, false if not.
      */
@@ -106,8 +116,9 @@ public class CommonFunctions {
     }
 
     /**
-     * Only instantiate the User class, never the CommonFunctions and DatabaseFunctions classes.
-     * The methods in CommonFunctions and DatabaseFunctions should be accessed in a static way.
+     * Only instantiate the User class, never the CommonFunctions and
+     * DatabaseFunctions classes. The methods in CommonFunctions and
+     * DatabaseFunctions should be accessed in a static way.
      */
     public CommonFunctions() {
         System.out.println("Do not instantiate. The methods in CommonFunctions should be accessed in a static way.");

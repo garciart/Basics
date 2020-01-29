@@ -10,3 +10,10 @@
 [2020-01-28 10:33:45 EST] org.sqlite.SQLiteException: [SQLITE_CONSTRAINT]  Abort due to constraint violation (UNIQUE constraint failed: User.UserID)
 [2020-01-28 10:35:42 EST] org.sqlite.SQLiteException: [SQLITE_CONSTRAINT]  Abort due to constraint violation (UNIQUE constraint failed: User.UserID)
 [2020-01-28 10:35:42 EST] org.sqlite.SQLiteException: [SQLITE_CONSTRAINT]  Abort due to constraint violation (UNIQUE constraint failed: User.UserID)
+[2020-01-28 18:18:49 EST] java.sql.SQLException: ResultSet closed
+[2020-01-28 20:22:35 EST] java.sql.SQLException: Invalid cursor position
+[2020-01-28 20:24:23 EST] java.sql.SQLException: Invalid cursor position
+[2020-01-28 20:24:49 EST] java.sql.SQLException: Invalid cursor position
+[2020-01-28 20:25:06 EST] java.sql.SQLException: Invalid cursor position
+[2020-01-28 20:26:17 EST] java.lang.IllegalArgumentException: Creation date cannot be empty or incorrectly formatted.
+[2020-01-28 20:29:17 EST] java.lang.IllegalArgumentException: Creation date cannot be empty or incorrectly formatted.

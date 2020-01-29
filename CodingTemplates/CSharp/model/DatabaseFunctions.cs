@@ -140,20 +140,26 @@ namespace Model
         /// <returns>
         /// An reader object of all the users in the database and their information. An empty object indicates an error.
         /// </returns>
-        public static SQLiteDataReader GetAllUsers()
+        public static DataTable GetAllUsers()
         {
-            SQLiteDataReader result = null;
+            // Must use DataTable to save the ResultSet after the connection closes
+            DataTable result = new DataTable();
             try
             {
-                SQLiteConnection conn = new SQLiteConnection(string.Format("URI=file:{0}", PathToSQLiteDB));
-                conn.Open();
-                string sql = @"SELECT *
-                    FROM User
-                    ORDER BY UserID ASC;";
-                using (SQLiteCommand cmd = new SQLiteCommand(sql, conn))
+                using (SQLiteConnection conn = new SQLiteConnection(string.Format("URI=file:{0}", PathToSQLiteDB)))
                 {
-                    result = cmd.ExecuteReader(CommandBehavior.CloseConnection);
-                    return result;
+                    conn.Open();
+                    string sql = @"SELECT *
+                        FROM User
+                        ORDER BY UserID ASC;";
+                    using (SQLiteCommand cmd = new SQLiteCommand(sql, conn))
+                    {
+                        using (SQLiteDataReader reader = cmd.ExecuteReader(CommandBehavior.CloseConnection))
+                        {
+                            result.Load(reader);
+                        }
+                        return result;
+                    }
                 }
             }
             catch (Exception ex)
@@ -399,7 +405,8 @@ namespace Model
                     Console.WriteLine("Database created...\n");
                     exists = true;
                 }
-                else {
+                else
+                {
                     exists = true;
                 }
             }

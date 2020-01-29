@@ -35,17 +35,18 @@ namespace CSharp
         {
             try
             {
-                throw new Exception("Test...");
+                // throw new Exception("Test...");
                 if (DatabaseFunctions.DatabaseExists())
                 {
                     // Task 1: Connect and retrieve information from the database
-                    SQLiteDataReader result = DatabaseFunctions.GetAllUsers();
+                    SQLiteDataReader result;
+                    DataTable result2 = DatabaseFunctions.GetAllUsers();
 
-                    if (result.HasRows)
+                    if (result2 != null)
                     {
                         List<User> listOfUsers = new List<User>();
 
-                        foreach (IDataRecord row in result)
+                        foreach (DataRow row in result2.Rows)
                         {
                             listOfUsers.Add(new User(long.Parse(row["UserID"].ToString()), row["FirstName"].ToString(), row["LastName"].ToString(), row["Email"].ToString(), float.Parse(row["Score"].ToString()), row["CreationDate"].ToString(), row["Comment"].ToString()));
                         }
@@ -56,7 +57,7 @@ namespace CSharp
                         {
                             Console.WriteLine("Hello, {0} {1}! You are #{2}, created on {3}, and you are a(n) {4}", user.FirstName, user.LastName, listOfUsers.IndexOf(user) + 1, user.CreationDate, user.Comment);
                         }
-                        result.Close();
+                        result2.Dispose();
                     }
                     else
                     {

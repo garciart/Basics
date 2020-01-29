@@ -13,7 +13,7 @@
  *     (https://www.oracle.com/technetwork/java/javase/documentation/codeconvtoc-136057.html)
  *
  * @category  Basics
- * @package   Java
+ * @package   Model
  * @author    Rob Garcia <rgarcia@rgprogramming.com>
  * @license   https://opensource.org/licenses/MIT The MIT License
  * @link      https://github.com/garciart/Basics
@@ -26,6 +26,10 @@ import java.io.File;
 import java.sql.*;
 import java.text.SimpleDateFormat;
 import java.util.Date;
+
+import javax.sql.rowset.CachedRowSet;
+import javax.sql.rowset.RowSetFactory;
+import javax.sql.rowset.RowSetProvider;
 
 public class DatabaseFunctions {
 
@@ -49,6 +53,7 @@ public class DatabaseFunctions {
         try (Connection conn = DriverManager.getConnection("jdbc:sqlite:" + PATH_TO_SQLITE_DB);
                 Statement stmt = conn.createStatement()) {
             rowsAffected = stmt.executeUpdate(sql);
+            return rowsAffected;
         } catch (Exception ex) {
             String exception = CommonFunctions.logError(ex);
             if (CommonFunctions.DisplayErrors)
@@ -73,14 +78,14 @@ public class DatabaseFunctions {
         String sql = "INSERT INTO User VALUES (?, ?, ?, ?, ?, ?, ?);";
         try (Connection conn = DriverManager.getConnection("jdbc:sqlite:" + PATH_TO_SQLITE_DB);
                 PreparedStatement pstmt = conn.prepareStatement(sql, Statement.RETURN_GENERATED_KEYS)) {
-            SimpleDateFormat simpleDateFormat = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss z");
-            String timestamp = simpleDateFormat.format(new Date());
+            SimpleDateFormat simpleDateFormat = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
+            String creationDate = simpleDateFormat.format(new Date());
             pstmt.setLong(1, getNextUserID());
             pstmt.setString(2, firstName);
             pstmt.setString(3, lastName);
             pstmt.setString(4, email);
             pstmt.setFloat(5, score);
-            pstmt.setString(6, timestamp);
+            pstmt.setString(6, creationDate);
             pstmt.setString(7, comment);
             int rowsAffected = pstmt.executeUpdate();
             if (rowsAffected == 0) {
@@ -94,12 +99,52 @@ public class DatabaseFunctions {
                     }
                 }
             }
+            return lastRowID;
         } catch (Exception ex) {
             String exception = CommonFunctions.logError(ex);
             if (CommonFunctions.DisplayErrors)
                 System.out.println(exception);
         }
         return lastRowID;
+    }
+
+    public static CachedRowSet getAllUsers() {
+        // Must use CacheRowSet to save the ResultSet after the connection closes
+        CachedRowSet rowset = null;
+        String sql = "SELECT * FROM User ORDER BY UserID ASC;";
+        try (Connection conn = DriverManager.getConnection("jdbc:sqlite:" + PATH_TO_SQLITE_DB);
+                Statement stmt = conn.createStatement()) {
+            ResultSet result = stmt.executeQuery(sql);
+            // Create factory here since its SQLException must be caught
+            RowSetFactory factory = RowSetProvider.newFactory();
+            rowset = factory.createCachedRowSet();
+            rowset.populate(result);
+        } catch (Exception ex) {
+            String exception = CommonFunctions.logError(ex);
+            if (CommonFunctions.DisplayErrors)
+                System.out.println(exception);
+        }
+        return rowset;
+    }
+
+    public static CachedRowSet getUserByUserID(long userID) {
+        // Must use CacheRowSet to save the ResultSet after the connection closes
+        CachedRowSet rowset = null;
+        String sql = "SELECT * FROM User WHERE UserID = ?;";
+        try (Connection conn = DriverManager.getConnection("jdbc:sqlite:" + PATH_TO_SQLITE_DB);
+                PreparedStatement pstmt = conn.prepareStatement(sql, Statement.RETURN_GENERATED_KEYS)) {
+            pstmt.setLong(1, userID);
+            ResultSet result = pstmt.executeQuery(sql);
+            // Create factory here since its SQLException must be caught
+            RowSetFactory factory = RowSetProvider.newFactory();
+            rowset = factory.createCachedRowSet();
+            rowset.populate(result);
+        } catch (Exception ex) {
+            String exception = CommonFunctions.logError(ex);
+            if (CommonFunctions.DisplayErrors)
+                System.out.println(exception);
+        }
+        return rowset;
     }
 
     /**
@@ -115,6 +160,7 @@ public class DatabaseFunctions {
                 Statement stmt = conn.createStatement()) {
             ResultSet rs = stmt.executeQuery(sql);
             lastRowID = rs.getLong("maxUserID") + 1;
+            return lastRowID;
         } catch (Exception ex) {
             String exception = CommonFunctions.logError(ex);
             if (CommonFunctions.DisplayErrors)
@@ -139,9 +185,12 @@ public class DatabaseFunctions {
                 // Creates the db file if it does not exist
                 exists = (createUserTable() == 0) ? true : false;
                 // Set initial values
-                exists = (CreateUser("Rob", "Garcia", "rgarcia@rgprogramming.com", 80.0f, "Administrator.") != 0) ? true : false;
-                exists = (CreateUser("John", "Adams", "jadams@rgprogramming.com", 90.0f, "Old user.") != 0) ? true : false;
-                exists = (CreateUser("Baby", "Yoda", "byoda@rgprogramming.com", 100.0f, "New user.") != 0) ? true : false;
+                exists = (CreateUser("Rob", "Garcia", "rgarcia@rgprogramming.com", 80.0f, "Administrator.") != 0) ? true
+                        : false;
+                exists = (CreateUser("John", "Adams", "jadams@rgprogramming.com", 90.0f, "Old user.") != 0) ? true
+                        : false;
+                exists = (CreateUser("Baby", "Yoda", "byoda@rgprogramming.com", 100.0f, "New user.") != 0) ? true
+                        : false;
             } else {
                 exists = true;
             }
