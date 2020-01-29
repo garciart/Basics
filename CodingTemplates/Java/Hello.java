@@ -20,6 +20,12 @@
  * @copyright 2019-2020 Rob Garcia
  */
 
+import java.sql.ResultSet;
+import java.util.ArrayList;
+import java.util.List;
+
+import javax.sql.rowset.CachedRowSet;
+
 import model.*;
 
 public class Hello {
@@ -32,18 +38,44 @@ public class Hello {
 
     private static void helloUsers() {
         try {
-            System.out.println("Hello, from helloUsers!");
+            // throw new Exception("Test...");
             System.out.println("Verifying database exists...");
             if (DatabaseFunctions.databaseExists()) {
                 System.out.println("Database is good to go!");
+
+                // Task 1: Connect and retrieve information from the database
+                CachedRowSet result = DatabaseFunctions.getAllUsers();
+                // Continue if the last record in the CachedRowSet is valid
+                if (result.last() == true) {
+                    // Reset the CachedRowSet to the beginning
+                    result.beforeFirst();
+                    List<User> listOfUsers = new ArrayList<User>();
+                    while (result.next()) {
+                        listOfUsers.add(new User(result.getLong("UserID"), result.getString("FirstName"),
+                                result.getString("LastName"), result.getString("Email"), result.getFloat("Score"),
+                                result.getString("CreationDate"), result.getString("Comment")));
+                    }
+
+                    System.out.println(String.format("Number of users in the database: %d", listOfUsers.size()));
+                    System.out.println(String.format("The first user is %s.\n", listOfUsers.get(0).getFirstName()));
+                    for (User user : listOfUsers) {
+                        System.out.println(String.format("Hello %s %s! You are #%d, created on %s, and you are a(n) %s",
+                                user.getFirstName(), user.getLastName(), (listOfUsers.indexOf(user)) + 1,
+                                user.getCreationDate(), user.getComment()));
+                    }
+                    result.close();
+                } else {
+                    System.out.println("No records were found.");
+                }
+
+                System.out.println();
+
+                // Task 2: Add, update, and delete a new user
+                User thanos;
+
             } else {
                 System.out.println("Houston, we had a problem.");
             }
-            /*
-            System.out.println(CommonFunctions.validateEmail("<script>alert(\"Hello!\");</script>"));
-            System.out.println(CommonFunctions.validateEmail("rgarcia@rgprogramming.com"));
-            System.out.println(CommonFunctions.validateEmail(" "));
-            */
         } catch (Exception ex) {
             String exception = CommonFunctions.logError(ex);
             if (CommonFunctions.DisplayErrors)
@@ -52,7 +84,6 @@ public class Hello {
                 System.out.println(
                         "Unable to connect to the database and retrieve data. Check the error log for details.");
         }
-
     }
 
     public static void main(String[] args) {

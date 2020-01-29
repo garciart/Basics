@@ -82,7 +82,7 @@
             <summary>
             Creates the User table if it does not exist in the database.
             </summary>
-            <returns>The number of rows affected. A value not equal to 0 indicates an error.</returns>
+            <returns>The number of rows affected. While DROP will return -1, the last call, CREATE, should return 0.</returns>
         </member>
         <member name="M:Model.DatabaseFunctions.CreateUser(System.String,System.String,System.String,System.Single,System.String)">
             <summary>
