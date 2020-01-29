@@ -68,9 +68,9 @@
             Class methods:
             int CreateUserTable()
             long CreateUser(string firstName, string lastName, string email, float score, string comment)
-            SQLiteDataReader GetAllUsers()
-            SQLiteDataReader GetUserByUserID(long userID)
-            SQLiteDataReader GetUserByEmail(string email)
+            DataTable GetAllUsers()
+            DataTable GetUserByUserID(long userID)
+            DataTable GetUserByEmail(string email)
             int UpdateUser(long userID, string firstName, string lastName, string email, float score, string comment)
             int DeleteUser(long userID)
             long GetNextUserID()

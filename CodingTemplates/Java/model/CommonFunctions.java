@@ -27,7 +27,7 @@ import java.io.File;
 import java.io.FileWriter;
 import java.text.SimpleDateFormat;
 import java.util.Date;
-import java.util.regex.*;
+import java.util.regex.Pattern;
 
 public class CommonFunctions {
 
@@ -55,8 +55,12 @@ public class CommonFunctions {
         String exception = null;
         try {
             SimpleDateFormat simpleDateFormat = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss z");
-            String errorTimestamp = simpleDateFormat.format(new Date());
-            exception = String.format("[%s] %s\n", errorTimestamp, ex.toString());
+            exception = String.format("[%s] ", simpleDateFormat.format(new Date()));
+            StackTraceElement[] stackTrace = ex.getStackTrace();
+            for (StackTraceElement s : stackTrace) {
+                exception += String.format("- %s in %s on line %s.\n", ex.toString(), s.getFileName(),
+                        s.getLineNumber());
+            }
             BufferedWriter errorLog = new BufferedWriter(
                     new FileWriter(MODEL_DIR + File.separator + "ErrorLog.txt", true));
             errorLog.append(exception);
@@ -71,9 +75,8 @@ public class CommonFunctions {
     /**
      * Validate UserID.
      * 
-     * @param int $userID The UserID that will be entered in the database.
-     * @return boolean True if the UserID is an integer greater than 0, false if
-     *         not.
+     * @param userID The UserID that will be entered in the database.
+     * @return True if the UserID is an integer greater than 0, false if not.
      */
     public static Boolean validateUserID(long userID) {
         return userID > 0;
@@ -82,8 +85,8 @@ public class CommonFunctions {
     /**
      * Validate text input.
      * 
-     * @param string $text The text that will be entered into the database.
-     * @return boolean True if the text is valid, false if not.
+     * @param text The text that will be entered into the database.
+     * @return True if the text is valid, false if not.
      */
     public static Boolean validateText(String text) {
         return (text.trim() == null || text.trim().isEmpty()
@@ -93,9 +96,8 @@ public class CommonFunctions {
     /**
      * Validate email address.
      * 
-     * @param string $email The email address that will be entered into the
-     *               database.
-     * @return boolean True if the email is valid, false if not.
+     * @param email The email address that will be entered into the database.
+     * @return True if the email is valid, false if not.
      */
     public static Boolean validateEmail(String email) {
         return (email.trim() == null || email.trim().isEmpty()
@@ -106,8 +108,8 @@ public class CommonFunctions {
     /**
      * Validate date format.
      * 
-     * @param string $date The date that will be entered into the database.
-     * @return boolean True if the date format is valid, false if not.
+     * @param date The date that will be entered into the database.
+     * @return True if the date format is valid, false if not.
      */
     public static Boolean validateDate(String date) {
         return (date.trim() == null || date.trim().isEmpty() || date.length() != 19 || (Pattern
