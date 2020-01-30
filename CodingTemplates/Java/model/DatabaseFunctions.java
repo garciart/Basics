@@ -61,7 +61,7 @@ public class DatabaseFunctions {
             rowsAffected = stmt.executeUpdate(sql);
         } catch (Exception ex) {
             String exception = CommonFunctions.logError(ex);
-            if (CommonFunctions.DisplayErrors)
+            if (CommonFunctions.DISPLAY_ERRORS)
                 System.out.println(exception);
         }
         return rowsAffected;
@@ -106,7 +106,7 @@ public class DatabaseFunctions {
             }
         } catch (Exception ex) {
             String exception = CommonFunctions.logError(ex);
-            if (CommonFunctions.DisplayErrors)
+            if (CommonFunctions.DISPLAY_ERRORS)
                 System.out.println(exception);
         }
         return lastRowID;
@@ -131,7 +131,7 @@ public class DatabaseFunctions {
             rowset.populate(result);
         } catch (Exception ex) {
             String exception = CommonFunctions.logError(ex);
-            if (CommonFunctions.DisplayErrors)
+            if (CommonFunctions.DISPLAY_ERRORS)
                 System.out.println(exception);
         }
         return rowset;
@@ -159,7 +159,7 @@ public class DatabaseFunctions {
             rowset.populate(result);
         } catch (Exception ex) {
             String exception = CommonFunctions.logError(ex);
-            if (CommonFunctions.DisplayErrors)
+            if (CommonFunctions.DISPLAY_ERRORS)
                 System.out.println(exception);
         }
         return rowset;
@@ -187,7 +187,7 @@ public class DatabaseFunctions {
             rowset.populate(result);
         } catch (Exception ex) {
             String exception = CommonFunctions.logError(ex);
-            if (CommonFunctions.DisplayErrors)
+            if (CommonFunctions.DISPLAY_ERRORS)
                 System.out.println(exception);
         }
         return rowset;
@@ -220,7 +220,7 @@ public class DatabaseFunctions {
             rowsAffected = pstmt.executeUpdate();
         } catch (Exception ex) {
             String exception = CommonFunctions.logError(ex);
-            if (CommonFunctions.DisplayErrors)
+            if (CommonFunctions.DISPLAY_ERRORS)
                 System.out.println(exception);
         }
         return rowsAffected;
@@ -242,7 +242,7 @@ public class DatabaseFunctions {
             rowsAffected = pstmt.executeUpdate();
         } catch (Exception ex) {
             String exception = CommonFunctions.logError(ex);
-            if (CommonFunctions.DisplayErrors)
+            if (CommonFunctions.DISPLAY_ERRORS)
                 System.out.println(exception);
         }
         return rowsAffected;
@@ -264,7 +264,7 @@ public class DatabaseFunctions {
             return lastRowID;
         } catch (Exception ex) {
             String exception = CommonFunctions.logError(ex);
-            if (CommonFunctions.DisplayErrors)
+            if (CommonFunctions.DISPLAY_ERRORS)
                 System.out.println(exception);
         }
         return lastRowID;
@@ -292,7 +292,7 @@ public class DatabaseFunctions {
             exists = count == 1 ? true : false;
         } catch (Exception ex) {
             String exception = CommonFunctions.logError(ex);
-            if (CommonFunctions.DisplayErrors)
+            if (CommonFunctions.DISPLAY_ERRORS)
                 System.out.println(exception);
         }
         return exists;
@@ -325,7 +325,7 @@ public class DatabaseFunctions {
             }
         } catch (Exception ex) {
             String exception = CommonFunctions.logError(ex);
-            if (CommonFunctions.DisplayErrors)
+            if (CommonFunctions.DISPLAY_ERRORS)
                 System.out.println(exception);
         }
         return exists;

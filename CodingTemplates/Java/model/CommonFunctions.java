@@ -42,7 +42,7 @@ public class CommonFunctions {
      * Set the visibility of errors. Set to True to log and display during
      * development and to False to only log during production.
      */
-    public static final Boolean DisplayErrors = true;
+    public static final Boolean DISPLAY_ERRORS = true;
 
     /**
      * Reformats error and exception details and records them in plain text in the
@@ -66,7 +66,7 @@ public class CommonFunctions {
             errorLog.append(exception);
             errorLog.close();
         } catch (Exception exc) {
-            // if (CommonFunctions.DisplayErrors)
+            // if (CommonFunctions.DISPLAY_ERRORS)
             System.out.println(exc.toString());
         }
         return exception;
