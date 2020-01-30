@@ -29,8 +29,6 @@ import model.CommonFunctions;
 import model.DatabaseFunctions;
 import model.User;
 
-// import model.*;
-
 public class Hello {
 
     /**
@@ -153,7 +151,7 @@ public class Hello {
             }
         } catch (Exception ex) {
             String exception = CommonFunctions.logError(ex);
-            if (CommonFunctions.DisplayErrors)
+            if (CommonFunctions.DISPLAY_ERRORS)
                 System.out.println(exception);
             else
                 System.out.println(

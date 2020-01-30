@@ -1,0 +1,27 @@
+[2020-01-30 00:04:50 America/New_York] ReferenceError: a is not defined
+    at init (C:\Users\Rob\source\repos\Basics\CodingTemplates\JavaScript\hello.js:25:39)
+    at Object.<anonymous> (C:\Users\Rob\source\repos\Basics\CodingTemplates\JavaScript\hello.js:32:1)
+    at Module._compile (internal/modules/cjs/loader.js:936:30)
+    at Object.Module._extensions..js (internal/modules/cjs/loader.js:947:10)
+    at Module.load (internal/modules/cjs/loader.js:790:32)
+    at Function.Module._load (internal/modules/cjs/loader.js:703:12)
+    at Function.Module.runMain (internal/modules/cjs/loader.js:999:10)
+    at internal/main/run_main_module.js:17:11
+[2020-01-30 00:17:05 America/New_York] ReferenceError: a is not defined
+    at init (C:\Users\Rob\source\repos\Basics\CodingTemplates\JavaScript\hello.js:26:39)
+    at Object.<anonymous> (C:\Users\Rob\source\repos\Basics\CodingTemplates\JavaScript\hello.js:36:1)
+    at Module._compile (internal/modules/cjs/loader.js:936:30)
+    at Object.Module._extensions..js (internal/modules/cjs/loader.js:947:10)
+    at Module.load (internal/modules/cjs/loader.js:790:32)
+    at Function.Module._load (internal/modules/cjs/loader.js:703:12)
+    at Function.Module.runMain (internal/modules/cjs/loader.js:999:10)
+    at internal/main/run_main_module.js:17:11
+[2020-01-30 00:46:39 America/New_York] ReferenceError: a is not defined
+    at init (C:\Users\Rob\source\repos\Basics\CodingTemplates\JavaScript\hello.js:27:39)
+    at Object.<anonymous> (C:\Users\Rob\source\repos\Basics\CodingTemplates\JavaScript\hello.js:37:1)
+    at Module._compile (internal/modules/cjs/loader.js:936:30)
+    at Object.Module._extensions..js (internal/modules/cjs/loader.js:947:10)
+    at Module.load (internal/modules/cjs/loader.js:790:32)
+    at Function.Module._load (internal/modules/cjs/loader.js:703:12)
+    at Function.Module.runMain (internal/modules/cjs/loader.js:999:10)
+    at internal/main/run_main_module.js:17:11
