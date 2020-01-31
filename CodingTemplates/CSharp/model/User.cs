@@ -82,7 +82,7 @@ namespace Model
         /// <summary>
         /// Getters and setters for the Email property.
         /// </summary>
-        /// <value>The user's email address (used for user name).</value>
+        /// <value>The user's email address (can be used as a user name).</value>
         public string Email
         {
             get { return this._email; }
@@ -136,7 +136,7 @@ namespace Model
         /// <param name="userID">The user's ID.</param>
         /// <param name="firstName">The user's first name.</param>
         /// <param name="lastName">The user's last name.</param>
-        /// <param name="email">The user's email address (used for user name).</param>
+        /// <param name="email">The user's email address (can be used as a user name).</param>
         /// <param name="score">The user's score from 0.0 to 100.0.</param>
         /// <param name="creationDate">The date the user was added to the database.</param>
         /// <param name="comment">Any additional comments.</param>

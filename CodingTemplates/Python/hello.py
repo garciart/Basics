@@ -1,14 +1,17 @@
 #!python
 # -*- coding: utf-8 -*-
 
-'''
+"""
 Hello World in Python with database integration.
 
 Python version used: 3.6.8
 SQLite version used: 3.21.0
 
-Styling guide: PEP 8 (https://www.python.org/dev/peps/pep-0008/)
-'''
+Styling guide: PEP 8 -- Style Guide for Python Code
+    (https://www.python.org/dev/peps/pep-0008/) and
+    PEP 257 -- Docstring Conventions
+    (https://www.python.org/dev/peps/pep-0257/)
+"""
 
 from __future__ import print_function
 
@@ -27,9 +30,7 @@ __package__ = 'Python'
 
 
 def hello_users():
-    '''
-    Test database calls, class instantiation, and validation.
-    '''
+    """Test database calls, class instantiation, and validation."""
     try:
         # Task 1: Connect and retrieve information from the database
         result = db.get_all_users()
@@ -118,9 +119,7 @@ def hello_users():
 
 
 def main():
-    '''
-    Application entry point.
-    '''
+    """Application entry point."""
     print("Hello, World from Python!\n")
     hello_users()
 

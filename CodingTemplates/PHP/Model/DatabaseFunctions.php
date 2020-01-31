@@ -70,7 +70,7 @@ function createUserTable()
  * 
  * @param string $firstName The user's first name.
  * @param string $lastName  The user's last name.
- * @param string $email     The user's email address (used for user name).
+ * @param string $email     The user's email address (can be used as a user name).
  * @param float  $score     The user's score from 0.0 to 100.0.
  * @param string $comment   Any additional comments.
  * 
@@ -192,7 +192,7 @@ function getUserByEmail($email)
  * @param integer $userID    The user's ID.
  * @param string  $firstName The user's first name.
  * @param string  $lastName  The user's last name.
- * @param string  $email     The user's email address (used for user name).
+ * @param string  $email     The user's email address (can be used as a user name).
  * @param float   $score     The user's score from 0.0 to 100.0.
  * @param string  $comment   Any additional comments.
  * 
