@@ -75,7 +75,7 @@ class User
     /**
      * First name getter.
      *
-     * @return integer The first name property.
+     * @return string The first name property.
      */
     public function getFirstName()
     {
@@ -85,7 +85,7 @@ class User
     /**
      * First name setter.
      *
-     * @param integer $firstName The user's first name.
+     * @param string $firstName The user's first name.
      *
      * @return void
      */
@@ -104,7 +104,7 @@ class User
     /**
      * Last name getter.
      *
-     * @return integer The last name property.
+     * @return string The last name property.
      */
     public function getLastName()
     {
@@ -114,7 +114,7 @@ class User
     /**
      * Last name setter.
      *
-     * @param integer $lastName The user's last name.
+     * @param string $lastName The user's last name.
      *
      * @return void
      */
@@ -133,7 +133,7 @@ class User
     /**
      * Email getter.
      *
-     * @return integer The email property.
+     * @return string The email property.
      */
     public function getEmail()
     {
@@ -143,7 +143,7 @@ class User
     /**
      * Email setter.
      *
-     * @param integer $email The user's email address (used for user name).
+     * @param string $email The user's email address (can be used as a user name).
      *
      * @return void
      */
@@ -192,7 +192,7 @@ class User
     /**
      * Creation date getter.
      *
-     * @return integer The creation date property.
+     * @return string The creation date property.
      */
     public function getCreationDate()
     {
@@ -202,7 +202,7 @@ class User
     /**
      * Creation date setter.
      *
-     * @param integer $creationDate The date the user was added to the database.
+     * @param string $creationDate The date the user was added to the database.
      *
      * @return void
      */
@@ -220,7 +220,7 @@ class User
     /**
      * Comment getter.
      *
-     * @return integer The comment property.
+     * @return string The comment property.
      */
     public function getComment()
     {
@@ -230,7 +230,7 @@ class User
     /**
      * Comment setter.
      *
-     * @param integer $comment Any additional comments.
+     * @param string $comment Any additional comments.
      *
      * @return void
      */
@@ -245,7 +245,7 @@ class User
      * @param integer $userID       The user's ID.
      * @param string  $firstName    The user's first name.
      * @param string  $lastName     The user's last name.
-     * @param string  $email        The user's email address (used for user name).
+     * @param string  $email        The user's email address (can be used as a user name).
      * @param float   $score        The user's score from 0.0 to 100.0.
      * @param string  $creationDate The date the user was added to the database.
      * @param string  $comment      Any additional comments.

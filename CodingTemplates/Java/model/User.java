@@ -120,7 +120,7 @@ public class User {
     /**
      * Email setter.
      *
-     * @param email The user's email address (used for user name).
+     * @param email The user's email address (can be used as a user name).
      *
      * @return void
      */
@@ -208,7 +208,7 @@ public class User {
      * @param userID       The user's ID.
      * @param firstName    The user's first name.
      * @param lastName     The user's last name.
-     * @param email        The user's email address (used for user name).
+     * @param email        The user's email address (can be used as a user name).
      * @param score        The user's score from 0.0 to 100.0.
      * @param creationDate The date the user was added to the database.
      * @param comment      Any additional comments.

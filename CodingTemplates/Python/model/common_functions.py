@@ -1,14 +1,17 @@
 #!python
 # -*- coding: utf-8 -*-
 
-'''
+"""
 Code common to one or more files.
 
 Python version used: 3.6.8
 SQLite version used: 3.21.0
 
-Styling guide: PEP 8 (https://www.python.org/dev/peps/pep-0008/)
-'''
+Styling guide: PEP 8 -- Style Guide for Python Code
+    (https://www.python.org/dev/peps/pep-0008/) and
+    PEP 257 -- Docstring Conventions
+    (https://www.python.org/dev/peps/pep-0257/)
+"""
 
 from __future__ import print_function
 
@@ -24,8 +27,7 @@ __email__ = 'rgarcia@rgprogramming.com'
 __license__ = 'MIT'
 __package__ = 'Python'
 
-# Removed Pathlib (redundant) and needed to set PWD to correct
-# directory using os
+# Used os instead of os and Pathlib (redundant) to set PWD to correct directory
 
 # Get the application's model directory.
 MODEL_DIR = os.path.dirname(__file__)
@@ -40,12 +42,14 @@ logging.basicConfig(
 DISPLAY_ERRORS = True
 
 def log_error(exc_info):
-    '''
-    Reformats error and exception details and records them in plain text in
-    the error_log file.
-    :param tuple exc_info: Exception details from sys module.
-    :returns string: Reformated exception details in plain text.
-    '''
+    """Reformats error and exception details and records them in plain text in
+        the error_log file.
+
+    :param exc_info: Exception details from sys module.
+    :type exc_info: tuple
+    :return: Reformated exception details in plain text.
+    :rtype: str
+    """
     exc_type, exc_value, exc_traceback = exc_info
     local_timezone = datetime.datetime.now(
         datetime.timezone.utc).astimezone().tzinfo
@@ -62,11 +66,13 @@ def log_error(exc_info):
 
 
 def validateUserID(user_id):
-    '''
-    Validate UserID.
-    :param int user_id: The UserID that will be entered in the database.
-    :return bool: True if the UserID is an integer greater than 0, false if not.
-    '''
+    """Validate UserID.
+
+    :param user_id: The user ID that will be entered in the database.
+    :type user_id: int
+    :return: True if the user ID is an integer greater than 0, false if not.
+    :rtype: bool
+    """
     if not user_id or user_id <= 0:
         return False
     else:
@@ -74,11 +80,13 @@ def validateUserID(user_id):
 
 
 def validateText(text):
-    '''
-    Validate text input.
-    :param string text: The text that will be entered into the database.
-    :return boolean: True if the text is valid, false if not.
-    '''
+    """Validate text input.
+
+    :param text: The text that will be entered into the database.
+    :type text: str
+    :return: True if the text is valid, false if not.
+    :rtype: bool
+    """
     if not (text.strip()) or re.search("^[A-Za-z0-9\s\-._~:\/?#\[\]@!$&'()*+,;=]*$", text.strip()) is None:
         return False
     else:
@@ -86,11 +94,13 @@ def validateText(text):
 
 
 def validateEmail(email):
-    '''
-    Validate email address.
-    :param string email: The email address that will be entered into the database.
-    :return boolean: True if the email is valid, false if not.
-    '''
+    """Validate email address.
+
+    :param email: The email address that will be entered into the database.
+    :type email: str
+    :return: True if the email is valid, false if not.
+    :rtype: bool
+    """
     if not (email.strip()) or re.search("^[A-Za-z0-9\-._~\/?#!$&'%*+=`{|}^]+@[A-Za-z0-9.-]+$", email) is None:
         return False
     else:
@@ -98,11 +108,13 @@ def validateEmail(email):
 
 
 def validateDate(date):
-    '''
-    Validate date format.
-    :param string date: The date that will be entered into the database.
-    :return boolean: True if the date format is valid, false if not.
-    '''
+    """Validate date format.
+
+    :param date: The date that will be entered into the database.
+    :type date: str
+    :return: True if the date format is valid, false if not.
+    :rtype: bool
+    """
     r = re.compile('.{4}-.{2}-.{2} .{2}:.{2}:.{2}')
     s = 'xxxx-xx-xx xx:xx:xx'
     if not (date.strip()) or r.match(s) is None or len(s) != 19:

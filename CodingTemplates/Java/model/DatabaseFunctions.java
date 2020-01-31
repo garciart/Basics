@@ -72,7 +72,7 @@ public class DatabaseFunctions {
      * 
      * @param firstName The user's first name.
      * @param lastName  The user's last name.
-     * @param email     The user's email address (used for user name).
+     * @param email     The user's email address (can be used as a user name).
      * @param score     The user's score from 0.0 to 100.0.
      * @param comment   Any additional comments.
      * 
@@ -199,7 +199,7 @@ public class DatabaseFunctions {
      * @param userID    The user's ID.
      * @param firstName The user's first name.
      * @param lastName  The user's last name.
-     * @param email     The user's email address (used for user name).
+     * @param email     The user's email address (can be used as a user name).
      * @param score     The user's score from 0.0 to 100.0.
      * @param comment   Any additional comments.
      * 

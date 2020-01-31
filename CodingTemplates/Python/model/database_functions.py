@@ -1,14 +1,17 @@
 #!python
 # -*- coding: utf-8 -*-
 
-'''
+"""
 Database module. Handles all calls to the User database.
 
 Python version used: 3.6.8
 SQLite version used: 3.21.0
 
-Styling guide: PEP 8 (https://www.python.org/dev/peps/pep-0008/)
-'''
+Styling guide: PEP 8 -- Style Guide for Python Code
+    (https://www.python.org/dev/peps/pep-0008/) and
+    PEP 257 -- Docstring Conventions
+    (https://www.python.org/dev/peps/pep-0257/)
+"""
 
 from __future__ import print_function
 
@@ -26,7 +29,7 @@ __email__ = 'rgarcia@rgprogramming.com'
 __license__ = 'MIT'
 __package__ = 'Python'
 
-'''
+"""
 Module functions:
     :void: create_user_table()
     :int: create_user(first_name, last_name, email, score, comment)
@@ -40,13 +43,11 @@ Module functions:
     :conn: connect()
 
 Initialization code at bottom.
-'''
+"""
 
 
 def create_user_table():
-    '''
-    Creates the User table if it does not exist in the database.
-    '''
+    """Creates the User table if it does not exist in the database."""
     try:
         conn = connect()
         cursor = conn.cursor()
@@ -71,15 +72,21 @@ def create_user_table():
 
 
 def create_user(first_name, last_name, email, score, comment):
-    '''
-    Inserts a new user into the database.
-    :param str first_name: The user's first name.
-    :param str last_name: The user's last name.
-    :param str email: The user's email address (used for user name).
-    :param float score: The user's score from 0.0 to 100.0.
-    :param str comment: Any additional comments.
-    :returns int: The rowid of the new user. A value of 0 indicates an error
-    '''
+    """Inserts a new user into the database.
+
+    :param first_name: The user's first name.
+    :type first_name: str
+    :param last_name: The user's last name.
+    :type last_name: str
+    :param email: The user's email address (can be used as a user name).
+    :type email: str
+    :param score: The user's score from 0.0 to 100.0.
+    :type score: float
+    :param comment: Any additional comments.
+    :type comment: str
+    :returns: The rowid of the new user. A value of 0 indicates an error.
+    :rtype: int
+    """
     try:
         # Set other initial values
         user_id = get_next_user_id()
@@ -105,11 +112,12 @@ def create_user(first_name, last_name, email, score, comment):
 
 
 def get_all_users():
-    '''
-    Gets all the users in the database and their information.
-    :returns list: A list of all the users in the database and their
+    """Gets all the users in the database and their information.
+    
+    :returns: A list of all the users in the database and their
         information. An empty list indicates an error.
-    '''
+    :rtype: list
+    """
     try:
         conn = connect()
         cursor = conn.cursor()
@@ -126,12 +134,14 @@ def get_all_users():
 
 
 def get_user_by_user_id(user_id):
-    '''
-    Returns a single user and his or her information.
-    :param int user_id: The user's ID.
-    :returns tuple: The user's information indexed by column name or empty
+    """Returns a single user and his or her information.
+
+    :param user_id: The user's ID.
+    :type user_id: int
+    :returns: The user's information indexed by column name or empty
         if the user's ID is not found.
-    '''
+    :rtype: tuple
+    """
     try:
         conn = connect()
         cursor = conn.cursor()
@@ -148,12 +158,14 @@ def get_user_by_user_id(user_id):
 
 
 def get_user_by_email(email):
-    '''
-    Returns a single user and his or her information.
-    :param str email: The user's email.
-    :returns tuple: The user's information indexed by column name or empty
+    """Returns a single user and his or her information.
+
+    :param email: The user's email.
+    :type email: str
+    :returns: The user's information indexed by column name or empty
         if the user's email is not found.
-    '''
+    :rtype: tuple
+    """
     try:
         conn = connect()
         cursor = conn.cursor()
@@ -170,28 +182,35 @@ def get_user_by_email(email):
 
 
 def update_user(user_id, first_name, last_name, email, score, comment):
-    '''
-    Updates a user's information in the database.
-    :param int user_id: The user's ID.
-    :param str first_name: The user's first name.
-    :param str last_name: The user's last name.
-    :param str email: The user's email address (used for user name).
-    :param float score: The user's score from 0.0 to 100.0.
-    :param str comment: Any additional comments.
-    return int: The number of rows affected. A value other than 1 indicates
+    """Updates a user's information in the database.
+
+    :param user_id: The user's ID.
+    :type user_id: int
+    :param first_name: The user's first name.
+    :type first_name: str
+    :param last_name: The user's last name.
+    :type last_name: str
+    :param email: The user's email address (can be used as a user name).
+    :type email: str
+    :param score: The user's score from 0.0 to 100.0.
+    :type score: float
+    :param comment: Any additional comments.
+    :type comment: str
+    return: The number of rows affected. A value other than 1 indicates
         an error.
-    '''
+    :rtype: int
+    """
     try:
         conn = connect()
         cursor = conn.cursor()
-        sql = '''
+        sql = """
         UPDATE User 
         SET FirstName = ?,
             LastName = ?,
             Email = ?,
             Score = ?,
             Comment = ?
-        WHERE UserID = ? '''
+        WHERE UserID = ? """
         data = (first_name, last_name, email, str(score), comment,
                 str(user_id))
         cursor.execute(sql, data)
@@ -207,12 +226,14 @@ def update_user(user_id, first_name, last_name, email, score, comment):
 
 
 def delete_user(user_id):
-    '''
-    Deletes a user from the database.
-    :param int user_id: The user's ID.
-    :returns int: The number of rows affected. A value other than 1
+    """Deletes a user from the database.
+
+    :param user_id: The user's ID.
+    :type user_id: int
+    :returns: The number of rows affected. A value other than 1
         indicates an error.
-    '''
+    :rtype: int
+    """
     try:
         conn = connect()
         cursor = conn.cursor()
@@ -230,11 +251,12 @@ def delete_user(user_id):
 
 
 def get_next_user_id():
-    '''
-    Gets the anticipated value of the next UserID (usually the last row
+    """Gets the anticipated value of the next UserID (usually the last row
         inserted) from the User table.
-    :returns int: The value of the next UserID or 0 if there is no data.
-    '''
+    
+    :returns: The value of the next UserID or 0 if there is no data.
+    :rtype: int
+    """
     try:
         conn = connect()
         cursor = conn.cursor()
@@ -254,16 +276,18 @@ def get_next_user_id():
 
 
 def user_exists(email):
-    '''
-    Checks if the given users exists in the database.
+    """Checks if the given users exists in the database.
         Julen Pardo came up with this.
         Thought about changing the method to retrieve the UserID instead,
         but Email is supposed to be unique.
         If the count != 1, that means there are no users or more than one,
         which means something is wrong. This is a better method.
-    :param str email: The email to check.
-    :returns bool: True if the users exists, False if not.
-    '''
+
+    :param email: The email to check.
+    :type email: str
+    :returns: True if the users exists, False if not.
+    :rtype: bool
+    """
     try:
         conn = connect()
         cursor = conn.cursor()
@@ -281,10 +305,11 @@ def user_exists(email):
 
 
 def connect():
-    '''
-    Connects to the database.
-    :returns object: The connection to the SQLite database
-    '''
+    """Connects to the database.
+    
+    :returns: The connection to the SQLite database
+    :rtype: object
+    """
     conn = None
     try:
         conn = sqlite3.connect('db/user.db')
