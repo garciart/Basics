@@ -11,15 +11,15 @@
  * @category  Basics
  * @package   PHP
  * @author    Rob Garcia <rgarcia@rgprogramming.com>
+ * @copyright 2019-2020 Rob Garcia
  * @license   https://opensource.org/licenses/MIT The MIT License
  * @link      https://github.com/garciart/Basics
- * @copyright Copyright 2019-2020, Rob Garcia
  */
 
 namespace Model;
 
 // Include this file to access common functions and variables
-require_once 'CommonFunctions.php';
+require_once "CommonFunctions.php";
 
 /**
  * User class.
@@ -27,9 +27,9 @@ require_once 'CommonFunctions.php';
  * @category  Basics
  * @package   PHP
  * @author    Rob Garcia <rgarcia@rgprogramming.com>
+ * @copyright 2019-2020 Rob Garcia
  * @license   https://opensource.org/licenses/MIT The MIT License
  * @link      https://github.com/garciart/Basics
- * @copyright Copyright 2019-2020, Rob Garcia
  */
 class User
 {
@@ -67,7 +67,7 @@ class User
             $this->_userID = $userID;
         } else {
             throw new \InvalidArgumentException(
-                'User ID cannot be empty, 0, NULL, or FALSE.'
+                "User ID cannot be empty, 0, NULL, or FALSE."
             );
         }
     }
@@ -96,7 +96,7 @@ class User
             $this->_firstName = $firstName;
         } else {
             throw new \InvalidArgumentException(
-                'First name cannot be empty or contain illegal characters.'
+                "First name cannot be empty or contain illegal characters."
             );
         }
     }
@@ -125,7 +125,7 @@ class User
             $this->_lastName = $lastName;
         } else {
             throw new \InvalidArgumentException(
-                'Last name cannot be empty or contain illegal characters.'
+                "Last name cannot be empty or contain illegal characters."
             );
         }
     }
@@ -154,8 +154,8 @@ class User
             $this->_email = $email;
         } else {
             throw new \InvalidArgumentException(
-                'Email cannot be empty, incorrectly formatted, or contain ' .
-                'illegal characters.'
+                "Email cannot be empty, incorrectly formatted, or contain " .
+                "illegal characters."
             );
         }
     }
@@ -180,9 +180,10 @@ class User
     public function setScore($score)
     {
         if (($score == "" || $score == null || $score == false || $score == array())
-            || ($score < 0.0 || $score > 100.0)) {
+            || ($score < 0.0 || $score > 100.0)
+        ) {
             throw new \InvalidArgumentException(
-                'Score cannot be empty and must be equal to or between 0.0 and 100.0'
+                "Score cannot be empty and must be equal to or between 0.0 and 100.0."
             );
         } else {
             $this->_score = $score;
@@ -212,7 +213,7 @@ class User
             $this->_creationDate = $creationDate;
         } else {
             throw new \InvalidArgumentException(
-                'Creation date cannot be empty or incorrectly formatted.'
+                "Creation date cannot be empty or incorrectly formatted."
             );
         }
     }
@@ -245,7 +246,7 @@ class User
      * @param integer $userID       The user's ID.
      * @param string  $firstName    The user's first name.
      * @param string  $lastName     The user's last name.
-     * @param string  $email        The user's email address (can be used as a user name).
+     * @param string  $email        The user's email address.
      * @param float   $score        The user's score from 0.0 to 100.0.
      * @param string  $creationDate The date the user was added to the database.
      * @param string  $comment      Any additional comments.

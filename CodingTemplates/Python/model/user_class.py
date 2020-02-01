@@ -193,7 +193,7 @@ class User:
         :type first_name: str
         :param last_name: The user's last name.
         :type last_name: str
-        :param email: The user's email address (can be used as a user name).
+        :param email: The user's email address.
         :type email: str
         :param score: The user's score from 0.0 to 100.0.
         :type score: float
