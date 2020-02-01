@@ -18,11 +18,10 @@ from __future__ import print_function
 from model import common_functions as co
 
 # Module metadata dunders
-__author__ = 'Rob Garcia'
-__copyright__ = 'Copyright 2019-2020, Rob Garcia'
-__email__ = 'rgarcia@rgprogramming.com'
-__license__ = 'MIT'
-__package__ = 'Python'
+__author__ = "Rob Garcia"
+__copyright__ = "Copyright 2019-2020, Rob Garcia"
+__email__ = "rgarcia@rgprogramming.com"
+__license__ = "MIT"
 
 
 class User:
@@ -45,14 +44,14 @@ class User:
         :type user_id: int
         :raises ValueError: if user_id is empty, 0, NULL, or FALSE.
         """
-        if not co.validateUserID(user_id):
-            raise ValueError('User ID cannot be empty, 0, NULL, or FALSE.')
+        if not co.validate_user_id(user_id):
+            raise ValueError("User ID cannot be empty, 0, NULL, or FALSE.")
         self.__user_id = int(user_id)
 
     @property
     def first_name(self):
         """First name getter.
-        
+
         :return: The first name property.
         :rtype: int
         """
@@ -67,15 +66,15 @@ class User:
         :raises ValueError: if first_name is not an alphanumeric string.
         """
         first_name = first_name.strip()
-        if not co.validateText(first_name):
+        if not co.validate_text(first_name):
             raise ValueError(
-                'First name cannot be empty or contain illegal characters.')
+                "First name cannot be empty or contain illegal characters.")
         self.__first_name = first_name
 
     @property
     def last_name(self):
         """Last name getter.
-        
+
         :return: The last name property.
         :rtype: int
         """
@@ -90,15 +89,15 @@ class User:
         :raises ValueError: if last_name is not an alphanumeric string.
         """
         last_name = last_name.strip()
-        if not co.validateText(last_name):
-            raise ValueError('Last name cannot be empty'
-                             'or contain illegal characters.')
+        if not co.validate_text(last_name):
+            raise ValueError("Last name cannot be empty"
+                             "or contain illegal characters.")
         self.__last_name = last_name
 
     @property
     def email(self):
         """Email getter.
-        
+
         :return: The email property.
         :rtype: str
         """
@@ -114,15 +113,15 @@ class User:
                             or contains illegal characters.
         """
         email = email.strip()
-        if not co.validateEmail(email):
-            raise ValueError('Email cannot be empty, incorrectly formatted,'
-                             'or contain illegal characters.')
+        if not co.validate_email(email):
+            raise ValueError("Email cannot be empty, incorrectly formatted,"
+                             "or contain illegal characters.")
         self.__email = email
 
     @property
     def score(self):
         """Score getter.
-        
+
         :return: The score property.
         :rtype: float
         """
@@ -131,21 +130,21 @@ class User:
     @score.setter
     def score(self, score):
         """Score setter.
-        
+
         :param score: The user's score from 0.0 to 100.0.
         :type score: float
         :raises ValueError: if score is not equal to or between 0.0 and 100.0.
         """
         if not score or score < 0.0 or score > 100.0:
             raise ValueError(
-                'Score cannot be empty and must be equal to or between 0.0 and 100.0.'
+                "Score cannot be empty and must be equal to or between 0.0 and 100.0."
             )
         self.__score = score
 
     @property
     def creation_date(self):
         """Creation date getter.
-        
+
         :return: The creation date property.
         :rtype: str
         """
@@ -154,20 +153,20 @@ class User:
     @creation_date.setter
     def creation_date(self, creation_date):
         """Creation date setter.
-        
+
         :param creation_date: The date the user was added to the database.
         :type creation_date: str
         :raises ValueError: if creation_date is empty or incorrectly formatted.
         """
-        if not co.validateDate(creation_date):
+        if not co.validate_date(creation_date):
             raise ValueError(
-                'Creation date cannot be empty or incorrectly formatted.')
+                "Creation date cannot be empty or incorrectly formatted.")
         self.__creation_date = creation_date
 
     @property
     def comment(self):
         """Comment getter.
-        
+
         :return: The comment property.
         :rtype: str
         """
@@ -176,7 +175,7 @@ class User:
     @comment.setter
     def comment(self, comment):
         """Comment setter.
-        
+
         :param comment: Any additional comments.
         :type comment: str
         """

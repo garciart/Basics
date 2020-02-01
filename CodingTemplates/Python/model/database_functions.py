@@ -23,11 +23,11 @@ import sys
 from model import common_functions as co
 
 # Module metadata dunders
-__author__ = 'Rob Garcia'
-__copyright__ = 'Copyright 2019-2020, Rob Garcia'
-__email__ = 'rgarcia@rgprogramming.com'
-__license__ = 'MIT'
-__package__ = 'Python'
+__author__ = "Rob Garcia"
+__copyright__ = "Copyright 2019-2020, Rob Garcia"
+__email__ = "rgarcia@rgprogramming.com"
+__license__ = "MIT"
+
 
 """
 Module functions:
@@ -59,29 +59,25 @@ def create_user_table():
         sql = """DROP TABLE IF EXISTS User;"""
         cursor.execute(sql)
         conn.commit()
-        rows_affected = cursor.rowcount
-        print(cursor.rowcount)
         sql = """
         CREATE TABLE IF NOT EXISTS User (
             UserID integer PRIMARY KEY,
             FirstName text NOT NULL,
             LastName text NOT NULL,
             Email text UNIQUE NOT NULL,
-            Score real NOT NULL DEFAULT '100.0',
+            Score real NOT NULL DEFAULT "100.0",
             CreationDate text NOT NULL,
             Comment text
         ); """
         cursor.execute(sql)
         conn.commit()
         rows_affected = cursor.rowcount
-        print(cursor.rowcount)
         cursor.close()
         conn.close()
     except Exception:
-        ex = co.error_log(sys.exc_info())
+        ex = co.log_error(sys.exc_info())
         if co.DISPLAY_ERRORS:
             print(ex)
-    print("Create table: {}.".format(rows_affected))
     return rows_affected
 
 
@@ -111,7 +107,7 @@ def create_user(first_name, last_name, email, score, comment):
             local_timezone).strftime("%Y-%m-%d %H:%M:%S")
         conn = connect()
         cursor = conn.cursor()
-        sql = 'INSERT INTO User VALUES (?, ?, ?, ?, ?, ?, ?);'
+        sql = "INSERT INTO User VALUES (?, ?, ?, ?, ?, ?, ?);"
         data = (str(user_id), first_name, last_name,
                 email, str(score), creation_date, comment)
         cursor.execute(sql, data)
@@ -120,10 +116,9 @@ def create_user(first_name, last_name, email, score, comment):
         cursor.close()
         conn.close()
     except Exception:
-        ex = co.error_log(sys.exc_info())
+        ex = co.log_error(sys.exc_info())
         if co.DISPLAY_ERRORS:
             print(ex)
-    print("Create user: {}.".format(last_row_id))
     return last_row_id
 
 
@@ -134,19 +129,21 @@ def get_all_users():
         information. An empty list indicates an error.
     :rtype: list
     """
+    result = None
     try:
         conn = connect()
         cursor = conn.cursor()
-        sql = 'SELECT * FROM User ORDER BY UserID ASC;'
+        sql = "SELECT * FROM User ORDER BY UserID ASC;"
         cursor.execute(sql)
         result = cursor.fetchall()
         cursor.close()
         conn.close()
         return result
     except Exception:
-        ex = co.error_log(sys.exc_info())
+        ex = co.log_error(sys.exc_info())
         if co.DISPLAY_ERRORS:
             print(ex)
+    return result
 
 
 def get_user_by_user_id(user_id):
@@ -158,19 +155,21 @@ def get_user_by_user_id(user_id):
         if the user's ID is not found.
     :rtype: tuple
     """
+    result = None
     try:
         conn = connect()
         cursor = conn.cursor()
-        sql = 'SELECT * FROM User WHERE UserID = ?'
+        sql = "SELECT * FROM User WHERE UserID = ?"
         cursor.execute(sql, str(user_id))
         result = cursor.fetchone()
         cursor.close()
         conn.close()
         return result
     except Exception:
-        ex = co.error_log(sys.exc_info())
+        ex = co.log_error(sys.exc_info())
         if co.DISPLAY_ERRORS:
             print(ex)
+    return result
 
 
 def get_user_by_email(email):
@@ -182,19 +181,21 @@ def get_user_by_email(email):
         if the user's email is not found.
     :rtype: tuple
     """
+    result = None
     try:
         conn = connect()
         cursor = conn.cursor()
-        sql = 'SELECT * FROM User WHERE Email = ?'
+        sql = "SELECT * FROM User WHERE Email = ?"
         cursor.execute(sql, email)
         result = cursor.fetchone()
         cursor.close()
         conn.close()
         return result
     except Exception:
-        ex = co.error_log(sys.exc_info())
+        ex = co.log_error(sys.exc_info())
         if co.DISPLAY_ERRORS:
             print(ex)
+    return result
 
 
 def update_user(user_id, first_name, last_name, email, score, comment):
@@ -216,6 +217,7 @@ def update_user(user_id, first_name, last_name, email, score, comment):
         an error.
     :rtype: int
     """
+    rows_affected = 0
     try:
         conn = connect()
         cursor = conn.cursor()
@@ -231,14 +233,14 @@ def update_user(user_id, first_name, last_name, email, score, comment):
                 str(user_id))
         cursor.execute(sql, data)
         conn.commit()
-        row_count = cursor.rowcount
+        rows_affected = cursor.rowcount
         cursor.close()
         conn.close()
-        return row_count
     except Exception:
-        ex = co.error_log(sys.exc_info())
+        ex = co.log_error(sys.exc_info())
         if co.DISPLAY_ERRORS:
             print(ex)
+    return rows_affected
 
 
 def delete_user(user_id):
@@ -250,20 +252,21 @@ def delete_user(user_id):
         indicates an error.
     :rtype: int
     """
+    rows_affected = 0
     try:
         conn = connect()
         cursor = conn.cursor()
-        sql = 'DELETE FROM User WHERE UserID = ?;'
+        sql = "DELETE FROM User WHERE UserID = ?;"
         cursor.execute(sql, str(user_id))
         conn.commit()
-        row_count = cursor.rowcount
+        rows_affected = cursor.rowcount
         cursor.close()
         conn.close()
-        return row_count
     except Exception:
-        ex = co.error_log(sys.exc_info())
+        ex = co.log_error(sys.exc_info())
         if co.DISPLAY_ERRORS:
             print(ex)
+    return rows_affected
 
 
 def get_next_user_id():
@@ -273,22 +276,23 @@ def get_next_user_id():
     :returns: The value of the next UserID or 0 if there is no data.
     :rtype: int
     """
+    last_user_id = 0
     try:
         conn = connect()
         cursor = conn.cursor()
-        sql = 'SELECT MAX(UserID) as LastUserID FROM User;'
+        sql = "SELECT MAX(UserID) as LastUserID FROM User;"
         cursor.execute(sql)
         row = cursor.fetchone()
         cursor.close()
         conn.close()
-        last_user_id = 0 if row['LastUserID'] is \
-            None else row['LastUserID']
-        # Add 1 to the last user ID
-        return last_user_id + 1
+        last_user_id = 0 if row["LastUserID"] is \
+            None else row["LastUserID"]
     except Exception:
-        ex = co.error_log(sys.exc_info())
+        ex = co.log_error(sys.exc_info())
         if co.DISPLAY_ERRORS:
             print(ex)
+    # Add 1 to the last user ID
+    return last_user_id + 1
 
 
 def user_exists(email):
@@ -304,20 +308,21 @@ def user_exists(email):
     :returns: True if the users exists, False if not.
     :rtype: bool
     """
+    exists = False
     try:
         conn = connect()
         cursor = conn.cursor()
-        sql = 'SELECT COUNT(*) AS Count FROM User WHERE Email = ?;'
+        sql = "SELECT COUNT(*) AS Count FROM User WHERE Email = ?;"
         cursor.execute(sql, email)
         result = cursor.fetchone()
-        exists = (result['Count'] == 1)
+        exists = (result["Count"] == 1)
         cursor.close()
         conn.close()
-        return exists
     except Exception:
-        ex = co.error_log(sys.exc_info())
+        ex = co.log_error(sys.exc_info())
         if co.DISPLAY_ERRORS:
             print(ex)
+    return exists
 
 
 def connect():
@@ -328,15 +333,15 @@ def connect():
     """
     conn = None
     try:
-        conn = sqlite3.connect('db/user.db')
+        conn = sqlite3.connect("db/user.db")
         # Use this to get objects by their column names
         # instead of their column indexes
         conn.row_factory = sqlite3.Row
-        return conn
     except Exception:
-        ex = co.error_log(sys.exc_info())
+        ex = co.log_error(sys.exc_info())
         if co.DISPLAY_ERRORS:
             print(ex)
+    return conn
 
 
 def database_exists():
@@ -345,28 +350,27 @@ def database_exists():
     :return: True if the database exists or was created, false if not
     :rtype: bool
     """
-    exists = False
+    exists = True
     try:
         # Removed Pathlib (redundant) and needed to set PWD to correct
         # directory using os
         os.chdir(co.MODEL_DIR)
-        if not os.path.isdir('./db') or not os.path.exists('./db/user.db'):
-            os.makedirs('db', exist_ok=True)
-            if create_user_table() != -1: exists = False
+        if not os.path.isdir("./db") or not os.path.exists("./db/user.db"):
+            os.makedirs("db", exist_ok=True)
+            if create_user_table() != -1:
+                exists = False
             if create_user(
-                'Rob', 'Garcia', 'rgarcia@rgprogramming.com',
-                80.0, 'Administrator.') == 0: exists = False
+                "Rob", "Garcia", "rgarcia@rgprogramming.com",
+                80.0, "Administrator.") == 0: exists = False
             if create_user(
-                'George', 'Washington', 'gwashington@rgprogramming.com',
-                90.0, 'Old user.') == 0: exists = False
+                "George", "Washington", "gwashington@rgprogramming.com",
+                90.0, "Old user.") == 0: exists = False
             if create_user(
-                'Baby', 'Yoda', 'byoda@rgprogramming.com',
-                100.0, 'New user.') == 0: exists = False
-        else:
-            exists = True
-    # Use MODULE_EX to prevent overwriting function internal exceptions (ex)
+                "Baby", "Yoda", "byoda@rgprogramming.com",
+                100.0, "New user.") == 0: exists = False
+    # Use module_ex to prevent overwriting function internal exceptions (ex)
     except Exception:
-        MODULE_EX = co.error_log(sys.exc_info())
+        module_ex = co.log_error(sys.exc_info())
         if co.DISPLAY_ERRORS:
-            print(MODULE_EX)
+            print(module_ex)
     return exists
