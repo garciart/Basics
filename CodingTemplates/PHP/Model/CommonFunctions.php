@@ -11,14 +11,14 @@
  * @category  Basics
  * @package   PHP
  * @author    Rob Garcia <rgarcia@rgprogramming.com>
+ * @copyright 2019-2020 Rob Garcia
  * @license   https://opensource.org/licenses/MIT The MIT License
  * @link      https://github.com/garciart/Basics
- * @copyright Copyright 2019-2020, Rob Garcia
  */
 
 /**
  * Get the application's model directory.
-*/
+ */
 const MODEL_DIR = __DIR__;
 
 // To run these functions, switch to the model directory.
@@ -26,27 +26,27 @@ chdir(MODEL_DIR);
 
 // Report all errors and log them in ErrorLog.txt
 error_reporting(-1);
-ini_set('log_errors', 1);
-ini_set('error_log', MODEL_DIR . DIRECTORY_SEPARATOR . 'ErrorLog.txt');
+ini_set("log_errors", 1);
+ini_set("error_log", MODEL_DIR . DIRECTORY_SEPARATOR . "ErrorLog.txt");
 
 /*
  * IMPORTANT!
  *
  * FOR DEVELOPMENT ERROR REPORTING:
- * Uncomment ini_set('DISPLAY_ERRORS', 1) and comment out set_error_handler()
+ * Uncomment ini_set("DISPLAY_ERRORS", 1) and comment out set_error_handler()
  * and set_exception_handler()
  *
  * FOR PRODUCTION ERROR REPORTING:
  * Uncomment set_error_handler() and set_exception_handler() and comment out
- * ini_set('DISPLAY_ERRORS', 1)
+ * ini_set("DISPLAY_ERRORS", 1)
  */
 
 // Development error reporting
-// ini_set('DISPLAY_ERRORS', 1);
+// ini_set("DISPLAY_ERRORS", 1);
 
 /*
  * Production error reporting
- * Use '32767' instead of 'E_ALL' and make sure to set 'DISPLAY_ERRORS = On'
+ * Use "32767" instead of "E_ALL" and make sure to set "DISPLAY_ERRORS = On"
  * in php.ini
  */
 set_error_handler("errorHandler", 32767);
@@ -110,8 +110,8 @@ function validateUserID($userID)
  */
 function validateText($text)
 {
-    if (empty(trim($text)) ||
-        (!preg_match("/^[A-Za-z0-9\s\-._~:\/?#\[\]@!$&'()*+,;=]*$/", $text))
+    if (empty(trim($text)) 
+        || (!preg_match("/^[A-Za-z0-9\s\-._~:\/?#\[\]@!$&'()*+,;=]*$/", $text))
     ) {
         return false;
     } else {
@@ -144,12 +144,12 @@ function validateEmail($email)
  */
 function validateDate($date)
 {
-    if (empty(trim($date)) ||
-        (!preg_match(
+    if (empty(trim($date)) 
+        || (!preg_match(
             "/^([0-9]){4}-([0-9]){2}-([0-9]){2} ([0-9]){2}:([0-9]){2}:([0-9]){2}$/",
-            $date)
-        ) ||
-        strlen($date) != 19
+            $date
+        )    ) 
+        || strlen($date) != 19
     ) {
         return false;
     } else {

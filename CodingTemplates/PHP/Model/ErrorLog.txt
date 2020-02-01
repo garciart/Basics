@@ -7,3 +7,8 @@ Stack trace:
 Stack trace:
 #0 C:\Users\Rob\source\repos\Basics\CodingTemplates\PHP\Hello.php(34): helloUsers()
 #1 {main}
+[01-Feb-2020 11:56:26 America/New_York] Exception: Test... in C:\Users\Rob\source\repos\Basics\CodingTemplates\PHP\Hello.php:45
+Stack trace:
+#0 C:\Users\Rob\source\repos\Basics\CodingTemplates\PHP\Hello.php(151): helloUsers()
+#1 {main}
+[01-Feb-2020 12:01:54 America/New_York] Type 2 Error: mkdir(): File exists in C:\Users\Rob\source\repos\Basics\CodingTemplates\PHP\Model\DatabaseFunctions.php at line 344.
