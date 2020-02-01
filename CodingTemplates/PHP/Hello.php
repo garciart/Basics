@@ -30,11 +30,6 @@ require_once 'Model\User.class.php';
 
 use Model\User;
 
-echo "Hello, World from PHP!\n\n";
-helloUsers();
-
-// Functions:
-
 /**
  * Gets users from the database and says hello to each one.
  *
@@ -141,3 +136,7 @@ function helloUsers()
         echo "Error: {$ex->getMessage()}\n";
     }
 }
+
+
+echo "Hello, World from PHP!\n\n";
+helloUsers();
