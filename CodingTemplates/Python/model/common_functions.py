@@ -21,11 +21,11 @@ import os
 import re
 
 # Module metadata dunders
-__author__ = 'Rob Garcia'
-__copyright__ = 'Copyright 2019-2020, Rob Garcia'
-__email__ = 'rgarcia@rgprogramming.com'
-__license__ = 'MIT'
-__package__ = 'Python'
+__author__ = "Rob Garcia"
+__copyright__ = "Copyright 2019-2020, Rob Garcia"
+__email__ = "rgarcia@rgprogramming.com"
+__license__ = "MIT"
+
 
 # Used os instead of os and Pathlib (redundant) to set PWD to correct directory
 
@@ -37,7 +37,7 @@ os.chdir(MODEL_DIR)
 
 # Enable error and exception logging
 logging.basicConfig(
-    filename='error_log.txt', filemode='a+', level=logging.DEBUG)
+    filename="error_log.txt", filemode="a+", level=logging.DEBUG)
 # Set to True during development and to False during production
 DISPLAY_ERRORS = True
 
@@ -65,7 +65,7 @@ def log_error(exc_info):
     return exception
 
 
-def validateUserID(user_id):
+def validate_user_id(user_id):
     """Validate UserID.
 
     :param user_id: The user ID that will be entered in the database.
@@ -79,7 +79,7 @@ def validateUserID(user_id):
         return True
 
 
-def validateText(text):
+def validate_text(text):
     """Validate text input.
 
     :param text: The text that will be entered into the database.
@@ -87,13 +87,14 @@ def validateText(text):
     :return: True if the text is valid, false if not.
     :rtype: bool
     """
-    if not (text.strip()) or re.search("^[A-Za-z0-9\s\-._~:\/?#\[\]@!$&'()*+,;=]*$", text.strip()) is None:
+    if not (text.strip()) or re.search(
+            r"^[A-Za-z0-9 -._~:/?#[\]@!$&'()\*+,;=]*$", text.strip()) is None:
         return False
     else:
         return True
 
 
-def validateEmail(email):
+def validate_email(email):
     """Validate email address.
 
     :param email: The email address that will be entered into the database.
@@ -101,13 +102,14 @@ def validateEmail(email):
     :return: True if the email is valid, false if not.
     :rtype: bool
     """
-    if not (email.strip()) or re.search("^[A-Za-z0-9\-._~\/?#!$&'%*+=`{|}^]+@[A-Za-z0-9.-]+$", email) is None:
+    if not (email.strip()) or re.search(
+            r"^[A-Za-z0-9-._~/?#!$&'%*+=`{|}^]+@[A-Za-z0-9.-]+$", email) is None:
         return False
     else:
         return True
 
 
-def validateDate(date):
+def validate_date(date):
     """Validate date format.
 
     :param date: The date that will be entered into the database.
@@ -115,9 +117,9 @@ def validateDate(date):
     :return: True if the date format is valid, false if not.
     :rtype: bool
     """
-    r = re.compile('.{4}-.{2}-.{2} .{2}:.{2}:.{2}')
-    s = 'xxxx-xx-xx xx:xx:xx'
-    if not (date.strip()) or r.match(s) is None or len(s) != 19:
+    regex = re.compile(".{4}-.{2}-.{2} .{2}:.{2}:.{2}")
+    date_format = "xxxx-xx-xx xx:xx:xx"
+    if not (date.strip()) or regex.match(date_format) is None or len(date_format) != 19:
         return False
     else:
         return True

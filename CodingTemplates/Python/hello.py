@@ -26,7 +26,6 @@ __author__ = "Rob Garcia"
 __copyright__ = "Copyright 2019-2020, Rob Garcia"
 __email__ = "rgarcia@rgprogramming.com"
 __license__ = "MIT"
-__package__ = "Python"
 
 
 def hello_users():
@@ -65,28 +64,28 @@ def hello_users():
                 if db.user_exists(["thanos@rgprogramming.com"]):
                     print("Thanos, you are already in the database!\n")
                     result = db.get_user_by_email(["thanos@rgprogramming.com"])
-                    if result is None:
-                        raise Exception("Cannot retrieve user data!")
-                    else:
+                    if result is not None:
                         # Use asterisk to unpack tuple into class
                         thanos = uc.User(*result)
+                    else:
+                        raise Exception("Cannot retrieve user data!")
                 else:
                     user_id = db.create_user(
                         "Thanos", "The Mad Titan", "thanos@rgprogramming.com", 100,
                         "Unbalanced user.")
-                    if user_id == 0:
-                        raise Exception("Cannot create user!")
-                    else:
+                    if user_id != 0:
                         result = db.get_user_by_user_id(user_id)
-                        if result is None:
-                            raise Exception("Cannot retrieve user data!")
-                        else:
+                        if result is not None:
                             # Use asterisk to unpack tuple into class
                             thanos = uc.User(*result)
                             print("Welcome {} {}! You were created on {} "
                                   "and you are a(n) {}\n".format(
                                       thanos.first_name, thanos.last_name,
                                       thanos.creation_date, thanos.comment))
+                        else:
+                            raise Exception("Cannot retrieve user data!")
+                    else:
+                        raise Exception("Cannot create user!")
 
                 if thanos.comment == "Unbalanced user.":
                     print("Uh oh, Thanos, you are unbalanced! Let's fix that!\n")
@@ -117,7 +116,7 @@ def hello_users():
         else:
             print("Unable to connect to the database and retrieve data.")
     except Exception:
-        ex = co.error_log(sys.exc_info())
+        ex = co.log_error(sys.exc_info())
         if co.DISPLAY_ERRORS:
             print(ex)
         else:
