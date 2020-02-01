@@ -66,7 +66,7 @@ public class Hello {
                 } else {
                     System.out.println("No records were found.\n");
                 }
-                result.close();
+                result = null;
 
                 System.out.println();
 
@@ -89,7 +89,7 @@ public class Hello {
                     } else {
                         throw new Exception("Cannot retrieve user data!");
                     }
-                    result.close();
+                    result = null;
                 } else {
                     System.out.println("Thanos, you are not in the database!\n");
                     long userID = DatabaseFunctions.createUser("Thanos", "The Mad Titan", "thanos@rgprogramming.com",
@@ -116,7 +116,7 @@ public class Hello {
                                 .println(String.format("Welcome %s %s! You are #%d, created on %s, and you are a(n) %s\n",
                                         thanos.getFirstName(), thanos.getLastName(), thanos.getUserID(),
                                         thanos.getCreationDate(), thanos.getComment()));
-                        result.close();
+                        result = null;
                     }
                 }
 

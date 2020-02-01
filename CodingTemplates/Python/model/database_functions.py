@@ -31,26 +31,36 @@ __package__ = 'Python'
 
 """
 Module functions:
-    :void: create_user_table()
-    :int: create_user(first_name, last_name, email, score, comment)
-    :list: get_all_users()
-    :tuple: get_user_by_user_id(user_id)
-    :tuple: get_user_by_email(email)
-    :int: update_user(user_id, first_name, last_name, email, score, comment)
-    :int: delete_user(user_id)
-    :int: get_next_user_id()
-    :bool: user_exists(email)
-    :conn: connect()
-
-Initialization code at bottom.
+    int create_user_table()
+    int create_user(first_name, last_name, email, score, comment)
+    list get_all_users()
+    tuple get_user_by_user_id(user_id)
+    tuple get_user_by_email(email)
+    int update_user(user_id, first_name, last_name, email, score, comment)
+    int delete_user(user_id)
+    int get_next_user_id()
+    bool user_exists(email)
+    conn connect()
+    bool database_exists()
 """
 
 
 def create_user_table():
-    """Creates the User table if it does not exist in the database."""
+    """Creates the User table if it does not exist in the database.
+
+    :returns: The number of rows affected. In Python, both DROP and
+        CREATE will return -1.
+    :rtype: int
+    """
+    rows_affected = -1
     try:
         conn = connect()
         cursor = conn.cursor()
+        sql = """DROP TABLE IF EXISTS User;"""
+        cursor.execute(sql)
+        conn.commit()
+        rows_affected = cursor.rowcount
+        print(cursor.rowcount)
         sql = """
         CREATE TABLE IF NOT EXISTS User (
             UserID integer PRIMARY KEY,
@@ -63,12 +73,16 @@ def create_user_table():
         ); """
         cursor.execute(sql)
         conn.commit()
+        rows_affected = cursor.rowcount
+        print(cursor.rowcount)
         cursor.close()
         conn.close()
     except Exception:
         ex = co.error_log(sys.exc_info())
         if co.DISPLAY_ERRORS:
             print(ex)
+    print("Create table: {}.".format(rows_affected))
+    return rows_affected
 
 
 def create_user(first_name, last_name, email, score, comment):
@@ -87,6 +101,7 @@ def create_user(first_name, last_name, email, score, comment):
     :returns: The rowid of the new user. A value of 0 indicates an error.
     :rtype: int
     """
+    last_row_id = 0
     try:
         # Set other initial values
         user_id = get_next_user_id()
@@ -104,16 +119,17 @@ def create_user(first_name, last_name, email, score, comment):
         last_row_id = cursor.lastrowid
         cursor.close()
         conn.close()
-        return last_row_id
     except Exception:
         ex = co.error_log(sys.exc_info())
         if co.DISPLAY_ERRORS:
             print(ex)
+    print("Create user: {}.".format(last_row_id))
+    return last_row_id
 
 
 def get_all_users():
     """Gets all the users in the database and their information.
-    
+
     :returns: A list of all the users in the database and their
         information. An empty list indicates an error.
     :rtype: list
@@ -253,7 +269,7 @@ def delete_user(user_id):
 def get_next_user_id():
     """Gets the anticipated value of the next UserID (usually the last row
         inserted) from the User table.
-    
+
     :returns: The value of the next UserID or 0 if there is no data.
     :rtype: int
     """
@@ -306,7 +322,7 @@ def user_exists(email):
 
 def connect():
     """Connects to the database.
-    
+
     :returns: The connection to the SQLite database
     :rtype: object
     """
@@ -323,29 +339,34 @@ def connect():
             print(ex)
 
 
-# Initialization code.
-# Create and populate the database if it does not exists.
-try:
-    # Removed Pathlib (redundant) and needed to set PWD to correct
-    # directory using os
-    os.chdir(co.MODEL_DIR)
+def database_exists():
+    """Create and populate the database if it does not exists.
 
-    if not os.path.isdir('./db'):
-        os.makedirs('db')
-
-    if not os.path.exists('./db/user.db'):
-        create_user_table()
-        create_user(
-            'Rob', 'Garcia', 'rgarcia@rgprogramming.com',
-            80.0, 'Administrator.')
-        create_user(
-            'George', 'Washington', 'gwashington@rgprogramming.com',
-            90.0, 'Old user.')
-        create_user(
-            'Baby', 'Yoda', 'byoda@rgprogramming.com',
-            100.0, 'New user.')
-# Use MODULE_EX to prevent overwriting function internal exceptions (ex)
-except Exception:
-    MODULE_EX = co.error_log(sys.exc_info())
-    if co.DISPLAY_ERRORS:
-        print(MODULE_EX)
+    :return: True if the database exists or was created, false if not
+    :rtype: bool
+    """
+    exists = False
+    try:
+        # Removed Pathlib (redundant) and needed to set PWD to correct
+        # directory using os
+        os.chdir(co.MODEL_DIR)
+        if not os.path.isdir('./db') or not os.path.exists('./db/user.db'):
+            os.makedirs('db', exist_ok=True)
+            if create_user_table() != -1: exists = False
+            if create_user(
+                'Rob', 'Garcia', 'rgarcia@rgprogramming.com',
+                80.0, 'Administrator.') == 0: exists = False
+            if create_user(
+                'George', 'Washington', 'gwashington@rgprogramming.com',
+                90.0, 'Old user.') == 0: exists = False
+            if create_user(
+                'Baby', 'Yoda', 'byoda@rgprogramming.com',
+                100.0, 'New user.') == 0: exists = False
+        else:
+            exists = True
+    # Use MODULE_EX to prevent overwriting function internal exceptions (ex)
+    except Exception:
+        MODULE_EX = co.error_log(sys.exc_info())
+        if co.DISPLAY_ERRORS:
+            print(MODULE_EX)
+    return exists
