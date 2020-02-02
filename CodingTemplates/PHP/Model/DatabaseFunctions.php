@@ -45,6 +45,7 @@ const PATH_TO_SQLITE_DB = MODEL_DIR . DIRECTORY_SEPARATOR . "DB" .
  */
 function createUserTable()
 {
+    $rowsAffected = null;
     try {
         $conn = connect();
         $sql = "CREATE TABLE IF NOT EXISTS User (
@@ -57,12 +58,12 @@ function createUserTable()
                 Comment text
             );";
         $rowsAffected = $conn->exec($sql);
-        return $rowsAffected;
     } catch (\PDOException $ex) {
         error_log($ex->getMessage());
     } finally {
         unset($conn);
     }
+    return $rowsAffected;
 }
 
 /**
@@ -78,6 +79,7 @@ function createUserTable()
  */
 function createUser($firstName, $lastName, $email, $score, $comment)
 {
+    $lastRowID = 0;
     try {
         $conn = connect();
         $sql = "INSERT INTO User
@@ -97,12 +99,12 @@ function createUser($firstName, $lastName, $email, $score, $comment)
         $stmt->execute();
         // The last insert ID should be greater than 0
         $lastRowID = $conn->lastInsertId();
-        return $lastRowID;
     } catch (\PDOException $ex) {
         error_log($ex->getMessage());
     } finally {
         unset($conn);
     }
+    return $lastRowID;
 }
 
 /**
@@ -113,6 +115,7 @@ function createUser($firstName, $lastName, $email, $score, $comment)
  */
 function getAllUsers()
 {
+    $result = null;
     try {
         $conn = connect();
         $sql = "SELECT *
@@ -122,12 +125,12 @@ function getAllUsers()
         $stmt = $conn->prepare($sql);
         $stmt->execute();
         $result = $stmt->fetchAll();
-        return $result;
     } catch (\PDOException $ex) {
         error_log($ex->getMessage());
     } finally {
         unset($conn);
     }
+    return $result;
 }
 
 /**
@@ -140,6 +143,7 @@ function getAllUsers()
  */
 function getUserByUserID($userID)
 {
+    $result = null;
     try {
         $conn = connect();
         $sql = "SELECT *
@@ -150,12 +154,12 @@ function getUserByUserID($userID)
         $stmt->execute();
         // Returns an empty result set if not found
         $result = $stmt->fetch(\PDO::FETCH_ASSOC);
-        return $result;
     } catch (\PDOException $ex) {
         error_log($ex->getMessage());
     } finally {
         unset($conn);
     }
+    return $result;
 }
 
 /**
@@ -168,6 +172,7 @@ function getUserByUserID($userID)
  */
 function getUserByEmail($email)
 {
+    $result = null;
     try {
         $conn = connect();
         $sql = "SELECT *
@@ -184,6 +189,7 @@ function getUserByEmail($email)
     } finally {
         unset($conn);
     }
+    return $result;
 }
 
 /**
@@ -201,6 +207,7 @@ function getUserByEmail($email)
  */
 function updateUser($userID, $firstName, $lastName, $email, $score, $comment)
 {
+    $rowsAffected = 0;
     try {
         $conn = connect();
         $sql = "UPDATE User
@@ -220,12 +227,12 @@ function updateUser($userID, $firstName, $lastName, $email, $score, $comment)
         $stmt->execute();
         // Rows affected should equal 1
         $rowsAffected = $stmt->rowCount();
-        return $rowsAffected;
     } catch (\PDOException $ex) {
         error_log($ex->getMessage());
     } finally {
         unset($conn);
     }
+    return $rowsAffected;
 }
 
 /**
@@ -238,6 +245,7 @@ function updateUser($userID, $firstName, $lastName, $email, $score, $comment)
  */
 function deleteUser($userID)
 {
+    $rowsAffected = 0;
     try {
         $conn = connect();
         $sql = "DELETE FROM User
@@ -247,12 +255,12 @@ function deleteUser($userID)
         $stmt->execute();
         // Rows affected should equal 1
         $rowsAffected = $stmt->rowCount();
-        return $rowsAffected;
     } catch (\PDOException $ex) {
         error_log($ex->getMessage());
     } finally {
         unset($conn);
     }
+    return $rowsAffected;
 }
 
 /**
@@ -263,6 +271,7 @@ function deleteUser($userID)
  */
 function getNextUserID()
 {
+    $maxUserID = 0;
     try {
         $conn = connect();
         $sql = "SELECT MAX(UserID) as maxUserID FROM User;";
@@ -270,13 +279,13 @@ function getNextUserID()
         $stmt->execute();
         $row = $stmt->fetch();
         $maxUserID = $row["maxUserID"] == "" ? 0 : $row["maxUserID"];
-        // Add 1 to the last user ID
-        return $maxUserID + 1;
     } catch (\PDOException $ex) {
         error_log($ex->getMessage());
     } finally {
         unset($conn);
     }
+    // Add 1 to the last user ID
+    return $maxUserID + 1;
 }
 
 /**
@@ -293,6 +302,7 @@ function getNextUserID()
  */
 function userExists($email)
 {
+    $exists = false;
     try {
         $conn = connect();
         $sql = "SELECT COUNT(*) AS Count
@@ -304,12 +314,12 @@ function userExists($email)
         // Fetch the result set
         $result = $stmt->fetch(\PDO::FETCH_ASSOC);
         $exists = ($result["Count"]) == 1 ? true : false;
-        return $exists;
     } catch (\PDOException $ex) {
         error_log($ex->getMessage());
     } finally {
         unset($conn);
     }
+    return $exists;
 }
 
 /**
@@ -319,6 +329,7 @@ function userExists($email)
  */
 function connect()
 {
+    $pdo = null;
     // Check if connection does not exists
     if (!isset($pdo) || !isset($conn)) {
         try {
@@ -337,7 +348,7 @@ function connect()
 
 /**
  * Creates and populates the database if it does not exist.
- * 
+ *
  * @return boolean True if the database exists or was create, false if not.
  */
 function databaseExists()

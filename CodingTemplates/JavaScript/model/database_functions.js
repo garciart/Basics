@@ -17,6 +17,7 @@
  * @copyright 2019-2020 Rob Garcia
  */
 
+const cf = require('./model/common_functions');
 
 
 /*

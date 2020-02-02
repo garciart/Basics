@@ -53,7 +53,8 @@ public class CommonFunctions {
      */
     public static String logError(Exception ex) {
         String exception = null;
-        try {
+        try (BufferedWriter errorLog = new BufferedWriter(
+                new FileWriter(MODEL_DIR + File.separator + "ErrorLog.txt", true))) {
             SimpleDateFormat simpleDateFormat = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss z");
             exception = String.format("[%s] ", simpleDateFormat.format(new Date()));
             StackTraceElement[] stackTrace = ex.getStackTrace();
@@ -61,8 +62,6 @@ public class CommonFunctions {
                 exception += String.format("- %s in %s on line %s.\n", ex.toString(), s.getFileName(),
                         s.getLineNumber());
             }
-            BufferedWriter errorLog = new BufferedWriter(
-                    new FileWriter(MODEL_DIR + File.separator + "ErrorLog.txt", true));
             errorLog.append(exception);
             errorLog.close();
         } catch (Exception exc) {

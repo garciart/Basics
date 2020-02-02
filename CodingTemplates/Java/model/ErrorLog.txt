@@ -73,3 +73,37 @@ java.sql.SQLException: not implemented by SQLite JDBC driver in Hello.java on li
 - java.lang.ArrayIndexOutOfBoundsException: -1 in null on line -1.
 - java.lang.ArrayIndexOutOfBoundsException: -1 in Hello.java on line 120.
 - java.lang.ArrayIndexOutOfBoundsException: -1 in Hello.java on line 138.
+[2020-02-01 16:38:28 EST] - java.lang.Exception: Test... in Hello.java on line 44.
+- java.lang.Exception: Test... in Hello.java on line 167.
+[2020-02-01 16:39:11 EST] - java.sql.SQLException: No suitable driver found for jdbc:sqlite:c:\Users\Rob\source\repos\Basics\CodingTemplates\Java\model\DB\Users.db in null on line -1.
+- java.sql.SQLException: No suitable driver found for jdbc:sqlite:c:\Users\Rob\source\repos\Basics\CodingTemplates\Java\model\DB\Users.db in null on line -1.
+- java.sql.SQLException: No suitable driver found for jdbc:sqlite:c:\Users\Rob\source\repos\Basics\CodingTemplates\Java\model\DB\Users.db in DatabaseFunctions.java on line 54.
+- java.sql.SQLException: No suitable driver found for jdbc:sqlite:c:\Users\Rob\source\repos\Basics\CodingTemplates\Java\model\DB\Users.db in DatabaseFunctions.java on line 315.
+- java.sql.SQLException: No suitable driver found for jdbc:sqlite:c:\Users\Rob\source\repos\Basics\CodingTemplates\Java\model\DB\Users.db in Hello.java on line 49.
+- java.sql.SQLException: No suitable driver found for jdbc:sqlite:c:\Users\Rob\source\repos\Basics\CodingTemplates\Java\model\DB\Users.db in Hello.java on line 169.
+[2020-02-01 16:39:11 EST] - java.sql.SQLException: No suitable driver found for jdbc:sqlite:c:\Users\Rob\source\repos\Basics\CodingTemplates\Java\model\DB\Users.db in null on line -1.
+- java.sql.SQLException: No suitable driver found for jdbc:sqlite:c:\Users\Rob\source\repos\Basics\CodingTemplates\Java\model\DB\Users.db in null on line -1.
+- java.sql.SQLException: No suitable driver found for jdbc:sqlite:c:\Users\Rob\source\repos\Basics\CodingTemplates\Java\model\DB\Users.db in DatabaseFunctions.java on line 84.
+- java.sql.SQLException: No suitable driver found for jdbc:sqlite:c:\Users\Rob\source\repos\Basics\CodingTemplates\Java\model\DB\Users.db in DatabaseFunctions.java on line 317.
+- java.sql.SQLException: No suitable driver found for jdbc:sqlite:c:\Users\Rob\source\repos\Basics\CodingTemplates\Java\model\DB\Users.db in Hello.java on line 49.
+- java.sql.SQLException: No suitable driver found for jdbc:sqlite:c:\Users\Rob\source\repos\Basics\CodingTemplates\Java\model\DB\Users.db in Hello.java on line 169.
+[2020-02-01 16:39:11 EST] - java.sql.SQLException: No suitable driver found for jdbc:sqlite:c:\Users\Rob\source\repos\Basics\CodingTemplates\Java\model\DB\Users.db in null on line -1.
+- java.sql.SQLException: No suitable driver found for jdbc:sqlite:c:\Users\Rob\source\repos\Basics\CodingTemplates\Java\model\DB\Users.db in null on line -1.
+- java.sql.SQLException: No suitable driver found for jdbc:sqlite:c:\Users\Rob\source\repos\Basics\CodingTemplates\Java\model\DB\Users.db in DatabaseFunctions.java on line 84.
+- java.sql.SQLException: No suitable driver found for jdbc:sqlite:c:\Users\Rob\source\repos\Basics\CodingTemplates\Java\model\DB\Users.db in DatabaseFunctions.java on line 319.
+- java.sql.SQLException: No suitable driver found for jdbc:sqlite:c:\Users\Rob\source\repos\Basics\CodingTemplates\Java\model\DB\Users.db in Hello.java on line 49.
+- java.sql.SQLException: No suitable driver found for jdbc:sqlite:c:\Users\Rob\source\repos\Basics\CodingTemplates\Java\model\DB\Users.db in Hello.java on line 169.
+[2020-02-01 16:39:11 EST] - java.sql.SQLException: No suitable driver found for jdbc:sqlite:c:\Users\Rob\source\repos\Basics\CodingTemplates\Java\model\DB\Users.db in null on line -1.
+- java.sql.SQLException: No suitable driver found for jdbc:sqlite:c:\Users\Rob\source\repos\Basics\CodingTemplates\Java\model\DB\Users.db in null on line -1.
+- java.sql.SQLException: No suitable driver found for jdbc:sqlite:c:\Users\Rob\source\repos\Basics\CodingTemplates\Java\model\DB\Users.db in DatabaseFunctions.java on line 84.
+- java.sql.SQLException: No suitable driver found for jdbc:sqlite:c:\Users\Rob\source\repos\Basics\CodingTemplates\Java\model\DB\Users.db in DatabaseFunctions.java on line 321.
+- java.sql.SQLException: No suitable driver found for jdbc:sqlite:c:\Users\Rob\source\repos\Basics\CodingTemplates\Java\model\DB\Users.db in Hello.java on line 49.
+- java.sql.SQLException: No suitable driver found for jdbc:sqlite:c:\Users\Rob\source\repos\Basics\CodingTemplates\Java\model\DB\Users.db in Hello.java on line 169.
+[2020-02-01 21:43:37 EST] - java.lang.IllegalArgumentException: Score cannot be empty and must be equal to or between 0.0 and 100.0 in User.java on line 155.
+- java.lang.IllegalArgumentException: Score cannot be empty and must be equal to or between 0.0 and 100.0 in User.java on line 224.
+- java.lang.IllegalArgumentException: Score cannot be empty and must be equal to or between 0.0 and 100.0 in Hello.java on line 62.
+- java.lang.IllegalArgumentException: Score cannot be empty and must be equal to or between 0.0 and 100.0 in Hello.java on line 169.
+[2020-02-01 21:44:14 EST] - java.lang.IllegalArgumentException: Score cannot be empty and must be equal to or between 0.0 and 100.0 in User.java on line 155.
+- java.lang.IllegalArgumentException: Score cannot be empty and must be equal to or between 0.0 and 100.0 in User.java on line 224.
+- java.lang.IllegalArgumentException: Score cannot be empty and must be equal to or between 0.0 and 100.0 in Hello.java on line 62.
+- java.lang.IllegalArgumentException: Score cannot be empty and must be equal to or between 0.0 and 100.0 in Hello.java on line 169.

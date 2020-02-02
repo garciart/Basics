@@ -62,8 +62,8 @@ function helloUsers()
                     );
                 }
 
-                echo "Number of users in the database: " . 
-                    count($listOfUsers) . "\n";
+                echo "Number of users in the database: " .
+                count($listOfUsers) . "\n";
                 echo "The first user is {$listOfUsers[0]->getFirstName()}.\n\n";
 
                 foreach ($listOfUsers as $index => $user) {

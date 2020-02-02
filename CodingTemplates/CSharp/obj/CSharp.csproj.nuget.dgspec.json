@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\Rob\\source\\repos\\Basics\\CodingTemplates\\CSharp\\CSharp.csproj": {}
+    "C:\\Users\\Rob\\source\\repos\\Basics\\CodingTemplates\\csharp\\CSharp.csproj": {}
   },
   "projects": {
-    "C:\\Users\\Rob\\source\\repos\\Basics\\CodingTemplates\\CSharp\\CSharp.csproj": {
+    "C:\\Users\\Rob\\source\\repos\\Basics\\CodingTemplates\\csharp\\CSharp.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\Rob\\source\\repos\\Basics\\CodingTemplates\\CSharp\\CSharp.csproj",
+        "projectUniqueName": "C:\\Users\\Rob\\source\\repos\\Basics\\CodingTemplates\\csharp\\CSharp.csproj",
         "projectName": "CSharp",
-        "projectPath": "C:\\Users\\Rob\\source\\repos\\Basics\\CodingTemplates\\CSharp\\CSharp.csproj",
+        "projectPath": "C:\\Users\\Rob\\source\\repos\\Basics\\CodingTemplates\\csharp\\CSharp.csproj",
         "packagesPath": "C:\\Users\\Rob\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\Rob\\source\\repos\\Basics\\CodingTemplates\\CSharp\\obj\\",
+        "outputPath": "C:\\Users\\Rob\\source\\repos\\Basics\\CodingTemplates\\csharp\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Microsoft\\Xamarin\\NuGet\\",
