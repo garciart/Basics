@@ -361,13 +361,16 @@ def database_exists():
                 exists = False
             if create_user(
                 "Rob", "Garcia", "rgarcia@rgprogramming.com",
-                80.0, "Administrator.") == 0: exists = False
+                    80.0, "Administrator.") == 0:
+                exists = False
             if create_user(
                 "George", "Washington", "gwashington@rgprogramming.com",
-                90.0, "Old user.") == 0: exists = False
+                    90.0, "Old user.") == 0:
+                exists = False
             if create_user(
                 "Baby", "Yoda", "byoda@rgprogramming.com",
-                100.0, "New user.") == 0: exists = False
+                    100.0, "New user.") == 0:
+                exists = False
     # Use module_ex to prevent overwriting function internal exceptions (ex)
     except Exception:
         module_ex = co.log_error(sys.exc_info())

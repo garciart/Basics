@@ -17,14 +17,14 @@
  * @copyright 2019-2020 Rob Garcia
  */
 
-var cf = require('./model/common_functions');
+const cf = require('./model/common_functions');
 
 init = function () {
     console.log("Hello, World from JavaScript!");
     try {
         cf.test();
         console.log(cf.DISPLAY_ERRORS);
-        console.log(cf.validateUserID(a));
+        console.log(cf.validateUserID(1));
     }
     catch (ex) {
         exception = cf.logError(ex);

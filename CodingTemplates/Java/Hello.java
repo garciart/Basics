@@ -39,7 +39,9 @@ public class Hello {
 
     private static void helloUsers() {
         try {
-            // throw new Exception("Test...");
+            /*
+             * int i = 0; if (i == 0) { throw new Exception("Test..."); }
+             */
             System.out.println("Verifying database exists...");
             if (DatabaseFunctions.databaseExists()) {
                 System.out.println("Database is good to go!\n");
@@ -112,8 +114,8 @@ public class Hello {
                         } else {
                             throw new Exception("Cannot retrieve user data!");
                         }
-                        System.out
-                                .println(String.format("Welcome %s %s! You are #%d, created on %s, and you are a(n) %s\n",
+                        System.out.println(
+                                String.format("Welcome %s %s! You are #%d, created on %s, and you are a(n) %s\n",
                                         thanos.getFirstName(), thanos.getLastName(), thanos.getUserID(),
                                         thanos.getCreationDate(), thanos.getComment()));
                         result = null;

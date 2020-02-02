@@ -399,7 +399,7 @@ namespace Model
         /// <returns>True if the database exists or was create, false if not.</returns>
         public static bool DatabaseExists()
         {
-            bool exists = false;
+            bool exists = true;
             try
             {
                 Directory.SetCurrentDirectory(CommonFunctions.ModelDir);
@@ -407,21 +407,14 @@ namespace Model
                 string dbFile = PathToSQLiteDB;
                 if (!Directory.Exists(dbFolder) || !File.Exists(dbFile))
                 {
-                    Console.WriteLine("Creating user database...");
                     // Creates the db directory if it does not exist
                     Directory.CreateDirectory(dbFolder);
                     // Creates the db file if it does not exist
-                    CreateUserTable();
+                    if (CreateUserTable() != 0) exists = false;
                     // Set initial values
-                    CreateUser("Rob", "Garcia", "rgarcia@rgprogramming.com", 80.0f, "Administrator.");
-                    CreateUser("Thomas", "Jefferson", "tjefferson@rgprogramming.com", 90.0f, "Old user.");
-                    CreateUser("Baby", "Yoda", "byoda@rgprogramming.com", 100.0f, "New user.");
-                    Console.WriteLine("Database created...\n");
-                    exists = true;
-                }
-                else
-                {
-                    exists = true;
+                    if (CreateUser("Rob", "Garcia", "rgarcia@rgprogramming.com", 80.0f, "Administrator.") == 0) exists = false;
+                    if (CreateUser("Thomas", "Jefferson", "tjefferson@rgprogramming.com", 90.0f, "Old user.") == 0) exists = false;
+                    if (CreateUser("Baby", "Yoda", "byoda@rgprogramming.com", 100.0f, "New user.") == 0) exists = false;
                 }
             }
             catch (Exception ex)

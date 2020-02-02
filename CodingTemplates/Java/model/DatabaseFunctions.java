@@ -304,7 +304,7 @@ public class DatabaseFunctions {
      * @return True if the database exists or was create, false if not.
      */
     public static Boolean databaseExists() {
-        Boolean exists = false;
+        Boolean exists = true;
         try {
             File dbFolder = new File(CommonFunctions.MODEL_DIR + File.separator + "DB");
             File dbFile = new File(PATH_TO_SQLITE_DB);
@@ -312,16 +312,11 @@ public class DatabaseFunctions {
                 // Creates the db directory if it does not exist
                 dbFolder.mkdir();
                 // Creates the db file if it does not exist
-                exists = (createUserTable() == 0) ? true : false;
+                if (createUserTable() != 0) exists = false;
                 // Set initial values
-                exists = (createUser("Rob", "Garcia", "rgarcia@rgprogramming.com", 80.0f, "Administrator.") != 0) ? true
-                        : false;
-                exists = (createUser("John", "Adams", "jadams@rgprogramming.com", 90.0f, "Old user.") != 0) ? true
-                        : false;
-                exists = (createUser("Baby", "Yoda", "byoda@rgprogramming.com", 100.0f, "New user.") != 0) ? true
-                        : false;
-            } else {
-                exists = true;
+                if (createUser("Rob", "Garcia", "rgarcia@rgprogramming.com", 80.0f, "Administrator.") == 0) exists = false;
+                if (createUser("Baby", "Yoda", "byoda@rgprogramming.com", 100.0f, "New user.") == 0) exists = false;
+                if (createUser("John", "Adams", "jadams@rgprogramming.com", 90.0f, "Old user.") == 0 ) exists = false;
             }
         } catch (Exception ex) {
             String exception = CommonFunctions.logError(ex);

@@ -19,6 +19,7 @@ import datetime
 import logging
 import os
 import re
+import sys
 
 # Module metadata dunders
 __author__ = "Rob Garcia"
@@ -41,6 +42,7 @@ logging.basicConfig(
 # Set to True during development and to False during production
 DISPLAY_ERRORS = True
 
+
 def log_error(exc_info):
     """Reformats error and exception details and records them in plain text in
         the error_log file.
@@ -50,18 +52,24 @@ def log_error(exc_info):
     :return: Reformated exception details in plain text.
     :rtype: str
     """
-    exc_type, exc_value, exc_traceback = exc_info
-    local_timezone = datetime.datetime.now(
-        datetime.timezone.utc).astimezone().tzinfo
-    time_stamp = datetime.datetime.now(
-        local_timezone).strftime("%Y-%m-%d %H:%M:%S %Z")
-    exception = ("[{}] Type {} Exception: {} in {} at line {}.".format(
-        time_stamp,
-        exc_type.__name__,
-        exc_value,
-        exc_traceback.tb_frame.f_code.co_filename,
-        exc_traceback.tb_lineno))
-    logging.debug(exception)
+    exception = None
+    try:
+        exc_type, exc_value, exc_traceback = exc_info
+        local_timezone = datetime.datetime.now(
+            datetime.timezone.utc).astimezone().tzinfo
+        time_stamp = datetime.datetime.now(
+            local_timezone).strftime("%Y-%m-%d %H:%M:%S %Z")
+        exception = ("[{}] Type {} Exception: {} in {} at line {}.".format(
+            time_stamp,
+            exc_type.__name__,
+            exc_value,
+            exc_traceback.tb_frame.f_code.co_filename,
+            exc_traceback.tb_lineno))
+        logging.debug(exception)
+    except Exception:
+        exc = sys.exc_info()
+        # if co.DISPLAY_ERRORS:
+        print(exc)
     return exception
 
 

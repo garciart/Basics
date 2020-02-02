@@ -5,3 +5,5 @@ To run from terminal, make sure you are in the project directory (i.e., Java) an
 java -classpath ";jar/*" Hello
 or
 java -cp ";jar/*" Hello
+
+Tested at https://fbinfer.com/
