@@ -1,5 +1,5 @@
 /**
- * Hello World in JavaScript with database integration.
+ * Summary. Hello World in JavaScript with database integration.
  *
  * Node.js version used: 12.10.0
  * Node Package Manager (npm) version used: 6.13.0
@@ -17,18 +17,21 @@
  * @copyright 2019-2020 Rob Garcia
  */
 
-const cf = require('./model/common_functions');
+import { test, DISPLAY_ERRORS, validateUserID, logError } from "./model/common_functions";
+import { PATH_TO_SQLITE_DB, dfTest } from "./model/database_functions";
 
 init = function () {
     console.log("Hello, World from JavaScript!");
     try {
-        cf.test();
-        console.log(cf.DISPLAY_ERRORS);
-        console.log(cf.validateUserID(1));
+        test();
+        console.log(DISPLAY_ERRORS);
+        console.log(validateUserID(1));
+        console.log(PATH_TO_SQLITE_DB);
+        dfTest();
     }
     catch (ex) {
-        exception = cf.logError(ex);
-        if (cf.DISPLAY_ERRORS) {
+        exception = logError(ex);
+        if (DISPLAY_ERRORS) {
             console.error(exception);
         }
     }

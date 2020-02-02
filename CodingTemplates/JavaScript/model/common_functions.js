@@ -1,5 +1,5 @@
 /**
- * Code common to one or more files.
+ * Summary. Code common to one or more files.
  *
  * Node.js version used: 12.10.0
  * Node Package Manager (npm) version used: 6.13.0
@@ -26,7 +26,7 @@
  * Boolean validateDate(String date)
  */
 
-const fs = require('fs');
+const fs = require("fs");
 
 const MODEL_DIR = __dirname;
 
@@ -51,8 +51,8 @@ module.exports = {
             + ("0" + dt.getMinutes()).slice(-2) + ":"
             + ("0" + dt.getSeconds()).slice(-2) + " "
             + Intl.DateTimeFormat().resolvedOptions().timeZone;
-        let exception = '[' + timestamp + '] ' + ex.stack + '\n';
-        fs.appendFile(MODEL_DIR + '/error_log.txt', exception, function (err) {
+        let exception = "[" + timestamp + "] " + ex.stack + "\n";
+        fs.appendFile(MODEL_DIR + "/error_log.txt", exception, function (err) {
             if (err) console.log(err);
         });
         return exception;
