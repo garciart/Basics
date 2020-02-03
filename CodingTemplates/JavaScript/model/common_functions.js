@@ -27,55 +27,60 @@
  */
 
 const fs = require("fs");
+const path = require("path")
 
 const MODEL_DIR = __dirname;
 
 const DISPLAY_ERRORS = true;
 
-module.exports = {
+var CommonFunctions = {
+
     MODEL_DIR: MODEL_DIR,
 
     DISPLAY_ERRORS: DISPLAY_ERRORS,
 
-    test: function () {
-        console.log("Display Errors: " + DISPLAY_ERRORS);
-        console.log("Model Directory: " + MODEL_DIR);
-    },
-
-    logError: function (ex) {
-        let dt = new Date(Date.now());
-        let timestamp = dt.getFullYear() + "-"
-            + ("0" + (dt.getMonth() + 1)).slice(-2) + "-"
-            + ("0" + dt.getDate()).slice(-2) + " "
-            + ("0" + dt.getHours()).slice(-2) + ":"
-            + ("0" + dt.getMinutes()).slice(-2) + ":"
-            + ("0" + dt.getSeconds()).slice(-2) + " "
-            + Intl.DateTimeFormat().resolvedOptions().timeZone;
-        let exception = "[" + timestamp + "] " + ex.stack + "\n";
-        fs.appendFile(MODEL_DIR + "/error_log.txt", exception, function (err) {
-            if (err) console.log(err);
-        });
+    logError(ex) {
+        var exception = null;
+        try {
+            let dt = new Date(Date.now());
+            let timestamp = dt.getFullYear() + "-"
+                + ("0" + (dt.getMonth() + 1)).slice(-2) + "-"
+                + ("0" + dt.getDate()).slice(-2) + " "
+                + ("0" + dt.getHours()).slice(-2) + ":"
+                + ("0" + dt.getMinutes()).slice(-2) + ":"
+                + ("0" + dt.getSeconds()).slice(-2) + " "
+                + Intl.DateTimeFormat().resolvedOptions().timeZone;
+            exception = "[" + timestamp + "] " + ex + "\n" + ex.stack + "\n";
+            fs.appendFile(MODEL_DIR + path.sep + "error_log.txt", exception, function (err) {
+                if (err /* && cf.DISPLAY_ERRORS */) console.error(err);
+            });
+        }
+        catch (exc) {
+            // if (cf.DISPLAY_ERRORS) {
+            console.error(exc);
+            // }
+        }
         return exception;
     },
 
-    validateUserID: function (userID) {
+    validateUserID(userID) {
         return userID > 0;
     },
 
-    validateText: function (text) {
-
+    validateText(text) {
+        return (text.trim() == null || !(text.trim()) ||
+            /^[A-Za-z0-9 -._~:/?#[\]@!\$&'()\*\+,;=]*$/.test(text.trim()) == false) ? false : true;
     },
 
-    validateEmail: function (email) {
-
+    validateEmail(email) {
+        return (email.trim() == null || !(email.trim()) ||
+            /^[A-Za-z0-9-._~/?#!$&'%*+=`{|}^]+@[A-Za-z0-9.-]+$/.test(email.trim()) == false) ? false : true;
     },
 
-    validateDate: function (date) {
-
-    },
-
-    area: function (width, height) {
-        return width * height;
+    validateDate(date) {
+        return (date.trim() == null || !(date.trim()) ||
+            /^([0-9]){4}-([0-9]){2}-([0-9]){2} ([0-9]){2}:([0-9]){2}:([0-9]){2}$/.test(date.trim()) == false) ? false : true;
     }
 }
 
+module.exports = CommonFunctions;

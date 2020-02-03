@@ -1,33 +1,86 @@
-[2020-01-30 00:04:50 America/New_York] ReferenceError: a is not defined
-    at init (C:\Users\Rob\source\repos\Basics\CodingTemplates\JavaScript\hello.js:25:39)
-    at Object.<anonymous> (C:\Users\Rob\source\repos\Basics\CodingTemplates\JavaScript\hello.js:32:1)
+[2020-02-02 20:48:07 America/New_York] Error: EEXIST: file already exists, mkdir 'c:\Users\Rob\source\repos\Basics\CodingTemplates\JavaScript\model\DB'
+Error: EEXIST: file already exists, mkdir 'c:\Users\Rob\source\repos\Basics\CodingTemplates\JavaScript\model\DB'
+    at Object.mkdirSync (fs.js:834:3)
+    at Object.databaseExists (c:\Users\Rob\source\repos\Basics\CodingTemplates\JavaScript\model\database_functions.js:71:20)
+    at main (c:\Users\Rob\source\repos\Basics\CodingTemplates\JavaScript\hello.js:33:24)
+    at Object.<anonymous> (c:\Users\Rob\source\repos\Basics\CodingTemplates\JavaScript\hello.js:43:1)
     at Module._compile (internal/modules/cjs/loader.js:936:30)
     at Object.Module._extensions..js (internal/modules/cjs/loader.js:947:10)
     at Module.load (internal/modules/cjs/loader.js:790:32)
     at Function.Module._load (internal/modules/cjs/loader.js:703:12)
     at Function.Module.runMain (internal/modules/cjs/loader.js:999:10)
     at internal/main/run_main_module.js:17:11
-[2020-01-30 00:17:05 America/New_York] ReferenceError: a is not defined
-    at init (C:\Users\Rob\source\repos\Basics\CodingTemplates\JavaScript\hello.js:26:39)
-    at Object.<anonymous> (C:\Users\Rob\source\repos\Basics\CodingTemplates\JavaScript\hello.js:36:1)
+[2020-02-02 20:50:02 America/New_York] Error: EEXIST: file already exists, mkdir 'c:\Users\Rob\source\repos\Basics\CodingTemplates\JavaScript\model\DB'
+Error: EEXIST: file already exists, mkdir 'c:\Users\Rob\source\repos\Basics\CodingTemplates\JavaScript\model\DB'
+    at Object.mkdirSync (fs.js:834:3)
+    at Object.databaseExists (c:\Users\Rob\source\repos\Basics\CodingTemplates\JavaScript\model\database_functions.js:71:20)
+    at main (c:\Users\Rob\source\repos\Basics\CodingTemplates\JavaScript\hello.js:32:24)
+    at Object.<anonymous> (c:\Users\Rob\source\repos\Basics\CodingTemplates\JavaScript\hello.js:42:1)
     at Module._compile (internal/modules/cjs/loader.js:936:30)
     at Object.Module._extensions..js (internal/modules/cjs/loader.js:947:10)
     at Module.load (internal/modules/cjs/loader.js:790:32)
     at Function.Module._load (internal/modules/cjs/loader.js:703:12)
     at Function.Module.runMain (internal/modules/cjs/loader.js:999:10)
     at internal/main/run_main_module.js:17:11
-[2020-01-30 00:46:39 America/New_York] ReferenceError: a is not defined
-    at init (C:\Users\Rob\source\repos\Basics\CodingTemplates\JavaScript\hello.js:27:39)
-    at Object.<anonymous> (C:\Users\Rob\source\repos\Basics\CodingTemplates\JavaScript\hello.js:37:1)
+[2020-02-02 21:02:53 America/New_York] TypeError: this.connect is not a function
+TypeError: this.connect is not a function
+    at Object.databaseExists (c:\Users\Rob\source\repos\Basics\CodingTemplates\JavaScript\model\database_functions.js:72:18)
+    at main (c:\Users\Rob\source\repos\Basics\CodingTemplates\JavaScript\hello.js:32:24)
+    at Object.<anonymous> (c:\Users\Rob\source\repos\Basics\CodingTemplates\JavaScript\hello.js:42:1)
     at Module._compile (internal/modules/cjs/loader.js:936:30)
     at Object.Module._extensions..js (internal/modules/cjs/loader.js:947:10)
     at Module.load (internal/modules/cjs/loader.js:790:32)
     at Function.Module._load (internal/modules/cjs/loader.js:703:12)
     at Function.Module.runMain (internal/modules/cjs/loader.js:999:10)
     at internal/main/run_main_module.js:17:11
-[2020-02-01 23:26:44 America/New_York] ReferenceError: a is not defined
-    at init (c:\Users\Rob\source\repos\Basics\CodingTemplates\JavaScript\hello.js:27:39)
-    at Object.<anonymous> (c:\Users\Rob\source\repos\Basics\CodingTemplates\JavaScript\hello.js:37:1)
+[2020-02-02 21:04:56 America/New_York] TypeError: df.connect is not a function
+TypeError: df.connect is not a function
+    at main (c:\Users\Rob\source\repos\Basics\CodingTemplates\JavaScript\hello.js:32:12)
+    at Object.<anonymous> (c:\Users\Rob\source\repos\Basics\CodingTemplates\JavaScript\hello.js:43:1)
+    at Module._compile (internal/modules/cjs/loader.js:936:30)
+    at Object.Module._extensions..js (internal/modules/cjs/loader.js:947:10)
+    at Module.load (internal/modules/cjs/loader.js:790:32)
+    at Function.Module._load (internal/modules/cjs/loader.js:703:12)
+    at Function.Module.runMain (internal/modules/cjs/loader.js:999:10)
+    at internal/main/run_main_module.js:17:11
+[2020-02-02 21:39:55 America/New_York] SyntaxError: Invalid regular expression: /^[A-Za-z0-9\\s\\-._~:\\/?#\\[\\]@!$&'()*+,;=]*$/: Range out of order in character class
+SyntaxError: Invalid regular expression: /^[A-Za-z0-9\\s\\-._~:\\/?#\\[\\]@!$&'()*+,;=]*$/: Range out of order in character class
+    at Object.validateText (c:\Users\Rob\source\repos\Basics\CodingTemplates\JavaScript\model\common_functions.js:77:9)
+    at main (c:\Users\Rob\source\repos\Basics\CodingTemplates\JavaScript\hello.js:32:24)
+    at Object.<anonymous> (c:\Users\Rob\source\repos\Basics\CodingTemplates\JavaScript\hello.js:43:1)
+    at Module._compile (internal/modules/cjs/loader.js:936:30)
+    at Object.Module._extensions..js (internal/modules/cjs/loader.js:947:10)
+    at Module.load (internal/modules/cjs/loader.js:790:32)
+    at Function.Module._load (internal/modules/cjs/loader.js:703:12)
+    at Function.Module.runMain (internal/modules/cjs/loader.js:999:10)
+    at internal/main/run_main_module.js:17:11
+[2020-02-02 21:41:14 America/New_York] SyntaxError: Invalid regular expression: /^[A-Za-z0-9 -._~:/?#[]@!$&'()*+,;=]*$/: Nothing to repeat
+SyntaxError: Invalid regular expression: /^[A-Za-z0-9 -._~:/?#[]@!$&'()*+,;=]*$/: Nothing to repeat
+    at Object.validateText (c:\Users\Rob\source\repos\Basics\CodingTemplates\JavaScript\model\common_functions.js:77:9)
+    at main (c:\Users\Rob\source\repos\Basics\CodingTemplates\JavaScript\hello.js:32:24)
+    at Object.<anonymous> (c:\Users\Rob\source\repos\Basics\CodingTemplates\JavaScript\hello.js:43:1)
+    at Module._compile (internal/modules/cjs/loader.js:936:30)
+    at Object.Module._extensions..js (internal/modules/cjs/loader.js:947:10)
+    at Module.load (internal/modules/cjs/loader.js:790:32)
+    at Function.Module._load (internal/modules/cjs/loader.js:703:12)
+    at Function.Module.runMain (internal/modules/cjs/loader.js:999:10)
+    at internal/main/run_main_module.js:17:11
+[2020-02-02 22:15:59 America/New_York] ReferenceError: text is not defined
+ReferenceError: text is not defined
+    at Object.validateEmail (c:\Users\Rob\source\repos\Basics\CodingTemplates\JavaScript\model\common_functions.js:82:9)
+    at main (c:\Users\Rob\source\repos\Basics\CodingTemplates\JavaScript\hello.js:33:41)
+    at Object.<anonymous> (c:\Users\Rob\source\repos\Basics\CodingTemplates\JavaScript\hello.js:45:1)
+    at Module._compile (internal/modules/cjs/loader.js:936:30)
+    at Object.Module._extensions..js (internal/modules/cjs/loader.js:947:10)
+    at Module.load (internal/modules/cjs/loader.js:790:32)
+    at Function.Module._load (internal/modules/cjs/loader.js:703:12)
+    at Function.Module.runMain (internal/modules/cjs/loader.js:999:10)
+    at internal/main/run_main_module.js:17:11
+[2020-02-02 22:18:37 America/New_York] TypeError: Cannot read property 'trim' of undefined
+TypeError: Cannot read property 'trim' of undefined
+    at Object.validateText (c:\Users\Rob\source\repos\Basics\CodingTemplates\JavaScript\model\common_functions.js:77:22)
+    at main (c:\Users\Rob\source\repos\Basics\CodingTemplates\JavaScript\hello.js:32:40)
+    at Object.<anonymous> (c:\Users\Rob\source\repos\Basics\CodingTemplates\JavaScript\hello.js:45:1)
     at Module._compile (internal/modules/cjs/loader.js:936:30)
     at Object.Module._extensions..js (internal/modules/cjs/loader.js:947:10)
     at Module.load (internal/modules/cjs/loader.js:790:32)

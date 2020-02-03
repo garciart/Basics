@@ -18,35 +18,139 @@
  */
 
 const cf = require("./common_functions");
+const fs = require("fs");
 const sqlite3 = require("sqlite3");
 const path = require("path")
 const promise = require("bluebird");
 
+// Private methods and constants
 const PATH_TO_SQLITE_DB = cf.MODEL_DIR + path.sep + "DB" + path.sep + "Users.db";
 
-module.exports = {
+function connect() {
+    var conn = null;
+    try {
+        conn = new sqlite3.Database(PATH_TO_SQLITE_DB, (err) => {
+            if (err) {
+                console.log('Could not connect to database', err)
+            } else {
+                console.log('Connected to database')
+            }
+        })
+    }
+    catch (ex) {
+        let exception = cf.logError(ex);
+        if (cf.DISPLAY_ERRORS) {
+            console.error(exception);
+        }
+    }
+    return conn;
+}
 
-    PATH_TO_SQLITE_DB: PATH_TO_SQLITE_DB,
-
-    dfTest() {
-        console.log("What, what?");
-    },
+var DatabaseFunctions = {
 
     createUserTable() {
+        var rowsAffected = -1;
+        try {
 
+        }
+        catch (ex) {
+            let exception = cf.logError(ex);
+            if (cf.DISPLAY_ERRORS) {
+                console.error(exception);
+            }
+        }
+        return rowsAffected;
     },
 
     createUser(firstName, lastName, email, score, comment) {
+        var lastRowID = 0;
+        try {
+
+        }
+        catch (ex) {
+            let exception = cf.logError(ex);
+            if (cf.DISPLAY_ERRORS) {
+                console.error(exception);
+            }
+        }
+        return lastRowID;
+    },
+
+    getAllUsers() {
 
     },
 
-    getAllUsers() {},
-    getUserByUserID(userID) {},
-    getUserByEmail(email) {},
-    updateUser(userID, firstName, lastName, email, score, comment) {},
-    deleteUser(userID) {},
-    getNextUser_id() {},
-    userExists(email) {},
-    connect() {},
-    databaseExists() {},
+    getUserByUserID(userID) { },
+    getUserByEmail(email) { },
+    updateUser(userID, firstName, lastName, email, score, comment) {
+        var rowsAffected = 0;
+        try {
+
+        }
+        catch (ex) {
+            let exception = cf.logError(ex);
+            if (cf.DISPLAY_ERRORS) {
+                console.error(exception);
+            }
+        }
+        return rowsAffected;
+    },
+    deleteUser(userID) {
+        var rowsAffected = 0;
+        try {
+
+        }
+        catch (ex) {
+            let exception = cf.logError(ex);
+            if (cf.DISPLAY_ERRORS) {
+                console.error(exception);
+            }
+        }
+        return rowsAffected;
+    },
+    getNextUserID() {
+        var lastRowID = 0;
+        try {
+
+        }
+        catch (ex) {
+            let exception = cf.logError(ex);
+            if (cf.DISPLAY_ERRORS) {
+                console.error(exception);
+            }
+        }
+        return lastRowID;
+    },
+    userExists(email) {
+        var exists = false;
+        try {
+
+        }
+        catch (ex) {
+            let exception = cf.logError(ex);
+            if (cf.DISPLAY_ERRORS) {
+                console.error(exception);
+            }
+        }
+        return exists;
+    },
+    databaseExists() {
+        var exists = true;
+        try {
+            let dbFolder = cf.MODEL_DIR + path.sep + "DB";
+            if (!fs.existsSync(dbFolder)) {
+                fs.mkdirSync(dbFolder);
+            }
+            connect();
+        }
+        catch (ex) {
+            let exception = cf.logError(ex);
+            if (cf.DISPLAY_ERRORS) {
+                console.error(exception);
+            }
+        }
+        return exists;
+    },
 }
+
+module.exports = DatabaseFunctions;
