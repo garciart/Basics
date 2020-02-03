@@ -17,24 +17,24 @@
  * @copyright 2019-2020 Rob Garcia
  */
 
-import { test, DISPLAY_ERRORS, validateUserID, logError } from "./model/common_functions";
-import { PATH_TO_SQLITE_DB, dfTest } from "./model/database_functions";
+const cf = require("./model/common_functions.js");
+const df = require("./model/database_functions.js");
 
-init = function () {
+function main() {
     console.log("Hello, World from JavaScript!");
     try {
-        test();
-        console.log(DISPLAY_ERRORS);
-        console.log(validateUserID(1));
-        console.log(PATH_TO_SQLITE_DB);
-        dfTest();
+        // throw "Test...";
+        console.log("Text good: " + cf.validateText("   "));
+        console.log("Email good: " + cf.validateEmail("2020-02-02 15-39-02"));
+        console.log("Date good: " + cf.validateDate("2020-02-02 15:39:02"));
+        console.log(df.databaseExists());
     }
     catch (ex) {
-        exception = logError(ex);
-        if (DISPLAY_ERRORS) {
+        let exception = cf.logError(ex);
+        if (cf.DISPLAY_ERRORS) {
             console.error(exception);
         }
     }
 }
 
-init();
+main();
