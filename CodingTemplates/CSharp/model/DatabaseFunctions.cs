@@ -333,7 +333,7 @@ namespace Model
         /// <returns>The value of the next UserID or 0 if there is no data.</returns>
         public static long GetNextUserID()
         {
-            long lastRowID = 0;
+            long nextUserID = 0;
             try
             {
                 using (SQLiteConnection conn = new SQLiteConnection(string.Format("URI=file:{0}", PathToSQLiteDB)))
@@ -343,7 +343,7 @@ namespace Model
                     using (SQLiteCommand cmd = new SQLiteCommand(sql, conn))
                     {
                         object o = cmd.ExecuteScalar();
-                        lastRowID = (o is System.DBNull) ? 0 : Convert.ToInt64(o);
+                        nextUserID = (o is System.DBNull ? 0 : Convert.ToInt64(o)) + 1;
                     }
                 }
             }
@@ -352,7 +352,7 @@ namespace Model
                 string exception = CommonFunctions.LogError(ex);
                 if (CommonFunctions.DisplayErrors) Console.WriteLine(exception);
             }
-            return lastRowID + 1;
+            return nextUserID;
         }
 
         /// <summary>

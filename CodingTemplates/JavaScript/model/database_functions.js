@@ -19,21 +19,20 @@
 
 const cf = require("./common_functions");
 const fs = require("fs");
-const sqlite3 = require("sqlite3");
+const sqlite3 = require("sqlite3").verbose();
 const path = require("path")
 const promise = require("bluebird");
 
 // Private methods and constants
 const PATH_TO_SQLITE_DB = cf.MODEL_DIR + path.sep + "DB" + path.sep + "Users.db";
 
+/*
 function connect() {
-    var conn = null;
+    let conn = null;
     try {
         conn = new sqlite3.Database(PATH_TO_SQLITE_DB, (err) => {
             if (err) {
-                console.log('Could not connect to database', err)
-            } else {
-                console.log('Connected to database')
+                throw err;
             }
         })
     }
@@ -46,12 +45,37 @@ function connect() {
     return conn;
 }
 
+function run(sql, params = []) {
+    return new Promise((resolve, reject) => {
+        let conn = connect();
+        conn.run(sql, params, function (err) {
+            if (err) {
+                let error = cf.logError(err);
+                if (cf.DISPLAY_ERRORS) {
+                    console.error(error);
+                }
+                reject(err);
+            } else {
+                resolve({ id: this.lastID })
+            }
+        })
+        conn.close();
+    })
+}
+*/
 var DatabaseFunctions = {
 
     createUserTable() {
-        var rowsAffected = -1;
+        console.log("At Create User Table...");
+        let rowsAffected = -1;
         try {
-
+            console.log(PATH_TO_SQLITE_DB);
+            let conn = new sqlite3.Database(PATH_TO_SQLITE_DB);
+            let sql = "DROP TABLE IF EXISTS User;";
+            conn.run(sql);
+            sql = "CREATE TABLE IF NOT EXISTS User (UserID integer PRIMARY KEY,FirstName text NOT NULL, LastName text NOT NULL, Email text UNIQUE NOT NULL, Score real NOT NULL DEFAULT '100.0', CreationDate text NOT NULL, Comment text);"
+            conn.run(sql);
+            conn.close();
         }
         catch (ex) {
             let exception = cf.logError(ex);
@@ -63,9 +87,25 @@ var DatabaseFunctions = {
     },
 
     createUser(firstName, lastName, email, score, comment) {
-        var lastRowID = 0;
+        let lastRowID = 0;
+        console.log("At Create User...");
         try {
-
+            let conn = new sqlite3.Database(PATH_TO_SQLITE_DB);
+            let sql = "INSERT INTO User VALUES (?, ?, ?, ?, ?, ?, ?);";
+            let stmt = conn.prepare(sql);
+            let userID = this.getNextUserID();
+            let dt = new Date(Date.now());
+            let creationDate = dt.getFullYear() + "-"
+                + ("0" + (dt.getMonth() + 1)).slice(-2) + "-"
+                + ("0" + dt.getDate()).slice(-2) + " "
+                + ("0" + dt.getHours()).slice(-2) + ":"
+                + ("0" + dt.getMinutes()).slice(-2) + ":"
+                + ("0" + dt.getSeconds()).slice(-2);
+            console.log("User ID: " + userID);
+            console.log("Creation Date: " + creationDate);
+            stmt.run(userID, firstName, lastName, email, score, creationDate, comment);
+            stmt.finalize();
+            conn.close();
         }
         catch (ex) {
             let exception = cf.logError(ex);
@@ -83,9 +123,10 @@ var DatabaseFunctions = {
     getUserByUserID(userID) { },
     getUserByEmail(email) { },
     updateUser(userID, firstName, lastName, email, score, comment) {
-        var rowsAffected = 0;
+        let rowsAffected = 0;
         try {
-
+            let conn = new sqlite3.Database(PATH_TO_SQLITE_DB);
+            conn.close();
         }
         catch (ex) {
             let exception = cf.logError(ex);
@@ -96,9 +137,10 @@ var DatabaseFunctions = {
         return rowsAffected;
     },
     deleteUser(userID) {
-        var rowsAffected = 0;
+        let rowsAffected = 0;
         try {
-
+            let conn = new sqlite3.Database(PATH_TO_SQLITE_DB);
+            conn.close();
         }
         catch (ex) {
             let exception = cf.logError(ex);
@@ -109,9 +151,16 @@ var DatabaseFunctions = {
         return rowsAffected;
     },
     getNextUserID() {
-        var lastRowID = 0;
+        let nextUserID = 0;
         try {
-
+            let conn = new sqlite3.Database(PATH_TO_SQLITE_DB);
+            let sql = "SELECT MAX(UserID) as maxUserID FROM User;";
+            nextUserID = conn.get(sql, function (err, row) {
+                return row.maxUserID;
+            });
+            console.log(nextUserID.maxUserID + 1);
+            // nextUserID = 20;
+            conn.close();
         }
         catch (ex) {
             let exception = cf.logError(ex);
@@ -119,10 +168,11 @@ var DatabaseFunctions = {
                 console.error(exception);
             }
         }
-        return lastRowID;
+        console.log("Next user ID: " + nextUserID);
+        return nextUserID;
     },
     userExists(email) {
-        var exists = false;
+        let exists = false;
         try {
 
         }
@@ -135,13 +185,18 @@ var DatabaseFunctions = {
         return exists;
     },
     databaseExists() {
-        var exists = true;
+        let exists = true;
         try {
             let dbFolder = cf.MODEL_DIR + path.sep + "DB";
             if (!fs.existsSync(dbFolder)) {
                 fs.mkdirSync(dbFolder);
+                this.createUserTable();
+                this.createUser("Rob", "Garcia", "rgarcia@rgprogramming.com", 80.0, "Administrator.");
+                this.createUser("Baby", "Yoda", "byoda@rgprogramming.com", 100.0, "New user.");
+                this.createUser("John", "Adams", "jadams@rgprogramming.com", 90.0, "Old user.");
+            } else {
+                console.log("Ok...");
             }
-            connect();
         }
         catch (ex) {
             let exception = cf.logError(ex);
