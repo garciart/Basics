@@ -276,23 +276,23 @@ def get_next_user_id():
     :returns: The value of the next UserID or 0 if there is no data.
     :rtype: int
     """
-    last_user_id = 0
+    next_user_id = 0
     try:
         conn = connect()
         cursor = conn.cursor()
-        sql = "SELECT MAX(UserID) as LastUserID FROM User;"
+        sql = "SELECT MAX(UserID) as maxUserID FROM User;"
         cursor.execute(sql)
         row = cursor.fetchone()
         cursor.close()
         conn.close()
-        last_user_id = 0 if row["LastUserID"] is \
-            None else row["LastUserID"]
+        next_user_id = (0 if row["maxUserID"] is \
+            None else row["maxUserID"]) + 1
     except Exception:
         ex = co.log_error(sys.exc_info())
         if co.DISPLAY_ERRORS:
             print(ex)
     # Add 1 to the last user ID
-    return last_user_id + 1
+    return next_user_id
 
 
 def user_exists(email):

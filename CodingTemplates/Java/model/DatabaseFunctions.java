@@ -255,19 +255,19 @@ public class DatabaseFunctions {
      * @return The value of the next UserID or 0 if there is no data.
      */
     public static long getNextUserID() {
-        long lastRowID = 0;
+        long nextUserID = 0;
         String sql = "SELECT MAX(UserID) as maxUserID FROM User;";
         try (Connection conn = DriverManager.getConnection("jdbc:sqlite:" + PATH_TO_SQLITE_DB);
                 Statement stmt = conn.createStatement()) {
             ResultSet result = stmt.executeQuery(sql);
-            lastRowID = result.getLong("maxUserID") + 1;
-            return lastRowID;
+            nextUserID = result.getLong("maxUserID") + 1;
+            return nextUserID;
         } catch (Exception ex) {
             String exception = CommonFunctions.logError(ex);
             if (CommonFunctions.DISPLAY_ERRORS)
                 System.out.println(exception);
         }
-        return lastRowID;
+        return nextUserID;
     }
 
     /**

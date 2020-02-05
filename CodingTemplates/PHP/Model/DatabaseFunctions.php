@@ -271,21 +271,21 @@ function deleteUser($userID)
  */
 function getNextUserID()
 {
-    $maxUserID = 0;
+    $nextUserID = 0;
     try {
         $conn = connect();
         $sql = "SELECT MAX(UserID) as maxUserID FROM User;";
         $stmt = $conn->prepare($sql);
         $stmt->execute();
         $row = $stmt->fetch();
-        $maxUserID = $row["maxUserID"] == "" ? 0 : $row["maxUserID"];
+        $nextUserID = $row["maxUserID"] == "" ? 0 : $row["maxUserID"];
     } catch (\PDOException $ex) {
         error_log($ex->getMessage());
     } finally {
         unset($conn);
     }
     // Add 1 to the last user ID
-    return $maxUserID + 1;
+    return $nextUserID + 1;
 }
 
 /**

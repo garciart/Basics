@@ -40,7 +40,7 @@ var CommonFunctions = {
     DISPLAY_ERRORS: DISPLAY_ERRORS,
 
     logError(ex) {
-        var exception = null;
+        let exception = null;
         try {
             let dt = new Date(Date.now());
             let timestamp = dt.getFullYear() + "-"
@@ -51,9 +51,7 @@ var CommonFunctions = {
                 + ("0" + dt.getSeconds()).slice(-2) + " "
                 + Intl.DateTimeFormat().resolvedOptions().timeZone;
             exception = "[" + timestamp + "] " + ex + "\n" + ex.stack + "\n";
-            fs.appendFile(MODEL_DIR + path.sep + "error_log.txt", exception, function (err) {
-                if (err /* && cf.DISPLAY_ERRORS */) console.error(err);
-            });
+            fs.appendFileSync(MODEL_DIR + path.sep + "error_log.txt", exception);
         }
         catch (exc) {
             // if (cf.DISPLAY_ERRORS) {

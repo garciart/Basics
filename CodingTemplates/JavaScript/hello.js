@@ -27,7 +27,8 @@ function main() {
         console.log("Text good: " + cf.validateText("   "));
         console.log("Email good: " + cf.validateEmail("2020-02-02 15-39-02"));
         console.log("Date good: " + cf.validateDate("2020-02-02 15:39:02"));
-        console.log(df.databaseExists());
+        df.databaseExists();
+        console.log(df.getNextUserID());
     }
     catch (ex) {
         let exception = cf.logError(ex);
