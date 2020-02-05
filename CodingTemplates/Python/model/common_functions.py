@@ -53,6 +53,7 @@ def log_error(exc_info):
     :rtype: str
     """
     exception = None
+    print(exc_info)
     try:
         exc_type, exc_value, exc_traceback = exc_info
         local_timezone = datetime.datetime.now(
@@ -81,7 +82,7 @@ def validate_user_id(user_id):
     :return: True if the user ID is an integer greater than 0, false if not.
     :rtype: bool
     """
-    if not user_id or user_id <= 0:
+    if not user_id or user_id < 1:
         return False
     else:
         return True
@@ -125,9 +126,10 @@ def validate_date(date):
     :return: True if the date format is valid, false if not.
     :rtype: bool
     """
-    regex = re.compile(".{4}-.{2}-.{2} .{2}:.{2}:.{2}")
-    date_format = "xxxx-xx-xx xx:xx:xx"
-    if not (date.strip()) or regex.match(date_format) is None or len(date_format) != 19:
+    result = None
+    date_format = "([0-9]{4}-[0-9]{2}-[0-9]{2} [0-9]{2}:[0-9]{2}:[0-9]{2})"
+    result = re.match(date_format, date)
+    if result is None:
         return False
     else:
         return True

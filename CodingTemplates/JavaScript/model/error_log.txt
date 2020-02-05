@@ -112,3 +112,283 @@ Error: EEXIST: file already exists, mkdir 'c:\Users\Rob\source\repos\Basics\Codi
     at Function.Module._load (internal/modules/cjs/loader.js:703:12)
     at Function.Module.runMain (internal/modules/cjs/loader.js:999:10)
     at internal/main/run_main_module.js:17:11
+[2020-02-05 00:30:20 America/New_York] TypeError: conn.query is not a function
+TypeError: conn.query is not a function
+    at Object.getNextUserID (c:\Users\Rob\source\repos\Basics\CodingTemplates\JavaScript\model\database_functions.js:159:26)
+    at Object.createUser (c:\Users\Rob\source\repos\Basics\CodingTemplates\JavaScript\model\database_functions.js:96:31)
+    at Object.databaseExists (c:\Users\Rob\source\repos\Basics\CodingTemplates\JavaScript\model\database_functions.js:199:22)
+    at main (c:\Users\Rob\source\repos\Basics\CodingTemplates\JavaScript\hello.js:30:12)
+    at Object.<anonymous> (c:\Users\Rob\source\repos\Basics\CodingTemplates\JavaScript\hello.js:41:1)
+    at Module._compile (internal/modules/cjs/loader.js:936:30)
+    at Object.Module._extensions..js (internal/modules/cjs/loader.js:947:10)
+    at Module.load (internal/modules/cjs/loader.js:790:32)
+    at Function.Module._load (internal/modules/cjs/loader.js:703:12)
+    at Function.Module.runMain (internal/modules/cjs/loader.js:999:10)
+    at internal/main/run_main_module.js:17:11
+[2020-02-05 00:30:20 America/New_York] TypeError: conn.query is not a function
+TypeError: conn.query is not a function
+    at Object.getNextUserID (c:\Users\Rob\source\repos\Basics\CodingTemplates\JavaScript\model\database_functions.js:159:26)
+    at Object.createUser (c:\Users\Rob\source\repos\Basics\CodingTemplates\JavaScript\model\database_functions.js:96:31)
+    at Object.databaseExists (c:\Users\Rob\source\repos\Basics\CodingTemplates\JavaScript\model\database_functions.js:200:22)
+    at main (c:\Users\Rob\source\repos\Basics\CodingTemplates\JavaScript\hello.js:30:12)
+    at Object.<anonymous> (c:\Users\Rob\source\repos\Basics\CodingTemplates\JavaScript\hello.js:41:1)
+    at Module._compile (internal/modules/cjs/loader.js:936:30)
+    at Object.Module._extensions..js (internal/modules/cjs/loader.js:947:10)
+    at Module.load (internal/modules/cjs/loader.js:790:32)
+    at Function.Module._load (internal/modules/cjs/loader.js:703:12)
+    at Function.Module.runMain (internal/modules/cjs/loader.js:999:10)
+    at internal/main/run_main_module.js:17:11
+[2020-02-05 00:30:20 America/New_York] TypeError: conn.query is not a function
+TypeError: conn.query is not a function
+    at Object.getNextUserID (c:\Users\Rob\source\repos\Basics\CodingTemplates\JavaScript\model\database_functions.js:159:26)
+    at Object.createUser (c:\Users\Rob\source\repos\Basics\CodingTemplates\JavaScript\model\database_functions.js:96:31)
+    at Object.databaseExists (c:\Users\Rob\source\repos\Basics\CodingTemplates\JavaScript\model\database_functions.js:201:22)
+    at main (c:\Users\Rob\source\repos\Basics\CodingTemplates\JavaScript\hello.js:30:12)
+    at Object.<anonymous> (c:\Users\Rob\source\repos\Basics\CodingTemplates\JavaScript\hello.js:41:1)
+    at Module._compile (internal/modules/cjs/loader.js:936:30)
+    at Object.Module._extensions..js (internal/modules/cjs/loader.js:947:10)
+    at Module.load (internal/modules/cjs/loader.js:790:32)
+    at Function.Module._load (internal/modules/cjs/loader.js:703:12)
+    at Function.Module.runMain (internal/modules/cjs/loader.js:999:10)
+    at internal/main/run_main_module.js:17:11
+[2020-02-05 00:34:31 America/New_York] ReferenceError: myrow is not defined
+ReferenceError: myrow is not defined
+    at Object.getNextUserID (c:\Users\Rob\source\repos\Basics\CodingTemplates\JavaScript\model\database_functions.js:170:13)
+    at Object.createUser (c:\Users\Rob\source\repos\Basics\CodingTemplates\JavaScript\model\database_functions.js:96:31)
+    at Object.databaseExists (c:\Users\Rob\source\repos\Basics\CodingTemplates\JavaScript\model\database_functions.js:204:22)
+    at main (c:\Users\Rob\source\repos\Basics\CodingTemplates\JavaScript\hello.js:30:12)
+    at Object.<anonymous> (c:\Users\Rob\source\repos\Basics\CodingTemplates\JavaScript\hello.js:41:1)
+    at Module._compile (internal/modules/cjs/loader.js:936:30)
+    at Object.Module._extensions..js (internal/modules/cjs/loader.js:947:10)
+    at Module.load (internal/modules/cjs/loader.js:790:32)
+    at Function.Module._load (internal/modules/cjs/loader.js:703:12)
+    at Function.Module.runMain (internal/modules/cjs/loader.js:999:10)
+    at internal/main/run_main_module.js:17:11
+[2020-02-05 00:34:31 America/New_York] ReferenceError: myrow is not defined
+ReferenceError: myrow is not defined
+    at Object.getNextUserID (c:\Users\Rob\source\repos\Basics\CodingTemplates\JavaScript\model\database_functions.js:170:13)
+    at Object.createUser (c:\Users\Rob\source\repos\Basics\CodingTemplates\JavaScript\model\database_functions.js:96:31)
+    at Object.databaseExists (c:\Users\Rob\source\repos\Basics\CodingTemplates\JavaScript\model\database_functions.js:205:22)
+    at main (c:\Users\Rob\source\repos\Basics\CodingTemplates\JavaScript\hello.js:30:12)
+    at Object.<anonymous> (c:\Users\Rob\source\repos\Basics\CodingTemplates\JavaScript\hello.js:41:1)
+    at Module._compile (internal/modules/cjs/loader.js:936:30)
+    at Object.Module._extensions..js (internal/modules/cjs/loader.js:947:10)
+    at Module.load (internal/modules/cjs/loader.js:790:32)
+    at Function.Module._load (internal/modules/cjs/loader.js:703:12)
+    at Function.Module.runMain (internal/modules/cjs/loader.js:999:10)
+    at internal/main/run_main_module.js:17:11
+[2020-02-05 00:34:31 America/New_York] ReferenceError: myrow is not defined
+ReferenceError: myrow is not defined
+    at Object.getNextUserID (c:\Users\Rob\source\repos\Basics\CodingTemplates\JavaScript\model\database_functions.js:170:13)
+    at Object.createUser (c:\Users\Rob\source\repos\Basics\CodingTemplates\JavaScript\model\database_functions.js:96:31)
+    at Object.databaseExists (c:\Users\Rob\source\repos\Basics\CodingTemplates\JavaScript\model\database_functions.js:206:22)
+    at main (c:\Users\Rob\source\repos\Basics\CodingTemplates\JavaScript\hello.js:30:12)
+    at Object.<anonymous> (c:\Users\Rob\source\repos\Basics\CodingTemplates\JavaScript\hello.js:41:1)
+    at Module._compile (internal/modules/cjs/loader.js:936:30)
+    at Object.Module._extensions..js (internal/modules/cjs/loader.js:947:10)
+    at Module.load (internal/modules/cjs/loader.js:790:32)
+    at Function.Module._load (internal/modules/cjs/loader.js:703:12)
+    at Function.Module.runMain (internal/modules/cjs/loader.js:999:10)
+    at internal/main/run_main_module.js:17:11
+[2020-02-05 00:38:52 America/New_York] ReferenceError: myrow is not defined
+ReferenceError: myrow is not defined
+    at Object.getNextUserID (c:\Users\Rob\source\repos\Basics\CodingTemplates\JavaScript\model\database_functions.js:168:13)
+    at Object.createUser (c:\Users\Rob\source\repos\Basics\CodingTemplates\JavaScript\model\database_functions.js:96:31)
+    at Object.databaseExists (c:\Users\Rob\source\repos\Basics\CodingTemplates\JavaScript\model\database_functions.js:202:22)
+    at main (c:\Users\Rob\source\repos\Basics\CodingTemplates\JavaScript\hello.js:30:12)
+    at Object.<anonymous> (c:\Users\Rob\source\repos\Basics\CodingTemplates\JavaScript\hello.js:41:1)
+    at Module._compile (internal/modules/cjs/loader.js:936:30)
+    at Object.Module._extensions..js (internal/modules/cjs/loader.js:947:10)
+    at Module.load (internal/modules/cjs/loader.js:790:32)
+    at Function.Module._load (internal/modules/cjs/loader.js:703:12)
+    at Function.Module.runMain (internal/modules/cjs/loader.js:999:10)
+    at internal/main/run_main_module.js:17:11
+[2020-02-05 00:38:52 America/New_York] ReferenceError: myrow is not defined
+ReferenceError: myrow is not defined
+    at Object.getNextUserID (c:\Users\Rob\source\repos\Basics\CodingTemplates\JavaScript\model\database_functions.js:168:13)
+    at Object.createUser (c:\Users\Rob\source\repos\Basics\CodingTemplates\JavaScript\model\database_functions.js:96:31)
+    at Object.databaseExists (c:\Users\Rob\source\repos\Basics\CodingTemplates\JavaScript\model\database_functions.js:203:22)
+    at main (c:\Users\Rob\source\repos\Basics\CodingTemplates\JavaScript\hello.js:30:12)
+    at Object.<anonymous> (c:\Users\Rob\source\repos\Basics\CodingTemplates\JavaScript\hello.js:41:1)
+    at Module._compile (internal/modules/cjs/loader.js:936:30)
+    at Object.Module._extensions..js (internal/modules/cjs/loader.js:947:10)
+    at Module.load (internal/modules/cjs/loader.js:790:32)
+    at Function.Module._load (internal/modules/cjs/loader.js:703:12)
+    at Function.Module.runMain (internal/modules/cjs/loader.js:999:10)
+    at internal/main/run_main_module.js:17:11
+[2020-02-05 00:38:52 America/New_York] ReferenceError: myrow is not defined
+ReferenceError: myrow is not defined
+    at Object.getNextUserID (c:\Users\Rob\source\repos\Basics\CodingTemplates\JavaScript\model\database_functions.js:168:13)
+    at Object.createUser (c:\Users\Rob\source\repos\Basics\CodingTemplates\JavaScript\model\database_functions.js:96:31)
+    at Object.databaseExists (c:\Users\Rob\source\repos\Basics\CodingTemplates\JavaScript\model\database_functions.js:204:22)
+    at main (c:\Users\Rob\source\repos\Basics\CodingTemplates\JavaScript\hello.js:30:12)
+    at Object.<anonymous> (c:\Users\Rob\source\repos\Basics\CodingTemplates\JavaScript\hello.js:41:1)
+    at Module._compile (internal/modules/cjs/loader.js:936:30)
+    at Object.Module._extensions..js (internal/modules/cjs/loader.js:947:10)
+    at Module.load (internal/modules/cjs/loader.js:790:32)
+    at Function.Module._load (internal/modules/cjs/loader.js:703:12)
+    at Function.Module.runMain (internal/modules/cjs/loader.js:999:10)
+    at internal/main/run_main_module.js:17:11
+[2020-02-05 00:39:35 America/New_York] ReferenceError: myrow is not defined
+ReferenceError: myrow is not defined
+    at Object.getNextUserID (c:\Users\Rob\source\repos\Basics\CodingTemplates\JavaScript\model\database_functions.js:168:13)
+    at Object.createUser (c:\Users\Rob\source\repos\Basics\CodingTemplates\JavaScript\model\database_functions.js:96:31)
+    at Object.databaseExists (c:\Users\Rob\source\repos\Basics\CodingTemplates\JavaScript\model\database_functions.js:202:22)
+    at main (c:\Users\Rob\source\repos\Basics\CodingTemplates\JavaScript\hello.js:30:12)
+    at Object.<anonymous> (c:\Users\Rob\source\repos\Basics\CodingTemplates\JavaScript\hello.js:41:1)
+    at Module._compile (internal/modules/cjs/loader.js:936:30)
+    at Object.Module._extensions..js (internal/modules/cjs/loader.js:947:10)
+    at Module.load (internal/modules/cjs/loader.js:790:32)
+    at Function.Module._load (internal/modules/cjs/loader.js:703:12)
+    at Function.Module.runMain (internal/modules/cjs/loader.js:999:10)
+    at internal/main/run_main_module.js:17:11
+[2020-02-05 00:39:35 America/New_York] ReferenceError: myrow is not defined
+ReferenceError: myrow is not defined
+    at Object.getNextUserID (c:\Users\Rob\source\repos\Basics\CodingTemplates\JavaScript\model\database_functions.js:168:13)
+    at Object.createUser (c:\Users\Rob\source\repos\Basics\CodingTemplates\JavaScript\model\database_functions.js:96:31)
+    at Object.databaseExists (c:\Users\Rob\source\repos\Basics\CodingTemplates\JavaScript\model\database_functions.js:203:22)
+    at main (c:\Users\Rob\source\repos\Basics\CodingTemplates\JavaScript\hello.js:30:12)
+    at Object.<anonymous> (c:\Users\Rob\source\repos\Basics\CodingTemplates\JavaScript\hello.js:41:1)
+    at Module._compile (internal/modules/cjs/loader.js:936:30)
+    at Object.Module._extensions..js (internal/modules/cjs/loader.js:947:10)
+    at Module.load (internal/modules/cjs/loader.js:790:32)
+    at Function.Module._load (internal/modules/cjs/loader.js:703:12)
+    at Function.Module.runMain (internal/modules/cjs/loader.js:999:10)
+    at internal/main/run_main_module.js:17:11
+[2020-02-05 00:39:35 America/New_York] ReferenceError: myrow is not defined
+ReferenceError: myrow is not defined
+    at Object.getNextUserID (c:\Users\Rob\source\repos\Basics\CodingTemplates\JavaScript\model\database_functions.js:168:13)
+    at Object.createUser (c:\Users\Rob\source\repos\Basics\CodingTemplates\JavaScript\model\database_functions.js:96:31)
+    at Object.databaseExists (c:\Users\Rob\source\repos\Basics\CodingTemplates\JavaScript\model\database_functions.js:204:22)
+    at main (c:\Users\Rob\source\repos\Basics\CodingTemplates\JavaScript\hello.js:30:12)
+    at Object.<anonymous> (c:\Users\Rob\source\repos\Basics\CodingTemplates\JavaScript\hello.js:41:1)
+    at Module._compile (internal/modules/cjs/loader.js:936:30)
+    at Object.Module._extensions..js (internal/modules/cjs/loader.js:947:10)
+    at Module.load (internal/modules/cjs/loader.js:790:32)
+    at Function.Module._load (internal/modules/cjs/loader.js:703:12)
+    at Function.Module.runMain (internal/modules/cjs/loader.js:999:10)
+    at internal/main/run_main_module.js:17:11
+[2020-02-05 00:48:55 America/New_York] TypeError: Cannot read property '0' of undefined
+TypeError: Cannot read property '0' of undefined
+    at Object.getNextUserID (c:\Users\Rob\source\repos\Basics\CodingTemplates\JavaScript\model\database_functions.js:163:36)
+    at Object.createUser (c:\Users\Rob\source\repos\Basics\CodingTemplates\JavaScript\model\database_functions.js:96:31)
+    at Object.databaseExists (c:\Users\Rob\source\repos\Basics\CodingTemplates\JavaScript\model\database_functions.js:198:22)
+    at main (c:\Users\Rob\source\repos\Basics\CodingTemplates\JavaScript\hello.js:30:12)
+    at Object.<anonymous> (c:\Users\Rob\source\repos\Basics\CodingTemplates\JavaScript\hello.js:41:1)
+    at Module._compile (internal/modules/cjs/loader.js:936:30)
+    at Object.Module._extensions..js (internal/modules/cjs/loader.js:947:10)
+    at Module.load (internal/modules/cjs/loader.js:790:32)
+    at Function.Module._load (internal/modules/cjs/loader.js:703:12)
+    at Function.Module.runMain (internal/modules/cjs/loader.js:999:10)
+    at internal/main/run_main_module.js:17:11
+[2020-02-05 00:48:55 America/New_York] TypeError: Cannot read property '0' of undefined
+TypeError: Cannot read property '0' of undefined
+    at Object.getNextUserID (c:\Users\Rob\source\repos\Basics\CodingTemplates\JavaScript\model\database_functions.js:163:36)
+    at Object.createUser (c:\Users\Rob\source\repos\Basics\CodingTemplates\JavaScript\model\database_functions.js:96:31)
+    at Object.databaseExists (c:\Users\Rob\source\repos\Basics\CodingTemplates\JavaScript\model\database_functions.js:199:22)
+    at main (c:\Users\Rob\source\repos\Basics\CodingTemplates\JavaScript\hello.js:30:12)
+    at Object.<anonymous> (c:\Users\Rob\source\repos\Basics\CodingTemplates\JavaScript\hello.js:41:1)
+    at Module._compile (internal/modules/cjs/loader.js:936:30)
+    at Object.Module._extensions..js (internal/modules/cjs/loader.js:947:10)
+    at Module.load (internal/modules/cjs/loader.js:790:32)
+    at Function.Module._load (internal/modules/cjs/loader.js:703:12)
+    at Function.Module.runMain (internal/modules/cjs/loader.js:999:10)
+    at internal/main/run_main_module.js:17:11
+[2020-02-05 00:48:55 America/New_York] TypeError: Cannot read property '0' of undefined
+TypeError: Cannot read property '0' of undefined
+    at Object.getNextUserID (c:\Users\Rob\source\repos\Basics\CodingTemplates\JavaScript\model\database_functions.js:163:36)
+    at Object.createUser (c:\Users\Rob\source\repos\Basics\CodingTemplates\JavaScript\model\database_functions.js:96:31)
+    at Object.databaseExists (c:\Users\Rob\source\repos\Basics\CodingTemplates\JavaScript\model\database_functions.js:200:22)
+    at main (c:\Users\Rob\source\repos\Basics\CodingTemplates\JavaScript\hello.js:30:12)
+    at Object.<anonymous> (c:\Users\Rob\source\repos\Basics\CodingTemplates\JavaScript\hello.js:41:1)
+    at Module._compile (internal/modules/cjs/loader.js:936:30)
+    at Object.Module._extensions..js (internal/modules/cjs/loader.js:947:10)
+    at Module.load (internal/modules/cjs/loader.js:790:32)
+    at Function.Module._load (internal/modules/cjs/loader.js:703:12)
+    at Function.Module.runMain (internal/modules/cjs/loader.js:999:10)
+    at internal/main/run_main_module.js:17:11
+[2020-02-05 00:51:06 America/New_York] TypeError: Cannot read property '0' of undefined
+TypeError: Cannot read property '0' of undefined
+    at Object.getNextUserID (c:\Users\Rob\source\repos\Basics\CodingTemplates\JavaScript\model\database_functions.js:163:38)
+    at Object.createUser (c:\Users\Rob\source\repos\Basics\CodingTemplates\JavaScript\model\database_functions.js:96:31)
+    at Object.databaseExists (c:\Users\Rob\source\repos\Basics\CodingTemplates\JavaScript\model\database_functions.js:197:22)
+    at main (c:\Users\Rob\source\repos\Basics\CodingTemplates\JavaScript\hello.js:30:12)
+    at Object.<anonymous> (c:\Users\Rob\source\repos\Basics\CodingTemplates\JavaScript\hello.js:41:1)
+    at Module._compile (internal/modules/cjs/loader.js:936:30)
+    at Object.Module._extensions..js (internal/modules/cjs/loader.js:947:10)
+    at Module.load (internal/modules/cjs/loader.js:790:32)
+    at Function.Module._load (internal/modules/cjs/loader.js:703:12)
+    at Function.Module.runMain (internal/modules/cjs/loader.js:999:10)
+    at internal/main/run_main_module.js:17:11
+[2020-02-05 00:51:06 America/New_York] TypeError: Cannot read property '0' of undefined
+TypeError: Cannot read property '0' of undefined
+    at Object.getNextUserID (c:\Users\Rob\source\repos\Basics\CodingTemplates\JavaScript\model\database_functions.js:163:38)
+    at Object.createUser (c:\Users\Rob\source\repos\Basics\CodingTemplates\JavaScript\model\database_functions.js:96:31)
+    at Object.databaseExists (c:\Users\Rob\source\repos\Basics\CodingTemplates\JavaScript\model\database_functions.js:198:22)
+    at main (c:\Users\Rob\source\repos\Basics\CodingTemplates\JavaScript\hello.js:30:12)
+    at Object.<anonymous> (c:\Users\Rob\source\repos\Basics\CodingTemplates\JavaScript\hello.js:41:1)
+    at Module._compile (internal/modules/cjs/loader.js:936:30)
+    at Object.Module._extensions..js (internal/modules/cjs/loader.js:947:10)
+    at Module.load (internal/modules/cjs/loader.js:790:32)
+    at Function.Module._load (internal/modules/cjs/loader.js:703:12)
+    at Function.Module.runMain (internal/modules/cjs/loader.js:999:10)
+    at internal/main/run_main_module.js:17:11
+[2020-02-05 00:51:06 America/New_York] TypeError: Cannot read property '0' of undefined
+TypeError: Cannot read property '0' of undefined
+    at Object.getNextUserID (c:\Users\Rob\source\repos\Basics\CodingTemplates\JavaScript\model\database_functions.js:163:38)
+    at Object.createUser (c:\Users\Rob\source\repos\Basics\CodingTemplates\JavaScript\model\database_functions.js:96:31)
+    at Object.databaseExists (c:\Users\Rob\source\repos\Basics\CodingTemplates\JavaScript\model\database_functions.js:199:22)
+    at main (c:\Users\Rob\source\repos\Basics\CodingTemplates\JavaScript\hello.js:30:12)
+    at Object.<anonymous> (c:\Users\Rob\source\repos\Basics\CodingTemplates\JavaScript\hello.js:41:1)
+    at Module._compile (internal/modules/cjs/loader.js:936:30)
+    at Object.Module._extensions..js (internal/modules/cjs/loader.js:947:10)
+    at Module.load (internal/modules/cjs/loader.js:790:32)
+    at Function.Module._load (internal/modules/cjs/loader.js:703:12)
+    at Function.Module.runMain (internal/modules/cjs/loader.js:999:10)
+    at internal/main/run_main_module.js:17:11
+[2020-02-05 01:27:44 America/New_York] TypeError: Cannot read property 'then' of undefined
+TypeError: Cannot read property 'then' of undefined
+    at Object.databaseExists (c:\Users\Rob\source\repos\Basics\CodingTemplates\JavaScript\model\database_functions.js:210:17)
+    at main (c:\Users\Rob\source\repos\Basics\CodingTemplates\JavaScript\hello.js:30:12)
+    at Object.<anonymous> (c:\Users\Rob\source\repos\Basics\CodingTemplates\JavaScript\hello.js:41:1)
+    at Module._compile (internal/modules/cjs/loader.js:936:30)
+    at Object.Module._extensions..js (internal/modules/cjs/loader.js:947:10)
+    at Module.load (internal/modules/cjs/loader.js:790:32)
+    at Function.Module._load (internal/modules/cjs/loader.js:703:12)
+    at Function.Module.runMain (internal/modules/cjs/loader.js:999:10)
+    at internal/main/run_main_module.js:17:11
+[2020-02-05 01:29:07 America/New_York] TypeError: Cannot read property 'then' of undefined
+TypeError: Cannot read property 'then' of undefined
+    at Object.databaseExists (c:\Users\Rob\source\repos\Basics\CodingTemplates\JavaScript\model\database_functions.js:210:17)
+    at main (c:\Users\Rob\source\repos\Basics\CodingTemplates\JavaScript\hello.js:30:12)
+    at Object.<anonymous> (c:\Users\Rob\source\repos\Basics\CodingTemplates\JavaScript\hello.js:41:1)
+    at Module._compile (internal/modules/cjs/loader.js:936:30)
+    at Object.Module._extensions..js (internal/modules/cjs/loader.js:947:10)
+    at Module.load (internal/modules/cjs/loader.js:790:32)
+    at Function.Module._load (internal/modules/cjs/loader.js:703:12)
+    at Function.Module.runMain (internal/modules/cjs/loader.js:999:10)
+    at internal/main/run_main_module.js:17:11
+[2020-02-05 02:27:43 America/New_York] ReferenceError: createAndPopulateUserTable is not defined
+ReferenceError: createAndPopulateUserTable is not defined
+    at Object.databaseExists (c:\Users\Rob\source\repos\Basics\CodingTemplates\JavaScript\model\database_functions.js:230:17)
+    at main (c:\Users\Rob\source\repos\Basics\CodingTemplates\JavaScript\hello.js:30:12)
+    at Object.<anonymous> (c:\Users\Rob\source\repos\Basics\CodingTemplates\JavaScript\hello.js:41:1)
+    at Module._compile (internal/modules/cjs/loader.js:936:30)
+    at Object.Module._extensions..js (internal/modules/cjs/loader.js:947:10)
+    at Module.load (internal/modules/cjs/loader.js:790:32)
+    at Function.Module._load (internal/modules/cjs/loader.js:703:12)
+    at Function.Module.runMain (internal/modules/cjs/loader.js:999:10)
+    at internal/main/run_main_module.js:17:11
+[2020-02-05 02:34:51 America/New_York] ReferenceError: dt is not defined
+ReferenceError: dt is not defined
+    at Database.<anonymous> (c:\Users\Rob\source\repos\Basics\CodingTemplates\JavaScript\model\database_functions.js:102:36)
+    at Object.createAndPopulateUserTable (c:\Users\Rob\source\repos\Basics\CodingTemplates\JavaScript\model\database_functions.js:95:18)
+    at Object.databaseExists (c:\Users\Rob\source\repos\Basics\CodingTemplates\JavaScript\model\database_functions.js:241:22)
+    at main (c:\Users\Rob\source\repos\Basics\CodingTemplates\JavaScript\hello.js:30:12)
+    at Object.<anonymous> (c:\Users\Rob\source\repos\Basics\CodingTemplates\JavaScript\hello.js:41:1)
+    at Module._compile (internal/modules/cjs/loader.js:936:30)
+    at Object.Module._extensions..js (internal/modules/cjs/loader.js:947:10)
+    at Module.load (internal/modules/cjs/loader.js:790:32)
+    at Function.Module._load (internal/modules/cjs/loader.js:703:12)
+    at Function.Module.runMain (internal/modules/cjs/loader.js:999:10)
+    at internal/main/run_main_module.js:17:11

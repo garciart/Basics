@@ -1,4 +1,3 @@
-
 /**
  * Hello World in Java with database integration.
  *

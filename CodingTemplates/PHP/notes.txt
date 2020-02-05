@@ -1,3 +1,5 @@
 Install Composer (https://getcomposer.org/), then:
 composer global require squizlabs/php_codesniffer
 phpcs <filename> or phpcbf <filename>
+
+Run tests by entering "phpunit Tests.php" at command line.

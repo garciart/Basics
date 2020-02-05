@@ -5,3 +5,4 @@ DEBUG:root:[2020-02-01 01:24:17 Eastern Standard Time] Type error Exception: mul
 DEBUG:root:[2020-02-01 01:30:02 Eastern Standard Time] Type ValueError Exception: First name cannot be empty or contain illegal characters. in c:\Users\Rob\source\repos\Basics\CodingTemplates\Python\hello.py at line 46.
 DEBUG:root:[2020-02-01 01:31:10 Eastern Standard Time] Type error Exception: multiple repeat at position 32 in c:\Users\Rob\source\repos\Basics\CodingTemplates\Python\hello.py at line 46.
 DEBUG:root:[2020-02-01 22:02:19 Eastern Standard Time] Type Exception Exception: Test... in c:\Users\Rob\source\repos\Basics\CodingTemplates\Python\hello.py at line 34.
+DEBUG:root:[2020-02-05 15:42:00 Eastern Standard Time] Type Exception Exception: Test... in c:\Users\Rob\source\repos\Basics\CodingTemplates\Python\hello.py at line 34.
