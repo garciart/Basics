@@ -12,3 +12,35 @@ Stack trace:
 #0 C:\Users\Rob\source\repos\Basics\CodingTemplates\PHP\Hello.php(151): helloUsers()
 #1 {main}
 [01-Feb-2020 12:01:54 America/New_York] Type 2 Error: mkdir(): File exists in C:\Users\Rob\source\repos\Basics\CodingTemplates\PHP\Model\DatabaseFunctions.php at line 344.
+[05-Feb-2020 16:28:18 America/New_York] Type 8192 Error: strpos(): Non-string needles will be interpreted as strings in the future. Use an explicit chr() call to preserve the current behavior in C:\xampp\php\pear\PHPUnit\Util\Filter.php at line 110.
+[05-Feb-2020 16:31:01 America/New_York] Type 8192 Error: strpos(): Non-string needles will be interpreted as strings in the future. Use an explicit chr() call to preserve the current behavior in C:\xampp\php\pear\PHPUnit\Util\Filter.php at line 110.
+[05-Feb-2020 16:32:55 America/New_York] Type 8192 Error: strpos(): Non-string needles will be interpreted as strings in the future. Use an explicit chr() call to preserve the current behavior in C:\xampp\php\pear\PHPUnit\Util\Filter.php at line 110.
+[05-Feb-2020 16:54:22 America/New_York] Error: Call to undefined method Tests::expectException() in C:\Users\Rob\source\repos\Basics\CodingTemplates\PHP\tests.php:51
+Stack trace:
+#0 [internal function]: Tests->testValidateUserIDException()
+#1 C:\xampp\php\pear\PHPUnit\Framework\TestCase.php(975): ReflectionMethod->invokeArgs(Object(Tests), Array)
+#2 C:\xampp\php\pear\PHPUnit\Framework\TestCase.php(831): PHPUnit_Framework_TestCase->runTest()
+#3 C:\xampp\php\pear\PHPUnit\Framework\TestResult.php(648): PHPUnit_Framework_TestCase->runBare()
+#4 C:\xampp\php\pear\PHPUnit\Framework\TestCase.php(776): PHPUnit_Framework_TestResult->run(Object(Tests))
+#5 C:\xampp\php\pear\PHPUnit\Framework\TestSuite.php(775): PHPUnit_Framework_TestCase->run(Object(PHPUnit_Framework_TestResult))
+#6 C:\xampp\php\pear\PHPUnit\Framework\TestSuite.php(745): PHPUnit_Framework_TestSuite->runTest(Object(Tests), Object(PHPUnit_Framework_TestResult))
+#7 C:\xampp\php\pear\PHPUnit\TextUI\TestRunner.php(348): PHPUnit_Framework_TestSuite->run(Object(PHPUnit_Framework_TestResult), false, Array, Array, false)
+#8 C:\xampp\php\pear\PHPUnit\TextUI\Command.php(176): PHPUnit_TextUI_TestRunner->doRun(Object(PHPUnit_Framework_TestSuite), Array)
+#9 C:\xampp\php\pear\PHPUnit\TextUI\Command.php(129): PHPUnit_TextUI_Command->run(Array, true)
+#10 C:\xampp\php\phpunit(46): PHPUnit_TextUI_Command::main()
+#11 {main}
+[05-Feb-2020 16:55:47 America/New_York] Type 8192 Error: strpos(): Non-string needles will be interpreted as strings in the future. Use an explicit chr() call to preserve the current behavior in C:\xampp\php\pear\PHPUnit\Util\Filter.php at line 110.
+[05-Feb-2020 16:56:57 America/New_York] Type 8192 Error: strpos(): Non-string needles will be interpreted as strings in the future. Use an explicit chr() call to preserve the current behavior in C:\xampp\php\pear\PHPUnit\Util\Filter.php at line 110.
+[05-Feb-2020 16:56:57 America/New_York] Type 8192 Error: strpos(): Non-string needles will be interpreted as strings in the future. Use an explicit chr() call to preserve the current behavior in C:\xampp\php\pear\PHPUnit\Util\Filter.php at line 110.
+[05-Feb-2020 16:57:46 America/New_York] Type 8192 Error: strpos(): Non-string needles will be interpreted as strings in the future. Use an explicit chr() call to preserve the current behavior in C:\xampp\php\pear\PHPUnit\Util\Filter.php at line 110.
+[05-Feb-2020 16:57:46 America/New_York] Type 8192 Error: strpos(): Non-string needles will be interpreted as strings in the future. Use an explicit chr() call to preserve the current behavior in C:\xampp\php\pear\PHPUnit\Util\Filter.php at line 110.
+[05-Feb-2020 17:03:49 America/New_York] Type 8192 Error: strpos(): Non-string needles will be interpreted as strings in the future. Use an explicit chr() call to preserve the current behavior in C:\xampp\php\pear\PHPUnit\Util\Filter.php at line 110.
+[05-Feb-2020 17:03:49 America/New_York] Type 8192 Error: strpos(): Non-string needles will be interpreted as strings in the future. Use an explicit chr() call to preserve the current behavior in C:\xampp\php\pear\PHPUnit\Util\Filter.php at line 110.
+[05-Feb-2020 17:07:22 America/New_York] Type 8192 Error: strpos(): Non-string needles will be interpreted as strings in the future. Use an explicit chr() call to preserve the current behavior in C:\xampp\php\pear\PHPUnit\Util\Filter.php at line 110.
+[05-Feb-2020 17:08:03 America/New_York] Type 8192 Error: strpos(): Non-string needles will be interpreted as strings in the future. Use an explicit chr() call to preserve the current behavior in C:\xampp\php\pear\PHPUnit\Util\Filter.php at line 110.
+[05-Feb-2020 17:08:41 America/New_York] Type 8192 Error: strpos(): Non-string needles will be interpreted as strings in the future. Use an explicit chr() call to preserve the current behavior in C:\xampp\php\pear\PHPUnit\Util\Filter.php at line 110.
+[05-Feb-2020 17:08:41 America/New_York] Type 8192 Error: strpos(): Non-string needles will be interpreted as strings in the future. Use an explicit chr() call to preserve the current behavior in C:\xampp\php\pear\PHPUnit\Util\Filter.php at line 110.
+[05-Feb-2020 17:08:41 America/New_York] Type 8192 Error: strpos(): Non-string needles will be interpreted as strings in the future. Use an explicit chr() call to preserve the current behavior in C:\xampp\php\pear\PHPUnit\Util\Filter.php at line 110.
+[05-Feb-2020 17:08:41 America/New_York] Type 8192 Error: strpos(): Non-string needles will be interpreted as strings in the future. Use an explicit chr() call to preserve the current behavior in C:\xampp\php\pear\PHPUnit\Util\Filter.php at line 110.
+[05-Feb-2020 17:08:41 America/New_York] Type 8192 Error: strpos(): Non-string needles will be interpreted as strings in the future. Use an explicit chr() call to preserve the current behavior in C:\xampp\php\pear\PHPUnit\Util\Filter.php at line 110.
+[05-Feb-2020 17:08:41 America/New_York] Type 8192 Error: strpos(): Non-string needles will be interpreted as strings in the future. Use an explicit chr() call to preserve the current behavior in C:\xampp\php\pear\PHPUnit\Util\Filter.php at line 110.

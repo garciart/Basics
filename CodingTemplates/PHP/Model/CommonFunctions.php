@@ -94,6 +94,7 @@ function exceptionHandler($exception)
  */
 function validateUserID($userID)
 {
+    // throw new \Exception("Test...");
     if (empty($userID) || $userID < 1 || !filter_var($userID, FILTER_VALIDATE_INT)) {
         return false;
     } else {
