@@ -100,7 +100,7 @@ public class CommonFunctions {
      */
     public static Boolean validateEmail(String email) {
         return (email.trim() == null || email.trim().isEmpty()
-                || (Pattern.matches("^[A-Za-z0-9\\-._~\\/?#!$&'%*+=`{|}^]+@[A-Za-z0-9.-]+$", email) == false)) ? false
+                || (Pattern.matches("^[A-Za-z0-9\\-._~\\/?#!$&'%*+=`{|}^]+\\.@[A-Za-z0-9.-]+$", email) == false)) ? false
                         : true;
     }
 

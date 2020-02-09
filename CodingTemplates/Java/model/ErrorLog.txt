@@ -107,3 +107,24 @@ java.sql.SQLException: not implemented by SQLite JDBC driver in Hello.java on li
 - java.lang.IllegalArgumentException: Score cannot be empty and must be equal to or between 0.0 and 100.0 in User.java on line 224.
 - java.lang.IllegalArgumentException: Score cannot be empty and must be equal to or between 0.0 and 100.0 in Hello.java on line 62.
 - java.lang.IllegalArgumentException: Score cannot be empty and must be equal to or between 0.0 and 100.0 in Hello.java on line 169.
+[2020-02-08 22:37:02 EST] - java.sql.SQLException: No suitable driver found for jdbc:sqlite:c:\Users\Rob\source\repos\Basics\CodingTemplates\Java\model\DB\Users.db in null on line -1.
+- java.sql.SQLException: No suitable driver found for jdbc:sqlite:c:\Users\Rob\source\repos\Basics\CodingTemplates\Java\model\DB\Users.db in null on line -1.
+- java.sql.SQLException: No suitable driver found for jdbc:sqlite:c:\Users\Rob\source\repos\Basics\CodingTemplates\Java\model\DB\Users.db in DatabaseFunctions.java on line 125.
+- java.sql.SQLException: No suitable driver found for jdbc:sqlite:c:\Users\Rob\source\repos\Basics\CodingTemplates\Java\model\DB\Users.db in Hello.java on line 49.
+- java.sql.SQLException: No suitable driver found for jdbc:sqlite:c:\Users\Rob\source\repos\Basics\CodingTemplates\Java\model\DB\Users.db in Hello.java on line 165.
+[2020-02-08 22:37:02 EST] - java.lang.NullPointerException in Hello.java on line 51.
+- java.lang.NullPointerException in Hello.java on line 165.
+[2020-02-08 22:37:51 EST] - java.sql.SQLException: No suitable driver found for jdbc:sqlite:c:\Users\Rob\source\repos\Basics\CodingTemplates\Java\model\DB\Users.db in null on line -1.
+- java.sql.SQLException: No suitable driver found for jdbc:sqlite:c:\Users\Rob\source\repos\Basics\CodingTemplates\Java\model\DB\Users.db in null on line -1.
+- java.sql.SQLException: No suitable driver found for jdbc:sqlite:c:\Users\Rob\source\repos\Basics\CodingTemplates\Java\model\DB\Users.db in DatabaseFunctions.java on line 125.
+- java.sql.SQLException: No suitable driver found for jdbc:sqlite:c:\Users\Rob\source\repos\Basics\CodingTemplates\Java\model\DB\Users.db in Hello.java on line 49.
+- java.sql.SQLException: No suitable driver found for jdbc:sqlite:c:\Users\Rob\source\repos\Basics\CodingTemplates\Java\model\DB\Users.db in Hello.java on line 165.
+[2020-02-08 22:37:51 EST] - java.lang.NullPointerException in Hello.java on line 51.
+- java.lang.NullPointerException in Hello.java on line 165.
+[2020-02-08 22:38:20 EST] - java.sql.SQLException: No suitable driver found for jdbc:sqlite:c:\Users\Rob\source\repos\Basics\CodingTemplates\Java\model\DB\Users.db in null on line -1.
+- java.sql.SQLException: No suitable driver found for jdbc:sqlite:c:\Users\Rob\source\repos\Basics\CodingTemplates\Java\model\DB\Users.db in null on line -1.
+- java.sql.SQLException: No suitable driver found for jdbc:sqlite:c:\Users\Rob\source\repos\Basics\CodingTemplates\Java\model\DB\Users.db in DatabaseFunctions.java on line 125.
+- java.sql.SQLException: No suitable driver found for jdbc:sqlite:c:\Users\Rob\source\repos\Basics\CodingTemplates\Java\model\DB\Users.db in Hello.java on line 49.
+- java.sql.SQLException: No suitable driver found for jdbc:sqlite:c:\Users\Rob\source\repos\Basics\CodingTemplates\Java\model\DB\Users.db in Hello.java on line 165.
+[2020-02-08 22:38:20 EST] - java.lang.NullPointerException in Hello.java on line 51.
+- java.lang.NullPointerException in Hello.java on line 165.
