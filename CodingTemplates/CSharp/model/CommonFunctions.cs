@@ -94,7 +94,7 @@ namespace Model
         public static bool ValidateEmail(string email)
         {
             return (string.IsNullOrEmpty(email.Trim()) ||
-                (Regex.IsMatch(email, @"^[A-Za-z0-9\-._~\/?#!$&'%*+=`{|}^]+@[A-Za-z0-9.-]+$") == false)) ? false : true;
+                (Regex.IsMatch(email, @"^[A-Za-z0-9\-._~\/?#!$&'%*+=`{|}^]+(@[a-zA-Z0-9-.]+)(.[a-zA-Z0-9]{2,}){2,}$") == false)) ? false : true;
         }
 
         /// <summary>
