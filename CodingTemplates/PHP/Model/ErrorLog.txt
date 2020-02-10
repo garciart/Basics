@@ -44,3 +44,9 @@ Stack trace:
 [05-Feb-2020 17:08:41 America/New_York] Type 8192 Error: strpos(): Non-string needles will be interpreted as strings in the future. Use an explicit chr() call to preserve the current behavior in C:\xampp\php\pear\PHPUnit\Util\Filter.php at line 110.
 [05-Feb-2020 17:08:41 America/New_York] Type 8192 Error: strpos(): Non-string needles will be interpreted as strings in the future. Use an explicit chr() call to preserve the current behavior in C:\xampp\php\pear\PHPUnit\Util\Filter.php at line 110.
 [05-Feb-2020 17:08:41 America/New_York] Type 8192 Error: strpos(): Non-string needles will be interpreted as strings in the future. Use an explicit chr() call to preserve the current behavior in C:\xampp\php\pear\PHPUnit\Util\Filter.php at line 110.
+[09-Feb-2020 00:06:12 America/New_York] Error: Class 'PHPUnit_Framework_TestCase' not found in C:\Users\Rob\source\repos\Basics\CodingTemplates\PHP\Tests.php:23
+Stack trace:
+#0 {main}
+[09-Feb-2020 11:43:59 America/New_York] Error: Class 'PHPUnit_Framework_TestCase' not found in C:\Users\Rob\source\repos\Basics\CodingTemplates\PHP\Tests.php:23
+Stack trace:
+#0 {main}

@@ -91,7 +91,8 @@ class TestCommonFunctions(unittest.TestCase):
         Test that the method accepts values with legal characters and
         in correct format.
         """
-        arg = "rgarcia@rgprogramming.com"
+        arg = "rgarcia@rgprogramming..com"
+        print(arg)
         result = co.validate_email(arg)
         self.assertTrue(result)
 

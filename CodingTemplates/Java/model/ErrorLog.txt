@@ -128,3 +128,7 @@ java.sql.SQLException: not implemented by SQLite JDBC driver in Hello.java on li
 - java.sql.SQLException: No suitable driver found for jdbc:sqlite:c:\Users\Rob\source\repos\Basics\CodingTemplates\Java\model\DB\Users.db in Hello.java on line 165.
 [2020-02-08 22:38:20 EST] - java.lang.NullPointerException in Hello.java on line 51.
 - java.lang.NullPointerException in Hello.java on line 165.
+[2020-02-09 12:22:34 EST] - java.lang.IllegalArgumentException: Email cannot be empty, incorrectly formatted, or contain illegal characters. in User.java on line 132.
+- java.lang.IllegalArgumentException: Email cannot be empty, incorrectly formatted, or contain illegal characters. in User.java on line 223.
+- java.lang.IllegalArgumentException: Email cannot be empty, incorrectly formatted, or contain illegal characters. in Hello.java on line 58.
+- java.lang.IllegalArgumentException: Email cannot be empty, incorrectly formatted, or contain illegal characters. in Hello.java on line 165.
