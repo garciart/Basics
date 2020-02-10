@@ -4,6 +4,9 @@ dotnet new console -o CSharp
 Must include the SQLite package using the following command:
 cd CSharp
 dotnet add package System.Data.SQLite.Core
+dotnet add package nunit
+dotnet add package NUnit3TestAdapter
+dotnet add package Microsoft.NET.Test.Sdk
 
 To run from terminal, make sure you are in the project directory  (i.e., CSharp) and run the following command:
 dotnet run

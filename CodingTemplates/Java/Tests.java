@@ -92,7 +92,7 @@ public class Tests {
     @Test
     public void testValidateEmailTrue()
     {
-        String arg = "rgarcia@rgprogrammingcom";
+        String arg = "rgarcia@rgprogramming.com";
         boolean result = CommonFunctions.validateEmail(arg);
         assertTrue(result == true);
     }

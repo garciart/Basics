@@ -112,7 +112,7 @@ def validate_email(email):
     :rtype: bool
     """
     if not (email.strip()) or re.search(
-            r"^[A-Za-z0-9-._~/?#!$&'%*+=`{|}^]+@[A-Za-z0-9.-]+$", email) is None:
+            r"^[A-Za-z0-9-._~\/?#!$&'%*+=`{|}^]+(@[a-zA-Z0-9-.]+)(.[a-zA-Z0-9]{2,}){2,}$", email) is None:
         return False
     else:
         return True
