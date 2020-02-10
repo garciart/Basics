@@ -35,8 +35,95 @@ namespace CSharp
         [Test]
         public void TestValidateUserIDFalse()
         {
-            long arg = -1;
+            long arg = 1;
             Assert.IsTrue(CommonFunctions.ValidateUserID(arg));
+        }
+
+        /// <summary>
+        /// Test that the method accepts values greater than 0.
+        /// </summary>
+        [Test]
+        public void TestValidateUserIDTrue()
+        {
+            long arg = 1;
+            Assert.IsTrue(CommonFunctions.ValidateUserID(arg));
+        }
+
+        /*
+        [Test](expected = Exception.class)
+        public void validateUserIDException() {
+            CommonFunctions.ValidateUserID('a');
+        }
+        */
+
+        /// <summary>
+        /// Test that the method rejects values with invalid characters.
+        /// </summary>
+        [Test]
+        public void TestValidateTextFalse()
+        {
+            string arg = "<script>alert('This is an injection!');</script>";
+            bool result = CommonFunctions.ValidateText(arg);
+            Assert.IsTrue(result == false);
+        }
+
+        /// <summary>
+        /// Test that the method accepts values with valid characters.
+        /// </summary>
+        [Test]
+        public void TestValidateTextTrue()
+        {
+            string arg = "Robert";
+            bool result = CommonFunctions.ValidateText(arg);
+            Assert.IsTrue(result == true);
+        }
+
+        /// <summary>
+        /// Test that the method rejects values with illegal characters or
+        /// in incorrect format.
+        /// </summary>
+        [Test]
+        public void TestValidateEmailFalse()
+        {
+            string arg = "<script>alert('This is an injection!');</script>";
+            bool result = CommonFunctions.ValidateEmail(arg);
+            Assert.IsTrue(result == false);
+        }
+
+        /// <summary>
+        /// Test that the method accepts values with legal characters and
+        /// in correct format.
+        /// </summary>
+        [Test]
+        public void TestValidateEmailTrue()
+        {
+            string arg = "rgarcia@rgprogramming.com";
+            bool result = CommonFunctions.ValidateEmail(arg);
+            Assert.IsTrue(result == true);
+        }
+
+        /// <summary>
+        /// Test that the method rejects values with illegal characters or
+        /// in incorrect format.
+        /// </summary>
+        [Test]
+        public void TestValidateDateFalse()
+        {
+            string arg = "<script>alert('This is an injection!');</script>";
+            bool result = CommonFunctions.ValidateDate(arg);
+            Assert.IsTrue(result == false);
+        }
+
+        /// <summary>
+        /// Test that the method accepts values with legal characters and
+        /// in correct format.
+        /// </summary>
+        [Test]
+        public void TestValidateDateTrue()
+        {
+            string arg = "2020-02-02 12:00:00";
+            bool result = CommonFunctions.ValidateDate(arg);
+            Assert.IsTrue(result == true);
         }
     }
 }

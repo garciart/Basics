@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\Rob\\source\\repos\\Basics\\CodingTemplates\\csharp\\CSharp.csproj": {}
+    "C:\\Users\\Rob\\source\\repos\\Basics\\CodingTemplates\\CSharp\\CSharp.csproj": {}
   },
   "projects": {
-    "C:\\Users\\Rob\\source\\repos\\Basics\\CodingTemplates\\csharp\\CSharp.csproj": {
+    "C:\\Users\\Rob\\source\\repos\\Basics\\CodingTemplates\\CSharp\\CSharp.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\Rob\\source\\repos\\Basics\\CodingTemplates\\csharp\\CSharp.csproj",
+        "projectUniqueName": "C:\\Users\\Rob\\source\\repos\\Basics\\CodingTemplates\\CSharp\\CSharp.csproj",
         "projectName": "CSharp",
-        "projectPath": "C:\\Users\\Rob\\source\\repos\\Basics\\CodingTemplates\\csharp\\CSharp.csproj",
+        "projectPath": "C:\\Users\\Rob\\source\\repos\\Basics\\CodingTemplates\\CSharp\\CSharp.csproj",
         "packagesPath": "C:\\Users\\Rob\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\Rob\\source\\repos\\Basics\\CodingTemplates\\csharp\\obj\\",
+        "outputPath": "C:\\Users\\Rob\\source\\repos\\Basics\\CodingTemplates\\CSharp\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Microsoft\\Xamarin\\NuGet\\",
@@ -45,7 +45,7 @@
           "dependencies": {
             "Microsoft.NET.Test.Sdk": {
               "target": "Package",
-              "version": "(, )"
+              "version": "[16.5.0, )"
             },
             "NUnit3TestAdapter": {
               "include": "Runtime, Build, Native, ContentFiles, Analyzers, BuildTransitive",

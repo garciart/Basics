@@ -4642,7 +4642,7 @@
   },
   "projectFileDependencyGroups": {
     ".NETCoreApp,Version=v3.1": [
-      "Microsoft.NET.Test.Sdk",
+      "Microsoft.NET.Test.Sdk >= 16.5.0",
       "NUnit3TestAdapter >= 3.16.1",
       "System.Data.SQLite.Core >= 1.0.112",
       "nunit >= 3.12.0"
@@ -4694,7 +4694,7 @@
         "dependencies": {
           "Microsoft.NET.Test.Sdk": {
             "target": "Package",
-            "version": "(, )"
+            "version": "[16.5.0, )"
           },
           "NUnit3TestAdapter": {
             "include": "Runtime, Build, Native, ContentFiles, Analyzers, BuildTransitive",

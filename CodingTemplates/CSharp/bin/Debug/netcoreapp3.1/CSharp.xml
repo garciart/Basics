@@ -245,5 +245,54 @@
             </summary>
             <param name="args">Command line arguments.</param>
         </member>
+        <member name="T:CSharp.Tests">
+            <summary>
+            Test class
+            </summary>
+        </member>
+        <member name="M:CSharp.Tests.TestValidateUserIDFalse">
+            <summary>
+            Test that the method rejects values less than or equal to 0.
+            </summary>
+        </member>
+        <member name="M:CSharp.Tests.TestValidateUserIDTrue">
+            <summary>
+            Test that the method accepts values greater than 0.
+            </summary>
+        </member>
+        <member name="M:CSharp.Tests.TestValidateTextFalse">
+            <summary>
+            Test that the method rejects values with invalid characters.
+            </summary>
+        </member>
+        <member name="M:CSharp.Tests.TestValidateTextTrue">
+            <summary>
+            Test that the method accepts values with valid characters.
+            </summary>
+        </member>
+        <member name="M:CSharp.Tests.TestValidateEmailFalse">
+            <summary>
+            Test that the method rejects values with illegal characters or
+            in incorrect format.
+            </summary>
+        </member>
+        <member name="M:CSharp.Tests.TestValidateEmailTrue">
+            <summary>
+            Test that the method accepts values with legal characters and
+            in correct format.
+            </summary>
+        </member>
+        <member name="M:CSharp.Tests.TestValidateDateFalse">
+            <summary>
+            Test that the method rejects values with illegal characters or
+            in incorrect format.
+            </summary>
+        </member>
+        <member name="M:CSharp.Tests.TestValidateDateTrue">
+            <summary>
+            Test that the method accepts values with legal characters and
+            in correct format.
+            </summary>
+        </member>
     </members>
 </doc>
