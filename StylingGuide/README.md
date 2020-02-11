@@ -26,24 +26,21 @@ So, to mitigate that in my own repos, here is my down and dirty Naming Conventio
   - Methods
   - Variables
   - Constants
-  - Parameters and Arguments - A parameter is the definition of data a function or method requires, while and argument is the actual data (i.e., for int 1 = 1, int i is a parameter, while 1 is the argument).
+  - Parameters - A variable declared in a function or method definition which receives argument values.
+  - Arguments -The value that gets passed to a function or method through a call to the function or method.
 - Third, the general capitalization rules I use for different languages are:
 
-|            | C++            | C#            | Java                    | PHP           | Python        | JavaScript              |
-|------------|----------------|---------------|-------------------------|---------------|---------------|-------------------------|
-| Extensions | file_name.cpp  | FileName.cs   | FileName.java           | FileName.php  | file_name.py  | file-name.js            |
-| Projects   | ProjectName    | ProjectName   | ProjectName             | ProjectName   | ProjectName   | ProjectName             |
-| Folders    | folder_name    | FolderName    | foldername              | FolderName    | folder_name   | folder-name             |
-| Files      | file_name      | FileName      | FileName                | FileName      | module_name   | file-name               |
-| Modules    | file_name      | FileName      | FileName                | FileName      | module_name   | file-name               |
-| Namespaces | namespace_name | NamespaceName | com.example.packagename | NamespaceName | package_name  | com.example.packageName |
-| Packages   | namespace_name | NamespaceName | com.example.packagename | NamespaceName | package_name  | com.example.packageName |
-| Classes    | ClassName      | ClassName     | ClassName               | ClassName     | ClassName     | ClassName               |
-| Functions  | FunctionName   | FunctionName  | methodName              | methodName    | function_name | method_name | methodName |
-| Methods    | FunctionName   | FunctionName  | methodName              | methodName    | function_name | method_name | methodName |
-| Constants  | CONSTANT_NAME  | ConstantName  | CONSTANT_NAME           | CONSTANT_NAME | CONSTANT_NAME | CONSTANT_NAME           |
-| Variables  | variable_name  | variableName  | variableName            | $variableName | variable_name | variableName            |
-| Parameters | variable_name  | variableName  | variableName            | $variableName | variable_name | variableName            |
+|                                         | C++            | C#            | Java                    | PHP            | Python         | JavaScript              |
+|-----------------------------------------|----------------|---------------|-------------------------|----------------|----------------|-------------------------|
+| Projects                                | ProjectName    | ProjectName   | ProjectName             | ProjectName    | ProjectName    | ProjectName             |
+| Folders                                 | folder_name    | FolderName    | foldername              | FolderName     | folder_name    | folder-name             |
+| Filenames                               | file_name.cpp  | FileName.cs   | FileName.java           | FileName.php   | module_name.py | file-name.js            |
+| Namespaces &<br>Packages                | namespace_name | NamespaceName | com.example.packagename | NamespaceName  | package_name   | com.example.packageName |
+| Classes                                 | ClassName      | ClassName     | ClassName               | ClassName      | ClassName      | ClassName               |
+| Functions &<br>Methods                  | FunctionName   | FunctionName  | methodName              | functionName   | function_name  | method_name             |
+| Constants                               | CONSTANT_NAME  | ConstantName  | CONSTANT_NAME           | CONSTANT_NAME  | CONSTANT_NAME  | CONSTANT_NAME           |
+| Variables,<br>Arguments &<br>Parameters | variable_name  | variableName  | variableName            | $variableName  | variable_name  | variableName            |
+
 
 
 
@@ -60,7 +57,8 @@ Functions
 Methods
 Variables
 Constants
-Parameters
+Parameters - A variable declared in a function or method definition which receives argument values.
+Arguments -The value that gets passed to a function or method through a call to the function or method.
 
 
 
