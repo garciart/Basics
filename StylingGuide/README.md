@@ -42,7 +42,7 @@ So, to mitigate that in my own repos, here is my down and dirty Naming Conventio
 | Variables,<br>Arguments &<br>Parameters | variable_name  | variableName  | variableName            | $variableName  | variable_name  | variableName            |
 
 
-
+HTML and element naming? (e.g., Table1, ListView1, etc)
 
 Projects
 Folders
@@ -81,6 +81,8 @@ FK_[Child_Key_Table]_[Parent_Key_Table]_[Field_Name]
 
 FK_[Referencing_Table]_[Referenced_Table]_[Referencing_Field_Name]
 
+Junction/Associative Table Naming
+
 |SQLite|MySQL / MariaDB|SQL Server|
 |---|---|---|
 | NULL |   |   |
@@ -88,6 +90,8 @@ FK_[Referencing_Table]_[Referenced_Table]_[Referencing_Field_Name]
 | REAL |   |   |
 | TEXT |   |   |
 | BLOB |   |   |
+
+Oracle? Access?
 
 Quotes = Single quotes when there is no text manipulation (e.g., 'My name is Rob', etc.) and double quotes when ther is text manipulation (e.g., "My name is {user->getName()}.\n").
 

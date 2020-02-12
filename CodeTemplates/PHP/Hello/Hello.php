@@ -17,18 +17,19 @@
  */
 
 // Include this file to access common functions and variables
-require_once 'Model\CommonFunctions.php';
+require_once "Models\CommonFunctions.php";
 
 // Include this file to access database methods and create user objects
-require_once 'Model\DatabaseFunctions.php';
-require_once 'Model\User.class.php';
+require_once "Models\DatabaseFunctions.php";
+require_once "Models\User.class.php";
+require dirname(dirname(__FILE__)) . DIRECTORY_SEPARATOR . "vendor\autoload.php";
 
 /*
  * Get the class names. Must be declared in the global scope of the file:
  * see https://www.php.net/manual/en/language.namespaces.importing.php
  */
 
-use Model\User;
+use Models\User;
 
 /**
  * Gets users from the database and says hello to each one.
@@ -55,9 +56,9 @@ function helloUsers()
                 foreach ($result as $row) {
                     array_push(
                         $listOfUsers, new User(
-                            $row['UserID'], $row['FirstName'], $row['LastName'],
-                            $row['Email'], $row['Score'], $row['CreationDate'],
-                            $row['Comment']
+                            $row["UserID"], $row["FirstName"], $row["LastName"],
+                            $row["Email"], $row["Score"], $row["CreationDate"],
+                            $row["Comment"]
                         )
                     );
                 }
@@ -78,11 +79,11 @@ function helloUsers()
                 // Task 2: Add, update, and delete a new user
                 $thanos = array();
 
-                if (userExists('thanos@rgprogramming.com')) {
+                if (userExists("thanos@rgprogramming.com")) {
                     echo "Thanos, you are already in the database!\n\n";
-                    $result = getUserByEmail('thanos@rgprogramming.com');
+                    $result = getUserByEmail("thanos@rgprogramming.com");
                     if (empty($result)) {
-                        throw new Exception('Cannot retrieve user data!');
+                        throw new Exception("Cannot retrieve user data!");
                     } else {
                         // Use splat (...) to unpack array into class
                         $args = array_values($result);
@@ -90,15 +91,15 @@ function helloUsers()
                     }
                 } else {
                     $userID = createUser(
-                        'Thanos', 'The Mad Titan', 'thanos@rgprogramming.com', 100,
-                        'Unbalanced user.'
+                        "Thanos", "The Mad Titan", "thanos@rgprogramming.com", 100,
+                        "Unbalanced user."
                     );
                     if ($userID == 0) {
-                        throw new Exception('Cannot create user!');
+                        throw new Exception("Cannot create user!");
                     }
                     $result = getUserByUserID($userID);
                     if (empty($result)) {
-                        throw new Exception('Cannot retrieve user data!');
+                        throw new Exception("Cannot retrieve user data!");
                     } else {
                         // Use splat (...) to unpack array into class
                         $args = array_values($result);
@@ -110,9 +111,9 @@ function helloUsers()
                     }
                 }
 
-                if ($thanos->getComment() == 'Unbalanced user.') {
+                if ($thanos->getComment() == "Unbalanced user.") {
                     echo "Uh oh, Thanos, you are unbalanced! Let's fix that!\n\n";
-                    $thanos->setComment('Balanced user.');
+                    $thanos->setComment("Balanced user.");
                     if (updateUser(
                         $thanos->getUserID(), $thanos->getFirstName(),
                         $thanos->getLastName(), $thanos->getEmail(),
@@ -125,7 +126,7 @@ function helloUsers()
                         echo "Can't be balanced! Should've gone for the head!\n\n";
                     }
                 } else {
-                    $thanos->setComment('Unbalanced user.');
+                    $thanos->setComment("Unbalanced user.");
                     if (updateUser(
                         $thanos->getUserID(), $thanos->getFirstName(),
                         $thanos->getLastName(), $thanos->getEmail(),
@@ -142,7 +143,7 @@ function helloUsers()
                 echo "Sorry, Thanos; I am Iron Man, and you've got to go!\n\n";
 
                 if (deleteUser($thanos->getUserID()) == 1) {
-                    echo 'Thanos deleted. Destiny fulfilled.';
+                    echo "Thanos deleted. Destiny fulfilled.";
                 } else {
                     echo "Thanos cannot be deleted; he is inevitable!";
                 }

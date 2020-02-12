@@ -20,14 +20,12 @@
  * Get the application's model directory.
  */
 const MODEL_DIR = __DIR__;
-
-// To run these functions, switch to the model directory.
-chdir(MODEL_DIR);
+define("ROOT_DIR", dirname(dirname(__FILE__)));
 
 // Report all errors and log them in ErrorLog.txt
 error_reporting(-1);
 ini_set("log_errors", 1);
-ini_set("error_log", MODEL_DIR . DIRECTORY_SEPARATOR . "ErrorLog.txt");
+ini_set("error_log", ROOT_DIR . DIRECTORY_SEPARATOR . "ErrorLog.txt");
 
 /*
  * IMPORTANT!

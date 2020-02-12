@@ -27,8 +27,7 @@ __copyright__ = "Copyright 2019-2020, Rob Garcia"
 __email__ = "rgarcia@rgprogramming.com"
 __license__ = "MIT"
 
-PATH_TO_SQLITE_DB = (os.path.dirname(os.path.dirname(os.path.abspath(__file__))) +
-    os.path.sep + "data" + os.path.sep + "users.db")
+PATH_TO_SQLITE_DB = (co.ROOT_DIR + os.path.sep + "data" + os.path.sep + "users.db")
 
 """ Module functions:
     int create_user_table()
@@ -355,7 +354,7 @@ def database_exists():
         # Removed Pathlib (redundant) and needed to set PWD to correct
         # directory using os
         if not os.path.isdir(co.ROOT_DIR + os.path.sep + "data"):
-            os.makedirs("data", exist_ok=True)
+            os.makedirs(co.ROOT_DIR + os.path.sep + "data", exist_ok=True)
         if not os.path.exists(PATH_TO_SQLITE_DB):
             if create_user_table() != -1:
                 exists = False

@@ -1,0 +1,13 @@
+{
+    "autoload": {
+        "psr-4": {
+            "Model\\": "Hello/Models"
+        }
+    },
+    "require": {
+        "monolog/monolog": "1.0.*"
+    },
+    "require-dev": {
+        "squizlabs/php_codesniffer": "^3.5"
+    }
+}

@@ -16,7 +16,7 @@
  * @link      https://github.com/garciart/Basics
  */
 
-namespace Model;
+namespace Models;
 
 // Include this file to access common functions and variables
 require_once "CommonFunctions.php";
