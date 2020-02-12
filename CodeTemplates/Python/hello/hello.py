@@ -30,6 +30,7 @@ __license__ = "MIT"
 def hello_users():
     """Test database calls, class instantiation, and validation."""
     try:
+        # For testing exception and error handling
         # raise Exception("Test...")
         print("Verifying database exists...")
         if db.database_exists():

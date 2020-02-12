@@ -21,18 +21,19 @@ Before starting, ensure the following applications are installed:
 This template uses a very simple directory structure. Just remember to create a blank `__init__.py` file in the `Models` directory to identify it as Python package folders:
 
     Python
-    |-- LICENSE
-    |-- README.MD
-    |-- requirements.txt
-    |-- setup.py
     |-- hello
-        |-- error_log.txt
-        |-- hello.py
         |-- data
-            |-- user.db
+            |-- users.db
         |-- models
             |-- __init__.py
             |-- common_functions.py
             |-- database_functions.py
             |-- user_class.py
-    |-- hello.tests
+        |-- error_log.txt
+        |-- hello.py
+    |-- hello_tests
+        |-- tests.py
+    |-- LICENSE
+    |-- README.MD
+    |-- requirements.txt
+    |-- setup.py

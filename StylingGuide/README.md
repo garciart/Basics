@@ -15,7 +15,7 @@ So, to mitigate that in my own repos, here is my down and dirty Naming Conventio
 - Second, the definitions of coding elements I use are:
   - Project (All) - A project is a structured set of files and data that, together, produce a product or service, such as a web site or an application (e.g., the Basics repo is a project, etc.).
   - Folders (All) - A folder is a repository of files and data within a project, usually used for organization (e.g., CodeTemplates is a folder within the Basics project, etc.).
-  - Files (All) - A file is a repository of code or data used by the project to produce a product or service (i.e., Hello.php, user.db, readme01.png, etc., are all files).
+  - Files (All) - A file is a repository of code or data used by the project to produce a product or service (i.e., Hello.php, users.db, readme01.png, etc., are all files).
   - Modules (Python) - A module is a reusable set of functions and variables.
   - Extensions
   - Comments

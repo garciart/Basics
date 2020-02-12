@@ -1,0 +1,1 @@
+DEBUG:root:[2020-02-12 00:09:15 Eastern Standard Time] Type Exception Exception: Test... in c:\Users\Rob\source\repos\Basics\CodeTemplates\Python\hello\hello.py at line 33.
