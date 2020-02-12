@@ -12,9 +12,14 @@ This is a basic PHP console application, which includes some of the most common 
 
 Before starting, ensure the following applications are installed:
 
-- PHP version used: 7.3.12
-- SQLite version used: 3.28.0
+- PHP 7.3.12
+- SQLite 3.28.0
+- Composer 1.9.2
 - PHP_CodeSniffer 3.5.3 (includes phpcs and phpcbf)
+
+You can use Composer to install PHP_CodeSniffer:
+
+    composer require --dev squizlabs/php_codesniffer
 
 This template uses a very simple directory structure:
 

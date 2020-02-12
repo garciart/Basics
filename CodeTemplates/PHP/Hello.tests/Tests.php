@@ -18,7 +18,9 @@
  */
 
 // Include this file to access common functions and variables
-require_once 'Model\CommonFunctions.php';
+define("PATH_TO_MODELS", dirname(dirname(__FILE__)) . DIRECTORY_SEPARATOR .
+    "Hello" . DIRECTORY_SEPARATOR . "Models");
+require_once PATH_TO_MODELS . DIRECTORY_SEPARATOR . "CommonFunctions.php";
 
 class Tests extends PHPUnit_Framework_TestCase
 {
