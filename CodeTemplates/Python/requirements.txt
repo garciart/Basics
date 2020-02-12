@@ -1,0 +1,5 @@
+# Requirements file
+# Usage: >> pip install -r requirements.txt
+
+pylint>=2.4.4
+astroid>=2.3.3
