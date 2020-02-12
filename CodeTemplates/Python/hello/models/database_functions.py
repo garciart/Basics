@@ -28,7 +28,7 @@ __email__ = "rgarcia@rgprogramming.com"
 __license__ = "MIT"
 
 PATH_TO_SQLITE_DB = (os.path.dirname(os.path.dirname(os.path.abspath(__file__))) +
-    os.path.sep + "data" + os.path.sep + "user.db")
+    os.path.sep + "data" + os.path.sep + "users.db")
 
 """ Module functions:
     int create_user_table()

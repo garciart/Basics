@@ -38,7 +38,7 @@ MODEL_DIR = os.path.dirname(__file__)
 
 # Enable error and exception logging
 logging.basicConfig(
-    filename="error_log.txt", filemode="a+", level=logging.DEBUG)
+    filename=(ROOT_DIR + os.path.sep + "error_log.txt"), filemode="a+", level=logging.DEBUG)
 # Set to True during development and to False during production
 DISPLAY_ERRORS = True
 
