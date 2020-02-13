@@ -15,11 +15,12 @@
  * @license   https://opensource.org/licenses/MIT The MIT License
  * @link      https://github.com/garciart/Basics
  */
+declare(strict_types=1);
 
 // Include this file to access common functions and variables
 require_once "CommonFunctions.php";
 
-const PATH_TO_SQLITE_DB = ROOT_DIR . DIRECTORY_SEPARATOR . "Data" .
+const PATH_TO_SQLITE_DB = ROOT_DIR . DIRECTORY_SEPARATOR . "data" .
     DIRECTORY_SEPARATOR . "Users.db";
 
 /**
@@ -356,8 +357,8 @@ function databaseExists()
     $exists = true;
     try {
         // Create and populate the database if it does not exists.
-        if (!file_exists(ROOT_DIR . DIRECTORY_SEPARATOR . "Data")) {
-            mkdir(ROOT_DIR . DIRECTORY_SEPARATOR . "Data");
+        if (!file_exists(ROOT_DIR . DIRECTORY_SEPARATOR . "data")) {
+            mkdir(ROOT_DIR . DIRECTORY_SEPARATOR . "data");
         }
         if (!file_exists(PATH_TO_SQLITE_DB)) {
             if (createUserTable() < 0) {

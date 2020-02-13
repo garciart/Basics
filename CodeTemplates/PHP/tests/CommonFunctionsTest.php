@@ -16,14 +16,14 @@
  * @license   https://opensource.org/licenses/MIT The MIT License
  * @link      https://github.com/garciart/Basics
  */
+declare(strict_types=1);
 
 // Include this file to access common functions and variables
 define("PATH_TO_MODELS", dirname(dirname(__FILE__)) . DIRECTORY_SEPARATOR .
-    "Hello" . DIRECTORY_SEPARATOR . "Models");
+    "hello" . DIRECTORY_SEPARATOR . "models");
 require_once PATH_TO_MODELS . DIRECTORY_SEPARATOR . "CommonFunctions.php";
 
-class Tests extends PHPUnit_Framework_TestCase
-{
+final class CommonFunctionsTest extends PHPUnit_Framework_TestCase {
     /**
      * Used to instantiate classes and other pre-testing operations
      */

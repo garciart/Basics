@@ -1,11 +1,16 @@
-[12-Feb-2020 17:40:12 America/New_York] Exception: Test... in C:\Users\Rob\source\repos\Basics\CodeTemplates\PHP\Hello\Hello.php:45
+[13-Feb-2020 13:45:32 America/New_York] PHP Fatal error:  Uncaught TypeError: error_log() expects parameter 1 to be string, object given in C:\xampp\htdocs\HelloPHP\hello\models\CommonFunctions.php:83
 Stack trace:
-#0 C:\Users\Rob\source\repos\Basics\CodeTemplates\PHP\Hello\Hello.php(162): helloUsers()
+#0 C:\xampp\htdocs\HelloPHP\hello\models\CommonFunctions.php(83): error_log(Object(TypeError))
+#1 [internal function]: exceptionHandler(Object(TypeError))
+#2 {main}
+  thrown in C:\xampp\htdocs\HelloPHP\hello\models\CommonFunctions.php on line 83
+[13-Feb-2020 13:48:35 America/New_York] Type 8 Error: Undefined variable: exception in C:\xampp\htdocs\HelloPHP\hello\models\CommonFunctions.php at line 81.
+[13-Feb-2020 13:48:35 America/New_York] PHP Fatal error:  Uncaught Error: Call to a member function getCode() on null in C:\xampp\htdocs\HelloPHP\hello\models\CommonFunctions.php:81
+Stack trace:
+#0 [internal function]: exceptionHandler(Object(TypeError))
 #1 {main}
-[12-Feb-2020 17:43:59 America/New_York] Type 2 Error: require(vendor/autoload.php): failed to open stream: No such file or directory in C:\Users\Rob\source\repos\Basics\CodeTemplates\PHP\Hello\Hello.php at line 25.
-[12-Feb-2020 17:43:59 America/New_York] PHP Fatal error:  require(): Failed opening required 'vendor/autoload.php' (include_path='C:\xampp\php\PEAR') in C:\Users\Rob\source\repos\Basics\CodeTemplates\PHP\Hello\Hello.php on line 25
-[12-Feb-2020 17:44:31 America/New_York] Type 2 Error: require(.\vendor\autoload.php): failed to open stream: No such file or directory in C:\Users\Rob\source\repos\Basics\CodeTemplates\PHP\Hello\Hello.php at line 25.
-[12-Feb-2020 17:44:31 America/New_York] PHP Fatal error:  require(): Failed opening required '.\vendor\autoload.php' (include_path='C:\xampp\php\PEAR') in C:\Users\Rob\source\repos\Basics\CodeTemplates\PHP\Hello\Hello.php on line 25
-[12-Feb-2020 17:45:07 America/New_York] Type 2 Error: Use of undefined constant co - assumed 'co' (this will throw an Error in a future version of PHP) in C:\Users\Rob\source\repos\Basics\CodeTemplates\PHP\Hello\Hello.php at line 25.
-[12-Feb-2020 17:45:07 America/New_York] Type 2 Error: require(coC:\Users\Rob\source\repos\Basics\CodeTemplates\PHP\Hellovendor\autoload.php): failed to open stream: No such file or directory in C:\Users\Rob\source\repos\Basics\CodeTemplates\PHP\Hello\Hello.php at line 25.
-[12-Feb-2020 17:45:07 America/New_York] PHP Fatal error:  require(): Failed opening required 'coC:\Users\Rob\source\repos\Basics\CodeTemplates\PHP\Hellovendor\autoload.php' (include_path='C:\xampp\php\PEAR') in C:\Users\Rob\source\repos\Basics\CodeTemplates\PHP\Hello\Hello.php on line 25
+  thrown in C:\xampp\htdocs\HelloPHP\hello\models\CommonFunctions.php on line 81
+[13-Feb-2020 13:49:12 America/New_York] Type 0 Exception: error_log() expects parameter 1 to be string, object given in C:\xampp\htdocs\HelloPHP\hello\Hello.php at line 158.
+
+[13-Feb-2020 13:54:12 America/New_York] Type 0 Exception: error_log() expects parameter 1 to be string, object given in C:\xampp\htdocs\HelloPHP\hello\Hello.php at line 158.
+

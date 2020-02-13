@@ -15,6 +15,7 @@
  * @license   https://opensource.org/licenses/MIT The MIT License
  * @link      https://github.com/garciart/Basics
  */
+declare(strict_types=1);
 
 /**
  * Get the application's model directory.
@@ -24,7 +25,7 @@ define("ROOT_DIR", dirname(dirname(__FILE__)));
 
 // Report all errors and log them in ErrorLog.txt
 error_reporting(-1);
-ini_set("log_errors", 1);
+ini_set("log_errors", "1");
 ini_set("error_log", ROOT_DIR . DIRECTORY_SEPARATOR . "ErrorLog.txt");
 
 /*
@@ -75,10 +76,11 @@ function errorHandler($errno, $errstr, $errfile, $errline)
  *
  * @return void
  */
-function exceptionHandler($exception)
+function exceptionHandler($ex)
 {
-    echo "Type {$exception->getCode()} Exception: {$exception->getMessage()} " .
-        "in {$exception->getFile()} at line {$exception->getLine()}.\n";
+    $exception = "Type {$ex->getCode()} Exception: {$ex->getMessage()} " .
+        "in {$ex->getFile()} at line {$ex->getLine()}.\n";
+    echo $exception;
     error_log($exception);
     // Do not die. Redirect the user to an appropriate exception page.
 }
