@@ -16,24 +16,26 @@ Before starting, ensure the following applications are installed:
 - SQLite 3.28.0
 - Composer 1.9.2
 - PHP_CodeSniffer 3.5.3 (includes phpcs and phpcbf)
+- PHPUnit 3.7.21
 
-You can use Composer to install PHP_CodeSniffer:
+You can use Composer to install PHP_CodeSniffer and PHPUnit 3.7.21:
 
     composer require --dev squizlabs/php_codesniffer
+    composer require --dev phpunit/phpunit ^9
 
-This template uses a very simple directory structure:
+This template uses a very simple directory structure, based on the [Standard PHP Package Skeleton](https://github.com/php-pds/skeleton):
 
     PHP
-    |-- Hello
-        |-- Data
+    |-- hello
+        |-- data
             |-- Users.db
-        |-- Models
+        |-- models
             |-- CommonFunctions.php
             |-- DatabaseFunctions.php
             |-- User.class.php
         |-- ErrorLog.txt
         |-- Hello.php
-    |-- Hello.tests
-        |-- Tests.php
+    |-- tests
+        |-- CommonFunctionsTests.php
     |-- LICENSE
     |-- README.MD

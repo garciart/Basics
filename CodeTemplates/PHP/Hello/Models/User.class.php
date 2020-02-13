@@ -15,6 +15,7 @@
  * @license   https://opensource.org/licenses/MIT The MIT License
  * @link      https://github.com/garciart/Basics
  */
+declare(strict_types=1);
 
 namespace Models;
 
@@ -31,7 +32,7 @@ require_once "CommonFunctions.php";
  * @license   https://opensource.org/licenses/MIT The MIT License
  * @link      https://github.com/garciart/Basics
  */
-class User
+final class User
 {
     /**
      *  Class properties.
@@ -120,7 +121,7 @@ class User
      */
     public function setLastName($lastName)
     {
-        $firstName = trim($lastName);
+        $lastName = trim($lastName);
         if (validateText($lastName)) {
             $this->_lastName = $lastName;
         } else {

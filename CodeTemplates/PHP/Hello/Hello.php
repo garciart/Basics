@@ -15,13 +15,14 @@
  * @license   https://opensource.org/licenses/MIT The MIT License
  * @link      https://github.com/garciart/Basics
  */
+declare(strict_types=1);
 
 // Include this file to access common functions and variables
-require_once "Models\CommonFunctions.php";
+require_once "models\CommonFunctions.php";
 
 // Include this file to access database methods and create user objects
-require_once "Models\DatabaseFunctions.php";
-require_once "Models\User.class.php";
+require_once "models\DatabaseFunctions.php";
+require_once "models\User.class.php";
 require dirname(dirname(__FILE__)) . DIRECTORY_SEPARATOR . "vendor\autoload.php";
 
 /*
@@ -29,7 +30,7 @@ require dirname(dirname(__FILE__)) . DIRECTORY_SEPARATOR . "vendor\autoload.php"
  * see https://www.php.net/manual/en/language.namespaces.importing.php
  */
 
-use Models\User;
+use models\User;
 
 /**
  * Gets users from the database and says hello to each one.
@@ -43,6 +44,7 @@ function helloUsers()
      * (in CommonFunctions.php)
      */
     try {
+        // https://www.w3schools.com/php/php_exception.asp
         // throw new \Exception("Test...");
         echo "Verifying database exists...\n";
         if (databaseExists()) {
