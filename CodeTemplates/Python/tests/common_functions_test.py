@@ -2,7 +2,8 @@
 # -*- coding: utf-8 -*-
 
 """
-Unit tests using unittest.
+Unit tests using unittest
+Run by entering "python common_functions_test.py" at command line.
 
 Python version used: 3.6.8
 SQLite version used: 3.21.0

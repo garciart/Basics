@@ -1,0 +1,6 @@
+[2020-02-17 12:52:20 EST] - java.lang.Exception: Test... in Hello.java on line 43.
+- java.lang.Exception: Test... in Hello.java on line 165.
+[2020-02-17 13:23:59 EST] - java.lang.Exception: Test... in Hello.java on line 42.
+- java.lang.Exception: Test... in Hello.java on line 164.
+[2020-02-17 14:18:32 EST] - java.lang.Exception: Test... in Hello.java on line 42.
+- java.lang.Exception: Test... in Hello.java on line 167.

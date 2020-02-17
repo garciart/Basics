@@ -20,7 +20,7 @@
  * @copyright 2019-2020 Rob Garcia
  */
 
-package model;
+package hello.models;
 
 import java.io.File;
 import java.sql.Connection;
@@ -41,7 +41,7 @@ public class DatabaseFunctions {
     /**
      * Sets the path to the user database.
      */
-    private static final String PATH_TO_SQLITE_DB = CommonFunctions.MODEL_DIR + File.separator + "DB" + File.separator
+    private static final String PATH_TO_SQLITE_DB = CommonFunctions.ROOT_DIR + File.separator + "data" + File.separator
             + "Users.db";
 
     /**
@@ -306,11 +306,13 @@ public class DatabaseFunctions {
     public static Boolean databaseExists() {
         Boolean exists = true;
         try {
-            File dbFolder = new File(CommonFunctions.MODEL_DIR + File.separator + "DB");
-            File dbFile = new File(PATH_TO_SQLITE_DB);
-            if (!dbFolder.exists() || !dbFile.exists()) {
+            File dbFolder = new File(CommonFunctions.ROOT_DIR + File.separator + "data");
+            if (!dbFolder.exists()) {
                 // Creates the db directory if it does not exist
                 dbFolder.mkdir();
+            }
+            File dbFile = new File(PATH_TO_SQLITE_DB);
+            if (!dbFile.exists()) {
                 // Creates the db file if it does not exist
                 if (createUserTable() != 0) exists = false;
                 // Set initial values

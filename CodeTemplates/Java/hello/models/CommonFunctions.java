@@ -20,7 +20,7 @@
  * @copyright 2019-2020 Rob Garcia
  */
 
-package model;
+package hello.models;
 
 import java.io.BufferedWriter;
 import java.io.File;
@@ -32,11 +32,18 @@ import java.util.regex.Pattern;
 public class CommonFunctions {
 
     /**
+     * Get the application's root directory.
+     * 
+     * @return The application's root directory.
+     */
+    public static final String ROOT_DIR = System.getProperty("user.dir") + File.separator + "hello";
+
+    /**
      * Get the application's model directory.
      * 
      * @return The application's model directory.
      */
-    public static final String MODEL_DIR = System.getProperty("user.dir") + File.separator + "model";
+    public static final String MODEL_DIR = ROOT_DIR + File.separator + "models";
 
     /**
      * Set the visibility of errors. Set to True to log and display during
@@ -54,7 +61,7 @@ public class CommonFunctions {
     public static String logError(Exception ex) {
         String exception = null;
         try (BufferedWriter errorLog = new BufferedWriter(
-                new FileWriter(MODEL_DIR + File.separator + "ErrorLog.txt", true))) {
+                new FileWriter(ROOT_DIR + File.separator + "ErrorLog.txt", true))) {
             SimpleDateFormat simpleDateFormat = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss z");
             exception = String.format("[%s] ", simpleDateFormat.format(new Date()));
             StackTraceElement[] stackTrace = ex.getStackTrace();
