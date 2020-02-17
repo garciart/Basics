@@ -1,15 +1,1 @@
-To compile the file, make sure you are in the project directory (i.e., Java) and run the following command:
-javac -cp ";jar/*" Hello.java
-
-To run from terminal, make sure you are in the project directory (i.e., Java) and run the following command:
-java -classpath ";jar/*" Hello
-or
-java -cp ";jar/*" Hello
-
 Tested at https://fbinfer.com/
-
-To run unit tests and avoid "error: Class names, 'Tests', are only accepted if annotation processing is explicitly requested":
-
-javac -cp ";jar/*" Tests.java
-
-java -cp ";jar/*" org.junit.runner.JUnitCore Tests

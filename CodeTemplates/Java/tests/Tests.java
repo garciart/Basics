@@ -19,13 +19,48 @@
  * @link      https://github.com/garciart/Basics
  * @copyright 2019-2020 Rob Garcia
  */
+package tests;
 
+import org.junit.*;
 import static org.junit.Assert.*;
-import org.junit.Test;
+import java.util.*;
 
-import model.CommonFunctions;
+import hello.*;
+import hello.models.*;
 
 public class Tests {
+    /**
+     * One-time initialization code
+     */
+    @BeforeClass
+    public static void oneTimeSetUp() {
+
+    }
+ 
+    /**
+     * One-time cleanup code
+     */
+    @AfterClass
+    public static void oneTimeTearDown() {
+
+    }
+
+    /**
+     * Code to run before each test
+     */
+    @Before
+    public void setUp() {
+
+    }
+
+    /**
+     * Code to run after each test
+     */
+    @After
+    public void tearDown() {
+
+    }
+
     /**
      * Test that the method rejects values less than or equal to 0.
      */
@@ -45,18 +80,15 @@ public class Tests {
     }
 
     /*
-    @Test(expected = Exception.class)
-    public void validateUserIDException() {
-        CommonFunctions.validateUserID('a');
-    }
-    */
+     * @Test(expected = Exception.class) public void validateUserIDException() {
+     * CommonFunctions.validateUserID('a'); }
+     */
 
     /**
      * Test that the method rejects values with invalid characters.
      */
     @Test
-    public void testValidateTextFalse()
-    {
+    public void testValidateTextFalse() {
         String arg = "<script>alert('This is an injection!');</script>";
         boolean result = CommonFunctions.validateText(arg);
         assertTrue(result == false);
@@ -66,58 +98,60 @@ public class Tests {
      * Test that the method accepts values with valid characters.
      */
     @Test
-    public void testValidateTextTrue()
-    {
+    public void testValidateTextTrue() {
         String arg = "Robert";
         boolean result = CommonFunctions.validateText(arg);
         assertTrue(result == true);
     }
 
     /**
-     * Test that the method rejects values with illegal characters or
-     * in incorrect format.
+     * Test that the method rejects values with illegal characters or in incorrect
+     * format.
      */
     @Test
-    public void testValidateEmailFalse()
-    {
+    public void testValidateEmailFalse() {
         String arg = "<script>alert('This is an injection!');</script>";
         boolean result = CommonFunctions.validateEmail(arg);
         assertTrue(result == false);
     }
 
     /**
-     * Test that the method accepts values with legal characters and
-     * in correct format.
+     * Test that the method accepts values with legal characters and in correct
+     * format.
      */
     @Test
-    public void testValidateEmailTrue()
-    {
+    public void testValidateEmailTrue() {
         String arg = "rgarcia@rgprogramming.com";
         boolean result = CommonFunctions.validateEmail(arg);
         assertTrue(result == true);
     }
 
     /**
-     * Test that the method rejects values with illegal characters or
-     * in incorrect format.
+     * Test that the method rejects values with illegal characters or in incorrect
+     * format.
      */
     @Test
-    public void testValidateDateFalse()
-    {
+    public void testValidateDateFalse() {
         String arg = "<script>alert('This is an injection!');</script>";
         boolean result = CommonFunctions.validateDate(arg);
         assertTrue(result == false);
     }
 
     /**
-     * Test that the method accepts values with legal characters and
-     * in correct format.
+     * Test that the method accepts values with legal characters and in correct
+     * format.
      */
     @Test
-    public void testValidateDateTrue()
-    {
+    public void testValidateDateTrue() {
         String arg = "2020-02-02 12:00:00";
         boolean result = CommonFunctions.validateDate(arg);
+        assertTrue(result == true);
+    }
+
+    @Test
+    public void testMyTest() {
+        int arg = 1;
+        boolean result = Hello.myTest(arg);
         assertTrue(result == true);
     }
 }

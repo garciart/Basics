@@ -18,15 +18,16 @@
  * @link      https://github.com/garciart/Basics
  * @copyright 2019-2020 Rob Garcia
  */
+package hello;
 
 import java.util.ArrayList;
 import java.util.List;
 
 import javax.sql.rowset.CachedRowSet;
 
-import model.CommonFunctions;
-import model.DatabaseFunctions;
-import model.User;
+import hello.models.CommonFunctions;
+import hello.models.DatabaseFunctions;
+import hello.models.User;
 
 public class Hello {
 
@@ -38,9 +39,7 @@ public class Hello {
 
     private static void helloUsers() {
         try {
-            /*
-             * int i = 0; if (i == 0) { throw new Exception("Test..."); }
-             */
+            // int i = 0; if (i == 0) { throw new Exception("Test..."); }
             System.out.println("Verifying database exists...");
             if (DatabaseFunctions.databaseExists()) {
                 System.out.println("Database is good to go!\n");
@@ -158,6 +157,9 @@ public class Hello {
                 System.out.println(
                         "Unable to connect to the database and retrieve data. Check the error log for details.");
         }
+    }
+    public static boolean myTest(int number) {
+        return number == 1;
     }
 
     public static void main(String[] args) {

@@ -19,7 +19,7 @@
  * @copyright 2019-2020 Rob Garcia
  */
 
-package model;
+package hello.models;
 
 public class User {
 
