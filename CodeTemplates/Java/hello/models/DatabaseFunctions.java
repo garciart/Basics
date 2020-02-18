@@ -308,12 +308,12 @@ public class DatabaseFunctions {
         try {
             File dbFolder = new File(CommonFunctions.ROOT_DIR + File.separator + "data");
             if (!dbFolder.exists()) {
-                // Creates the db directory if it does not exist
+                // Creates the data directory if it does not exist
                 dbFolder.mkdir();
             }
             File dbFile = new File(PATH_TO_SQLITE_DB);
             if (!dbFile.exists()) {
-                // Creates the db file if it does not exist
+                // Creates the database file if it does not exist
                 if (createUserTable() != 0) exists = false;
                 // Set initial values
                 if (createUser("Rob", "Garcia", "rgarcia@rgprogramming.com", 80.0f, "Administrator.") == 0) exists = false;

@@ -20,7 +20,7 @@
 
 using System;
 
-namespace Model
+namespace Hello.Models
 {
     /// <summary>
     /// User class.

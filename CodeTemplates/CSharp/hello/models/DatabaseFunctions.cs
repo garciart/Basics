@@ -20,7 +20,7 @@
  */
 using System.Data.SQLite;
 
-namespace Model
+namespace Hello.Models
 {
     using System;
     using System.Data;
@@ -43,7 +43,7 @@ namespace Model
     public class DatabaseFunctions
     {
         // Use readonly instead of const for PathToSQLiteDB, since it must be generated dynamically in C#
-        private static readonly string PathToSQLiteDB = string.Format("{0}{1}db{1}users.db", CommonFunctions.ModelDir, Path.DirectorySeparatorChar);
+        private static readonly string PathToSQLiteDB = string.Format("{0}{1}Data{1}Users.db", CommonFunctions.RootDir, Path.DirectorySeparatorChar);
 
         /// <summary>
         /// Creates the User table if it does not exist in the database.
@@ -403,13 +403,13 @@ namespace Model
             try
             {
                 Directory.SetCurrentDirectory(CommonFunctions.ModelDir);
-                string dbFolder = string.Format("{0}{1}db", CommonFunctions.ModelDir, Path.DirectorySeparatorChar);
+                string dbFolder = string.Format("{0}{1}Data", CommonFunctions.RootDir, Path.DirectorySeparatorChar);
                 string dbFile = PathToSQLiteDB;
                 if (!Directory.Exists(dbFolder) || !File.Exists(dbFile))
                 {
-                    // Creates the db directory if it does not exist
+                    // Creates the Data directory if it does not exist
                     Directory.CreateDirectory(dbFolder);
-                    // Creates the db file if it does not exist
+                    // Creates the database file if it does not exist
                     if (CreateUserTable() != 0) exists = false;
                     // Set initial values
                     if (CreateUser("Rob", "Garcia", "rgarcia@rgprogramming.com", 80.0f, "Administrator.") == 0) exists = false;

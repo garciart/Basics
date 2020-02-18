@@ -21,9 +21,9 @@
 using System;
 using System.Collections.Generic;
 using System.Data;
-using Model;
+using Hello.Models;
 
-namespace CSharp
+namespace Hello
 {
     /// <summary>
     /// Hello World in C# with database integration.

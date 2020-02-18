@@ -23,7 +23,7 @@ using System;
 using System.IO;
 using System.Text.RegularExpressions;
 
-namespace Model
+namespace Hello.Models
 {
     /// <summary>
     /// Code common to one or more files.
@@ -31,11 +31,18 @@ namespace Model
     public class CommonFunctions
     {
         /// <summary>
+        /// Get the application's root directory.
+        /// Use readonly instead of const for RootDir, since it must be generated dynamically in C#
+        /// </summary>
+        /// <returns>The application's root directory.</returns>
+
+        public static readonly string RootDir = string.Format("{0}{1}hello", Directory.GetCurrentDirectory(), Path.DirectorySeparatorChar);
+        /// <summary>
         /// Get the application's model directory.
         /// Use readonly instead of const for ModelDir, since it must be generated dynamically in C#
         /// </summary>
         /// <returns>The application's model directory.</returns>
-        public static readonly string ModelDir = string.Format("{0}{1}model", Directory.GetCurrentDirectory(), Path.DirectorySeparatorChar);
+        public static readonly string ModelDir = string.Format("{0}{1}models", RootDir, Path.DirectorySeparatorChar);
 
         /// <summary>
         /// Set the visibility of errors.
@@ -53,7 +60,7 @@ namespace Model
             string exception = null;
             try
             {
-                using StreamWriter errorLog = File.AppendText(Path.Combine(ModelDir, "ErrorLog.txt"));
+                using StreamWriter errorLog = File.AppendText(Path.Combine(RootDir, "ErrorLog.txt"));
                 exception = string.Format("[{0}] {1}", DateTime.Now.ToString("yyyy-MM-dd HH:mm:ss K"), ex.ToString());
                 errorLog.WriteLine(exception);
             }

@@ -4,65 +4,72 @@
         <name>CSharp</name>
     </assembly>
     <members>
-        <member name="T:Model.CommonFunctions">
+        <member name="T:Hello.Models.CommonFunctions">
             <summary>
             Code common to one or more files.
             </summary>
         </member>
-        <member name="F:Model.CommonFunctions.ModelDir">
+        <member name="F:Hello.Models.CommonFunctions.RootDir">
+            <summary>
+            Get the application's root directory.
+            Use readonly instead of const for RootDir, since it must be generated dynamically in C#
+            </summary>
+            <returns>The application's root directory.</returns>
+        </member>
+        <member name="F:Hello.Models.CommonFunctions.ModelDir">
             <summary>
             Get the application's model directory.
             Use readonly instead of const for ModelDir, since it must be generated dynamically in C#
             </summary>
             <returns>The application's model directory.</returns>
         </member>
-        <member name="F:Model.CommonFunctions.DisplayErrors">
+        <member name="F:Hello.Models.CommonFunctions.DisplayErrors">
             <summary>
             Set the visibility of errors.
             Set to True to log and display during development and to False to only log during production.
             </summary>
         </member>
-        <member name="M:Model.CommonFunctions.LogError(System.Exception)">
+        <member name="M:Hello.Models.CommonFunctions.LogError(System.Exception)">
             <summary>
             Reformats error and exception details and records them in plain text in the error_log file.
             </summary>
             <param name="ex">The exception's details.</param>
             <returns>Reformated error and exception details in plain text.</returns>
         </member>
-        <member name="M:Model.CommonFunctions.ValidateUserID(System.Int64)">
+        <member name="M:Hello.Models.CommonFunctions.ValidateUserID(System.Int64)">
             <summary>
             Validate UserID.
             </summary>
             <param name="userID">The UserID that will be entered in the database.</param>
             <returns>True if the UserID is an integer greater than 0, false if not.</returns>
         </member>
-        <member name="M:Model.CommonFunctions.ValidateText(System.String)">
+        <member name="M:Hello.Models.CommonFunctions.ValidateText(System.String)">
             <summary>
             Validate text input.
             </summary>
             <param name="text">The text that will be entered into the database.</param>
             <returns>True if the text is valid, false if not.</returns>
         </member>
-        <member name="M:Model.CommonFunctions.ValidateEmail(System.String)">
+        <member name="M:Hello.Models.CommonFunctions.ValidateEmail(System.String)">
             <summary>
             Validate email address.
             </summary>
             <param name="email">The email address that will be entered into the database.</param>
             <returns>True if the email is valid, false if not.</returns>
         </member>
-        <member name="M:Model.CommonFunctions.ValidateDate(System.String)">
+        <member name="M:Hello.Models.CommonFunctions.ValidateDate(System.String)">
             <summary>
             Validate date format.
             </summary>
             <param name="date">The date that will be entered into the database.</param>
             <returns>True if the date format is valid, false if not.</returns>
         </member>
-        <member name="M:Model.CommonFunctions.#ctor">
+        <member name="M:Hello.Models.CommonFunctions.#ctor">
             <summary>
             Constructor.
             </summary>
         </member>
-        <member name="T:Model.DatabaseFunctions">
+        <member name="T:Hello.Models.DatabaseFunctions">
             <summary>
             Database Class. Handles all calls to the User database.
             Class methods:
@@ -78,13 +85,13 @@
             DatabaseFunctions()
             </summary>
         </member>
-        <member name="M:Model.DatabaseFunctions.CreateUserTable">
+        <member name="M:Hello.Models.DatabaseFunctions.CreateUserTable">
             <summary>
             Creates the User table if it does not exist in the database.
             </summary>
             <returns>The number of rows affected. While DROP will return -1, the last call, CREATE, should return 0.</returns>
         </member>
-        <member name="M:Model.DatabaseFunctions.CreateUser(System.String,System.String,System.String,System.Single,System.String)">
+        <member name="M:Hello.Models.DatabaseFunctions.CreateUser(System.String,System.String,System.String,System.Single,System.String)">
             <summary>
             Inserts a new user into the database.
             </summary>
@@ -95,7 +102,7 @@
             <param name="comment">Any additional comments.</param>
             <returns>The rowid of the new user. A value of 0 indicates an error.</returns>
         </member>
-        <member name="M:Model.DatabaseFunctions.GetAllUsers">
+        <member name="M:Hello.Models.DatabaseFunctions.GetAllUsers">
             <summary>
             Gets all the users in the database and their information.
             </summary>
@@ -103,7 +110,7 @@
             An reader object of all the users in the database and their information. An empty object indicates an error.
             </returns>
         </member>
-        <member name="M:Model.DatabaseFunctions.GetUserByUserID(System.Int64)">
+        <member name="M:Hello.Models.DatabaseFunctions.GetUserByUserID(System.Int64)">
             <summary>
             Returns a single user and his or her information.
             </summary>
@@ -112,7 +119,7 @@
             The user's information indexed by column name or empty if the user's ID is not found.
             </returns>
         </member>
-        <member name="M:Model.DatabaseFunctions.GetUserByEmail(System.String)">
+        <member name="M:Hello.Models.DatabaseFunctions.GetUserByEmail(System.String)">
             <summary>
             Returns a single user and his or her information.
             </summary>
@@ -121,7 +128,7 @@
             The user's information indexed by column name or empty if the user's email is not found.
             </returns>
         </member>
-        <member name="M:Model.DatabaseFunctions.UpdateUser(System.Int64,System.String,System.String,System.String,System.Single,System.String)">
+        <member name="M:Hello.Models.DatabaseFunctions.UpdateUser(System.Int64,System.String,System.String,System.String,System.Single,System.String)">
             <summary>
             Updates a user's information in the database.
             </summary>
@@ -135,7 +142,7 @@
             The number of rows affected. A value other than 1 indicates an error.
             </returns>
         </member>
-        <member name="M:Model.DatabaseFunctions.DeleteUser(System.Int64)">
+        <member name="M:Hello.Models.DatabaseFunctions.DeleteUser(System.Int64)">
             <summary>
             Deletes a user from the database.
             </summary>
@@ -144,14 +151,14 @@
             The number of rows affected. A value other than 1 indicates an error.
             </returns>
         </member>
-        <member name="M:Model.DatabaseFunctions.GetNextUserID">
+        <member name="M:Hello.Models.DatabaseFunctions.GetNextUserID">
             <summary>
             Gets the anticipated value of the next UserID (usually the last row
             inserted) from the User table.
             </summary>
             <returns>The value of the next UserID or 0 if there is no data.</returns>
         </member>
-        <member name="M:Model.DatabaseFunctions.UserExists(System.String)">
+        <member name="M:Hello.Models.DatabaseFunctions.UserExists(System.String)">
             <summary>
             Checks if the given users exists in the database.
             Julen Pardo came up with this.
@@ -163,66 +170,66 @@
             <param name="email">The email to check.</param>
             <returns>True if the users exists, false if not.</returns>
         </member>
-        <member name="M:Model.DatabaseFunctions.DatabaseExists">
+        <member name="M:Hello.Models.DatabaseFunctions.DatabaseExists">
             <summary>
             Creates and populates the database if it does not exist.
             </summary>
             <returns>True if the database exists or was create, false if not.</returns>
         </member>
-        <member name="M:Model.DatabaseFunctions.#ctor">
+        <member name="M:Hello.Models.DatabaseFunctions.#ctor">
             <summary>
             Constructor.
             </summary>
         </member>
-        <member name="T:Model.User">
+        <member name="T:Hello.Models.User">
             <summary>
             User class.
             </summary>
         </member>
-        <member name="P:Model.User.UserID">
+        <member name="P:Hello.Models.User.UserID">
             <summary>
             Getters and setters for the UserID property.
             </summary>
             <value>The user's ID.</value>
         </member>
-        <member name="P:Model.User.FirstName">
+        <member name="P:Hello.Models.User.FirstName">
             <summary>
             Getters and setters for the FirstName property.
             </summary>
             <value>The user's first name.</value>
         </member>
-        <member name="P:Model.User.LastName">
+        <member name="P:Hello.Models.User.LastName">
             <summary>
             Getters and setters for the LastName property.
             </summary>
             <value>The user's last name.</value>
         </member>
-        <member name="P:Model.User.Email">
+        <member name="P:Hello.Models.User.Email">
             <summary>
             Getters and setters for the Email property.
             </summary>
             <value>The user's email address (can be used as a user name).</value>
         </member>
-        <member name="P:Model.User.Score">
+        <member name="P:Hello.Models.User.Score">
             <summary>
             Getters and setters for the Score property.
             </summary>
             <value>The user's score from 0.0 to 100.0.</value>
         </member>
-        <member name="P:Model.User.CreationDate">
+        <member name="P:Hello.Models.User.CreationDate">
             <summary>
             Getters and setters for the CreationDate property.
             </summary>
             <value>The date the user was added to the database.</value>
         </member>
-        <member name="P:Model.User.Comment">
+        <member name="P:Hello.Models.User.Comment">
             <summary>
             Getters and setters for the Comment property.
             The comment field does not need validation and is an autoimplemeted property
             </summary>
             <value>Any additional comments.</value>
         </member>
-        <member name="M:Model.User.#ctor(System.Int64,System.String,System.String,System.String,System.Single,System.String,System.String)">
+        <member name="M:Hello.Models.User.#ctor(System.Int64,System.String,System.String,System.String,System.Single,System.String,System.String)">
             <summary>
             Class constructor.
             </summary>
@@ -234,65 +241,16 @@
             <param name="creationDate">The date the user was added to the database.</param>
             <param name="comment">Any additional comments.</param>
         </member>
-        <member name="T:CSharp.Program">
+        <member name="T:Hello.Program">
             <summary>
             Hello World in C# with database integration.
             </summary>
         </member>
-        <member name="M:CSharp.Program.Main(System.String[])">
+        <member name="M:Hello.Program.Main(System.String[])">
             <summary>
             Application entry point.
             </summary>
             <param name="args">Command line arguments.</param>
-        </member>
-        <member name="T:CSharp.Tests">
-            <summary>
-            Test class
-            </summary>
-        </member>
-        <member name="M:CSharp.Tests.TestValidateUserIDFalse">
-            <summary>
-            Test that the method rejects values less than or equal to 0.
-            </summary>
-        </member>
-        <member name="M:CSharp.Tests.TestValidateUserIDTrue">
-            <summary>
-            Test that the method accepts values greater than 0.
-            </summary>
-        </member>
-        <member name="M:CSharp.Tests.TestValidateTextFalse">
-            <summary>
-            Test that the method rejects values with invalid characters.
-            </summary>
-        </member>
-        <member name="M:CSharp.Tests.TestValidateTextTrue">
-            <summary>
-            Test that the method accepts values with valid characters.
-            </summary>
-        </member>
-        <member name="M:CSharp.Tests.TestValidateEmailFalse">
-            <summary>
-            Test that the method rejects values with illegal characters or
-            in incorrect format.
-            </summary>
-        </member>
-        <member name="M:CSharp.Tests.TestValidateEmailTrue">
-            <summary>
-            Test that the method accepts values with legal characters and
-            in correct format.
-            </summary>
-        </member>
-        <member name="M:CSharp.Tests.TestValidateDateFalse">
-            <summary>
-            Test that the method rejects values with illegal characters or
-            in incorrect format.
-            </summary>
-        </member>
-        <member name="M:CSharp.Tests.TestValidateDateTrue">
-            <summary>
-            Test that the method accepts values with legal characters and
-            in correct format.
-            </summary>
         </member>
     </members>
 </doc>
