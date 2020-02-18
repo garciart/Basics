@@ -1,31 +1,5 @@
-[2020-01-26 19:32:05 -05:00] System.Exception: Test2...
-   at Model.DatabaseFunctions.GetAllUsers() in C:\Users\Rob\source\repos\Basics\CodeTemplates\CSharp\model\DatabaseFunctions.cs:line 145
-   at CSharp.Program.HelloUsers() in C:\Users\Rob\source\repos\Basics\CodeTemplates\CSharp\Program.cs:line 42
-[2020-01-27 20:11:14 -05:00] code = CantOpen (14), message = System.Data.SQLite.SQLiteException (0x800007FF): unable to open database file
-   at System.Data.SQLite.SQLite3.Open(String strFilename, String vfsName, SQLiteConnectionFlags connectionFlags, SQLiteOpenFlagsEnum openFlags, Int32 maxPoolSize, Boolean usePool)
-   at System.Data.SQLite.SQLiteConnection.Open()
-   at Model.DatabaseFunctions.GetAllUsers() in C:\Users\Rob\source\repos\Basics\CodeTemplates\CSharp\model\DatabaseFunctions.cs:line 149
-[2020-01-27 20:11:14 -05:00] System.NullReferenceException: Object reference not set to an instance of an object.
-   at CSharp.Program.HelloUsers() in C:\Users\Rob\source\repos\Basics\CodeTemplates\CSharp\Program.cs:line 41
-[2020-01-27 20:12:39 -05:00] code = CantOpen (14), message = System.Data.SQLite.SQLiteException (0x800007FF): unable to open database file
-   at System.Data.SQLite.SQLite3.Open(String strFilename, String vfsName, SQLiteConnectionFlags connectionFlags, SQLiteOpenFlagsEnum openFlags, Int32 maxPoolSize, Boolean usePool)
-   at System.Data.SQLite.SQLiteConnection.Open()
-   at Model.DatabaseFunctions.GetAllUsers() in C:\Users\Rob\source\repos\Basics\CodeTemplates\CSharp\model\DatabaseFunctions.cs:line 150
-[2020-01-27 20:12:39 -05:00] System.NullReferenceException: Object reference not set to an instance of an object.
-   at CSharp.Program.HelloUsers() in C:\Users\Rob\source\repos\Basics\CodeTemplates\CSharp\Program.cs:line 41
-[2020-01-27 20:56:42 -05:00] System.Exception: Test...
-   at CSharp.Program.HelloUsers() in C:\Users\Rob\source\repos\Basics\CodeTemplates\CSHarp\Program.cs:line 38
-[2020-01-28 22:03:36 -05:00] System.NullReferenceException: Object reference not set to an instance of an object.
-   at Model.DatabaseFunctions.GetAllUsers() in C:\Users\Rob\source\repos\Basics\CodeTemplates\CSharp\model\DatabaseFunctions.cs:line 158
-[2020-01-28 23:26:28 -05:00] code = Constraint (19), message = System.Data.SQLite.SQLiteException (0x800027AF): constraint failed
-UNIQUE constraint failed: User.UserID
-   at System.Data.SQLite.SQLite3.Reset(SQLiteStatement stmt)
-   at System.Data.SQLite.SQLite3.Step(SQLiteStatement stmt)
-   at System.Data.SQLite.SQLiteDataReader.NextResult()
-   at System.Data.SQLite.SQLiteDataReader..ctor(SQLiteCommand cmd, CommandBehavior behave)
-   at System.Data.SQLite.SQLiteCommand.ExecuteReader(CommandBehavior behavior)
-   at System.Data.SQLite.SQLiteCommand.ExecuteNonQuery(CommandBehavior behavior)
-   at System.Data.SQLite.SQLiteCommand.ExecuteNonQuery()
-   at Model.DatabaseFunctions.CreateUser(String firstName, String lastName, String email, Single score, String comment) in C:\Users\Rob\source\repos\Basics\CodeTemplates\CSharp\model\DatabaseFunctions.cs:line 125
-[2020-01-28 23:26:28 -05:00] System.Exception: Cannot create user!
-   at CSharp.Program.HelloUsers() in C:\Users\Rob\source\repos\Basics\CodeTemplates\CSharp\Program.cs:line 96
+[2020-02-18 13:12:29 -05:00] System.IO.DirectoryNotFoundException: Could not find a part of the path 'C:\Users\Rob\source\repos\Basics\codetemplates\csharp\hello\model'.
+   at System.Environment.set_CurrentDirectoryCore(String value)
+   at System.Environment.set_CurrentDirectory(String value)
+   at System.IO.Directory.SetCurrentDirectory(String path)
+   at Model.DatabaseFunctions.DatabaseExists() in C:\Users\Rob\source\repos\Basics\codetemplates\csharp\hello\Models\DatabaseFunctions.cs:line 405

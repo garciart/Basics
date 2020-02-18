@@ -20,7 +20,7 @@ Before starting, ensure the following applications are installed:
 
 This template uses a very simple directory structure that can be incorporated into Maven or Gradle:
 
-    Python
+    Java
     |-- hello
         |-- data
             |-- Users.db

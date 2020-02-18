@@ -8,24 +8,36 @@ This is a basic C# console application, which includes some of the most common C
 - Instantiate class objects.
 - Handle and log exceptions and errors.
 - Run unit tests.
-- Apply styling and comments per the [Google Java Style Guide](https://google.github.io/styleguide/javaguide.html) and the [Code Conventions for the Java Programming Language (Oracle: Deprecated)](https://www.oracle.com/technetwork/java/javase/documentation/codeconvtoc-136057.html).
+- Apply styling and comments per the [.NET Core Engineering guidelines](https://github.com/dotnet/aspnetcore/wiki/Engineering-guidelines#coding-guidelines) and [C# Programming Guide](https://docs.microsoft.com/en-us/dotnet/csharp/programming-guide/inside-a-program/coding-conventions).
 
 Before starting, ensure the following applications are installed:
 
-- Java Runtime Environment (JRE) 1.8.0_241
-- Java Development Kit (JDK) 1.8.0_212
-- SQLite Java Database Connectivity (JDBC) API 3.30.1
-- JUnit 4.13
-- Hamcrest Core 1.3.jar
+- .NET Core 3.1.0
+- C# version 8.0
+- System.Data.SQLite.Core 1.0.112.0
+- nunit 3.12.0
+- NUnit3TestAdapter 3.16.1
+- Microsoft.NET.Test.Sdk 16.5.0
+
+Initialize from repo directory (i.e., CodeTemplates):
+
+    dotnet new console -o CSharp
+    cd CSharp
+    dotnet add package System.Data.SQLite.Core
+    dotnet add package nunit
+    dotnet add package NUnit3TestAdapter
+    dotnet add package Microsoft.NET.Test.Sdk
+
+Add *\<GenerateProgramFile\>false\</GenerateProgramFile\>* to **\<PropertyGroup\>** in CSharp.csproj file
 
 This template uses a very simple directory structure that can be incorporated into Maven or Gradle:
 
-    Python
-    |-- hello
+    CSharp
+    |-- Hello
         |-- bin
-        |-- data
+        |-- Data
             |-- Users.db
-        |-- models
+        |-- Models
             |-- CommonFunctions.cs
             |-- DatabaseFunctions.cs
             |-- User.cs
@@ -33,25 +45,21 @@ This template uses a very simple directory structure that can be incorporated in
         |-- CSharp.csproj
         |-- ErrorLog.txt
         |-- Program.cs
-    |-- tests
+    |-- Tests
         |-- CSharp.csproj
-        |-- Tests.java
+        |-- CommonFunctionTest.cs
+    |-- .gitignore
     |-- LICENSE
     |-- README.MD
 
-To compile the file, make sure you are in the project directory (i.e., Java) and run the following command:
+To run from terminal, make sure you are in the project directory  (i.e., CSharp) and run the following command:
 
-    javac -cp ";lib/*" hello\Hello.java
+    dotnet run --project ./hello
 
-To run from terminal, make sure you are in the project directory (i.e., Java) and run the following command:
+To run tests, first go to the test folder and run:
 
-    java -classpath ";lib/*" hello.Hello
+    dotnet restore
 
-or
+Then, go back to the project directory  (i.e., CSharp) and run the following command:
 
-    java -cp ";lib/*" hello.Hello
-
-To run unit tests and avoid "error: Class names, 'Tests', are only accepted if annotation processing is explicitly requested", make sure you are in the project directory (i.e., Java) and run the following commands:
-
-    javac -cp ";hello/*;lib/*;" tests\CommonFunctionsTest.java
-    java -cp ";hello/*;lib/*" org.junit.runner.JUnitCore tests.CommonFunctionsTest
+    dotnet test

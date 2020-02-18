@@ -19,15 +19,15 @@
  */
 
 using NUnit.Framework;
-using Model;
+using Hello.Models;
 
-namespace CSharp
+namespace Tests
 {
     /// <summary>
     /// Test class
     /// </summary>
     [TestFixture]
-    public class Tests
+    public class CommonFunctionsTest
     {
         /// <summary>
         /// Test that the method rejects values less than or equal to 0.

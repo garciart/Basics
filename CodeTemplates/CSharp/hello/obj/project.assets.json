@@ -4656,11 +4656,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\Rob\\source\\repos\\Basics\\CodeTemplates\\csharp\\CSharp.csproj",
-      "projectName": "CSharp",
-      "projectPath": "C:\\Users\\Rob\\source\\repos\\Basics\\CodeTemplates\\csharp\\CSharp.csproj",
+      "projectUniqueName": "C:\\Users\\Rob\\source\\repos\\Basics\\codetemplates\\csharp\\hello\\Hello.csproj",
+      "projectName": "Hello",
+      "projectPath": "C:\\Users\\Rob\\source\\repos\\Basics\\codetemplates\\csharp\\hello\\Hello.csproj",
       "packagesPath": "C:\\Users\\Rob\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\Rob\\source\\repos\\Basics\\CodeTemplates\\csharp\\obj\\",
+      "outputPath": "C:\\Users\\Rob\\source\\repos\\Basics\\codetemplates\\csharp\\hello\\obj\\",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
         "C:\\Microsoft\\Xamarin\\NuGet\\",
