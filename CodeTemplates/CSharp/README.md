@@ -1,6 +1,6 @@
-# Hello, World! (Java Template)
+# Hello, World! (C# Template)
 
-This is a basic Java console application, which includes some of the most common Java keywords, functions, and methods from the Java Platform, Standard Edition (Java SE) application programming interface (API). For portability and simplicity, it uses the SQLite relational database management system (RDBMS) and demonstrates how to:
+This is a basic C# console application, which includes some of the most common C# keywords, functions, and methods from the C# Platform, Standard Edition (C# SE) application programming interface (API). For portability and simplicity, it uses the SQLite relational database management system (RDBMS) and demonstrates how to:
 
 - Access a module from another module.
 - Create, read, update, and delete data from a database.
@@ -22,19 +22,19 @@ This template uses a very simple directory structure that can be incorporated in
 
     Python
     |-- hello
+        |-- bin
         |-- data
             |-- Users.db
         |-- models
-            |-- CommonFunctions.java
-            |-- DatabaseFunctions.java
-            |-- User.java
+            |-- CommonFunctions.cs
+            |-- DatabaseFunctions.cs
+            |-- User.cs
+        |-- obj
+        |-- CSharp.csproj
         |-- ErrorLog.txt
-        |-- Hello.java
-    |-- lib
-        |-- hamcrest-core-1.3.jar
-        |-- junit-4.13.jar
-        |-- sqlite-jdbc-3.30.1.jar
+        |-- Program.cs
     |-- tests
+        |-- CSharp.csproj
         |-- Tests.java
     |-- LICENSE
     |-- README.MD

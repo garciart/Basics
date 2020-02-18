@@ -28,7 +28,7 @@ import java.util.*;
 import hello.*;
 import hello.models.*;
 
-public class Tests {
+public class CommonFunctionsTest {
     /**
      * One-time initialization code
      */
