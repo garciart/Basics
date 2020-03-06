@@ -100,13 +100,15 @@ Return to the repository's main page and you will see that there is now only one
 If you make changes to the repository in GitHub, you can update the local repository by using the following command at the terminal:
 
     git status # Get the status of the repository
-    git pull origin master # Combines git fetch and git merge
+    git pull origin master # Combines git fetch and git merge to update user branch
 
 Or you can switch back to the master branch and pull:
 
     git status # Get the status of the repository
     git checkout master # Switch back to the master branch
     git pull # Update master branch
+    git checkout [USERNAME] # Switch back to user branch
+    git merge master # Update user branch
 
 If the user branch will not be used again, you may delete it using the following command:
 

@@ -11,8 +11,8 @@
  *     Code Conventions for the Java Programming Language (Oracle: Deprecated)
  *     (https://www.oracle.com/technetwork/java/javase/documentation/codeconvtoc-136057.html)
  *
- * @category  Basics
- * @package   Model
+ * @category  Java
+ * @package   hello.models
  * @author    Rob Garcia <rgarcia@rgprogramming.com>
  * @license   https://opensource.org/licenses/MIT The MIT License
  * @link      https://github.com/garciart/Basics
@@ -21,6 +21,9 @@
 
 package hello.models;
 
+/**
+ * User class.
+ */
 public class User {
 
     /**
@@ -47,8 +50,6 @@ public class User {
      * User ID setter.
      *
      * @param userID The user's ID.
-     *
-     * @return void
      */
     public void setUserID(long userID) {
         if (CommonFunctions.validateUserID(userID)) {
@@ -71,8 +72,6 @@ public class User {
      * First name setter.
      *
      * @param firstName The user's first name.
-     *
-     * @return void
      */
     public void setFirstName(String firstName) {
         firstName = firstName.trim();
@@ -96,8 +95,6 @@ public class User {
      * Last name setter.
      *
      * @param lastName The user's last name.
-     *
-     * @return void
      */
     public void setLastName(String lastName) {
         lastName = lastName.trim();
@@ -121,8 +118,6 @@ public class User {
      * Email setter.
      *
      * @param email The user's email address (can be used as a user name).
-     *
-     * @return void
      */
     public void setEmail(String email) {
         email = email.trim();
@@ -147,8 +142,6 @@ public class User {
      * Score setter.
      *
      * @param score The user's score from 0.0 to 100.0.
-     *
-     * @return void
      */
     public void setScore(float score) {
         if (score < 0.0 || score > 100.0) {
@@ -171,8 +164,6 @@ public class User {
      * Creation date setter.
      *
      * @param creationDate The date the user was added to the database.
-     *
-     * @return void
      */
     public void setCreationDate(String creationDate) {
         if (CommonFunctions.validateDate(creationDate)) {
@@ -195,8 +186,6 @@ public class User {
      * Comment setter.
      *
      * @param comment Any additional comments.
-     *
-     * @return void
      */
     public void setComment(String comment) {
         this.comment = comment;
@@ -212,8 +201,6 @@ public class User {
      * @param score        The user's score from 0.0 to 100.0.
      * @param creationDate The date the user was added to the database.
      * @param comment      Any additional comments.
-     *
-     * @return void
      */
     public User(long userID, String firstName, String lastName, String email, float score, String creationDate,
             String comment) {

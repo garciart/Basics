@@ -4,6 +4,8 @@
  * .NET Core version used: 3.1.0
  * C# version used: 8.0
  * SQLite version used: 3.30.1
+ * nunit version used: 3.12.0
+ * NUnit3TestAdapter version used: 3.16.1
  *
  * Styling guide: .NET Core Engineering guidelines
  *     (https://github.com/dotnet/aspnetcore/wiki/Engineering-guidelines#coding-guidelines) and
