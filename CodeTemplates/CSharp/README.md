@@ -42,11 +42,11 @@ This template uses a very simple directory structure that can be incorporated in
             |-- DatabaseFunctions.cs
             |-- User.cs
         |-- obj
-        |-- CSharp.csproj
+        |-- Hello.csproj
         |-- ErrorLog.txt
         |-- Program.cs
     |-- Tests
-        |-- CSharp.csproj
+        |-- Tests.csproj
         |-- CommonFunctionTest.cs
     |-- .gitignore
     |-- LICENSE
@@ -54,12 +54,9 @@ This template uses a very simple directory structure that can be incorporated in
 
 To run from terminal, make sure you are in the project directory  (i.e., CSharp) and run the following command:
 
-    dotnet run --project ./hello
+    dotnet run --project ./Hello
 
-To run tests, first go to the test folder and run:
+To run tests, make sure you are in the project directory  (i.e., CSharp) and run the following commands:
 
-    dotnet restore
-
-Then, go back to the project directory  (i.e., CSharp) and run the following command:
-
-    dotnet test
+    dotnet restore ./Tests
+    dotnet test ./Tests

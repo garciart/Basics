@@ -1,5 +1,2 @@
-[2020-02-18 13:12:29 -05:00] System.IO.DirectoryNotFoundException: Could not find a part of the path 'C:\Users\Rob\source\repos\Basics\codetemplates\csharp\hello\model'.
-   at System.Environment.set_CurrentDirectoryCore(String value)
-   at System.Environment.set_CurrentDirectory(String value)
-   at System.IO.Directory.SetCurrentDirectory(String path)
-   at Model.DatabaseFunctions.DatabaseExists() in C:\Users\Rob\source\repos\Basics\codetemplates\csharp\hello\Models\DatabaseFunctions.cs:line 405
+[2020-02-18 17:09:04 -05:00] System.Exception: Test...
+   at Hello.Program.HelloUsers() in C:\Users\Rob\source\repos\Basics\codetemplates\csharp\Hello\Program.cs:line 37

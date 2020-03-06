@@ -12,8 +12,8 @@
  *     Code Conventions for the Java Programming Language (Oracle: Deprecated)
  *     (https://www.oracle.com/technetwork/java/javase/documentation/codeconvtoc-136057.html)
  *
- * @category  Basics
- * @package   Model
+ * @category  Java
+ * @package   hello.models
  * @author    Rob Garcia <rgarcia@rgprogramming.com>
  * @license   https://opensource.org/licenses/MIT The MIT License
  * @link      https://github.com/garciart/Basics
@@ -56,7 +56,7 @@ public class CommonFunctions {
      * error_log file.
      * 
      * @param ex The exception's details.
-     * @return Reformated error and exception details in plain text.
+     * @return Reformatted error and exception details in plain text.
      */
     public static String logError(Exception ex) {
         String exception = null;
@@ -119,8 +119,7 @@ public class CommonFunctions {
      */
     public static Boolean validateDate(String date) {
         return (date.trim() == null || date.trim().isEmpty() || date.length() != 19 || (Pattern
-                .matches("^([0-9]){4}-([0-9]){2}-([0-9]){2} ([0-9]){2}:([0-9]){2}:([0-9]){2}$", date) == false)) ? false
-                        : true;
+                .matches("^([0-9]){4}-([0-9]){2}-([0-9]){2} ([0-9]){2}:([0-9]){2}:([0-9]){2}$", date) == false));
     }
 
     /**
