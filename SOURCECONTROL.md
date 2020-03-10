@@ -116,6 +116,19 @@ If the user branch will not be used again, you may delete it using the following
 
 However, you can leave the branch open and continue updating the repository as necessary.
 
+One last thing: sometimes, you may want to prevent certain files or folders from appearing in your public repo (i.e., GitHub). To hide them, add the names of the files and folders to your .gitignore file:
+
+    # Ignore the following folders and their contents
+    .vscode/
+
+Once that is done, run the following commands:
+
+    git rm -r --cached . # Clears the cache of the entire Git staging area
+    git status # Get the status of the repo
+    git add --all # Move changes to the INDEX (i.e., the staging area)
+    git commit -m "[COMMIT MESSAGE]" # Commit all changes to the HEAD (i.e., the final product to submit to the REMOTE MASTER repository)
+    git push origin [USERNAME] # Push your branch to the REMOTE MASTER repository for approval
+
 ## Summary
 
 This is a basic, get-you-started guide to source control. I suggest you sit down with your team and create your own version, to ensure everyone is on the same sheet of music. Good luck!
