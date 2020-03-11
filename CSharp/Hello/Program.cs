@@ -10,8 +10,8 @@
  *     C# Programming Guide
  *     (https://docs.microsoft.com/en-us/dotnet/csharp/programming-guide/inside-a-program/coding-conventions)
  *
- * @category  Basics
- * @package   CSharp
+ * @category  CSharp
+ * @package   Hello
  * @author    Rob Garcia <rgarcia@rgprogramming.com>
  * @license   https://opensource.org/licenses/MIT The MIT License
  * @link      https://github.com/garciart/Basics
