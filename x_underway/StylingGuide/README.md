@@ -7,12 +7,23 @@ The good news is that most programmers can recognize a class, property, etc., fo
 So, to mitigate that in my own repos, here is my down and dirty Naming Convention Cheat Sheet:
 
 - First, the case names I use are:
+
   - **camelCase**
   - **CONSTANT_CASE**
   - **kebab-case**
   - **PascalCase**
   - **snake_case**
-- Second, the definitions of coding elements I use are:
+
+- Second, the definitions of coding elements I use for each language are contained in the following references:
+
+  - [Python](https://docs.python.org/3/glossary.html)
+  - [Java](https://www.oracle.com/technetwork/java/glossary-135216.html)
+  - [C#](https://docs.microsoft.com/en-us/dotnet/csharp/language-reference/language-specification/introduction)
+  - [PHP](https://www.php.net/manual/en/langref.php)
+  - [JavaScript](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference)
+
+
+
   - Project (All) - A project is a structured set of files and data that, together, produce a product or service, such as a web site or an application (e.g., the Basics repo is a project, etc.).
   - Folders (All) - A folder is a repository of files and data within a project, usually used for organization (e.g., CodeTemplates is a folder within the Basics project, etc.).
   - Files (All) - A file is a repository of code or data used by the project to produce a product or service (i.e., Hello.php, users.db, readme01.png, etc., are all files).
@@ -28,6 +39,7 @@ So, to mitigate that in my own repos, here is my down and dirty Naming Conventio
   - Constants
   - Parameters - A variable declared in a function or method definition which receives argument values.
   - Arguments -The value that gets passed to a function or method through a call to the function or method.
+
 - Third, the general capitalization rules I use for different languages are:
 
 |                                         | C++            | C#            | Java                    | PHP            | Python         | JavaScript              |

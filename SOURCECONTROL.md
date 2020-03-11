@@ -2,7 +2,7 @@
 
 ## Introduction
 
-When I first started using Git and GitHub, I did not use them properly. Instead of maintaining a code history, I would only upload to GitHub when I was done coding or create separate repositories for each phase, sprint, etc., of coding. Now, regardeless of how small the application is, I commit on a separate branch (as I would with a development team) and I use pull requests to update the master branch.
+When I first started using Git and GitHub, I did not use them properly. Instead of maintaining a code history, I would only upload to GitHub when I was done coding or create separate repositories for each phase, sprint, etc.. Now, regardless of how small a change is, if I am done coding, I commit on a separate branch (as I would with a development team) and I use pull requests to update the master branch.
 
 > **Note:**  Installing Git or creating a GitHub account are out of the scope of this document. I recommend visiting the official sites, [Getting Started - Installing Git](https://git-scm.com/book/en/v2/Getting-Started-Installing-Git)< and [GitHub](https://github.com/), for the latest and greatest directions.
 
