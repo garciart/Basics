@@ -8,7 +8,7 @@ Have you ever spent a couple of months coding in one language, and then having t
 
 Even though I know several languages well, I sometimes make stupid mistakes switching back and forth between them. These "back in the saddle" issues make me feel pretty dumb, especially if I spent half a day trying to debug a Python program, before realizing that I wrote some of the code in Java.
 
-In addition, while some programmers can recite a whole API by heart, I'm not one of those guys. Due to school, work, and life in general, I, paraphrasing Albus Dumbledore, sometimes find that I have too much junk crammed into my brain housing group to remember what I did five minutes ago. However, when it comes to coding, sometimes I just need a quick memory jog.
+In addition, while some programmers can recite sections of an API by heart, I'm no longer one of those guys. Due to school, work, and life in general, I, paraphrasing Albus Dumbledore, sometimes find that I have too much junk crammed into my brain housing group to remember what I did five minutes ago. However, when it comes to coding, sometimes I just need a quick memory jog.
 
 So, this is my Programmer's Pensieve; my Developer's Fake Book; my Coder's Companion, written in C, Java, Python, and more, with sample code that implement those parts of their API's that I use the most, such as:
 

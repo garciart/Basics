@@ -2,9 +2,9 @@
 
 ## Introduction
 
-When I first started using Git and GitHub, I did not use them properly. Instead of maintaining a code history, I would only upload to GitHub when I was done coding or create separate repositories for each phase, sprint, etc.. Now, regardless of how small a change is, if I am done coding, I commit on a separate branch (as I would with a development team) and I use pull requests to update the master branch.
+When I first started using Git and GitHub, I did not use them properly. Instead of maintaining a code history, I would only upload to GitHub when I was done coding or create separate repositories for each phase, sprint, etc.. Now, regardless of how small a change is, if I am done for the day, I commit on a separate branch (as I would with a development team) and I use pull requests to update the master branch.
 
-> **Note:**  Installing Git or creating a GitHub account are out of the scope of this document. I recommend visiting the official sites, [Getting Started - Installing Git](https://git-scm.com/book/en/v2/Getting-Started-Installing-Git)< and [GitHub](https://github.com/), for the latest and greatest directions.
+> **Note:**  Installing Git or creating a GitHub account are out of the scope of this document. I recommend visiting the official sites, [Getting Started - Installing Git](https://git-scm.com/book/en/v2/Getting-Started-Installing-Git) and [GitHub](https://github.com/), for the latest and greatest directions.
 
 ## The Plan
 
@@ -14,7 +14,7 @@ Open a browser and sign into GitHub:
 
 <p align="center"><img src="README/image01.png" style="width: 640px;" alt="" /></p>
 
-If this is a new project, create a repository on GitHub first by selecting Repositories->New. Do not check the "Initialize this repository with a README" or add a .gitignore or license; we'll do that locally to avoid a pull request:
+If this is a new project, create a repository on GitHub first by selecting **Repositories**->**New**. Do not check the "Initialize this repository with a README" or add a .gitignore or license; we'll do that locally to avoid a pull request:
 
 <p align="center"><img src="README/image00.png" style="width: 640px;" alt="" /></p>
 
@@ -69,19 +69,19 @@ Continue making changes as necessary, repeating the above commands whenever you 
     git commit -m "[COMMIT MESSAGE]" # Commit all changes to the HEAD (i.e., the final product to submit to the REMOTE MASTER repository)
     git push origin [USERNAME] # Push your branch to the REMOTE MASTER repository for approval
 
-Select Repositories and open the repository:
+Back in GitHub, select **Repositories** and open the repository:
 
 <p align="center"><img src="README/image02.png" style="width: 640px;" alt="" /></p>
 
-Note the information banner immediately above the list of recently pushed branches; it shows that there are two branches, which must be resolved into one branch. Open the pull request by clicking on "Compare & pull request":
+Note the information banner immediately above the list of recently pushed branches; it shows that there are two branches, which must be resolved into one branch. Open the pull request by clicking on **Compare & pull request**:
 
 <p align="center"><img src="README/image03.png" style="width: 640px;" alt="" /></p>
 
-Here, acting as [USERNAME], you can review changes, add comments to the request, assign additional reviewers, etc., before creating the pull request. For now, click on "Create Pull Request":
+Here, acting as [USERNAME], you can review changes, add comments to the request, assign additional reviewers, etc., before creating the pull request. For now, click on **Create Pull Request**:
 
 <p align="center"><img src="README/image04.png" style="width: 640px;" alt="" /></p>
 
-That would be the last step for user branch, unless there were conflicts. Next, the repository master would sign in to review changes, add comments to the request, assign additional reviewers, etc., before merging the branch pull request with the master repository. For now, since the branch has no conflicts with the base branch, click on "Merge Pull Request", followed by "Confirm merge":
+That would be the last step for user branch, unless there were conflicts. Next, the repository owner would sign in to review changes, add comments to the request, assign additional reviewers, etc., before merging the branch pull request with the master repository. For now, since the branch has no conflicts with the base branch, click on **Merge Pull Request**, followed by **Confirm merge**:
 
 <p align="center"><img src="README/image05.png" style="width: 640px;" alt="" /></p>
 
