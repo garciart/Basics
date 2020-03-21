@@ -1,4 +1,4 @@
-# The Basics - My Source Control Plan
+# The Coder's Companion - My Source Control Plan
 
 ## Introduction
 

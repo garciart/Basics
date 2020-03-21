@@ -12,11 +12,11 @@
  *     Code Conventions for the Java Programming Language (Oracle: Deprecated)
  *     (https://www.oracle.com/technetwork/java/javase/documentation/codeconvtoc-136057.html)
  *
- * @category  Basics
+ * @category  CodersCompanion
  * @package   Java
  * @author    Rob Garcia <rgarcia@rgprogramming.com>
  * @license   https://opensource.org/licenses/MIT The MIT License
- * @link      https://github.com/garciart/Basics
+ * @link      https://github.com/garciart/CodersCompanion
  * @copyright 2019-2020 Rob Garcia
  */
 package tests;

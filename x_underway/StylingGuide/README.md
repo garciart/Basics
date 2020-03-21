@@ -1,4 +1,4 @@
-# The Basics - My Styling Guide Reference
+# The Coder's Companion - My Styling Guide Reference
 
 I never paid attention to coding styles until I started to work with other programmers. I usually just followed the conventions in the book I was reading; the tutorial I was using; or class I was taking. When working with others, though, you should be on the same page. For example, while working on a Java project, the Python programers would mostly use underscores (i.e., snake_case) when naming files, while others would use to PascalCase or camelCase.
 
@@ -24,8 +24,8 @@ So, to mitigate that in my own repos, here is my down and dirty Naming Conventio
 
 
 
-  - Project (All) - A project is a structured set of files and data that, together, produce a product or service, such as a web site or an application (e.g., the Basics repo is a project, etc.).
-  - Folders (All) - A folder is a repository of files and data within a project, usually used for organization (e.g., CodeTemplates is a folder within the Basics project, etc.).
+  - Project (All) - A project is a structured set of files and data that, together, produce a product or service, such as a web site or an application (e.g., the Coder's Companion repo is a project, etc.).
+  - Folders (All) - A folder is a repository of files and data within a project, usually used for organization (e.g., PHP is a folder within the Coder's Companion project, etc.).
   - Files (All) - A file is a repository of code or data used by the project to produce a product or service (i.e., Hello.php, users.db, readme01.png, etc., are all files).
   - Modules (Python) - A module is a reusable set of functions and variables.
   - Extensions

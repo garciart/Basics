@@ -8,14 +8,14 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/garciart/Basics.git"
+    "url": "git+https://github.com/garciart/CodersCompanion.git"
   },
   "author": "Rob Garcia <rgarcia@rgprogramming.com>",
   "license": "MIT",
   "bugs": {
-    "url": "https://github.com/garciart/Basics/issues"
+    "url": "https://github.com/garciart/CodersCompanion/issues"
   },
-  "homepage": "https://github.com/garciart/Basics#readme",
+  "homepage": "https://github.com/garciart/CodersCompanion#readme",
   "dependencies": {
     "bluebird": "^3.7.2",
     "sqlite3": "^4.1.1"
