@@ -8,12 +8,12 @@
  * Styling guide: PSR-12: Extended Coding Style
  *     (https://www.php-fig.org/psr/psr-12/)
  *
- * @category  Basics
+ * @category  CodersCompanion
  * @package   PHP
  * @author    Rob Garcia <rgarcia@rgprogramming.com>
  * @copyright 2019-2020 Rob Garcia
  * @license   https://opensource.org/licenses/MIT The MIT License
- * @link      https://github.com/garciart/Basics
+ * @link      https://github.com/garciart/CodersCompanion
  */
 declare(strict_types=1);
 
@@ -25,12 +25,12 @@ require_once "CommonFunctions.php";
 /**
  * User class.
  *
- * @category  Basics
+ * @category  CodersCompanion
  * @package   PHP
  * @author    Rob Garcia <rgarcia@rgprogramming.com>
  * @copyright 2019-2020 Rob Garcia
  * @license   https://opensource.org/licenses/MIT The MIT License
- * @link      https://github.com/garciart/Basics
+ * @link      https://github.com/garciart/CodersCompanion
  */
 final class User
 {

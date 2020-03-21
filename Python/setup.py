@@ -15,7 +15,7 @@ setuptools.setup(
     description="Hello, World! (Python Template)",
     long_description=long_description,
     long_description_content_type="text/markdown",
-    url="https://github.com/garciart/Basics/tree/master/CodeTemplates/Python",
+    url="https://github.com/garciart/CodersCompanion/tree/master/CodeTemplates/Python",
     packages=setuptools.find_packages(),
     classifiers=[
         "Programming Language :: Python :: 3",

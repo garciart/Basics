@@ -16,7 +16,7 @@
  * @package   hello.models
  * @author    Rob Garcia <rgarcia@rgprogramming.com>
  * @license   https://opensource.org/licenses/MIT The MIT License
- * @link      https://github.com/garciart/Basics
+ * @link      https://github.com/garciart/CodersCompanion
  * @copyright 2019-2020 Rob Garcia
  */
 

@@ -13,7 +13,7 @@
  * @author    Rob Garcia <rgarcia@rgprogramming.com>
  * @copyright 2019-2020 Rob Garcia
  * @license   https://opensource.org/licenses/MIT The MIT License
- * @link      https://github.com/garciart/Basics
+ * @link      https://github.com/garciart/CodersCompanion
  */
 declare(strict_types=1);
 

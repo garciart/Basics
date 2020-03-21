@@ -1,4 +1,4 @@
-# The Basics - My System Security Plans
+# The Coder's Companion - My System Security Plans
 
 If you ever get a chance to intern at NASA, especially as a developer, do it! Working with the best and brightest is a great experience and you will learn a lot. However, you will also learn about the struggle of balancing Dev-Sec-Ops. For example, in order to do localhost development, you had to have a security plan. For many developers, this was an example of government "red tape", but, truthfully, it is a sound practice.
 
