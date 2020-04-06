@@ -22,34 +22,30 @@ declare(strict_types=1);
  */
 const MODEL_DIR = __DIR__;
 define("ROOT_DIR", dirname(dirname(__FILE__)));
+/**
+ * Set error reporting:
+ * DEV = For development; more verbose and more details 
+ * PROD = For production; less details
+ */
+const ERROR_REPORTING = "PROD";
 
 // Report all errors and log them in ErrorLog.txt
 error_reporting(-1);
 ini_set("log_errors", "1");
 ini_set("error_log", ROOT_DIR . DIRECTORY_SEPARATOR . "ErrorLog.txt");
 
-/*
- * IMPORTANT!
- *
- * FOR DEVELOPMENT ERROR REPORTING:
- * Uncomment ini_set("DISPLAY_ERRORS", 1) and comment out set_error_handler()
- * and set_exception_handler()
- *
- * FOR PRODUCTION ERROR REPORTING:
- * Uncomment set_error_handler() and set_exception_handler() and comment out
- * ini_set("DISPLAY_ERRORS", 1)
- */
-
-// Development error reporting
-// ini_set("DISPLAY_ERRORS", 1);
-
-/*
- * Production error reporting
- * Use "32767" instead of "E_ALL" and make sure to set "DISPLAY_ERRORS = On"
- * in php.ini
- */
-set_error_handler("errorHandler", 32767);
-set_exception_handler("exceptionHandler");
+if ($ERROR_REPORTING == "PROD") {
+    /*
+     * Production error reporting
+     * Use "32767" instead of "E_ALL" and make sure to set "DISPLAY_ERRORS = On"
+     * in php.ini
+     */
+    set_error_handler("errorHandler", 32767);
+    set_exception_handler("exceptionHandler");
+} else {
+    // Development error reporting
+    ini_set("DISPLAY_ERRORS", "1");
+}
 
 /**
  * Error handler. Can be used to redirect users to error page.
