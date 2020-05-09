@@ -30,7 +30,7 @@ Initialize from repo directory (i.e., CodeTemplates):
 
 Add *\<GenerateProgramFile\>false\</GenerateProgramFile\>* to **\<PropertyGroup\>** in CSharp.csproj file
 
-This template uses a very simple directory structure that can be incorporated into Maven or Gradle:
+This template uses a very simple directory structure:
 
     CSharp
     |-- Hello
