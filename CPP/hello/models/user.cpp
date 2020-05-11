@@ -49,7 +49,7 @@ public:
      */
     void setUserID(long userID)
     {
-        if (cf.validateUserID(userID))
+        if (cf.ValidateUserID(userID))
         {
             userID = userID;
         }
@@ -76,8 +76,8 @@ public:
      */
     void setFirstName(string firstName)
     {
-        firstName = cf.trim(firstName);
-        if (cf.validateText(firstName))
+        firstName = cf.Trim(firstName);
+        if (cf.ValidateText(firstName))
         {
             firstName = firstName;
         }
@@ -104,8 +104,8 @@ public:
      */
     void setLastName(string lastName)
     {
-        lastName = cf.trim(lastName);
-        if (cf.validateText(lastName))
+        lastName = cf.Trim(lastName);
+        if (cf.ValidateText(lastName))
         {
             lastName = lastName;
         }
@@ -132,8 +132,8 @@ public:
      */
     void setEmail(string email)
     {
-        email = cf.trim(email);
-        if (cf.validateEmail(email))
+        email = cf.Trim(email);
+        if (cf.ValidateEmail(email))
         {
             email = email;
         }
@@ -187,7 +187,7 @@ public:
      */
     void setCreationDate(string creationDate)
     {
-        if (cf.validateDate(creationDate))
+        if (cf.ValidateDate(creationDate))
         {
             creationDate = creationDate;
         }
