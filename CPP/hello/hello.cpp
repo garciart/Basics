@@ -15,7 +15,10 @@
 
 /* ========== Include files and other header files ========== */
 
+#include <windows.h>
 #include <iostream>
+#include <string>
+using namespace std;
 
 /* ========== Constants, #define, and enum statements ========== */
 
@@ -30,10 +33,23 @@ int main(int argc, char **argv)
      * instead of implementing the preprocessor directive "using namespace std;"
      */
     std::cout << "hello, world" << std::endl;
-    if (__cplusplus == 201703L) std::cout << "C++17\n";
-    else if (__cplusplus == 201402L) std::cout << "C++14\n";
-    else if (__cplusplus == 201103L) std::cout << "C++11\n";
-    else if (__cplusplus == 199711L) std::cout << "C++98\n";
-    else std::cout << "pre-standard C++\n";
+    if (__cplusplus == 201703L)
+        std::cout << "C++17\n";
+    else if (__cplusplus == 201402L)
+        std::cout << "C++14\n";
+    else if (__cplusplus == 201103L)
+        std::cout << "C++11\n";
+    else if (__cplusplus == 199711L)
+        std::cout << "C++98\n";
+    else
+        std::cout << "pre-standard C++\n";
+
     return EXIT_SUCCESS;
+}
+
+string ExePath()
+{
+    wchar_t buffer[MAX_PATH];
+    GetModuleFileName(NULL, buffer, MAX_PATH);
+    string f = string(buffer);
 }
