@@ -12,8 +12,15 @@
  * @link      https://github.com/garciart/CodersCompanion
  * @copyright 2019-2020 Rob Garcia
  */
+#include "common_functions.cpp"
 
-class DatabaseFunctions {
-    public:
+using namespace std;
 
+class DatabaseFunctions
+{
+private:
+    CommonFunctions cf;
+
+public:
+    string PATH_TO_SQLITE_DB = cf.ROOT_DIR + "/" + "data" + "/" + "Users.db";
 };

@@ -32,13 +32,13 @@ private:
     string comment;
 
 public:
-
     /**
      * User ID getter.
      *
      * @return The user ID property.
      */
-    long getUserID() {
+    long getUserID()
+    {
         return userID;
     }
 
@@ -47,10 +47,14 @@ public:
      *
      * @param userID The user's ID.
      */
-     void setUserID(long userID) {
-        if (cf.validateUserID(userID)) {
+    void setUserID(long userID)
+    {
+        if (cf.validateUserID(userID))
+        {
             userID = userID;
-        } else {
+        }
+        else
+        {
             throw "User ID cannot be empty, 0, NULL, or FALSE.";
         }
     }
@@ -60,7 +64,8 @@ public:
      *
      * @return The first name property.
      */
-    string getFirstName() {
+    string getFirstName()
+    {
         return firstName;
     }
 
@@ -69,11 +74,15 @@ public:
      *
      * @param firstName The user's first name.
      */
-    void setFirstName(string firstName) {
+    void setFirstName(string firstName)
+    {
         firstName = cf.trim(firstName);
-        if (cf.validateText(firstName)) {
+        if (cf.validateText(firstName))
+        {
             firstName = firstName;
-        } else {
+        }
+        else
+        {
             throw "First name cannot be empty or contain illegal characters.";
         }
     }
@@ -83,7 +92,8 @@ public:
      *
      * @return The last name property.
      */
-    string getLastName() {
+    string getLastName()
+    {
         return lastName;
     }
 
@@ -92,11 +102,15 @@ public:
      *
      * @param lastName The user's last name.
      */
-    void setLastName(string lastName) {
+    void setLastName(string lastName)
+    {
         lastName = cf.trim(lastName);
-        if (cf.validateText(lastName)) {
+        if (cf.validateText(lastName))
+        {
             lastName = lastName;
-        } else {
+        }
+        else
+        {
             throw "Last name cannot be empty or contain illegal characters.";
         }
     }
@@ -106,7 +120,8 @@ public:
      *
      * @return The email property.
      */
-    string getEmail() {
+    string getEmail()
+    {
         return email;
     }
 
@@ -115,11 +130,15 @@ public:
      *
      * @param email The user's email address (can be used as a user name).
      */
-    void setEmail(string email) {
+    void setEmail(string email)
+    {
         email = cf.trim(email);
-        if (cf.validateEmail(email)) {
+        if (cf.validateEmail(email))
+        {
             email = email;
-        } else {
+        }
+        else
+        {
             throw "Email cannot be empty, incorrectly formatted, or contain illegal characters.";
         }
     }
@@ -129,7 +148,8 @@ public:
      *
      * @return float The score property.
      */
-    float getScore() {
+    float getScore()
+    {
         return score;
     }
 
@@ -138,10 +158,14 @@ public:
      *
      * @param score The user's score from 0.0 to 100.0.
      */
-    void setScore(float score) {
-        if (score < 0.0 || score > 100.0) {
+    void setScore(float score)
+    {
+        if (score < 0.0 || score > 100.0)
+        {
             throw "Score cannot be empty and must be equal to or between 0.0 and 100.0";
-        } else {
+        }
+        else
+        {
             score = score;
         }
     }
@@ -151,7 +175,8 @@ public:
      *
      * @return The creation date property.
      */
-    string getCreationDate() {
+    string getCreationDate()
+    {
         return creationDate;
     }
 
@@ -160,10 +185,14 @@ public:
      *
      * @param creationDate The date the user was added to the database.
      */
-    void setCreationDate(string creationDate) {
-        if (cf.validateDate(creationDate)) {
+    void setCreationDate(string creationDate)
+    {
+        if (cf.validateDate(creationDate))
+        {
             creationDate = creationDate;
-        } else {
+        }
+        else
+        {
             throw "Creation date cannot be empty or incorrectly formatted.";
         }
     }
@@ -173,7 +202,8 @@ public:
      *
      * @return The comment property.
      */
-    string getComment() {
+    string getComment()
+    {
         return comment;
     }
 
@@ -182,7 +212,8 @@ public:
      *
      * @param comment Any additional comments.
      */
-    void setComment(string comment) {
+    void setComment(string comment)
+    {
         comment = comment;
     }
 
@@ -198,7 +229,8 @@ public:
      * @param comment      Any additional comments.
      */
     User(long userID, string firstName, string lastName, string email, float score, string creationDate,
-            string comment) {
+         string comment)
+    {
         setUserID(userID);
         setFirstName(firstName);
         setLastName(lastName);

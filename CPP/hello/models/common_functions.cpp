@@ -20,6 +20,7 @@ class CommonFunctions
 {
 private:
 public:
+    string ROOT_DIR = "";
     /**
      * Validate UserID.
      * 
@@ -37,7 +38,8 @@ public:
      * @param text The text that will be entered into the database.
      * @return True if the text is valid, false if not.
      */
-    bool validateText(string text) {
+    bool validateText(string text)
+    {
         return (trim(text) == "") ? false : true;
     }
 
@@ -47,7 +49,8 @@ public:
      * @param email The email address that will be entered into the database.
      * @return True if the email is valid, false if not.
      */
-    bool validateEmail(string email) {
+    bool validateEmail(string email)
+    {
         return (trim(email) == "") ? false : true;
     }
 
@@ -57,7 +60,8 @@ public:
      * @param date The date that will be entered into the database.
      * @return True if the date format is valid, false if not.
      */
-    bool validateDate(string date) {
+    bool validateDate(string date)
+    {
         return (trim(date) == "" || date.length() != 19) ? false : true;
     }
 
