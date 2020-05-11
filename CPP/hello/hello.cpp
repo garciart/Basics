@@ -15,10 +15,9 @@
 
 /* ========== Include files and other header files ========== */
 
-#include <windows.h>
+#include "models/common_functions.cpp"
 #include <iostream>
 #include <string>
-using namespace std;
 
 /* ========== Constants, #define, and enum statements ========== */
 
@@ -44,12 +43,8 @@ int main(int argc, char **argv)
     else
         std::cout << "pre-standard C++\n";
 
-    return EXIT_SUCCESS;
-}
+    CommonFunctions cf;
+    std::cout << cf.ROOT_DIR << std::endl;
 
-string ExePath()
-{
-    wchar_t buffer[MAX_PATH];
-    GetModuleFileName(NULL, buffer, MAX_PATH);
-    string f = string(buffer);
+    return EXIT_SUCCESS;
 }
