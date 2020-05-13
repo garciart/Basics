@@ -22,5 +22,20 @@ private:
     CommonFunctions cf;
 
 public:
+    /**
+     * @brief Sets the path to the user database.
+     */
     string PATH_TO_SQLITE_DB = cf.ROOT_DIR + "/" + "data" + "/" + "Users.db";
+
+    int CreateUserTable() {
+        int rowsAffected = -1;
+
+        return rowsAffected;
+    }
+
+    long createUser(String firstName, String lastName, String email, float score, String comment) {
+        long lastRowID = 0;
+        
+        return lastRowID;
+    }
 };

@@ -44,7 +44,8 @@ int main(int argc, char **argv)
         std::cout << "pre-standard C++\n";
 
     CommonFunctions cf;
-    std::cout << cf.ROOT_DIR << std::endl;
+    std::cout << "Root Directory: " << cf.ROOT_DIR << std::endl;
+    std::cout << "Model Directory: " << cf.MODEL_DIR << std::endl;
 
     return EXIT_SUCCESS;
 }
