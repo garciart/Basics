@@ -35,8 +35,8 @@ namespace Hello.Models
         /// Use readonly instead of const for RootDir, since it must be generated dynamically in C#
         /// </summary>
         /// <returns>The application's root directory.</returns>
-
         public static readonly string RootDir = string.Format("{0}{1}hello", Directory.GetCurrentDirectory(), Path.DirectorySeparatorChar);
+
         /// <summary>
         /// Get the application's model directory.
         /// Use readonly instead of const for ModelDir, since it must be generated dynamically in C#
@@ -54,7 +54,7 @@ namespace Hello.Models
         /// Reformats error and exception details and records them in plain text in the error_log file.
         /// </summary>
         /// <param name="ex">The exception's details.</param>
-        /// <returns>Reformated error and exception details in plain text.</returns>
+        /// <returns>Reformatted error and exception details in plain text.</returns>
         public static string LogError(Exception ex)
         {
             string exception = null;

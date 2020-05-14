@@ -1,4 +1,4 @@
-/*
+/**
  * User class.
  *
  * C++ version used: C++ 14
@@ -22,7 +22,6 @@ using namespace std;
 class User
 {
 private:
-    CommonFunctions cf;
     long userID;
     string firstName;
     string lastName;
@@ -49,7 +48,7 @@ public:
      */
     void setUserID(long userID)
     {
-        if (cf.ValidateUserID(userID))
+        if (validateUserID(userID))
         {
             userID = userID;
         }
@@ -76,8 +75,8 @@ public:
      */
     void setFirstName(string firstName)
     {
-        firstName = cf.Trim(firstName);
-        if (cf.ValidateText(firstName))
+        firstName = trim(firstName);
+        if (validateText(firstName))
         {
             firstName = firstName;
         }
@@ -104,8 +103,8 @@ public:
      */
     void setLastName(string lastName)
     {
-        lastName = cf.Trim(lastName);
-        if (cf.ValidateText(lastName))
+        lastName = trim(lastName);
+        if (validateText(lastName))
         {
             lastName = lastName;
         }
@@ -132,8 +131,8 @@ public:
      */
     void setEmail(string email)
     {
-        email = cf.Trim(email);
-        if (cf.ValidateEmail(email))
+        email = trim(email);
+        if (validateEmail(email))
         {
             email = email;
         }
@@ -187,7 +186,7 @@ public:
      */
     void setCreationDate(string creationDate)
     {
-        if (cf.ValidateDate(creationDate))
+        if (validateDate(creationDate))
         {
             creationDate = creationDate;
         }
