@@ -4,7 +4,7 @@ This is a basic C++ console application, which includes some of the most common 
 
 - Access a module from another module.
 - Create, read, update, and delete data from a database.
-- Validate numbers and formated text, such as email addresses.
+- Validate numbers and formatted text, such as email addresses.
 - Instantiate class objects.
 - Handle and log exceptions and errors.
 - Run unit tests.

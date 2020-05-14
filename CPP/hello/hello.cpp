@@ -1,4 +1,4 @@
-/*
+/**
  * Hello World in C++ with database integration.
  *
  * C++ version used: C++ 14
@@ -15,9 +15,12 @@
 
 /* ========== Include files and other header files ========== */
 
+// #include "models/common_functions.cpp"
 #include "models/common_functions.cpp"
 #include <iostream>
 #include <string>
+
+using namespace std;
 
 /* ========== Constants, #define, and enum statements ========== */
 
@@ -27,25 +30,24 @@
 
 int main(int argc, char **argv)
 {
-    /**
-     * To identify what functions are used by the standard namespace, we will preface each one with "std::",
-     * instead of implementing the preprocessor directive "using namespace std;"
-     */
-    std::cout << "hello, world" << std::endl;
+    cout << "hello, world" << endl;
     if (__cplusplus == 201703L)
-        std::cout << "C++17\n";
+        cout << "C++17\n";
     else if (__cplusplus == 201402L)
-        std::cout << "C++14\n";
+        cout << "C++14\n";
     else if (__cplusplus == 201103L)
-        std::cout << "C++11\n";
+        cout << "C++11\n";
     else if (__cplusplus == 199711L)
-        std::cout << "C++98\n";
+        cout << "C++98\n";
     else
-        std::cout << "pre-standard C++\n";
+        cout << "pre-standard C++\n";
 
-    CommonFunctions cf;
-    std::cout << "Root Directory: " << cf.ROOT_DIR << std::endl;
-    std::cout << "Model Directory: " << cf.MODEL_DIR << std::endl;
+    cout << "Root Directory: " << ROOT_DIR << endl;
+    cout << "Model Directory: " << MODEL_DIR << endl;
+
+    cout << "User ID 3 is " << (validateUserID(3) ? "Good!" : "Bad.") << endl;
+    cout << "User ID -3 is " <<  (validateUserID(-3) ? "Good!" : "Bad.") << endl;
+
 
     return EXIT_SUCCESS;
 }

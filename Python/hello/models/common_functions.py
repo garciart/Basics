@@ -49,7 +49,7 @@ def log_error(exc_info):
 
     :param exc_info: Exception details from sys module.
     :type exc_info: tuple
-    :return: Reformated exception details in plain text.
+    :return: Reformatted exception details in plain text.
     :rtype: str
     """
     exception = None
