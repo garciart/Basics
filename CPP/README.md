@@ -8,7 +8,7 @@ This is a basic C++ console application, which includes some of the most common 
 - Instantiate class objects.
 - Handle and log exceptions and errors.
 - Run unit tests.
-- Apply styling and comments per the [Google C++ Style Guide](https://google.github.io/styleguide/cppguide.html).
+- Apply styling and comments per the [Navy Research Laboratory (NRL) Radar Division's C++ Coding Standard style guide](https://apps.dtic.mil/dtic/tr/fulltext/u2/a640901.pdf).
 
 Before starting, you must install C++ using [Microsoft C++ Build Tools](https://visualstudio.microsoft.com/visual-cpp-build-tools/). In addition, ensure the [Microsoft Unit Testing Framework for C++](https://docs.microsoft.com/en-us/visualstudio/test/writing-unit-tests-for-c-cpp?view=vs-2019) is installed. If you are using Visual Studio Code, install [C/C++ for Visual Studio Code](https://marketplace.visualstudio.com/items?itemName=ms-vscode.cpptools) as well.
 
@@ -29,6 +29,10 @@ This template uses a very simple directory structure:
     |-- .gitignore
     |-- LICENSE
     |-- README.MD
+
+If you are using Visual Studio Code, to compile and link the source code from the terminal, make sure you are in the project directory (i.e., CPP) and run the following command:
+
+    g++ hello\hello.cpp -o hello\hello
 
 To run from terminal, make sure you are in the project directory (i.e., CPP) and run the following command:
 

@@ -3,7 +3,7 @@
  *
  * C++ version used: C++ 14
  *
- * Styling guide: Google C++ Style Guide at https://google.github.io/styleguide/cppguide.html.
+ * Styling guide: NRL Radar Division's C++ Coding Standard style guide at https://apps.dtic.mil/dtic/tr/fulltext/u2/a640901.pdf.
  *
  * @category  CPP
  * @package   Hello
