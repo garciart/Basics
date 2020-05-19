@@ -1,5 +1,5 @@
 /**
- * Code common to one or more files.
+ * @brief Code common to one or more files.
  *
  * C++ version used: C++ 14
  *
@@ -12,6 +12,7 @@
  * @link      https://github.com/garciart/CodersCompanion
  * @copyright 2019-2020 Rob Garcia
  */
+
 #ifdef _WIN32
 #include <direct.h>
 #define GetCurrentDir _getcwd
@@ -24,30 +25,15 @@
 
 #include <iostream>
 #include <string>
+#include <vector>
 
 using namespace std;
 
 string trim(const string &str);
+string getRootDir();
+string logError(string ex);
 
-/**
- * @brief Get the Root Dir object.
- * 
- * @return string The working directory of the calling file.
- */
-string getRootDir()
-{
-    try
-    {
-        char buffer[FILENAME_MAX];
-        GetCurrentDir(buffer, FILENAME_MAX);
-        string current_dir(buffer);
-        return current_dir;
-    }
-    catch (const char *ex)
-    {
-        cout << "Error: " << ex << endl;
-    }
-}
+const string WHITESPACE = " \n\r\t\f\v";
 
 /**
  * @brief Set the application's root directory.
@@ -66,6 +52,26 @@ const string MODEL_DIR = ROOT_DIR + FILE_SEPARATOR + "models";
 const bool DISPLAY_ERRORS = true;
 
 /**
+ * @brief Get the directory of the calling file.
+ * 
+ * @return string The working directory of the calling file.
+ */
+string getRootDir()
+{
+    try
+    {
+        char buffer[FILENAME_MAX];
+        GetCurrentDir(buffer, FILENAME_MAX);
+        string current_dir(buffer);
+        return current_dir;
+    }
+    catch (exception &ex)
+    {
+        logError((string)ex.what() + " in getRootDir() function.");
+    }
+}
+
+/**
  * @brief Reformats error and exception details and records them in plain
  * text in the error_log file.
  * 
@@ -74,9 +80,24 @@ const bool DISPLAY_ERRORS = true;
  */
 string logError(string ex)
 {
-    string formatted_exception = NULL;
+    if (DISPLAY_ERRORS)
+    {
+        cout << "Error/Exception: " << ex << endl;
+    }
+}
 
-    return formatted_exception;
+int testError()
+{
+    try
+    {
+        vector<int> v(5);
+        int answer = v.at(10);
+        return answer;
+    }
+    catch (const exception &ex)
+    {
+        logError((string)ex.what() + " in testError() function.");
+    }
 }
 
 /**
@@ -131,11 +152,14 @@ bool validateDate(string date)
  */
 string trim(const string &str)
 {
-    size_t first = str.find_first_not_of(' ');
-    if (string::npos == first)
+    // Get the index of the first non-whitespace character in the string
+    size_t first = str.find_first_not_of(WHITESPACE);
+    // If the string is searched and no whitespace is found, return the string
+    if (first == string::npos)
     {
         return str;
     }
-    size_t last = str.find_last_not_of(' ');
+    // Get the index of the last non-whitespace character in the string
+    size_t last = str.find_last_not_of(WHITESPACE);
     return str.substr(first, (last - first + 1));
 }

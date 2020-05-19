@@ -21,14 +21,16 @@ using namespace std;
  */
 const string PATH_TO_SQLITE_DB = ROOT_DIR + FILE_SEPARATOR + "data" + FILE_SEPARATOR + "Users.db";
 
-int createUserTable() {
+int createUserTable()
+{
     int rowsAffected = -1;
 
     return rowsAffected;
 }
 
-long createUser(string firstName, string lastName, string email, float score, string comment) {
+long createUser(string firstName, string lastName, string email, float score, string comment)
+{
     long lastRowID = 0;
-    
+
     return lastRowID;
 }
