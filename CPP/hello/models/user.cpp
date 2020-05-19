@@ -1,5 +1,5 @@
 /**
- * User class.
+ * @brief User class.
  *
  * C++ version used: C++ 14
  *
@@ -236,6 +236,6 @@ public:
         setEmail(email);
         setScore(score);
         setCreationDate(creationDate);
-        comment = comment;
+        setComment(comment);
     }
 };

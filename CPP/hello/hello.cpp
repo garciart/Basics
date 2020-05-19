@@ -20,16 +20,29 @@
 #include <iostream>
 #include <string>
 
-using namespace std;
-
 /* ========== Constants, #define, and enum statements ========== */
 
 /* ========== Public Datatypes ========== */
 
 /* ========== Public Function prototypes ========== */
 
+/**
+ * @brief Hello World in C# with database integration.
+ * 
+ */
+void helloUsers() {
+    try {
+
+    }
+    catch (const exception &ex)
+    {
+        logError((string)ex.what() + " in helloUsers() function.");
+    }
+}
+
 int main(int argc, char **argv)
 {
+    using namespace std;
     cout << "hello, world" << endl;
     if (__cplusplus == 201703L)
         cout << "C++17\n";
@@ -46,8 +59,12 @@ int main(int argc, char **argv)
     cout << "Model Directory: " << MODEL_DIR << endl;
 
     cout << "User ID 3 is " << (validateUserID(3) ? "Good!" : "Bad.") << endl;
-    cout << "User ID -3 is " <<  (validateUserID(-3) ? "Good!" : "Bad.") << endl;
+    cout << "User ID -3 is " << (validateUserID(-3) ? "Good!" : "Bad.") << endl;
 
+    string test_trim = "   What\'s up, yo?   ";
+    cout << test_trim << "<-- This is the end." << endl;
+    cout << trim(test_trim) << "<-- This is the end." << endl;
+    testError();
 
     return EXIT_SUCCESS;
 }
