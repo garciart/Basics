@@ -20,6 +20,8 @@
 #include <iostream>
 #include <string>
 
+int testError();
+
 /* ========== Constants, #define, and enum statements ========== */
 
 /* ========== Public Datatypes ========== */
@@ -67,4 +69,18 @@ int main(int argc, char **argv)
     testError();
 
     return EXIT_SUCCESS;
+}
+
+int testError()
+{
+    try
+    {
+        vector<int> v(5);
+        int answer = v.at(10);
+        return answer;
+    }
+    catch (const exception &ex)
+    {
+        logError((string)ex.what() + " in testError() function.");
+    }
 }

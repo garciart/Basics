@@ -25,7 +25,9 @@
 
 #include <ctime>
 #include <fstream>
+#include <iomanip>
 #include <iostream>
+#include <sstream>
 #include <string>
 #include <vector>
 
@@ -82,29 +84,24 @@ string getRootDir()
  */
 string logError(string ex)
 {
-       time_t now = time(0);
-   tm *ltm = localtime(&now);
+    time_t now = time(0);
+    tm *ltm = localtime(&now);
+    stringstream ss;
+    ss << (1900 + ltm->tm_year) << "-"
+       << setw(2) << setfill('0') << ltm->tm_mon << "-"
+       << setw(2) << setfill('0') << ltm->tm_mday << " "
+       << setw(2) << setfill('0') << ltm->tm_hour << "-"
+       << setw(2) << setfill('0') << ltm->tm_min << "-"
+       << setw(2) << setfill('0') << ltm->tm_sec;
 
-ofstream errorFile;
-errorFile.open("ErrorLog.txt", ios_base::app);
+    ofstream errorFile;
+    errorFile.open("ErrorLog.txt", ios_base::app);
+    errorFile << ss.str() << ": " << ex << endl;
+    errorFile.close();
 
     if (DISPLAY_ERRORS)
     {
         cout << "Error/Exception: " << ex << endl;
-    }
-}
-
-int testError()
-{
-    try
-    {
-        vector<int> v(5);
-        int answer = v.at(10);
-        return answer;
-    }
-    catch (const exception &ex)
-    {
-        logError((string)ex.what() + " in testError() function.");
     }
 }
 
