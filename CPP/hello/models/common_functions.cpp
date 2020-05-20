@@ -23,6 +23,8 @@
 #define FILE_SEPARATOR "/"
 #endif
 
+#include <ctime>
+#include <fstream>
 #include <iostream>
 #include <string>
 #include <vector>
@@ -80,6 +82,12 @@ string getRootDir()
  */
 string logError(string ex)
 {
+       time_t now = time(0);
+   tm *ltm = localtime(&now);
+
+ofstream errorFile;
+errorFile.open("ErrorLog.txt", ios_base::app);
+
     if (DISPLAY_ERRORS)
     {
         cout << "Error/Exception: " << ex << endl;
