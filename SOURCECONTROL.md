@@ -102,11 +102,12 @@ If you make changes to the repository in GitHub, you can update the local reposi
     git status # Get the status of the repository
     git pull origin master # Combines git fetch and git merge to update user branch
 
-Or you can switch back to the master branch and pull:
+Or you can switch back to the master branch and update both branches:
 
     git status # Get the status of the repository
     git checkout master # Switch back to the master branch
-    git pull # Update master branch
+    git fetch -p origin # Fetch the remote branch
+    git merge origin/master # Update master branch
     git checkout [USERNAME] # Switch back to user branch
     git merge master # Update user branch
 
