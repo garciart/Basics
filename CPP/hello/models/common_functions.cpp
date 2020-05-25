@@ -27,6 +27,7 @@
 #include <fstream>
 #include <iomanip>
 #include <iostream>
+#include <regex>
 #include <sstream>
 #include <string>
 #include <vector>
@@ -82,7 +83,7 @@ string getRootDir()
  * @param ex The exception's details.
  * @return string Reformatted error and exception details in plain text.
  */
-string logError(string ex)
+string logError(string errorText)
 {
     time_t now = time(0);
     tm *ltm = localtime(&now);
@@ -96,12 +97,12 @@ string logError(string ex)
 
     ofstream errorFile;
     errorFile.open("ErrorLog.txt", ios_base::app);
-    errorFile << ss.str() << ": " << ex << endl;
+    errorFile << ss.str() << ": " << errorText << endl;
     errorFile.close();
 
     if (DISPLAY_ERRORS)
     {
-        cout << "Error/Exception: " << ex << endl;
+        cout << "Error/Exception: " << errorText << endl;
     }
 }
 
@@ -124,7 +125,8 @@ bool validateUserID(long userID)
  */
 bool validateText(string text)
 {
-    return (trim(text) == "") ? false : true;
+    regex pattern ("^[A-Za-z0-9\\s\\-._~:\\/?#\\[\\]@!$&'()*+,;=]*$");
+    return (trim(text) == "" || !regex_match(text, pattern)) ? false : true;
 }
 
 /**
@@ -135,7 +137,8 @@ bool validateText(string text)
  */
 bool validateEmail(string email)
 {
-    return (trim(email) == "") ? false : true;
+    regex pattern ("^[A-Za-z0-9\\-._~\\/?#!$&'%*+=`{|}^]+(@[a-zA-Z0-9-.]+)(.[a-zA-Z0-9]{2,}){2,}$");
+    return (trim(email) == "" || !regex_match(email, pattern)) ? false : true;
 }
 
 /**
@@ -146,7 +149,8 @@ bool validateEmail(string email)
  */
 bool validateDate(string date)
 {
-    return (trim(date) == "" || date.length() != 19) ? false : true;
+    regex pattern ("^([0-9]){4}-([0-9]){2}-([0-9]){2} ([0-9]){2}:([0-9]){2}:([0-9]){2}$");
+    return (trim(date) == "" || !regex_match(date, pattern) || date.length() != 19) ? false : true;
 }
 
 /**

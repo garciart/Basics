@@ -9,25 +9,24 @@
  * 
  */
 
-#include <ctime>
 #include <iomanip>
 #include <iostream>
-#include <sstream>
-#include <string>
+#include "common_functions.cpp"
 
 using namespace std;
 
 int main()
 {
-    time_t now = time(0);
-    tm *ltm = localtime(&now);
-    stringstream ss;
-    ss << (1900 + ltm->tm_year) << "-"
-     << setw(2) << setfill('0') << ltm->tm_mon << "-"
-     << setw(2) << setfill('0') << ltm->tm_mday << " "
-     << setw(2) << setfill('0') << ltm->tm_hour << "-"
-     << setw(2) << setfill('0') << ltm->tm_min << "-"
-     << setw(2) << setfill('0') << ltm->tm_sec << endl;
-    cout << ss.str();
+    try
+    {
+        cout << (validateText("<script>alert()</script>") ? "True" : "False") << endl;
+        cout << (validateEmail("Jose@Jose.com") ? "True" : "False") << endl;
+        cout << (validateDate("2019-01-31 08:00:00") ? "True" : "False") << endl;
+    }
+    catch (exception &ex)
+    {
+        cout << ex.what() << " in dev.main()." << endl;
+        return EXIT_FAILURE;
+    }
     return EXIT_SUCCESS;
 }
