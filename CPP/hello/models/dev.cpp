@@ -19,13 +19,17 @@ int main()
 {
     try
     {
+        cout << (validateUserID(10) ? "True" : "False") << endl;
         cout << (validateText("<script>alert()</script>") ? "True" : "False") << endl;
         cout << (validateEmail("Jose@Jose.com") ? "True" : "False") << endl;
         cout << (validateDate("2019-01-31 08:00:00") ? "True" : "False") << endl;
     }
     catch (exception &ex)
     {
+            if (DISPLAY_ERRORS)
+    {
         cout << ex.what() << " in dev.main()." << endl;
+    }
         return EXIT_FAILURE;
     }
     return EXIT_SUCCESS;

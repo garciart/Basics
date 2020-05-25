@@ -93,7 +93,7 @@ def validate_text(text):
 
     :param text: The text that will be entered into the database.
     :type text: str
-    :return: True if the text is valid, false if not.
+    :return: True if the text is valid per RFC 3986, false if not.
     :rtype: bool
     """
     if not (text.strip()) or re.search(
@@ -108,7 +108,7 @@ def validate_email(email):
 
     :param email: The email address that will be entered into the database.
     :type email: str
-    :return: True if the email is valid, false if not.
+    :return: True if the email is valid per RFC 3986, false if not.
     :rtype: bool
     """
     if not (email.strip()) or re.search(
@@ -123,7 +123,7 @@ def validate_date(date):
 
     :param date: The date that will be entered into the database.
     :type date: str
-    :return: True if the date format is valid, false if not.
+    :return: True if the date format is well formed with valid characters, false if not.
     :rtype: bool
     """
     result = None

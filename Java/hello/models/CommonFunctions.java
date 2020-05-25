@@ -92,7 +92,7 @@ public class CommonFunctions {
      * Validate text input.
      * 
      * @param text The text that will be entered into the database.
-     * @return True if the text is valid, false if not.
+     * @return True if the text is valid per RFC 3986, false if not.
      */
     public static Boolean validateText(String text) {
         return (text.trim() == null || text.trim().isEmpty()
@@ -103,7 +103,7 @@ public class CommonFunctions {
      * Validate email address.
      * 
      * @param email The email address that will be entered into the database.
-     * @return True if the email is valid, false if not.
+     * @return True if the email is valid per RFC 3986, false if not.
      */
     public static Boolean validateEmail(String email) {
         return (email.trim() == null || email.trim().isEmpty()
@@ -115,7 +115,7 @@ public class CommonFunctions {
      * Validate date format.
      * 
      * @param date The date that will be entered into the database.
-     * @return True if the date format is valid, false if not.
+     * @return True if the date format is well formed with valid characters, false if not.
      */
     public static Boolean validateDate(String date) {
         return (date.trim() == null || date.trim().isEmpty() || date.length() != 19 || (Pattern
