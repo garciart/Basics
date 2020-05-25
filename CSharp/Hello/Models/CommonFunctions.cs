@@ -86,7 +86,7 @@ namespace Hello.Models
         /// Validate text input.
         /// </summary>
         /// <param name="text">The text that will be entered into the database.</param>
-        /// <returns>True if the text is valid, false if not.</returns>
+        /// <returns>True if the text is valid per RFC 3986, false if not.</returns>
         public static bool ValidateText(string text)
         {
             return (string.IsNullOrEmpty(text.Trim()) ||
@@ -97,7 +97,7 @@ namespace Hello.Models
         /// Validate email address.
         /// </summary>
         /// <param name="email">The email address that will be entered into the database.</param>
-        /// <returns>True if the email is valid, false if not.</returns>
+        /// <returns>True if the email is valid per RFC 3986, false if not.</returns>
         public static bool ValidateEmail(string email)
         {
             return (string.IsNullOrEmpty(email.Trim()) ||
@@ -108,7 +108,7 @@ namespace Hello.Models
         /// Validate date format.
         /// </summary>
         /// <param name="date">The date that will be entered into the database.</param>
-        /// <returns>True if the date format is valid, false if not.</returns>
+        /// <returns>True if the date format is well formed with valid characters, false if not.</returns>
         public static bool ValidateDate(string date)
         {
             return (string.IsNullOrEmpty(date.Trim()) ||

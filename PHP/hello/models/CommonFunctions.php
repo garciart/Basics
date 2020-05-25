@@ -103,7 +103,7 @@ function validateUserID($userID)
  *
  * @param string $text The text that will be entered into the database.
  *
- * @return boolean True if the text is valid, false if not.
+ * @return boolean True if the text is valid per RFC 3986, false if not.
  */
 function validateText($text)
 {
@@ -121,7 +121,7 @@ function validateText($text)
  *
  * @param string $email The email address that will be entered into the database.
  *
- * @return boolean True if the email is valid, false if not.
+ * @return boolean True if the email is valid per RFC 3986, false if not.
  */
 function validateEmail($email)
 {
@@ -137,7 +137,7 @@ function validateEmail($email)
  *
  * @param string $date The date that will be entered into the database.
  *
- * @return boolean True if the date format is valid, false if not.
+ * @return boolean True if the date format is well formed with valid characters, false if not.
  */
 function validateDate($date)
 {

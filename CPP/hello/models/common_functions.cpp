@@ -34,9 +34,9 @@
 
 using namespace std;
 
-string trim(const string &str);
+string trim(string str);
 string getRootDir();
-string logError(string ex);
+void logError(const string &errorText);
 
 const string WHITESPACE = " \n\r\t\f\v";
 
@@ -80,10 +80,9 @@ string getRootDir()
  * @brief Reformats error and exception details and records them in plain
  * text in the error_log file.
  * 
- * @param ex The exception's details.
- * @return string Reformatted error and exception details in plain text.
+ * @param errorText A reference to the error or exception's details.
  */
-string logError(string errorText)
+void logError(const string &errorText)
 {
     time_t now = time(0);
     tm *ltm = localtime(&now);
@@ -99,20 +98,16 @@ string logError(string errorText)
     errorFile.open("ErrorLog.txt", ios_base::app);
     errorFile << ss.str() << ": " << errorText << endl;
     errorFile.close();
-
-    if (DISPLAY_ERRORS)
-    {
-        cout << "Error/Exception: " << errorText << endl;
-    }
 }
 
 /**
  * @brief Validate UserID.
  * 
- * @param userID The UserID that will be entered in the database.
- * @return True if the UserID is an integer greater than 0, false if not.
+ * @param userID A reference to the UserID that will be entered in the database.
+ * @return true The UserID is an integer greater than 0.
+ * @return false The UserID is an integer less than or equal to 0.
  */
-bool validateUserID(long userID)
+bool validateUserID(const long &userID)
 {
     return userID > 0;
 }
@@ -120,10 +115,11 @@ bool validateUserID(long userID)
 /**
  * @brief Validate text input.
  * 
- * @param text The text that will be entered into the database.
- * @return True if the text is valid, false if not.
+ * @param text A reference to the text that will be entered into the database.
+ * @return true The text contains valid RFC 3986 characters.
+ * @return false The text contains characters not in compliance with RFC 3986.
  */
-bool validateText(string text)
+bool validateText(const string &text)
 {
     regex pattern ("^[A-Za-z0-9\\s\\-._~:\\/?#\\[\\]@!$&'()*+,;=]*$");
     return (trim(text) == "" || !regex_match(text, pattern)) ? false : true;
@@ -132,10 +128,11 @@ bool validateText(string text)
 /**
  * @brief Validate email address.
  * 
- * @param email The email address that will be entered into the database.
- * @return True if the email is valid, false if not.
+ * @param email A reference to the email address that will be entered into the database.
+ * @return true The email contains valid RFC 3986 characters.
+ * @return false The email contains characters not in compliance with RFC 3986.
  */
-bool validateEmail(string email)
+bool validateEmail(const string &email)
 {
     regex pattern ("^[A-Za-z0-9\\-._~\\/?#!$&'%*+=`{|}^]+(@[a-zA-Z0-9-.]+)(.[a-zA-Z0-9]{2,}){2,}$");
     return (trim(email) == "" || !regex_match(email, pattern)) ? false : true;
@@ -144,10 +141,11 @@ bool validateEmail(string email)
 /**
  * @brief Validate date format.
  * 
- * @param date The date that will be entered into the database.
- * @return True if the date format is valid, false if not.
+ * @param date A reference to the date that will be entered into the database.
+ * @return true The date format is well formed with valid characters.
+ * @return false The date format is incorrect or contains invalid characters.
  */
-bool validateDate(string date)
+bool validateDate(const string &date)
 {
     regex pattern ("^([0-9]){4}-([0-9]){2}-([0-9]){2} ([0-9]){2}:([0-9]){2}:([0-9]){2}$");
     return (trim(date) == "" || !regex_match(date, pattern) || date.length() != 19) ? false : true;
@@ -159,7 +157,7 @@ bool validateDate(string date)
  * @param str The string to trim.
  * @return string The trimmed string.
  */
-string trim(const string &str)
+string trim(string str)
 {
     // Get the index of the first non-whitespace character in the string
     size_t first = str.find_first_not_of(WHITESPACE);
