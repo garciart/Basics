@@ -12,8 +12,6 @@
  * @link      https://github.com/garciart/CodersCompanion
  * @copyright 2019-2020 Rob Garcia
  */
-#pragma once
-
 #ifdef _WIN32
 #include <direct.h>
 #define GetCurrentDir _getcwd
@@ -24,22 +22,25 @@
 #define FILE_SEPARATOR "/"
 #endif
 
+#include <iostream>
 #include <ctime>
 #include <fstream>
 #include <iomanip>
-#include <iostream>
 #include <regex>
 #include <sstream>
-#include <string>
-#include <vector>
+// #include <string>
 
 using namespace std;
 
-string trim(string str);
+#ifndef COMMON_FUNCTIONS_CPP
+#define COMMON_FUNCTIONS_CPP
 string getRootDir();
 void logError(const string &errorText);
-
-const string WHITESPACE = " \n\r\t\f\v";
+bool validateUserID(const long &userID);
+bool validateText(const string &text);
+bool validateEmail(const string &email);
+bool validateDate(const string &date);
+string trim(string str);
 
 /**
  * @brief Set the application's root directory.
@@ -73,7 +74,7 @@ string getRootDir()
     }
     catch (exception &ex)
     {
-        logError((string)ex.what() + " in getRootDir() function.");
+        logError((string)ex.what() + " in common_functions.getRootDir() function.");
     }
 }
 
@@ -99,6 +100,10 @@ void logError(const string &errorText)
     errorFile.open("ErrorLog.txt", ios_base::app);
     errorFile << ss.str() << ": " << errorText << endl;
     errorFile.close();
+    if (DISPLAY_ERRORS)
+    {
+        cout << errorText << endl;
+    }
 }
 
 /**
@@ -108,7 +113,7 @@ void logError(const string &errorText)
  * @return true The UserID is an integer greater than 0.
  * @return false The UserID is an integer less than or equal to 0.
  */
-bool validateUserID(const long &userID)
+inline bool validateUserID(const long &userID)
 {
     return userID > 0;
 }
@@ -120,9 +125,9 @@ bool validateUserID(const long &userID)
  * @return true The text contains valid RFC 3986 characters.
  * @return false The text contains characters not in compliance with RFC 3986.
  */
-bool validateText(const string &text)
+inline bool validateText(const string &text)
 {
-    regex pattern ("^[A-Za-z0-9\\s\\-._~:\\/?#\\[\\]@!$&'()*+,;=]*$");
+    regex pattern("^[A-Za-z0-9\\s\\-._~:\\/?#\\[\\]@!$&'()*+,;=]*$");
     return (trim(text) == "" || !regex_match(text, pattern)) ? false : true;
 }
 
@@ -133,9 +138,9 @@ bool validateText(const string &text)
  * @return true The email contains valid RFC 3986 characters.
  * @return false The email contains characters not in compliance with RFC 3986.
  */
-bool validateEmail(const string &email)
+inline bool validateEmail(const string &email)
 {
-    regex pattern ("^[A-Za-z0-9\\-._~\\/?#!$&'%*+=`{|}^]+(@[a-zA-Z0-9-.]+)(.[a-zA-Z0-9]{2,}){2,}$");
+    regex pattern("^[A-Za-z0-9\\-._~\\/?#!$&'%*+=`{|}^]+(@[a-zA-Z0-9-.]+)(.[a-zA-Z0-9]{2,}){2,}$");
     return (trim(email) == "" || !regex_match(email, pattern)) ? false : true;
 }
 
@@ -146,9 +151,10 @@ bool validateEmail(const string &email)
  * @return true The date format is well formed with valid characters.
  * @return false The date format is incorrect or contains invalid characters.
  */
-bool validateDate(const string &date)
+inline bool validateDate(const string &date)
 {
-    regex pattern ("^([0-9]){4}-([0-9]){2}-([0-9]){2} ([0-9]){2}:([0-9]){2}:([0-9]){2}$");
+    // regex pattern ("^([0-9]){4}-([0-9]){2}-([0-9]){2} ([0-9]){2}:([0-9]){2}:([0-9]){2}$");
+    regex pattern("^([0-9]){4}-([0-1][0-9])-([0-3][0-9]) ([0-2][0-9]):([0-5][0-9]):([0-5][0-9])$");
     return (trim(date) == "" || !regex_match(date, pattern) || date.length() != 19) ? false : true;
 }
 
@@ -160,6 +166,7 @@ bool validateDate(const string &date)
  */
 string trim(string str)
 {
+    const string WHITESPACE = " \n\r\t\f\v";
     // Get the index of the first non-whitespace character in the string
     size_t first = str.find_first_not_of(WHITESPACE);
     // If the string is searched and no whitespace is found, return the string
@@ -171,3 +178,4 @@ string trim(string str)
     size_t last = str.find_last_not_of(WHITESPACE);
     return str.substr(first, (last - first + 1));
 }
+#endif

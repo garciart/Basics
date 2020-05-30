@@ -15,6 +15,7 @@
 #include "common_functions.cpp"
 #include "sqlite3.h"
 #include <cerrno>
+#include <iostream>
 
 using namespace std;
 
@@ -60,6 +61,7 @@ public:
             {
                 cout << "Directory already exists." << endl;
             }
+            /*
             sqlite3 *DB;
             int exit = 0;
             exit = sqlite3_open("example.db", &DB);
@@ -72,6 +74,7 @@ public:
             else
                 cout << "Opened Database Successfully!" << std::endl;
             sqlite3_close(DB);
+            */
         }
         catch (exception &ex)
         {
