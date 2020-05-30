@@ -12,6 +12,7 @@
  * @link      https://github.com/garciart/CodersCompanion
  * @copyright 2019-2020 Rob Garcia
  */
+#pragma once
 
 #ifdef _WIN32
 #include <direct.h>

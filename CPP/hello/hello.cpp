@@ -15,8 +15,8 @@
 
 /* ========== Include files and other header files ========== */
 
-// #include "models/common_functions.cpp"
 #include "models/common_functions.cpp"
+#include "models/database_functions.cpp"
 #include <iostream>
 #include <string>
 
@@ -59,6 +59,11 @@ int main(int argc, char **argv)
 
     cout << "Root Directory: " << ROOT_DIR << endl;
     cout << "Model Directory: " << MODEL_DIR << endl;
+    DatabaseFunctions db;
+    cout << "Database Directory: " << db.PATH_TO_SQLITE_DB << endl;
+    bool test = db.test();
+    cout << test << endl;
+
 
     cout << "User ID 3 is " << (validateUserID(3) ? "Good!" : "Bad.") << endl;
     cout << "User ID -3 is " << (validateUserID(-3) ? "Good!" : "Bad.") << endl;
