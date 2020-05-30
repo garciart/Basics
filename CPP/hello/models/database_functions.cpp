@@ -13,24 +13,71 @@
  * @copyright 2019-2020 Rob Garcia
  */
 #include "common_functions.cpp"
+#include "sqlite3.h"
+#include <cerrno>
 
 using namespace std;
 
-/**
- * @brief Sets the path to the user database.
- */
-const string PATH_TO_SQLITE_DB = ROOT_DIR + FILE_SEPARATOR + "data" + FILE_SEPARATOR + "Users.db";
-
-int createUserTable()
+class DatabaseFunctions
 {
-    int rowsAffected = -1;
+private:
+public:
+    /**
+     * @brief Sets the path to the user database.
+     */
+    const string PATH_TO_SQLITE_DB = ROOT_DIR + FILE_SEPARATOR + "data" + FILE_SEPARATOR + "Users.db";
 
-    return rowsAffected;
-}
+    int createUserTable()
+    {
+        int rowsAffected = -1;
 
-long createUser(string firstName, string lastName, string email, float score, string comment)
-{
-    long lastRowID = 0;
+        return rowsAffected;
+    }
 
-    return lastRowID;
-}
+    long createUser(string firstName, string lastName, string email, float score, string comment)
+    {
+        long lastRowID = 0;
+
+        return lastRowID;
+    }
+
+    int test()
+    {
+        int success = 0;
+        try
+        {
+            string DB_DIR = ROOT_DIR + FILE_SEPARATOR + "data";
+            success = mkdir(DB_DIR.c_str());
+            if (success == 0)
+            {
+                cout << "Directory created." << endl;
+            }
+            else if (errno != EEXIST)
+            {
+                cout << strerror(errno) << endl;
+            }
+            else
+            {
+                cout << "Directory already exists." << endl;
+            }
+            sqlite3 *DB;
+            int exit = 0;
+            exit = sqlite3_open("example.db", &DB);
+
+            if (exit)
+            {
+                cerr << "Error open DB " << sqlite3_errmsg(DB) << std::endl;
+                return (-1);
+            }
+            else
+                cout << "Opened Database Successfully!" << std::endl;
+            sqlite3_close(DB);
+        }
+        catch (exception &ex)
+        {
+            cout << ex.what() << " in test()." << endl;
+            return success;
+        }
+        return success;
+    }
+};
