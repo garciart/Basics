@@ -32,12 +32,31 @@ This template uses a very simple directory structure:
 
 If you are using Visual Studio Code, to compile and link the source code from the terminal, make sure you are in the project directory (i.e., CPP) and run the following command:
 
-    g++ hello\hello.cpp -o hello\hello
+    g++ hello\hello.cpp -o hello
 
 To run from terminal, make sure you are in the project directory (i.e., CPP) and run the following command:
 
-    .\hello\hello.exe
+    .hello.exe
 
 To run tests, make sure you are in the project directory  (i.e., CPP) and run the following commands:
 
     .\tests\common_function_test.exe
+
+## To use SQLite
+
+- Visit [https://www.sqlite.org/download.html](https://www.sqlite.org/download.html)
+- Download the SQLite source code, e.g., sqlite-amalgamation-#######.zip
+- Extract the source code files and rename the directory to "sqlite3"
+- Move or copy the folder into the "models" directory
+- Open a terminal in the "CPP\Hello\models\sqlite3" directory
+- Compile the source code to create an object file using the following command (the -c flag is to compile only):
+
+        gcc sqlite3.c -c
+
+- Return to the project directory (i.e., CPP) and run the following command (the -I flag lets the compiler know where the sqlite3.h header file is located):
+
+        g++ hello\hello.cpp hello\models\sqlite3\sqlite3.o -Ihello\models\sqlite3 -o hello
+
+- Development only: To validate code snippets using dev.cpp and sqlite3, use the following command:
+
+        g++ hello\models\dev.cpp hello\models\sqlite3\sqlite3.o -Ihello\models\sqlite3 -o dev
