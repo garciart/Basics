@@ -13,7 +13,7 @@
  * @copyright 2019-2020 Rob Garcia
  */
 #include "common_functions.cpp"
-#include "sqlite3.h"
+#include <sqlite3.h>
 #include <cerrno>
 #include <iostream>
 

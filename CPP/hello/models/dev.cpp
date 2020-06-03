@@ -14,6 +14,7 @@
 #include <string>
 #include "common_functions.cpp"
 #include "database_functions.cpp"
+#include <sqlite3.h>
 
 using namespace std;
 
