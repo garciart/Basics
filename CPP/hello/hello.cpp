@@ -42,7 +42,7 @@ int hello_users()
     }
     catch (const exception &ex)
     {
-        logError((string)ex.what() + " in hello.hello_users() function.");
+        log_error((string)ex.what() + " in hello.hello_users() function.");
         return EXIT_FAILURE;
     }
     return EXIT_SUCCESS;
@@ -64,7 +64,7 @@ int main(int argc, char **argv)
     }
     catch (const exception &ex)
     {
-        logError((string)ex.what() + " in hello.main() function.");
+        log_error((string)ex.what() + " in hello.main() function.");
         return EXIT_FAILURE;
     }
     return EXIT_SUCCESS;

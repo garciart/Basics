@@ -60,3 +60,5 @@ To run tests, make sure you are in the project directory  (i.e., CPP) and run th
 - Development only: To validate code snippets using dev.cpp and sqlite3, use the following command:
 
         g++ hello\models\dev.cpp hello\models\sqlite3\sqlite3.o -Ihello\models\sqlite3 -o dev
+
+***Thanks to NanoDano at [DevDungeon.com](https://www.devdungeon.com/content/compiling-sqlite3-c) for the hints.***

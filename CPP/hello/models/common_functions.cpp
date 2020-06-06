@@ -14,11 +14,11 @@
  */
 #ifdef _WIN32
 #include <direct.h>
-#define GetCurrentDir _getcwd
+#define get_current_dir _getcwd
 #define FILE_SEPARATOR "\\"
 #else
 #include <unistd.h>
-#define GetCurrentDir getcwd
+#define get_current_dir getcwd
 #define FILE_SEPARATOR "/"
 #endif
 
@@ -34,18 +34,18 @@ using namespace std;
 
 #ifndef COMMON_FUNCTIONS_CPP
 #define COMMON_FUNCTIONS_CPP
-string getRootDir();
-void logError(const string &errorText);
-bool validateUserID(const long &userID);
-bool validateText(const string &text);
-bool validateEmail(const string &email);
-bool validateDate(const string &date);
+string get_root_dir();
+void log_error(const string &errorText);
+bool validate_user_id(const long &userID);
+bool validate_text(const string &text);
+bool validate_email(const string &email);
+bool validate_date(const string &date);
 string trim(string str);
 
 /**
  * @brief Set the application's root directory.
  */
-const string ROOT_DIR = getRootDir();
+const string ROOT_DIR = get_root_dir();
 
 /**
  * @brief Set the application's model directory.
@@ -63,19 +63,21 @@ const bool DISPLAY_ERRORS = true;
  * 
  * @return string The working directory of the calling file.
  */
-string getRootDir()
+string get_root_dir()
 {
+    string current_dir("");
     try
     {
         char buffer[FILENAME_MAX];
-        GetCurrentDir(buffer, FILENAME_MAX);
-        string current_dir(buffer);
-        return current_dir;
+        get_current_dir(buffer, FILENAME_MAX);
+        current_dir = buffer;
+
     }
     catch (exception &ex)
     {
-        logError((string)ex.what() + " in common_functions.getRootDir() function.");
+        log_error((string)ex.what() + " in common_functions.get_root_dir() function.");
     }
+    return current_dir;
 }
 
 /**
@@ -84,7 +86,7 @@ string getRootDir()
  * 
  * @param errorText A reference to the error or exception's details.
  */
-void logError(const string &errorText)
+void log_error(const string &errorText)
 {
     time_t now = time(0);
     tm *ltm = localtime(&now);
@@ -113,7 +115,7 @@ void logError(const string &errorText)
  * @return true The UserID is an integer greater than 0.
  * @return false The UserID is an integer less than or equal to 0.
  */
-inline bool validateUserID(const long &userID)
+inline bool validate_user_id(const long &userID)
 {
     return userID > 0;
 }
@@ -125,7 +127,7 @@ inline bool validateUserID(const long &userID)
  * @return true The text contains valid RFC 3986 characters.
  * @return false The text contains characters not in compliance with RFC 3986.
  */
-inline bool validateText(const string &text)
+inline bool validate_text(const string &text)
 {
     regex pattern("^[A-Za-z0-9\\s\\-._~:\\/?#\\[\\]@!$&'()*+,;=]*$");
     return (trim(text) == "" || !regex_match(text, pattern)) ? false : true;
@@ -138,7 +140,7 @@ inline bool validateText(const string &text)
  * @return true The email contains valid RFC 3986 characters.
  * @return false The email contains characters not in compliance with RFC 3986.
  */
-inline bool validateEmail(const string &email)
+inline bool validate_email(const string &email)
 {
     regex pattern("^[A-Za-z0-9\\-._~\\/?#!$&'%*+=`{|}^]+(@[a-zA-Z0-9-.]+)(.[a-zA-Z0-9]{2,}){2,}$");
     return (trim(email) == "" || !regex_match(email, pattern)) ? false : true;
@@ -151,7 +153,7 @@ inline bool validateEmail(const string &email)
  * @return true The date format is well formed with valid characters.
  * @return false The date format is incorrect or contains invalid characters.
  */
-inline bool validateDate(const string &date)
+inline bool validate_date(const string &date)
 {
     // regex pattern ("^([0-9]){4}-([0-9]){2}-([0-9]){2} ([0-9]){2}:([0-9]){2}:([0-9]){2}$");
     regex pattern("^([0-9]){4}-([0-1][0-9])-([0-3][0-9]) ([0-2][0-9]):([0-5][0-9]):([0-5][0-9])$");
