@@ -22,12 +22,12 @@ using namespace std;
 class User
 {
 private:
-    long userID;
-    string firstName;
-    string lastName;
+    long user_id;
+    string first_name;
+    string last_name;
     string email;
     float score;
-    string creationDate;
+    string creation_date;
     string comment;
 
 public:
@@ -36,25 +36,32 @@ public:
      *
      * @return The user ID property.
      */
-    long getUserID()
+    long get_user_id()
     {
-        return userID;
+        return user_id;
     }
 
     /**
      * User ID setter.
      *
-     * @param userID The user's ID.
+     * @param user_id The user's ID.
      */
-    void setUserID(long userID)
+    void set_user_id(long user_id)
     {
-        if (validateUserID(userID))
+        try
         {
-            userID = userID;
+            if (validate_user_id(user_id))
+            {
+                user_id = user_id;
+            }
+            else
+            {
+                throw "User ID cannot be empty, 0, NULL, or FALSE.";
+            }
         }
-        else
+        catch (exception &ex)
         {
-            throw "User ID cannot be empty, 0, NULL, or FALSE.";
+            log_error((string)ex.what() + " in user.set_user_id() function.");
         }
     }
 
@@ -63,26 +70,33 @@ public:
      *
      * @return The first name property.
      */
-    string getFirstName()
+    string get_first_name()
     {
-        return firstName;
+        return first_name;
     }
 
     /**
      * First name setter.
      *
-     * @param firstName The user's first name.
+     * @param first_name The user's first name.
      */
-    void setFirstName(string firstName)
+    void set_first_name(string first_name)
     {
-        firstName = trim(firstName);
-        if (validateText(firstName))
+        try
         {
-            firstName = firstName;
+            first_name = trim(first_name);
+            if (validate_text(first_name))
+            {
+                first_name = first_name;
+            }
+            else
+            {
+                throw "First name cannot be empty or contain illegal characters.";
+            }
         }
-        else
+        catch (exception &ex)
         {
-            throw "First name cannot be empty or contain illegal characters.";
+            log_error((string)ex.what() + " in user.set_first_name() function.");
         }
     }
 
@@ -91,26 +105,33 @@ public:
      *
      * @return The last name property.
      */
-    string getLastName()
+    string get_last_name()
     {
-        return lastName;
+        return last_name;
     }
 
     /**
      * Last name setter.
      *
-     * @param lastName The user's last name.
+     * @param last_name The user's last name.
      */
-    void setLastName(string lastName)
+    void set_last_name(string last_name)
     {
-        lastName = trim(lastName);
-        if (validateText(lastName))
+        try
         {
-            lastName = lastName;
+            last_name = trim(last_name);
+            if (validate_text(last_name))
+            {
+                last_name = last_name;
+            }
+            else
+            {
+                throw "Last name cannot be empty or contain illegal characters.";
+            }
         }
-        else
+        catch (exception &ex)
         {
-            throw "Last name cannot be empty or contain illegal characters.";
+            log_error((string)ex.what() + " in user.set_last_name() function.");
         }
     }
 
@@ -119,7 +140,7 @@ public:
      *
      * @return The email property.
      */
-    string getEmail()
+    string get_email()
     {
         return email;
     }
@@ -129,16 +150,23 @@ public:
      *
      * @param email The user's email address (can be used as a user name).
      */
-    void setEmail(string email)
+    void set_email(string email)
     {
-        email = trim(email);
-        if (validateEmail(email))
+        try
         {
-            email = email;
+            email = trim(email);
+            if (validate_email(email))
+            {
+                email = email;
+            }
+            else
+            {
+                throw "Email cannot be empty, incorrectly formatted, or contain illegal characters.";
+            }
         }
-        else
+        catch (exception &ex)
         {
-            throw "Email cannot be empty, incorrectly formatted, or contain illegal characters.";
+            log_error((string)ex.what() + " in user.set_email() function.");
         }
     }
 
@@ -147,7 +175,7 @@ public:
      *
      * @return float The score property.
      */
-    float getScore()
+    float get_score()
     {
         return score;
     }
@@ -157,15 +185,22 @@ public:
      *
      * @param score The user's score from 0.0 to 100.0.
      */
-    void setScore(float score)
+    void set_score(float score)
     {
-        if (score < 0.0 || score > 100.0)
+        try
         {
-            throw "Score cannot be empty and must be equal to or between 0.0 and 100.0";
+            if (score < 0.0 || score > 100.0)
+            {
+                throw "Score cannot be empty and must be equal to or between 0.0 and 100.0";
+            }
+            else
+            {
+                score = score;
+            }
         }
-        else
+        catch (exception &ex)
         {
-            score = score;
+            log_error((string)ex.what() + " in user.set_score() function.");
         }
     }
 
@@ -174,25 +209,32 @@ public:
      *
      * @return The creation date property.
      */
-    string getCreationDate()
+    string get_creation_date()
     {
-        return creationDate;
+        return creation_date;
     }
 
     /**
      * Creation date setter.
      *
-     * @param creationDate The date the user was added to the database.
+     * @param creation_date The date the user was added to the database.
      */
-    void setCreationDate(string creationDate)
+    void set_creation_date(string creation_date)
     {
-        if (validateDate(creationDate))
+        try
         {
-            creationDate = creationDate;
+            if (validate_date(creation_date))
+            {
+                creation_date = creation_date;
+            }
+            else
+            {
+                throw "Creation date cannot be empty or incorrectly formatted.";
+            }
         }
-        else
+        catch (exception &ex)
         {
-            throw "Creation date cannot be empty or incorrectly formatted.";
+            log_error((string)ex.what() + " in user.set_creation_date() function.");
         }
     }
 
@@ -201,7 +243,7 @@ public:
      *
      * @return The comment property.
      */
-    string getComment()
+    string get_comment()
     {
         return comment;
     }
@@ -211,7 +253,7 @@ public:
      *
      * @param comment Any additional comments.
      */
-    void setComment(string comment)
+    void set_comment(string comment)
     {
         comment = comment;
     }
@@ -219,23 +261,23 @@ public:
     /**
      * Class constructor.
      *
-     * @param userID       The user's ID.
-     * @param firstName    The user's first name.
-     * @param lastName     The user's last name.
-     * @param email        The user's email address (can be used as a user name).
-     * @param score        The user's score from 0.0 to 100.0.
-     * @param creationDate The date the user was added to the database.
-     * @param comment      Any additional comments.
+     * @param user_id       The user's ID.
+     * @param first_name    The user's first name.
+     * @param last_name     The user's last name.
+     * @param email         The user's email address (can be used as a user name).
+     * @param score         The user's score from 0.0 to 100.0.
+     * @param creation_date The date the user was added to the database.
+     * @param comment       Any additional comments.
      */
-    User(long userID, string firstName, string lastName, string email, float score, string creationDate,
+    User(long user_id, string first_name, string last_name, string email, float score, string creation_date,
          string comment)
     {
-        setUserID(userID);
-        setFirstName(firstName);
-        setLastName(lastName);
-        setEmail(email);
-        setScore(score);
-        setCreationDate(creationDate);
-        setComment(comment);
+        set_user_id(user_id);
+        set_first_name(first_name);
+        set_last_name(last_name);
+        set_email(email);
+        set_score(score);
+        set_creation_date(creation_date);
+        set_comment(comment);
     }
 };

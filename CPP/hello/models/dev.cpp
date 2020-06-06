@@ -42,7 +42,7 @@ int get_cpp_version()
     }
     catch (const exception &ex)
     {
-        logError((string)ex.what() + " in dev.get_cpp_version() function.");
+        log_error((string)ex.what() + " in dev.get_cpp_version() function.");
         return EXIT_FAILURE;
     }
     return EXIT_SUCCESS;
@@ -52,19 +52,19 @@ int validate_input()
 {
     try
     {
-        cout << "User ID 3 is " << (validateUserID(3) ? "Good!" : "Bad.") << endl;
-        cout << "User ID -3 is " << (validateUserID(-3) ? "Good!" : "Bad.") << endl;
-        cout << "Text \"Hello, World!\" is " << (validateText("Hello, World!") ? "Good" : "Bad.") << endl;
-        cout << "Text \"<script>alert()</script>\" is " << (validateText("<script>alert()</script>") ? "Good!" : "Bad.") << endl;
-        cout << "Email \"Jose@Jose.com\" is " << (validateEmail("Jose@Jose.com") ? "Good!" : "Bad.") << endl;
-        cout << "Email \"Jose@Jose\" is " << (validateEmail("Jose@Jose.com") ? "Good!" : "Bad.") << endl;
-        cout << "Date \"2019-01-31 08:00:00\" is " << (validateDate("2019-01-31 08:00:00") ? "Good!" : "Bad.") << endl;
-        cout << "Date \"2019-01-31 8:00:00 PM\" is " << (validateDate("2019-01-31 8:00:00 PM") ? "Good!" : "Bad.") << endl;
-        cout << "Date \"2019-01-31 55:00:00\" is " << (validateDate("2019-01-31 25:00:00") ? "Good!" : "Bad.") << endl;
+        cout << "User ID 3 is " << (validate_user_id(3) ? "Good!" : "Bad.") << endl;
+        cout << "User ID -3 is " << (validate_user_id(-3) ? "Good!" : "Bad.") << endl;
+        cout << "Text \"Hello, World!\" is " << (validate_text("Hello, World!") ? "Good" : "Bad.") << endl;
+        cout << "Text \"<script>alert()</script>\" is " << (validate_text("<script>alert()</script>") ? "Good!" : "Bad.") << endl;
+        cout << "Email \"Jose@Jose.com\" is " << (validate_email("Jose@Jose.com") ? "Good!" : "Bad.") << endl;
+        cout << "Email \"Jose@Jose\" is " << (validate_email("Jose@Jose.com") ? "Good!" : "Bad.") << endl;
+        cout << "Date \"2019-01-31 08:00:00\" is " << (validate_date("2019-01-31 08:00:00") ? "Good!" : "Bad.") << endl;
+        cout << "Date \"2019-01-31 8:00:00 PM\" is " << (validate_date("2019-01-31 8:00:00 PM") ? "Good!" : "Bad.") << endl;
+        cout << "Date \"2019-01-31 55:00:00\" is " << (validate_date("2019-01-31 25:00:00") ? "Good!" : "Bad.") << endl;
     }
     catch (const exception &ex)
     {
-        logError((string)ex.what() + " in dev.validate_input() function.");
+        log_error((string)ex.what() + " in dev.validate_input() function.");
         return EXIT_FAILURE;
     }
     return EXIT_SUCCESS;
@@ -80,7 +80,7 @@ int trim_test()
     }
     catch (const exception &ex)
     {
-        logError((string)ex.what() + " in dev.trim_test() function.");
+        log_error((string)ex.what() + " in dev.trim_test() function.");
         return EXIT_FAILURE;
     }
     return EXIT_SUCCESS;
@@ -97,7 +97,7 @@ int list_directories()
     }
     catch (const exception &ex)
     {
-        logError((string)ex.what() + " in dev.list_directories() function.");
+        log_error((string)ex.what() + " in dev.list_directories() function.");
         return EXIT_FAILURE;
     }
     return EXIT_SUCCESS;
@@ -113,7 +113,7 @@ int db_test()
     }
     catch (const exception &ex)
     {
-        logError((string)ex.what() + " in dev.db_test() function.");
+        log_error((string)ex.what() + " in dev.db_test() function.");
         if (DISPLAY_ERRORS)
         return EXIT_FAILURE;
     }
@@ -130,7 +130,7 @@ int test_error()
     }
     catch (const exception &ex)
     {
-        logError((string)ex.what() + " in dev.test_error() function.");
+        log_error((string)ex.what() + " in dev.test_error() function.");
         return EXIT_FAILURE;
     }
     return EXIT_SUCCESS;
@@ -154,7 +154,7 @@ int main()
     }
     catch (exception &ex)
     {
-        logError((string)ex.what() + " in dev.main().");
+        log_error((string)ex.what() + " in dev.main().");
         return EXIT_FAILURE;
     }
     return EXIT_SUCCESS;

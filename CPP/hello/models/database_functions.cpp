@@ -28,18 +28,27 @@ public:
      */
     const string PATH_TO_SQLITE_DB = ROOT_DIR + FILE_SEPARATOR + "data" + FILE_SEPARATOR + "Users.db";
 
-    int createUserTable()
+    int create_user_table()
     {
-        int rowsAffected = -1;
+        int rows_affected = -1;
+        sqlite3 *db;
+        try
+        {
 
-        return rowsAffected;
+        }
+        catch (exception &ex)
+        {
+            log_error((string)ex.what() + " in common_functions.get_root_dir() function.");
+        }
+        sqlite3_close(db);
+        return rows_affected;
     }
 
-    long createUser(string firstName, string lastName, string email, float score, string comment)
+    long create_user(string first_name, string last_name, string email, float score, string comment)
     {
-        long lastRowID = 0;
+        long last_row_id = 0;
 
-        return lastRowID;
+        return last_row_id;
     }
 
     int test()
