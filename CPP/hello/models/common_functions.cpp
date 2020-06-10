@@ -35,8 +35,8 @@ using namespace std;
 #ifndef COMMON_FUNCTIONS_CPP
 #define COMMON_FUNCTIONS_CPP
 string get_root_dir();
-void log_error(const string &errorText);
-bool validate_user_id(const long &userID);
+void log_error(const string &error_text);
+bool validate_user_id(const long &user_id);
 bool validate_text(const string &text);
 bool validate_email(const string &email);
 bool validate_date(const string &date);
@@ -71,7 +71,6 @@ string get_root_dir()
         char buffer[FILENAME_MAX];
         get_current_dir(buffer, FILENAME_MAX);
         current_dir = buffer;
-
     }
     catch (exception &ex)
     {
@@ -84,9 +83,9 @@ string get_root_dir()
  * @brief Reformats error and exception details and records them in plain
  * text in the error_log file.
  * 
- * @param errorText A reference to the error or exception's details.
+ * @param error_text A reference to the error or exception's details.
  */
-void log_error(const string &errorText)
+void log_error(const string &error_text)
 {
     time_t now = time(0);
     tm *ltm = localtime(&now);
@@ -98,26 +97,26 @@ void log_error(const string &errorText)
        << setw(2) << setfill('0') << ltm->tm_min << "-"
        << setw(2) << setfill('0') << ltm->tm_sec;
 
-    ofstream errorFile;
-    errorFile.open("ErrorLog.txt", ios_base::app);
-    errorFile << ss.str() << ": " << errorText << endl;
-    errorFile.close();
+    ofstream error_file;
+    error_file.open("ErrorLog.txt", ios_base::app);
+    error_file << ss.str() << ": " << error_text << endl;
+    error_file.close();
     if (DISPLAY_ERRORS)
     {
-        cout << errorText << endl;
+        cout << error_text << endl;
     }
 }
 
 /**
- * @brief Validate UserID.
+ * @brief Validate User ID.
  * 
- * @param userID A reference to the UserID that will be entered in the database.
- * @return true The UserID is an integer greater than 0.
- * @return false The UserID is an integer less than or equal to 0.
+ * @param user_id A reference to the User ID that will be entered in the database.
+ * @return true The User ID is an integer greater than 0.
+ * @return false The User ID is an integer less than or equal to 0.
  */
-inline bool validate_user_id(const long &userID)
+inline bool validate_user_id(const long &user_id)
 {
-    return userID > 0;
+    return user_id > 0;
 }
 
 /**
@@ -168,16 +167,16 @@ inline bool validate_date(const string &date)
  */
 string trim(string str)
 {
-    const string WHITESPACE = " \n\r\t\f\v";
+    const string Whitespace = " \n\r\t\f\v";
     // Get the index of the first non-whitespace character in the string
-    size_t first = str.find_first_not_of(WHITESPACE);
+    size_t first = str.find_first_not_of(Whitespace);
     // If the string is searched and no whitespace is found, return the string
     if (first == string::npos)
     {
         return str;
     }
     // Get the index of the last non-whitespace character in the string
-    size_t last = str.find_last_not_of(WHITESPACE);
+    size_t last = str.find_last_not_of(Whitespace);
     return str.substr(first, (last - first + 1));
 }
 #endif
