@@ -39,6 +39,7 @@ int hello_users()
     try
     {
         cout << "Verifying database exists..." << endl;
+        DatabaseFunctions db;
     }
     catch (const exception &ex)
     {

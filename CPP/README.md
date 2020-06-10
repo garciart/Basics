@@ -30,17 +30,17 @@ This template uses a very simple directory structure:
     |-- LICENSE
     |-- README.MD
 
-If you are using Visual Studio Code, to compile and link the source code from the terminal, make sure you are in the project directory (i.e., CPP) and run the following command:
+If you are using Visual Studio Code, to compile and link the source code from the terminal, make sure you are in the project directory (i.e., CPP\hello) and run the following command:
 
-    g++ hello\hello.cpp -o hello
+    g++ hello.cpp -o hello
 
-To run from terminal, make sure you are in the project directory (i.e., CPP) and run the following command:
+To run from terminal, make sure you are in the project directory (i.e., CPP\hello) and run the following command:
 
     .hello.exe
 
-To run tests, make sure you are in the project directory  (i.e., CPP) and run the following commands:
+To run tests, make sure you are in the project directory  (i.e., CPP\tests) and run the following commands:
 
-    .\tests\common_function_test.exe
+    .common_function_test.exe
 
 ## To use SQLite
 
@@ -53,12 +53,12 @@ To run tests, make sure you are in the project directory  (i.e., CPP) and run th
 
         gcc sqlite3.c -c
 
-- Return to the project directory (i.e., CPP) and run the following command (the -I flag lets the compiler know where the sqlite3.h header file is located):
+- Return to the project directory (i.e., CPP\hello) and run the following command (the -I flag lets the compiler know where the sqlite3.h header file is located):
 
-        g++ hello\hello.cpp hello\models\sqlite3\sqlite3.o -Ihello\models\sqlite3 -o hello
+        g++ hello.cpp models\sqlite3\sqlite3.o -Imodels\sqlite3 -o hello
 
 - Development only: To validate code snippets using dev.cpp and sqlite3, use the following command:
 
-        g++ hello\models\dev.cpp hello\models\sqlite3\sqlite3.o -Ihello\models\sqlite3 -o dev
+        g++ models\dev.cpp models\sqlite3\sqlite3.o -Imodels\sqlite3 -o dev
 
 ***Thanks to NanoDano at [DevDungeon.com](https://www.devdungeon.com/content/compiling-sqlite3-c) for the hints.***

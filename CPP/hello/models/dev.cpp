@@ -1,11 +1,11 @@
 /**
  * @file dev.cpp
- * @author your name (you@domain.com)
- * @brief 
+ * @author Rob Garcia <rgarcia@rgprogramming.com>
+ * @brief Test file
  * @version 0.1
  * @date 2020-05-17
  * 
- * @copyright Copyright (c) 2020
+ * @copyright Copyright (c) 2019-2020 Rob Garcia
  * 
  */
 
@@ -108,14 +108,12 @@ int db_test()
     try
     {
         DatabaseFunctions db;
-        bool test = db.test();
-        cout << test << endl;
     }
     catch (const exception &ex)
     {
         log_error((string)ex.what() + " in dev.db_test() function.");
         if (DISPLAY_ERRORS)
-        return EXIT_FAILURE;
+            return EXIT_FAILURE;
     }
     return EXIT_SUCCESS;
 }
