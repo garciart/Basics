@@ -1,1 +1,4 @@
 2020-05-10 10-35-54: vector::_M_range_check: __n (which is 10) >= this->size() (which is 5) in dev.test_error() function.
+2020-05-11 13-38-59: No error in database_functions.database_exists() function.
+2020-05-11 13-39-57: File exists in database_functions.database_exists() function.
+2020-05-11 14-34-33: not an error error in database_functions.database_exists() function.
