@@ -38,6 +38,7 @@ namespace Hello.Models
     /// int DeleteUser(long userID)
     /// long GetNextUserID()
     /// bool UserExists(string email)
+    /// bool DatabaseExists()
     /// DatabaseFunctions()
     /// </summary>
     public class DatabaseFunctions

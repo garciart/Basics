@@ -40,6 +40,14 @@ int hello_users()
     {
         cout << "Verifying database exists..." << endl;
         DatabaseFunctions db;
+        if (db.database_exists())
+        {
+            cout << "Database is good to go!" << endl;
+        }
+        else
+        {
+            cout << "Unable to connect to the database and retrieve data." << endl;
+        }
     }
     catch (const exception &ex)
     {

@@ -26,8 +26,13 @@ public:
     /**
      * @brief Sets the path to the user database.
      */
-    const string PATH_TO_SQLITE_DB = MODEL_DIR + FILE_SEPARATOR + "data" + FILE_SEPARATOR + "Users.db";
+    const string PATH_TO_SQLITE_DB = MODEL_DIR + FILE_SEPARATOR + "data" + FILE_SEPARATOR + "users.db";
 
+    /**
+     * @brief Create a user table object
+     * 
+     * @return int 
+     */
     int create_user_table()
     {
         int rows_affected = -1;
@@ -37,52 +42,73 @@ public:
         }
         catch (exception &ex)
         {
-            log_error((string)ex.what() + " in common_functions.get_root_dir() function.");
+            log_error((string)ex.what() + " exception in database_functions.create_user_table() function.");
         }
         sqlite3_close(db);
         return rows_affected;
     }
 
+    /**
+     * @brief Create a user object
+     * 
+     * @param first_name 
+     * @param last_name 
+     * @param email 
+     * @param score 
+     * @param comment 
+     * @return long 
+     */
     long create_user(string first_name, string last_name, string email, float score, string comment)
     {
         long last_row_id = 0;
-
-        return last_row_id;
-    }
-
-    DatabaseFunctions()
-    {
+        sqlite3 *db;
         try
         {
-            string DB_DIR = MODEL_DIR + FILE_SEPARATOR + "data";
-            int success = mkdir(DB_DIR.c_str());
-            if (success == 0)
-            {
-                cout << "Directory created." << endl;
-            }
-            else if (errno != EEXIST)
-            {
-                cout << strerror(errno) << endl;
-            }
-            else
-            {
-                cout << "Directory already exists." << endl;
-            }
-            sqlite3 *DB;
-            int exit = 0;
-            cout << PATH_TO_SQLITE_DB << endl;
-            exit = sqlite3_open(PATH_TO_SQLITE_DB.c_str(), &DB);
-            if (exit)
-            {
-                cerr << "Error open DB " << sqlite3_errmsg(DB) << std::endl;
-            }
-            else
-                cout << "Opened Database Successfully!" << std::endl;
-            sqlite3_close(DB);
+
         }
         catch (exception &ex)
         {
-            log_error((string)ex.what() + " in dev.get_cpp_version() function.");
+            log_error((string)ex.what() + " exception in database_functions.database_exists() function.");
         }
+        sqlite3_close(db);
+        return last_row_id;
+    }
+
+    /**
+     * @brief 
+     * 
+     * @return true 
+     * @return false 
+     */
+    bool database_exists()
+    {
+        bool exists = false;
+        sqlite3 *db;
+        try
+        {
+            // Create the database folder if it does not exist
+            string DB_DIR = MODEL_DIR + FILE_SEPARATOR + "data";
+            int success = mkdir(DB_DIR.c_str());
+            if (success != 0 && errno != EEXIST)
+            {
+                log_error((string)strerror(errno) + " error in database_functions.database_exists() function.");
+                return exists;
+            }
+            // Create the database if it does not exist
+            success = sqlite3_open(PATH_TO_SQLITE_DB.c_str(), &db);
+            if (success != SQLITE_OK)
+            {
+                log_error((string)sqlite3_errmsg(db) + " error in database_functions.database_exists() function.");
+                sqlite3_close(db);
+                return exists;
+            }
+            exists = true;
+        }
+        catch (exception &ex)
+        {
+            log_error((string)ex.what() + " exception in database_functions.database_exists() function.");
+        }
+        sqlite3_close(db);
+        return exists;
     }
 };
