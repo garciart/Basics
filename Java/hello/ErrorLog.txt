@@ -4,3 +4,7 @@
 - java.lang.Exception: Test... in Hello.java on line 164.
 [2020-02-17 14:18:32 EST] - java.lang.Exception: Test... in Hello.java on line 42.
 - java.lang.Exception: Test... in Hello.java on line 167.
+[2020-06-15 12:39:01 EDT] - java.lang.IllegalArgumentException: Creation date cannot be empty or incorrectly formatted. in User.java on line 172.
+- java.lang.IllegalArgumentException: Creation date cannot be empty or incorrectly formatted. in User.java on line 212.
+- java.lang.IllegalArgumentException: Creation date cannot be empty or incorrectly formatted. in Hello.java on line 57.
+- java.lang.IllegalArgumentException: Creation date cannot be empty or incorrectly formatted. in Hello.java on line 164.
