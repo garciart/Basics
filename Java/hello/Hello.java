@@ -158,9 +158,6 @@ public class Hello {
                         "Unable to connect to the database and retrieve data. Check the error log for details.");
         }
     }
-    public static boolean myTest(int number) {
-        return number == 1;
-    }
 
     public static void main(String[] args) {
         System.out.println("Hello, World from Java!\n");
