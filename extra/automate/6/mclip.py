@@ -1,15 +1,20 @@
 # python3 mclip.py hello
 
 import sys
+import pyperclip
 
-TEST = {"agree": "Yes, I agree. That sounds fine to me.",
+TEXT = {"agree": "Yes, I agree. That sounds fine to me.",
         "busy": "Sorry, can we do this later this week or next week?",
         "upsell": "Would you consider making this a monthly donation"}
 
 
 def main(keyphrase):
     try:
-        print(keyphrase)
+        if keyphrase in TEXT:
+            pyperclip.copy(TEXT[keyphrase])
+            print("Text for %s copied to clipboard." % keyphrase)
+        else:
+            print("There is no text for %s." % keyphrase)
     except Exception as ex:
         print("Oops! Something went wrong:", ex)
 
