@@ -19,7 +19,7 @@ import os
 import sqlite3
 import sys
 
-from models import common_functions as co
+from Python.hello.models import common_functions as co
 
 # Module metadata dunders
 __author__ = "Rob Garcia"
@@ -137,7 +137,6 @@ def get_all_users():
         result = cursor.fetchall()
         cursor.close()
         conn.close()
-        return result
     except Exception:
         ex = co.log_error(sys.exc_info())
         if co.DISPLAY_ERRORS:
@@ -163,7 +162,6 @@ def get_user_by_user_id(user_id):
         result = cursor.fetchone()
         cursor.close()
         conn.close()
-        return result
     except Exception:
         ex = co.log_error(sys.exc_info())
         if co.DISPLAY_ERRORS:
@@ -189,7 +187,6 @@ def get_user_by_email(email):
         result = cursor.fetchone()
         cursor.close()
         conn.close()
-        return result
     except Exception:
         ex = co.log_error(sys.exc_info())
         if co.DISPLAY_ERRORS:
