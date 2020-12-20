@@ -14,7 +14,7 @@ Styling guide: PEP 8 -- Style Guide for Python Code
 
 from __future__ import print_function
 
-from models import common_functions as co
+from Python.hello.models import common_functions as co
 
 # Module metadata dunders
 __author__ = "Rob Garcia"

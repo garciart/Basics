@@ -16,9 +16,9 @@ from __future__ import print_function
 
 import sys
 
-from models import common_functions as co
-from models import database_functions as db
-from models import user_class as uc
+from Python.hello.models import common_functions as co
+from Python.hello.models import database_functions as db
+from Python.hello.models import user_class as uc
 
 # Module metadata dunders
 __author__ = "Rob Garcia"
@@ -68,7 +68,7 @@ def hello_users():
                         # Use asterisk to unpack tuple into class
                         thanos = uc.User(*result)
                     else:
-                        raise Exception("Cannot retrieve user data!")
+                        raise RuntimeError("Cannot retrieve user data!")
                 else:
                     user_id = db.create_user(
                         "Thanos", "The Mad Titan", "thanos@rgprogramming.com", 100,
@@ -83,9 +83,9 @@ def hello_users():
                                       thanos.first_name, thanos.last_name,
                                       thanos.creation_date, thanos.comment))
                         else:
-                            raise Exception("Cannot retrieve user data!")
+                            raise RuntimeError("Cannot retrieve user data!")
                     else:
-                        raise Exception("Cannot create user!")
+                        raise RuntimeError("Cannot create user!")
 
                 if thanos.comment == "Unbalanced user.":
                     print("Uh oh, Thanos, you are unbalanced! Let's fix that!\n")
